@@ -62,7 +62,7 @@ public class AuthenticationService {
 
     public SysUserToken generalUserToken(SysUser user, SysDevice device) {
         SysUserToken token = SysUserToken.builder()
-                .deviceId(device.getId())
+                .deviceId(1L)
                 .enable(true).userId(user.getId())
                 .token(UUID.randomUUID().toString()).createTime(new Date()).build();
         userTokenMapper.insert(token);

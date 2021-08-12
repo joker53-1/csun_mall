@@ -47,6 +47,7 @@ public class AuthenticationHandler implements AuthenticationSuccessHandler, Logo
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
         SysUserToken loginToken = authenticationService.getLoginToken(authentication);
+        loginToken.setToken(null);
         ResponseEntity.ok(loginToken);
         ResponseData.success("登录成功！",loginToken).write(response);
     }

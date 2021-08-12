@@ -41,12 +41,12 @@ spring:
     restart:
       enabled: true
       additional-paths: src/**
-logging:
-  file:
-    name: logs/app.log
-  level:
-    root: ERROR
-debug: true
+#logging:
+#  file:
+#    name: logs/app.log
+#  level:
+#    root: ERROR
+#debug: true
 
 #mybatis配置
 #
