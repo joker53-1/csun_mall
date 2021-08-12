@@ -1,0 +1,644 @@
+<!DOCTYPE HTML>
+<html th:lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../static1/bootstrap/css/bootstrap.min.css">
+    <title>CSUN Mall</title>
+    <link rel="shortcut icon" href="img/foodie.ico"   />
+
+    <link href="../static1/css/app.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+<div class="wrapper">
+
+<!-- header部分-->
+    <header>
+<!--        顶部提示框-->
+        <div class="header-section">
+
+            <div class="header-section-announcement">
+                <div class="container">
+<!--                    左边内容栏-->
+                    <div class="header-section-announcement-wrapper ">
+                        <div class="header-section-announcement-wrapper-left ">
+                            <div class="header-announcement-column-text">
+                                <p><strong>100% Secure delivery</strong> without contacting the courier</p>
+                            </div>
+                        </div>
+
+                        <div class="header-section-announcement-wrapper-right ">
+
+                            <div class="header-wrapper-right-menu">
+                                <ul class="header-wrapper-menu-list">
+                                    <li><a href="">Order tracking</a></li>
+                                    <li><a href="">blog</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="header-wrapper-right-social">
+                                <ul class="header-social-icon">
+                                    <li><a href=""><img src="../static1/pic/facebook%20(2).png" alt=""></a></li>
+                                    <li><a href=""><img src="../static1/pic/twitter.png" alt=""></a></li>
+                                    <li><a href=""><img height="26" width="26" src="../static1/pic/chat.png" alt=""></a></li>
+                                    <li><a href=""><img height="24" width="24" src="../static1/pic/linkedin-in.png" alt=""></a></li>
+                                </ul>
+                            </div>
+
+                            <div class="header-wrapper-right-selectGroup">
+                                <div class="header-selectGroup-ui">
+                                    <div class="header-selectGroup-ui-language-Eng">
+                                        <a href="">
+                                            <span>English</span>
+                                            <span class="svg-element-ui">
+                                                <svg width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.01529 2.98179L1.35057 0.317078L0 1.66765L4.01529 5.68294L8.03057 1.66765L6.68 0.317078L4.01529 2.98179Z" fill="#5B6C8F"></path>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="header-selectGroup-ui-language-Usd">
+                                        <a href="">
+                                            <span>USD</span>
+                                            <span class="svg-element-ui">
+                                                <svg width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.01529 2.98179L1.35057 0.317078L0 1.66765L4.01529 5.68294L8.03057 1.66765L6.68 0.317078L4.01529 2.98179Z" fill="#5B6C8F"></path>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+<!--                    右边的关闭符号-->
+                    <button id="announcement-bar--close" type="button" aria-label="TopbarClose" class="header-close-btn" >
+                        <span class="header-close-btn-icon">
+                            <img width="22" height="22" src="../static1/pic/close.png" alt="">
+                        </span>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+
+       <!--头部悬浮框-->
+        <div class="header-section-nav" >
+            <div class="header-section-nav-2" style="min-height: 16.7rem;">
+                <div class="container header-nav-content">
+
+                    <div class="header-nav-row-top ">
+                        <div class="row">
+                            <div class="header-nav-left col-3">
+                                   <a href="">
+                                       <img width="142" height="50" src="../static1/pic/logo-1.png" alt="">
+                                   </a>
+                            </div>
+
+                            <div class="header-nav-right col-9">
+                                <div class="header-nav-right-col">
+                                    <div class="header-nav-right-custom-info">
+                                        <p>
+                                            Need help?
+                                            <strong>0020 500</strong>
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="header-nav-right-form-search col-10">
+                                        <form action="/search">
+                                            <input name="q" type="text" placeholder="Search for products..." autocomplete="off">
+                                            <button type="submit" class="btn-search">
+                                                <span class="svg-element-ui">
+                                                   <img src="../static1/pic/seach.png" alt="">
+                                                </span>
+                                            </button>
+                                        </form>
+                                    </div>
+                                    
+                                    <div class="header-nav-right-icons">
+                                        <a href=""><img width="24" height="24" src="../static1/pic/my.png" alt=""></a>
+                                        <a href="">
+                                            <span>
+                                            <img width="24" height="24" src="../static1/pic/fav.png" alt="">
+                                            </span>
+                                            <span class="number">
+                                                <span class="number-item">0</span>
+                                            </span>
+                                        </a>
+
+                                        <a href="">
+                                            <span>
+                                            <img width="24" height="24" src="../static1/pic/data.png" alt="">
+                                            </span>
+                                            <span class="number">
+                                                <span class="number-item">0</span>
+                                            </span>
+                                        </a>
+
+                                        <a href="">
+                                             <span>
+                                            <img width="24" height="24" src="../static1/pic/cart.png" alt="">
+                                            </span>
+                                            <span class="number">
+                                                <span class="number-item">0</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="header-nav-row-center header-nav-row ">
+                        <div class="header-border"></div>
+                    </div>
+
+                    <div class="header-nav-row-bottom header-nav-row">
+                        <div class="row">
+                            <div class="header-nav-row-bottom-col col-12">
+                                <div class="header-bottom-col-left">
+                                    <ul class="header-bottom-main-menu">
+                                        <li class="header-bottom-main-nav-item">
+                                            <a href="">
+                                            <span class="svg-element">
+                                                <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M17.2 3.8H0.5C0.2 3.8 0 3.6 0 3.3V0.5C0 0.2 0.2 0 0.5 0H17.3C17.6 0 17.8 0.2 17.8 0.5V3.3C17.7 3.6 17.5 3.8 17.2 3.8Z" fill="#103178"></path>
+                                                    <path d="M17.2 9.8H0.5C0.2 9.8 0 9.6 0 9.3V6.5C0 6.2 0.2 6 0.5 6H17.3C17.6 6 17.8 6.2 17.8 6.5V9.3C17.7 9.5 17.5 9.8 17.2 9.8Z" fill="#103178"></path>
+                                                    <path d="M17.2 15.7H0.5C0.2 15.7 0 15.5 0 15.2V12.4C0 12.1 0.2 11.9 0.5 11.9H17.3C17.6 11.9 17.8 12.1 17.8 12.4V15.2C17.7 15.5 17.5 15.7 17.2 15.7Z" fill="#103178"></path>
+                                                </svg>
+                                            </span>
+                                            </a>
+                                        </li>
+
+                                        <li class="header-bottom-main-nav-item">
+                                            <a href="">
+                                                <span>Pages</span>
+                                            </a>
+                                        </li>
+
+                                        <li class="header-bottom-main-nav-item">
+                                            <a href="">
+                                                <span>Products</span>
+                                            </a>
+                                        </li>
+
+                                        <li class="header-bottom-main-nav-item">
+                                            <a href="">
+                                                <span>Home Medical Supplies</span>
+                                            </a>
+                                        </li>
+
+                                        <li class="header-bottom-main-nav-item">
+                                            <a href="">
+                                                <span>Homepages</span>
+                                            </a>
+                                        </li>
+
+                                        <li class="header-bottom-main-nav-item">
+                                            <a href="">
+                                                <span>Collections</span>
+                                            </a>
+                                        </li>
+
+                                        <li class="header-bottom-main-nav-item">
+                                            <a href="">
+                                                <span>Contact</span>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-section-nav-mobile-2" >
+                <div class="header-section-nav-mobile-2-content">
+                    <div class="container">
+
+                        <div class="header-mobile-row-1">
+                            <div class="row">
+                                <div class="header-mobile-col-1 col-6">
+                                    <div class="header-mobile-logo-wrapper">
+                                        <a href=""> <img width="140" height="50" src="../static1/pic/logo-1.png" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="header-mobile-col-2 col-6">
+                                    <div class="header-mobile-col-2-right">
+                                        <div class="header-mobile-ui">
+                                            <div class="header-mobile-ui-language-Eng">
+                                                <a href="">
+                                                    <span>English</span>
+                                                    <span class="svg-element-ui">
+                                                <svg width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.01529 2.98179L1.35057 0.317078L0 1.66765L4.01529 5.68294L8.03057 1.66765L6.68 0.317078L4.01529 2.98179Z" fill="#5B6C8F"></path>
+                                                </svg>
+                                            </span>
+                                                </a>
+                                            </div>
+                                            <div class="header-mobile-ui-language-Usd">
+                                                <a href="">
+                                                    <span>USD</span>
+                                                    <span class="svg-element-ui">
+                                                    <svg width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.01529 2.98179L1.35057 0.317078L0 1.66765L4.01529 5.68294L8.03057 1.66765L6.68 0.317078L4.01529 2.98179Z" fill="#5B6C8F"></path>
+                                                </svg>
+                                            </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-mobile-row-2">
+                            <div class="row">
+                                <div class="header-mobile-form-search col-12">
+                                    <form action="/search">
+                                        <input name="q" type="text" placeholder="Search for products..." autocomplete="off">
+                                        <button type="submit" class="btn-search">
+                                                <span class="svg-element-ui">
+                                                   <img src="../static1/pic/seach.png" alt="">
+                                                </span>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+<!--    主体部分-->
+    <main>
+<!--            详情控件部分-->
+            <div class="breadcrumb">
+                <div class="container">
+                    <ul class="breadcrumb-list">
+                        <li><a href=""><span>Home</span></a></li>
+                        <li class="svg-element-product">
+                            <svg width="4" height="8" viewBox="0 0 4 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.1 4.05596L0 6.65996L0.7 7.28996L3.36 3.99996L0.7 0.709961L0 1.33996L2.1 4.05596Z" fill="#5B6C8F"></path>
+                            </svg>
+                        </li>
+                        <li><a href=""><span>Contact Us</span></a></li>
+                    </ul>
+                </div>
+            </div>
+
+<!--        主体部分-->
+            <div class="contact-wrapper">
+
+
+                <div class="contact-wrapper-item">
+                    <div class="line">
+                    <div class="container">
+                    <div class="contact-wrapper-item-one ">
+                        <div class="row">
+                            <div class="col-lg-4 col-lg-12">
+                                <div class="contact-info">
+                                    <div class="contact-info-title contact-info-same">
+                                        <div class="contact-info-title-heading">
+                                            <h1>How can we <br>help you?</h1>
+                                            <p>We are at your disposal 7 days a week!</p>
+                                        </div>
+                                    </div>
+                                    <div class="contact-info-tel  contact-info-same">
+                                        <div class="contact-info-title-detail">
+                                            <div class="contact-info-tel">
+                                                <h5><strong>0020 500 - MYMEDI - 000</strong></h5>
+                                            </div>
+                                            <div class="contact-info-date">
+                                                <p>Monday - Friday: 9:00 - 20:00</p>
+                                                <p>Saturday: 11:00 - 15:00</p>
+                                            </div>
+                                            <div class="contact-info-button">
+                                                <a href="" class="btn btn-3">contact@example.com</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="contact-info-icon  contact-info-same">
+                                        <div class="footer-social-icons">
+                                            <ul class="social-icons footer-social-list-icon">
+
+                                                <li><a href=""><img height="34" width="34" src="../static1/pic/facebook%20(2).png" alt=""></a></li>
+                                                <li><a href=""><img height="34" width="34" src="../static1/pic/twitter.png" alt=""></a></li>
+                                                <li><a href=""><img height="30" width="30" src="../static1/pic/chat.png" alt=""></a></li>
+                                                <li><a href=""><img height="26" width="26" src="../static1/pic/linkedin-in.png" alt=""></a></li>
+
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-lg-12">
+                                <div class="map-ui">
+                                    <div class="map-container">
+                                        <img src="../static1/pic/change/map.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="contact-wrapper-item-two">
+                        <div class="contact-form">
+                            <div class="contact-form-title">
+                                <div class="form-title">Fill up the form if you have any question</div>
+                            </div>
+
+                            <div class="contact-form-body">
+                                <form action="" >
+                                    <div class="contact-form-body-wrapper">
+                                        <div class="contact-form-name">
+                                            <div class="form-group first-name">
+                                                <input type="text" placeholder="First name" value name="contact[first_name]" required="required" >
+                                            </div>
+                                            <div class="form-group last-name">
+                                                <input type="text" placeholder="Last name" value name="contact[last_name]" required="required" >
+                                            </div>
+                                        </div>
+
+                                        <div class="contact-form-email form-group">
+                                            <input type="email" placeholder="Email" value name="contact[email]" required="required" >
+
+                                        </div>
+
+                                        <div class="contact-form-message form-group">
+                                            <input  placeholder="Message" value name="contact[body]" required="required" >
+                                        </div>
+
+                                        <div class="contact-form-button">
+                                            <button type="submit" class="btn btn-1">Send message</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                </div>
+
+
+                <!--            产品展示部分-->
+                <div class="mall-section-products">
+                    <div class="mall-section-products-content">
+                        <div class="container">
+                            <div class="mall-section-products-content-wrapper">
+                                <div class="mall-section-products-head">
+                                    <div class="mall-section-head-title">
+                                        Follow @MYMEDI on instagram
+                                    </div>
+                                </div>
+
+
+                                <div class="mall-section-contactUs-body">
+                                    <div class="contactUs-wrapper">
+                                        <div class="contactUs-wrapper-item">
+                                            <div class="contactUs-wrapper-item-element">
+
+                                                <div class="mall-section-second">
+                                                    <div class="mall-section-second-pd">
+                                                        <div class="container">
+                                                            <div class="mall-section-second-content">
+                                                                <div class="mall-section-second-content-body">
+                                                                    <div class="d-grid">
+                                                                        <div class="mall-section-second-content-body-left">
+                                                                            <img src="../static1/pic/change/second-one.png" alt="" sizes="605px">
+
+                                                                        </div>
+                                                                        <div class="mall-section-second-content-body-right">
+                                                                            <img src="../static1/pic/change/second-2.png" alt="" sizes="605px">
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            </div>
+
+    </main>
+
+
+    <footer>
+        <div class="footer">
+            <div class="container">
+
+                <div class="footer-container row ">
+                    <div class="footer-container-left col-md-5  visible-xs visible-md visible-sm visible-lg">
+                        <div class="footer-logo">
+                            <img src="../static1/pic/logo-1.png" alt="">
+                        </div>
+
+                        <div class="footer-call-us">
+                            <div class="media-flex">
+<!--                            <span class="footer-call-us-left">-->
+<!--                            <svg t="1625449319829" class="icon" viewBox="0 0 1034 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2945" width="50" height="50"><path d="M10.343434 0h992.969697v992.969697H10.343434z" fill="#4d5760" fill-opacity="0" p-id="2946"></path><path d="M583.369697 146.876768h-6.206061c-16.549495 0-33.09899 10.343434-37.236363 26.892929-2.068687 8.274747 0 16.549495 4.137373 24.824242 6.206061 8.274747 12.412121 12.412121 22.755556 14.480808 74.472727 14.480808 140.670707 53.785859 182.044444 113.777778 41.373737 59.991919 57.923232 130.327273 41.373738 198.59394-2.068687 8.274747 0 16.549495 4.137374 24.824242 6.206061 8.274747 12.412121 12.412121 22.755555 14.480808h6.206061c8.274747 0 14.480808-2.068687 20.686868-6.20606 8.274747-4.137374 14.480808-12.412121 14.480809-20.686869 43.442424-177.907071-80.678788-353.745455-275.135354-390.981818z m76.541414 531.652525c2.068687 0 51.717172 22.755556 93.090909 51.717172 14.480808 10.343434 41.373737 28.961616 43.442424 55.854545 2.068687 16.549495-6.206061 35.167677-24.824242 55.854546-4.137374 6.206061-45.511111 51.717172-122.052525 59.991919-20.686869 2.068687-41.373737 2.068687-64.129293-2.068687s-47.579798-10.343434-70.335354-20.686869c-93.090909-37.236364-167.563636-88.953535-244.10505-171.70101C142.739394 568.888889 124.121212 436.492929 122.052525 411.668687c-14.480808-115.846465 84.816162-173.769697 95.159596-179.975758 14.480808-8.274747 28.961616-14.480808 43.442424-16.549495h18.618182c12.412121 2.068687 28.961616 8.274747 41.373738 28.961617 18.618182 26.892929 37.236364 66.19798 51.717171 109.640404 14.480808 43.442424-10.343434 59.991919-35.167676 76.541414h-2.068687s-45.511111 24.824242-51.717172 28.961616c-8.274747 4.137374-10.343434 12.412121-6.206061 20.686869 24.824242 49.648485 62.060606 101.365657 103.434344 148.945454 41.373737 45.511111 88.953535 86.884848 136.533333 117.915152 4.137374 2.068687 8.274747 4.137374 12.412121 2.068686h2.068687c4.137374 0 8.274747-4.137374 10.343435-8.274747 6.206061-10.343434 16.549495-22.755556 26.892929-35.167677 18.618182-22.755556 37.236364-33.09899 57.923232-35.167677h14.480808c2.068687 2.068687 10.343434 4.137374 18.618182 8.274748z m-165.494949-260.654546c-8.274747-2.068687-16.549495-6.206061-22.755556-14.480808-6.206061-8.274747-6.206061-16.549495-4.137374-24.824242 4.137374-16.549495 18.618182-26.892929 37.236364-26.892929h6.206061c82.747475 16.549495 136.533333 91.022222 119.983838 167.563636-2.068687 8.274747-8.274747 16.549495-14.480808 20.686869-6.206061 4.137374-14.480808 6.206061-20.686869 6.20606h-6.20606c-8.274747-2.068687-16.549495-6.206061-22.755556-14.480808-8.274747-8.274747-10.343434-16.549495-8.274747-24.824242 4.137374-20.686869 0-39.305051-12.412122-55.854546-10.343434-18.618182-28.961616-31.030303-51.717171-33.09899z m37.236363-103.434343c-18.618182-4.137374-31.030303-20.686869-26.892929-39.30505 4.137374-16.549495 18.618182-26.892929 37.236364-26.89293h6.20606c66.19798 12.412121 124.121212 49.648485 161.357576 101.365657 37.236364 53.785859 51.717172 115.846465 37.236364 177.907071-2.068687 8.274747-8.274747 16.549495-14.480808 20.686868-6.206061 4.137374-14.480808 6.206061-20.686869 6.206061h-6.206061c-18.618182-4.137374-31.030303-20.686869-26.892929-39.305051 10.343434-45.511111 0-91.022222-26.892929-128.258586-28.961616-37.236364-70.335354-64.129293-119.983839-72.40404z" fill="#4d5760" p-id="2947"></path></svg>-->
+<!--                            </span>-->
+                                <span class="footer-call-us-right">+86-25-52766958</span>
+                            </div>
+                        </div>
+
+                        <div class="footter-address">
+                            <strong class="footer-address-title">Contact Info</strong>
+                            <span><img height="26" width="26" src="../static1/pic/mail%20(3).png" alt=""></span>
+                            <span class="footer-address-sales">sales@chinasunergy.com</span>
+                        </div>
+
+                        <div class="footer-social-icons">
+                            <ul class="social-icons footer-social-list-icon">
+
+                                    <li><a href=""><img height="34" width="34" src="../static1/pic/facebook%20(2).png" alt=""></a></li>
+                                    <li><a href=""><img height="34" width="34" src="../static1/pic/twitter.png" alt=""></a></li>
+                                    <li><a href=""><img height="30" width="30" src="../static1/pic/chat.png" alt=""></a></li>
+                                    <li><a href=""><img height="26" width="26" src="../static1/pic/linkedin-in.png" alt=""></a></li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="footer-container-right visible-md visible-lg">
+                        <div class="footer-container-right-row-3">
+                            <div class="footer-container-right-columns columns">
+                                <div class="footer-container-right-columns-left">
+                                    <div class="columns-left-body">
+                                        <h4>Find It Fast</h4>
+                                        <div class="columns-left-container">
+                                            <ul class="menu">
+                                                <li><a href="">Half-cell solar module</a></li>
+                                                <li><a href="">Full-cell solar module</a></li>
+                                                <li><a href="">Bifacial module</a></li>
+                                                <li><a href="">System applictation</a></li>
+                                                <li><a href="">Download Center</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="columns-center-body columns">
+                                <ul class="menu">
+                                    <li><a href="">About</a></li>
+                                    <li><a href="">Contact</a></li>
+                                    <li><a href="">Wishlist</a></li>
+                                    <li><a href="">FAQ</a></li>
+                                    <li><a href="">Store Directory</a></li>
+                                </ul>
+                            </div>
+                            <div class="columns">
+                                <div class="columns-right-body">
+                                    <h4>Customer Care</h4>
+                                    <div class="columns-right-container">
+                                        <ul class="menu">
+                                            <li><a href="">My Account</a></li>
+                                            <li><a href="">Track your Order</a></li>
+                                            <li><a href="">Customer Service</a></li>
+                                            <li><a href="">Returns/Exchange</a></li>
+                                            <li><a href="">Product Support</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+<!--                <div class="footer-mobile visible-xs">-->
+<!--                    <div class="footer-mobile-icon">-->
+<!--                        <div class="footer-mobile-icon-nav">-->
+<!--                            <a href="" class="footer-nav-element">-->
+<!--                                <span class="svg-element">-->
+<!--                                    <svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                                        <path d="M21.0652 2.00879H0.61236C0.244944 2.00879 0 1.90353 0 1.74563V0.271947C0 0.114052 0.244944 0.00878906 0.61236 0.00878906H21.1876C21.5551 0.00878906 21.8 0.114052 21.8 0.271947V1.74563C21.6775 1.90353 21.4326 2.00879 21.0652 2.00879Z" fill="#FF9923"></path>-->
+<!--                                        <path d="M21.0652 9.00879H0.61236C0.244944 9.00879 0 8.90353 0 8.74563V7.27195C0 7.11405 0.244944 7.00879 0.61236 7.00879H21.1876C21.5551 7.00879 21.8 7.11405 21.8 7.27195V8.74563C21.6775 8.85089 21.4326 9.00879 21.0652 9.00879Z" fill="#FF9923"></path>-->
+<!--                                        <path d="M21.0652 16.0088H0.61236C0.244944 16.0088 0 15.9035 0 15.7456V14.2719C0 14.1141 0.244944 14.0088 0.61236 14.0088H21.1876C21.5551 14.0088 21.8 14.1141 21.8 14.2719V15.7456C21.6775 15.9035 21.4326 16.0088 21.0652 16.0088Z" fill="#FF9923"></path>-->
+
+<!--                                    </svg>-->
+<!--                                </span>-->
+<!--                                <span>Footer Menu</span>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="footer-mobile-wrapper">-->
+
+<!--                    </div>-->
+
+<!--                </div>-->
+            </div>
+        </div>
+
+        <div class="footer-copy  ">
+            <div class="container">
+                <div class="footer-copy-content">
+                    <div class="footer-copy-content-text ">
+                        <span>Copyright © 2020 Mymedi. All Rights Reserved</span>
+                    </div>
+                    <div class="footer-copy-content-pic ">
+                    <img height="40" width="350" src="../static1/pic/copyright.png" alt="">
+                   </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </footer>
+
+    <div class="mobileLayBar d-lg-none" >
+        <div class="mobileLayBar-lg-none  visible-sm visible-md visible-xs">
+            <div class="mobile-section-show-bar">
+<!--                <div class="container">-->
+                    <div class="mobile-section-wrapper">
+                        <div class="mobile-bar-content mobile-bar">
+                            <a href="" class="btn">
+                            <span class="svg-element-ui">
+                              <svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M21.0652 2.00879H0.61236C0.244944 2.00879 0 1.90353 0 1.74563V0.271947C0 0.114052 0.244944 0.00878906 0.61236 0.00878906H21.1876C21.5551 0.00878906 21.8 0.114052 21.8 0.271947V1.74563C21.6775 1.90353 21.4326 2.00879 21.0652 2.00879Z" fill="#ff9923"> </path>
+                                  <path d="M21.0652 9.00879H0.61236C0.244944 9.00879 0 8.90353 0 8.74563V7.27195C0 7.11405 0.244944 7.00879 0.61236 7.00879H21.1876C21.5551 7.00879 21.8 7.11405 21.8 7.27195V8.74563C21.6775 8.85089 21.4326 9.00879 21.0652 9.00879Z" fill="#ff9923"></path>
+                                  <path d="M21.0652 16.0088H0.61236C0.244944 16.0088 0 15.9035 0 15.7456V14.2719C0 14.1141 0.244944 14.0088 0.61236 14.0088H21.1876C21.5551 14.0088 21.8 14.1141 21.8 14.2719V15.7456C21.6775 15.9035 21.4326 16.0088 21.0652 16.0088Z" fill="#ff9923"></path>
+                              </svg>
+                            </span>
+                            </a>
+                        </div>
+                        <div class="mobile-bar-home mobile-bar">
+                            <a   href="" class="btn">
+                            <span class="svg-element-ui">
+                                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                   <path d="M20 10.4912V22.4912H4V10.4912" stroke="#ff9923" stroke-width="2" stroke-miterlimit="10"></path>
+                                    <path d="M23 12.4912L12 3.49121L1 12.4912" stroke="#ff9923" stroke-width="2" stroke-miterlimit="10"></path>
+                                </svg>
+                            </span>
+                            </a>
+                        </div>
+                        <div class="mobile-bar-my-account mobile-bar">
+                            <a   href="" class="btn">
+                            <span class="svg-element-ui">
+                                <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                   <path d="M9.50002 10.2771C12.0618 10.2771 14.1386 8.20038 14.1386 5.63857C14.1386 3.07676 12.0618 1 9.50002 1C6.93821 1 4.86145 3.07676 4.86145 5.63857C4.86145 8.20038 6.93821 10.2771 9.50002 10.2771Z" stroke="#ff9923" stroke-width="1.91" stroke-miterlimit="10"></path>
+                                   <path d="M1 18.7771L1.29952 17.1176C1.65336 15.201 2.6674 13.469 4.16549 12.2223C5.66357 10.9756 7.55104 10.2931 9.5 10.2933V10.2933C11.4513 10.2938 13.3406 10.9786 14.839 12.2285C16.3374 13.4784 17.35 15.2143 17.7005 17.1338L18 18.7933" stroke="#ff9923" stroke-width="1.91" stroke-miterlimit="10"></path>
+                                </svg>
+                            </span>
+                            </a>
+                        </div>
+                        <div class="mobile-bar-fav mobile-bar">
+                            <a   href="" class="btn">
+                            <span class="svg-element-ui">
+                                <svg width="24" height="21" viewBox="0 0 24 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                   <path d="M3.40997 11L3.07997 10.67C2.57635 10.1683 2.17647 9.57241 1.90316 8.91622C1.62985 8.26003 1.48846 7.55643 1.48707 6.8456C1.48426 5.41001 2.05185 4.0321 3.06497 3.01499C4.0781 1.99789 5.45378 1.4249 6.88937 1.42209C8.32496 1.41928 9.70287 1.98686 10.72 2.99999L12 4.29999L13.28 2.99999C13.7769 2.48058 14.3726 2.06562 15.0321 1.77946C15.6915 1.49329 16.4015 1.34168 17.1203 1.33351C17.8392 1.32534 18.5524 1.46078 19.2182 1.73188C19.884 2.00299 20.4889 2.4043 20.9976 2.91228C21.5062 3.42027 21.9083 4.0247 22.1803 4.69014C22.4523 5.35558 22.5887 6.06862 22.5814 6.78745C22.5742 7.50629 22.4235 8.21644 22.1382 8.87628C21.8529 9.53611 21.4387 10.1323 20.92 10.63L20.59 10.96L12 19.57L6.06997 13.64L3.40997 11Z" stroke="#ff9923" stroke-width="1.91" stroke-miterlimit="10"></path>
+                                </svg>
+                            </span>
+                              <span class="number">
+                                <span>0</span>
+                            </span>
+                            </a>
+                        </div>
+                        <div class="mobile-bar-cart mobile-bar relative">
+                            <a   href="" class="btn">
+                            <span class="svg-element-ui">
+                                 <img width="25" height="23" src="../static1/pic/cart.png" alt="">
+                            </span>
+                             <span class="number">
+                                <span>0</span>
+                            </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

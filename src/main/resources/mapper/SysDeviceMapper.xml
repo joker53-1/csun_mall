@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csun.mall.mapper.SysDeviceMapper">
+  <resultMap id="BaseResultMap" type="com.csun.mall.pojo.SysDevice">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="info" jdbcType="VARCHAR" property="info" />
+    <result column="token" jdbcType="VARCHAR" property="token" />
+    <result column="creator_ip" jdbcType="VARCHAR" property="creatorIp" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="last_sync_ip" jdbcType="VARCHAR" property="lastSyncIp" />
+    <result column="last_sync_time" jdbcType="TIMESTAMP" property="lastSyncTime" />
+  </resultMap>
+
+</mapper>

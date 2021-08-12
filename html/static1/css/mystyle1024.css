@@ -1,0 +1,20 @@
+@charset "utf-8";
+/*适应不同屏幕*/
+
+/*.index{*/
+/*    width: 1024px;*/
+/*}*/
+    html{
+        font-size: 11px;
+        height:20rem;
+    }
+    body {
+        word-wrap: break-word;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        -moz-hyphens: auto;
+        hyphens: auto;
+        /*background-color: palegoldenrod;*/
+
+    }
+
