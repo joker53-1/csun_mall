@@ -1,7 +1,9 @@
 package com.csun.mall.mapper;
 
-import com.csun.mall.my.mapper.MyMapper;
-import com.csun.mall.pojo.SysUserLoginLog;
+import com.csun.mall.mapper.base.BaseMapper;
+import com.csun.mall.domain.SysUserLoginLog;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface SysUserLoginLogMapper extends MyMapper<SysUserLoginLog> {
+@Mapper
+public interface SysUserLoginLogMapper extends BaseMapper<SysUserLoginLog> {
 }

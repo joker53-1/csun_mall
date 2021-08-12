@@ -1,7 +1,9 @@
 package com.csun.mall.mapper;
 
-import com.csun.mall.my.mapper.MyMapper;
-import com.csun.mall.pojo.SysUserPermission;
+import com.csun.mall.mapper.base.BaseMapper;
+import com.csun.mall.domain.SysUserPermission;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface SysUserPermissionMapper extends MyMapper<SysUserPermission> {
+@Mapper
+public interface SysUserPermissionMapper extends BaseMapper<SysUserPermission> {
 }

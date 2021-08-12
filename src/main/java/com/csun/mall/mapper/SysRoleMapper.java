@@ -1,7 +1,9 @@
 package com.csun.mall.mapper;
 
-import com.csun.mall.my.mapper.MyMapper;
-import com.csun.mall.pojo.SysRole;
+import com.csun.mall.mapper.base.BaseMapper;
+import com.csun.mall.domain.SysRole;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface SysRoleMapper extends MyMapper<SysRole> {
+@Mapper
+public interface SysRoleMapper extends BaseMapper<SysRole> {
 }

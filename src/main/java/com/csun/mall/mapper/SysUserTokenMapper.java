@@ -1,7 +1,9 @@
 package com.csun.mall.mapper;
 
-import com.csun.mall.my.mapper.MyMapper;
-import com.csun.mall.pojo.SysUserToken;
+import com.csun.mall.mapper.base.BaseMapper;
+import com.csun.mall.domain.SysUserToken;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface SysUserTokenMapper extends MyMapper<SysUserToken> {
+@Mapper
+public interface SysUserTokenMapper extends BaseMapper<SysUserToken> {
 }

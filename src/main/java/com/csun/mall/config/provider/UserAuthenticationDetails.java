@@ -1,6 +1,6 @@
 package com.csun.mall.config.provider;
 
-import com.csun.mall.common.utils.WebTool;
+import com.csun.mall.common.tools.WebTool;
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
 
 import javax.servlet.http.HttpServletRequest;

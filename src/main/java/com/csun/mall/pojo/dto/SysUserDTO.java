@@ -1,4 +1,4 @@
-package com.csun.mall.dto;
+package com.csun.mall.pojo.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;

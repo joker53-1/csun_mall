@@ -1,4 +1,4 @@
-package com.csun.mall.pojo;
+package com.csun.mall.domain;
 
 import lombok.Builder;
 

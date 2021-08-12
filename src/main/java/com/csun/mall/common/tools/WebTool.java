@@ -1,4 +1,4 @@
-package com.csun.mall.common.utils;
+package com.csun.mall.common.tools;
 
 import javax.servlet.http.HttpServletRequest;
 

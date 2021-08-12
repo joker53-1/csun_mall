@@ -1,4 +1,4 @@
-package com.csun.mall.common.vo;
+package com.csun.mall.web.response;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
@@ -76,11 +76,11 @@ public class ResponseData<T> implements Serializable {
     }
 
     public static <T> ResponseData<T> failure() {
-        return new ResponseData<>(RESPONSE_STATUS.Failure);
+        return new ResponseData<>(RESPONSE_STATUS.FAILURE);
     }
 
     public static <T> ResponseData<T> failure(String msg) {
-        return new ResponseData<>(RESPONSE_STATUS.Failure, msg, null);
+        return new ResponseData<>(RESPONSE_STATUS.FAILURE, msg, null);
     }
 
     public void write(HttpServletResponse response) throws IOException {

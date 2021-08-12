@@ -1,6 +1,6 @@
 package com.csun.mall.config.filter;
 
-import com.csun.mall.pojo.SysUserToken;
+import com.csun.mall.domain.SysUserToken;
 import com.csun.mall.service.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

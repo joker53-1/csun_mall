@@ -1,23 +1,19 @@
 package com.csun.mall.service;
 
-import com.csun.mall.dto.SysUserDTO;
+import com.csun.mall.domain.*;
+import com.csun.mall.pojo.dto.SysUserDTO;
 import com.csun.mall.mapper.SysUserLoginLogMapper;
 import com.csun.mall.mapper.SysUserMapper;
 import com.csun.mall.mapper.SysUserTokenMapper;
-import com.csun.mall.pojo.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 import tk.mybatis.mapper.entity.Example;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.List;
 

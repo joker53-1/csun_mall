@@ -1,7 +1,9 @@
 package com.csun.mall.mapper;
 
-import com.csun.mall.my.mapper.MyMapper;
-import com.csun.mall.pojo.SysResourceCategory;
+import com.csun.mall.mapper.base.BaseMapper;
+import com.csun.mall.domain.SysResourceCategory;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface SysResourceCategoryMapper extends MyMapper<SysResourceCategory> {
+@Mapper
+public interface SysResourceCategoryMapper extends BaseMapper<SysResourceCategory> {
 }

@@ -2,9 +2,9 @@ package com.csun.mall.service;
 
 import com.csun.mall.mapper.SysUserMapper;
 import com.csun.mall.mapper.SysUserTokenMapper;
-import com.csun.mall.pojo.SysDevice;
-import com.csun.mall.pojo.SysUser;
-import com.csun.mall.pojo.SysUserToken;
+import com.csun.mall.domain.SysDevice;
+import com.csun.mall.domain.SysUser;
+import com.csun.mall.domain.SysUserToken;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;

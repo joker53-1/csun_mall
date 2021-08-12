@@ -1,9 +1,9 @@
 package com.csun.mall.config.handler;
 
-import com.csun.mall.common.vo.RESPONSE_STATUS;
-import com.csun.mall.common.vo.ResponseData;
-import com.csun.mall.dto.SysUserLoginDTO;
-import com.csun.mall.pojo.SysUserToken;
+import com.csun.mall.web.response.RESPONSE_STATUS;
+import com.csun.mall.web.response.ResponseData;
+import com.csun.mall.pojo.dto.SysUserLoginDTO;
+import com.csun.mall.domain.SysUserToken;
 import com.csun.mall.service.AuthenticationService;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;

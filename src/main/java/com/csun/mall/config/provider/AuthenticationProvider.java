@@ -1,9 +1,9 @@
 package com.csun.mall.config.provider;
 
 
-import com.csun.mall.pojo.SysDevice;
-import com.csun.mall.pojo.SysUser;
-import com.csun.mall.pojo.SysUserToken;
+import com.csun.mall.domain.SysDevice;
+import com.csun.mall.domain.SysUser;
+import com.csun.mall.domain.SysUserToken;
 import com.csun.mall.service.AuthenticationService;
 import com.csun.mall.service.DeviceService;
 import com.csun.mall.service.UserService;

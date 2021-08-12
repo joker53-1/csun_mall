@@ -1,8 +1,6 @@
-package com.csun.mall.dto;
+package com.csun.mall.pojo.dto;
 
-import com.csun.mall.pojo.SysUserToken;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

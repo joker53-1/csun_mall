@@ -1,7 +1,7 @@
-package com.csun.mall.dto;
+package com.csun.mall.pojo.dto;
 
-import com.csun.mall.pojo.SysResource;
-import com.csun.mall.pojo.SysUser;
+import com.csun.mall.domain.SysResource;
+import com.csun.mall.domain.SysUser;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

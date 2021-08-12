@@ -1,7 +1,9 @@
 package com.csun.mall.mapper;
 
-import com.csun.mall.my.mapper.MyMapper;
-import com.csun.mall.pojo.SysDevice;
+import com.csun.mall.mapper.base.BaseMapper;
+import com.csun.mall.domain.SysDevice;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface SysDeviceMapper extends MyMapper<SysDevice> {
+@Mapper
+public interface SysDeviceMapper extends BaseMapper<SysDevice> {
 }
