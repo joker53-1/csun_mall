@@ -1,10 +1,14 @@
 package com.csun.mall.config.handler;
 
+import com.csun.mall.domain.SysUser;
+import com.csun.mall.pojo.dto.UserTokenDTO;
+import com.csun.mall.service.UserService;
 import com.csun.mall.web.response.RESPONSE_STATUS;
 import com.csun.mall.web.response.ResponseData;
 import com.csun.mall.pojo.dto.SysUserLoginDTO;
 import com.csun.mall.domain.SysUserToken;
 import com.csun.mall.service.AuthenticationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.ResponseEntity;
@@ -36,9 +40,11 @@ public class AuthenticationHandler implements AuthenticationSuccessHandler, Logo
 
 
     private final AuthenticationService authenticationService;
-
-    public AuthenticationHandler(AuthenticationService authenticationService) {
+    private final UserService userService;
+    @Autowired
+    public AuthenticationHandler(AuthenticationService authenticationService,UserService userService) {
         this.authenticationService = authenticationService;
+        this.userService = userService;
     }
 
     /**
@@ -47,8 +53,12 @@ public class AuthenticationHandler implements AuthenticationSuccessHandler, Logo
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
         SysUserToken loginToken = authenticationService.getLoginToken(authentication);
-        ResponseEntity.ok(loginToken);
-        ResponseData.success("登录成功！",loginToken).write(response);
+        SysUser user = userService.getAdminByUserId(loginToken.getUserId());
+        UserTokenDTO userTokenDTO = UserTokenDTO.builder().token(loginToken.getToken())
+                .deviceId(loginToken.getDeviceId()).enable(user.getEnable()).icon(user.getIcon()).createTime(user.getCreateTime()).id(user.getId())
+                .mobile(user.getMoblie()).name(user.getName()).nickName(user.getNickName()).sort(user.getSort()).username(user.getUsername()).build();
+        ResponseEntity.ok(userTokenDTO);
+        ResponseData.success("登录成功！",userTokenDTO).write(response);
     }
 
     /**

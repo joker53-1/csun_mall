@@ -12,19 +12,19 @@ import tk.mybatis.spring.annotation.MapperScan;
 
 @SpringBootApplication
 //扫描mybatis通用mapper所在包
-//@MapperScan(basePackages = "com.csun.mall.mapper")
+@MapperScan(basePackages = {"com.csun.mall.mapper"})
 public class MallApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(MallApplication.class, args);
     }
 
-    @Bean
-    @Primary
-    public ObjectMapper objectMapper(Jackson2ObjectMapperBuilder builder) {
-        ObjectMapper objectMapper = builder.createXmlMapper(false).build();
-        objectMapper.setSerializerFactory(objectMapper.getSerializerFactory()
-                .withSerializerModifier(new NullBeanSerializerModifier()));
-        return objectMapper;
-    }
+//    @Bean
+//    @Primary
+//    public ObjectMapper objectMapper(Jackson2ObjectMapperBuilder builder) {
+//        ObjectMapper objectMapper = builder.createXmlMapper(false).build();
+//        objectMapper.setSerializerFactory(objectMapper.getSerializerFactory()
+//                .withSerializerModifier(new NullBeanSerializerModifier()));
+//        return objectMapper;
+//    }
 }

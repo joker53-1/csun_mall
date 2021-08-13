@@ -1,11 +1,15 @@
 package com.csun.mall.service;
 
+import cn.hutool.core.util.StrUtil;
 import com.csun.mall.domain.*;
 import com.csun.mall.pojo.dto.SysUserDTO;
 import com.csun.mall.mapper.SysUserLoginLogMapper;
 import com.csun.mall.mapper.SysUserMapper;
 import com.csun.mall.mapper.SysUserTokenMapper;
+import com.csun.mall.web.response.PagedGridResult;
+import com.github.pagehelper.PageHelper;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -15,11 +19,13 @@ import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @Service
-public class UserService {
+public class UserService extends BaseService {
 
     @Autowired
     private SysUserMapper sysUserMapper;
@@ -33,7 +39,10 @@ public class UserService {
     @Autowired
     private SysUserTokenMapper sysUserTokenMapper;
 
-    
+    public SysUser getAdminByUserId(Long userId){
+        return sysUserMapper.selectByPrimaryKey(userId);
+    }
+
     public SysUser getAdminByUsername(String username) {
         Example example = new Example(SysUser.class);
         example.createCriteria().andEqualTo("username",username);
@@ -109,17 +118,46 @@ public class UserService {
 
     
     public SysUser getItem(Long id) {
-        return null;
+        return sysUserMapper.selectByPrimaryKey(id);
     }
 
     
-    public List<SysUser> list(String keyword, Integer pageSize, Integer pageNum) {
-        return null;
+    public PagedGridResult list(String keyword, Integer page, Integer pageSize) {
+        Example example = new Example(SysUser.class);
+        Example.Criteria criteria = example.createCriteria();
+        if (!StringUtils.isBlank(keyword)) {
+            criteria.andEqualTo( "username",keyword );
+            example.or(example.createCriteria().andEqualTo("nickName",keyword ));
+        }
+        //mabatis-pagehelper
+        /**
+         *page:第几页
+         * pageSize:每页显示条数
+         **/
+        PageHelper.startPage(page,pageSize);
+
+        List<SysUser> list = sysUserMapper.selectByExample(example);
+        return setterPagedGrid(list,page);
     }
 
     
     public int update(Long id, SysUser admin) {
-        return 0;
+        admin.setId(id);
+        SysUser rawAdmin = sysUserMapper.selectByPrimaryKey(id);
+        if(rawAdmin.getPassword().equals(admin.getPassword())){
+            //与原加密密码相同的不需要修改
+            admin.setPassword(null);
+        }else{
+            //与原加密密码不同的需要加密修改
+            if(StrUtil.isEmpty(admin.getPassword())){
+                admin.setPassword(null);
+            }else{
+                admin.setPassword(new BCryptPasswordEncoder().encode(admin.getPassword()));
+            }
+        }
+        admin.setCreateTime(new Date());
+        int count = sysUserMapper.updateByPrimaryKeySelective(admin);
+        return count;
     }
 
     

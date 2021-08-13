@@ -1,6 +1,7 @@
 package com.csun.mall.domain;
 
 import lombok.Builder;
+import lombok.Getter;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
@@ -8,6 +9,7 @@ import javax.persistence.Table;
 import java.util.Date;
 
 @Builder
+@Getter
 @Table(name = "sys_user_token")
 public class SysUserToken {
     @Id
