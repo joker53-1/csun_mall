@@ -1,39 +1,26 @@
 package com.csun.mall.web.response;
 
 import com.github.pagehelper.PageInfo;
+import lombok.Data;
 
 import java.util.List;
 
+@Data
 public class PagedGridResult {
 
-    private int page;			// 当前页数
-    private int total;			// 总页数
+    private int pageNum;			// 当前页数
+    private int PageSize;			// 总页数
     private long records;		// 总记录数
     private List<?> rows;		// 每行显示的内容
 
-    public int getPage() {
-        return page;
-    }
-    public void setPage(int page) {
-        this.page = page;
-    }
-    public int getTotal() {
-        return total;
-    }
-    public void setTotal(int total) {
-        this.total = total;
-    }
-    public long getRecords() {
-        return records;
-    }
-    public void setRecords(long records) {
-        this.records = records;
-    }
-    public List<?> getRows() {
-        return rows;
-    }
-    public void setRows(List<?> rows) {
-        this.rows = rows;
+    public static PagedGridResult setterPagedGrid(List<?> list, Integer page){
+        PageInfo<?> pageList=new PageInfo<>(list);
+        PagedGridResult grid=new PagedGridResult();
+        grid.setPageNum(page);
+        grid.setRows(list);
+        grid.setPageSize(pageList.getPages());
+        grid.setRecords(pageList.getTotal());
+        return grid;
     }
 
 

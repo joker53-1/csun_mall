@@ -2,7 +2,7 @@ package com.csun.mall.config.handler;
 
 import com.csun.mall.domain.SysUser;
 import com.csun.mall.pojo.dto.UserTokenDTO;
-import com.csun.mall.service.UserService;
+import com.csun.mall.service.SysUserService;
 import com.csun.mall.web.response.RESPONSE_STATUS;
 import com.csun.mall.web.response.ResponseData;
 import com.csun.mall.pojo.dto.SysUserLoginDTO;
@@ -40,11 +40,11 @@ public class AuthenticationHandler implements AuthenticationSuccessHandler, Logo
 
 
     private final AuthenticationService authenticationService;
-    private final UserService userService;
+    private final SysUserService sysUserService;
     @Autowired
-    public AuthenticationHandler(AuthenticationService authenticationService,UserService userService) {
+    public AuthenticationHandler(AuthenticationService authenticationService, SysUserService sysUserService) {
         this.authenticationService = authenticationService;
-        this.userService = userService;
+        this.sysUserService = sysUserService;
     }
 
     /**
@@ -53,7 +53,7 @@ public class AuthenticationHandler implements AuthenticationSuccessHandler, Logo
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
         SysUserToken loginToken = authenticationService.getLoginToken(authentication);
-        SysUser user = userService.getAdminByUserId(loginToken.getUserId());
+        SysUser user = sysUserService.getAdminByUserId(loginToken.getUserId());
         UserTokenDTO userTokenDTO = UserTokenDTO.builder().token(loginToken.getToken())
                 .deviceId(loginToken.getDeviceId()).enable(user.getEnable()).icon(user.getIcon()).createTime(user.getCreateTime()).id(user.getId())
                 .mobile(user.getMoblie()).name(user.getName()).nickName(user.getNickName()).sort(user.getSort()).username(user.getUsername()).build();

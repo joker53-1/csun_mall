@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.UUID;
 
 @Service
-public class DeviceService {
+public class SysDeviceService {
 
     @Autowired
     private SysDeviceMapper sysDeviceMapper;

@@ -1,10 +1,10 @@
 package com.csun.mall.common.enums;
 
-public enum CommonEnum {
+public enum COMMONENUM {
 
     AUTHORIZATION("Authorization");
     public final String value;
-    CommonEnum(String value) {
+    COMMONENUM(String value) {
         this.value = value;
     }
 }
