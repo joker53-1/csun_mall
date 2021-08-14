@@ -1,8 +1,8 @@
 package com.csun.mall.service;
 
 
-import com.csun.mall.mapper.SysDeviceMapper;
 import com.csun.mall.domain.SysDevice;
+import com.csun.mall.mapper.SysDeviceMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

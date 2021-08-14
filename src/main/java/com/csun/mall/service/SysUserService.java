@@ -1,17 +1,15 @@
 package com.csun.mall.service;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.segments.MergeSegments;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+
 import com.csun.mall.common.tools.PojoConvertTool;
 import com.csun.mall.domain.*;
-import com.csun.mall.mapper.*;
+import com.csun.mall.mapper.SysUserLoginLogMapper;
+import com.csun.mall.mapper.SysUserMapper;
+import com.csun.mall.mapper.SysUserRoleMapper;
+import com.csun.mall.mapper.SysUserTokenMapper;
 import com.csun.mall.pojo.dto.SysUserDTO;
 import com.csun.mall.web.response.PageParam;
 import com.csun.mall.web.response.PagedResult;
-import com.github.pagehelper.IPage;
 import com.github.pagehelper.PageHelper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -36,9 +34,6 @@ public class SysUserService {
 
     @Autowired
     private SysUserMapper sysUserMapper;
-
-    @Autowired
-    private UserMapper userMapper;
 
     @Autowired
     private AuthenticationService authenticationService;
@@ -152,7 +147,6 @@ public class SysUserService {
 //        LambdaQueryWrapper<SysUser> lambda = new QueryWrapper<SysUser>().lambda();
 //        lambda.and(e -> e.like(SysUser::getUsername,"%"+keyword+"%").or().like(SysUser::getNickName,"%"+keyword+"%"));
 //        Page page1 = userMapper.selectPage(page, lambda);
-
 
 
         // todo 建议这一种

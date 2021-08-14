@@ -1,11 +1,11 @@
 package com.csun.mall.service;
 
 import com.csun.mall.common.enums.COMMONENUM;
-import com.csun.mall.mapper.SysUserMapper;
-import com.csun.mall.mapper.SysUserTokenMapper;
 import com.csun.mall.domain.SysDevice;
 import com.csun.mall.domain.SysUser;
 import com.csun.mall.domain.SysUserToken;
+import com.csun.mall.mapper.SysUserMapper;
+import com.csun.mall.mapper.SysUserTokenMapper;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -36,7 +36,7 @@ public class AuthenticationService {
             return null;
         }
         Example example = new Example(SysUserToken.class);
-        example.createCriteria().andEqualTo("token",tokenStr);
+        example.createCriteria().andEqualTo("token", tokenStr);
 
         return userTokenMapper.selectOneByExample(example);
     }
@@ -54,7 +54,7 @@ public class AuthenticationService {
         Example example = new Example(SysUserToken.class);
         Example.Criteria userCriteria = example.createCriteria();
         userCriteria.andEqualTo("id", loginToken.getId());
-        userTokenMapper.updateByExample(loginToken,example);
+        userTokenMapper.updateByExample(loginToken, example);
     }
 
     public SysUser loadUserByUsername(String username) {
