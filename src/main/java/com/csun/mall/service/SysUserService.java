@@ -1,25 +1,27 @@
 package com.csun.mall.service;
 
+import cn.hutool.core.util.StrUtil;
 import com.csun.mall.domain.*;
+import com.csun.mall.mapper.*;
 import com.csun.mall.pojo.dto.SysUserDTO;
-import com.csun.mall.mapper.SysUserLoginLogMapper;
-import com.csun.mall.mapper.SysUserMapper;
-import com.csun.mall.mapper.SysUserTokenMapper;
+import com.csun.mall.web.response.PagedGridResult;
+import com.github.pagehelper.PageHelper;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 import tk.mybatis.mapper.entity.Example;
 
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Slf4j
 @Service
-public class UserService {
+public class SysUserService{
 
     @Autowired
     private SysUserMapper sysUserMapper;
@@ -33,7 +35,16 @@ public class UserService {
     @Autowired
     private SysUserTokenMapper sysUserTokenMapper;
 
-    
+    @Autowired
+    private SysUserRoleMapper sysUserRoleMapper;
+
+    @Autowired
+    private SysUserRoleDao sysUserRoleDao;
+
+    public SysUser getAdminByUserId(Long userId){
+        return sysUserMapper.selectByPrimaryKey(userId);
+    }
+
     public SysUser getAdminByUsername(String username) {
         Example example = new Example(SysUser.class);
         example.createCriteria().andEqualTo("username",username);
@@ -109,17 +120,36 @@ public class UserService {
 
     
     public SysUser getItem(Long id) {
-        return null;
+        return sysUserMapper.selectByPrimaryKey(id);
     }
 
     
-    public List<SysUser> list(String keyword, Integer pageSize, Integer pageNum) {
-        return null;
+    public PagedGridResult list(String keyword, Integer pageNum, Integer pageSize) {
+        Example example = new Example(SysUser.class);
+        Example.Criteria criteria = example.createCriteria();
+        if (!StringUtils.isBlank(keyword)) {
+            criteria.andEqualTo( "username",keyword );
+            example.or(example.createCriteria().andEqualTo("nickName",keyword ));
+        }
+        //mabatis-pagehelper
+        /**
+         *page:第几页
+         * pageSize:每页显示条数
+         **/
+        PageHelper.startPage(pageNum,pageSize);
+
+        List<SysUser> list = sysUserMapper.selectByExample(example);
+        return PagedGridResult.setterPagedGrid(list,pageNum);
     }
 
     
     public int update(Long id, SysUser admin) {
-        return 0;
+        admin.setId(id);
+//        SysUser rawAdmin = sysUserMapper.selectByPrimaryKey(id);
+        //TODO 设置值
+        admin.setCreateTime(new Date());
+        int count = sysUserMapper.updateByPrimaryKeySelective(admin);
+        return count;
     }
 
     
@@ -129,12 +159,28 @@ public class UserService {
 
     
     public int updateRole(Long adminId, List<Long> roleIds) {
-        return 0;
+        int count = roleIds == null ? 0 : roleIds.size();
+        //先删除原来的关系
+        Example example = new Example(SysUserRole.class);
+        example.createCriteria().andEqualTo("userId",adminId);
+        sysUserRoleMapper.deleteByExample(example);
+        //建立新关系
+        if (!CollectionUtils.isEmpty(roleIds)) {
+            List<SysUserRole> list = new ArrayList<>();
+            for (Long roleId : roleIds) {
+                SysUserRole roleRelation = new SysUserRole();
+                roleRelation.setUserId(adminId);
+                roleRelation.setRoleId(roleId);
+                list.add(roleRelation);
+            }
+            sysUserRoleMapper.insertList(list);
+        }
+        return count;
     }
 
     
     public List<SysRole> getRoleList(Long adminId) {
-        return null;
+        return sysUserRoleDao.getRoleList(adminId);
     }
 
     

@@ -87,7 +87,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .logout()
-                .logoutUrl("/logout/")
+                .logoutUrl("/admin/logout")
                 .logoutSuccessHandler(this.authenticationHandler)
                 .and()
                 .exceptionHandling()

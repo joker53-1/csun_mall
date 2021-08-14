@@ -1,5 +1,6 @@
 package com.csun.mall.service;
 
+import com.csun.mall.common.enums.COMMONENUM;
 import com.csun.mall.mapper.SysUserMapper;
 import com.csun.mall.mapper.SysUserTokenMapper;
 import com.csun.mall.domain.SysDevice;
@@ -30,11 +31,14 @@ public class AuthenticationService {
 
 
     public SysUserToken getTokenByRequest(HttpServletRequest request) {
-        String tokenStr = request.getHeader("Authorization");
-        if (StringUtils.isEmpty(tokenStr)) {
+        String tokenStr = request.getHeader(COMMONENUM.AUTHORIZATION.value);
+        if (StringUtils.isBlank(tokenStr)) {
             return null;
         }
-        return userTokenMapper.selectByPrimaryKey(tokenStr);
+        Example example = new Example(SysUserToken.class);
+        example.createCriteria().andEqualTo("token",tokenStr);
+
+        return userTokenMapper.selectOneByExample(example);
     }
 
     public SysUserToken getLoginToken() {

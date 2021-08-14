@@ -5,8 +5,8 @@ import com.csun.mall.domain.SysDevice;
 import com.csun.mall.domain.SysUser;
 import com.csun.mall.domain.SysUserToken;
 import com.csun.mall.service.AuthenticationService;
-import com.csun.mall.service.DeviceService;
-import com.csun.mall.service.UserService;
+import com.csun.mall.service.SysDeviceService;
+import com.csun.mall.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -25,7 +25,7 @@ public class AuthenticationProvider implements org.springframework.security.auth
      */
 
     @Autowired
-    private DeviceService deviceService;
+    private SysDeviceService sysDeviceService;
 
     /**
      *
@@ -34,7 +34,7 @@ public class AuthenticationProvider implements org.springframework.security.auth
     AuthenticationService authenticationService;
 
     @Autowired
-    private UserService userService;
+    private SysUserService sysUserService;
 //    @Autowired
 //    public AuthenticationProvider(DeviceService deviceService) {
 //        this.deviceService = deviceService;
@@ -60,9 +60,9 @@ public class AuthenticationProvider implements org.springframework.security.auth
             throw new BadCredentialsException(username);
         }
         UserAuthenticationDetails details = (UserAuthenticationDetails) authentication.getDetails();
-        SysDevice device = deviceService.apply(details.deviceId, details.ip, details.userAgent);
+        SysDevice device = sysDeviceService.apply(details.deviceId, details.ip, details.userAgent);
         SysUserToken token = authenticationService.generalUserToken(user, device);
-        userService.insertLoginLog(username,details.ip,details.userAgent);
+        sysUserService.insertLoginLog(username,details.ip,details.userAgent);
         return new UsernamePasswordAuthenticationToken(token, password, null);
     }
 }
