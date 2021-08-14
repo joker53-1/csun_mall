@@ -1,5 +1,6 @@
 package com.csun.mall.config.handler;
 
+import com.csun.mall.common.tools.PojoConvertTool;
 import com.csun.mall.domain.SysUser;
 import com.csun.mall.pojo.dto.UserTokenDTO;
 import com.csun.mall.service.SysUserService;
@@ -54,9 +55,15 @@ public class AuthenticationHandler implements AuthenticationSuccessHandler, Logo
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
         SysUserToken loginToken = authenticationService.getLoginToken(authentication);
         SysUser user = sysUserService.getAdminByUserId(loginToken.getUserId());
-        UserTokenDTO userTokenDTO = UserTokenDTO.builder().token(loginToken.getToken())
-                .deviceId(loginToken.getDeviceId()).enable(user.getEnable()).icon(user.getIcon()).createTime(user.getCreateTime()).id(user.getId())
-                .mobile(user.getMoblie()).name(user.getName()).nickName(user.getNickName()).sort(user.getSort()).username(user.getUsername()).build();
+//        UserTokenDTO userTokenDTO = UserTokenDTO.builder().token(loginToken.getToken())
+//                .deviceId(loginToken.getDeviceId()).enable(user.getEnable()).icon(user.getIcon())
+//                .createTime(user.getCreateTime()).id(user.getId())
+//                .mobile(user.getMoblie()).name(user.getName())
+//                .nickName(user.getNickName()).sort(user.getSort())
+//                .username(user.getUsername()).build();
+        UserTokenDTO userTokenDTO = PojoConvertTool.convert(user, UserTokenDTO.class);
+        userTokenDTO.setDeviceId(loginToken.getDeviceId());
+        userTokenDTO.setToken(loginToken.getToken());
         ResponseEntity.ok(userTokenDTO);
         ResponseData.success("登录成功！",userTokenDTO).write(response);
     }

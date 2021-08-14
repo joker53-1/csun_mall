@@ -4,19 +4,17 @@ server:
     context-path: ''
 spring:
   datasource:
-#    url: jdbc:mysql://server.internal.ceeg-global.com/mall?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
-#    username: db
-    #    password: db_system
-    url: jdbc:mysql://localhost:3306/csun?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
-    username: root
-    password: zheng
+    url: jdbc:mysql://server.internal.ceeg-global.com/mall?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+    username: db
+    password: db_system
+#    url: jdbc:mysql://localhost:3306/csun?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+#    username: root
+#    password: zheng
     hikari:
       minimumIdle: 5
       maximumPoolSize: 10
       max-lifetime: 1800000
       connection-test-query: select 1
-
-
   redis:
     host: server.internal.ceeg-global.com
     port: 6379
@@ -69,3 +67,7 @@ mapper:
   mappers: com.csun.mall.common.base.BaseMapper
   not-empty: false    #在进行数据库操作的时候，判断表达式 username ！=null，是否追加usern ！=''
   identity: MYSQL
+
+logging:
+  level:
+    com.csun.mall.mapper: DEBUG

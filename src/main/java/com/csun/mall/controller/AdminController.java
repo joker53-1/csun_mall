@@ -1,10 +1,11 @@
 package com.csun.mall.controller;
 
 import com.csun.mall.domain.SysRole;
-import com.csun.mall.pojo.dto.SysUserDTO;
 import com.csun.mall.domain.SysUser;
+import com.csun.mall.pojo.dto.SysUserDTO;
 import com.csun.mall.service.SysUserService;
-import com.csun.mall.web.response.PagedGridResult;
+import com.csun.mall.web.response.PageParam;
+import com.csun.mall.web.response.PagedResult;
 import com.csun.mall.web.response.ResponseData;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -25,7 +26,7 @@ public class AdminController {
     private SysUserService sysUserService;
 
 
-//    @GetMapping("hello")
+    //    @GetMapping("hello")
 //    public ResponseData hello(){
 //        return ResponseData.success("hello");
 //    }
@@ -41,15 +42,14 @@ public class AdminController {
 
     @ApiOperation("根据用户名或姓名分页获取用户列表")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public ResponseData<PagedGridResult> list(@RequestParam(value = "keyword", required = false) String keyword,
-                                              @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
-                                              @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize) {
-        PagedGridResult adminList = sysUserService.list(keyword, pageNum, pageSize);
+    public ResponseData<PagedResult<SysUserDTO>> list(@RequestParam(value = "keyword", required = false) String keyword,
+                                          PageParam pageParam) {
+        PagedResult<SysUserDTO> adminList = sysUserService.list(keyword, pageParam);
         return ResponseData.success(adminList);
     }
 
     @ApiOperation("获取指定用户信息")
-    @GetMapping(value = "/getUserInfo")
+    @GetMapping(value = "/info")
     public ResponseData<SysUser> getItem(@RequestParam("adminId") Long id) {
         SysUser admin = sysUserService.getItem(id);
         return ResponseData.success(admin);
@@ -79,7 +79,8 @@ public class AdminController {
     @ApiOperation("获取指定用户的角色")
     @GetMapping(value = "/role")
     public ResponseData<List<SysRole>> getRoleList(@RequestParam("adminId") Long adminId) {
-        List<SysRole> roleList = sysUserService.getRoleList(adminId);
-        return ResponseData.success(roleList);
+//        List<SysRole> roleList = sysUserService.getRoleList(adminId);
+//        return ResponseData.success(roleList);
+        return ResponseData.success();
     }
 }
