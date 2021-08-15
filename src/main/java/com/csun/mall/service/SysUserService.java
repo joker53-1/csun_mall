@@ -159,7 +159,7 @@ public class SysUserService {
         List<SysUserDTO> list = sysUserMapper.selectByExample(example)
                 .stream().map(e -> PojoConvertTool.convert(e, SysUserDTO.class))
                 .collect(Collectors.toList());
-        return PagedResult.from(list, pageParam);
+        return PagedResult.from(list);
     }
 
 

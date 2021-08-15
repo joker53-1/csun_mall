@@ -1,7 +1,6 @@
 package com.csun.mall.pojo.dto;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.Column;
 import java.util.Date;
@@ -9,8 +8,8 @@ import java.util.Date;
 /**
  * @author Created by Cen xr on 2021/6/24 13:26
  */
-@Data
-@Builder
+@Setter
+@Getter
 public class UserTokenDTO {
 
     private Long id;

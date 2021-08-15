@@ -15,36 +15,40 @@ import java.util.stream.Collectors;
 public class PagedResult<T> {
 
     private int pageNum;            // 当前页数
-    private int PageSize;            // 总页数
-    private long records;        // 总记录数
-    private List<T> rows;        // 每行显示的内容
+    private int PageSize;            // 每页大小
+    private long totalPage;        // 总页数
+    private long totalCount;        // 总记录数
+    private List<T> dataList;        // 每行显示的内容
 
 
-    public static <T> PagedResult<T> from(List<T> list, PageParam pageParam) {
-        PageInfo<T> pageList = PageInfo.of(list);
+    public static <T> PagedResult<T> from(List<T> list) {
+        PageInfo<T> pageInfo = PageInfo.of(list);
         PagedResult<T> grid = new PagedResult<>();
-        grid.setPageNum(pageParam.getPageNum());
-        grid.setRows(list);
-        grid.setPageSize(pageList.getPages());
-        grid.setRecords(pageList.getTotal());
+        grid.setPageNum(pageInfo.getPageNum());
+        grid.setPageSize(pageInfo.getPageSize());
+        grid.setTotalPage(pageInfo.getPages());
+        grid.setTotalCount(pageInfo.getTotal());
+        grid.setDataList(list);
         return grid;
     }
 
     public static <T> PagedResult<T> from(PageInfo<T> pageInfo) {
         PagedResult<T> grid = new PagedResult<>();
         grid.setPageNum(pageInfo.getPageNum());
-        grid.setRows(pageInfo.getList());
-        grid.setPageSize(pageInfo.getPages());
-        grid.setRecords(pageInfo.getTotal());
+        grid.setPageSize(pageInfo.getPageSize());
+        grid.setTotalPage(pageInfo.getPages());
+        grid.setTotalCount(pageInfo.getTotal());
+        grid.setDataList(pageInfo.getList());
         return grid;
     }
 
     public static <T, F> PagedResult<T> from(PageInfo<F> pageInfo, Class<T> targetClass) {
         PagedResult<T> grid = new PagedResult<>();
         grid.setPageNum(pageInfo.getPageNum());
-        grid.setRows(pageInfo.getList().stream().map(e -> PojoConvertTool.convert(pageInfo, targetClass)).collect(Collectors.toList()));
-        grid.setPageSize(pageInfo.getPages());
-        grid.setRecords(pageInfo.getTotal());
+        grid.setPageSize(pageInfo.getPageSize());
+        grid.setTotalPage(pageInfo.getPages());
+        grid.setTotalCount(pageInfo.getTotal());
+        grid.setDataList(pageInfo.getList().stream().map(e -> PojoConvertTool.convert(pageInfo, targetClass)).collect(Collectors.toList()));
         return grid;
     }
 
