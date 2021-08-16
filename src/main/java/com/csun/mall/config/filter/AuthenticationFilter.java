@@ -2,7 +2,10 @@ package com.csun.mall.config.filter;
 
 import com.csun.mall.domain.SysUserToken;
 import com.csun.mall.service.AuthenticationService;
+import com.csun.mall.web.response.RESPONSE_STATUS;
+import com.csun.mall.web.response.ResponseData;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
@@ -32,9 +35,9 @@ public class AuthenticationFilter extends OncePerRequestFilter {
      *
      */
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException,IllegalStateException {
         SysUserToken loginToken = this.authenticationService.getTokenByRequest(request);
-        if (loginToken != null) {
+        if (loginToken != null&&loginToken.getEnable()) {
             UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(loginToken, loginToken.getToken(), null);
             authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
             SecurityContextHolder.getContext().setAuthentication(authentication);

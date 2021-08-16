@@ -9,6 +9,7 @@ import com.csun.mall.service.SysDeviceService;
 import com.csun.mall.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -58,6 +59,9 @@ public class AuthenticationProvider implements org.springframework.security.auth
         SysUser user = authenticationService.loadUserByUsername(username);
         if (user == null || !new BCryptPasswordEncoder().matches(password, user.getPassword())) {
             throw new BadCredentialsException(username);
+        }
+        if(!user.getEnable()){
+            throw new DisabledException(username);
         }
         UserAuthenticationDetails details = (UserAuthenticationDetails) authentication.getDetails();
         SysDevice device = sysDeviceService.apply(details.deviceId, details.ip, details.userAgent);

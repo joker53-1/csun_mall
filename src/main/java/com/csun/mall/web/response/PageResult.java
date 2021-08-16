@@ -48,7 +48,7 @@ public class PageResult<T> {
         grid.setPageSize(pageInfo.getPageSize());
         grid.setTotalPage(pageInfo.getPages());
         grid.setTotalCount(pageInfo.getTotal());
-        grid.setDataList(pageInfo.getList().stream().map(e -> PojoConvertTool.convert(pageInfo, targetClass)).collect(Collectors.toList()));
+        grid.setDataList(pageInfo.getList().stream().map(e -> PojoConvertTool.convert(e, targetClass)).collect(Collectors.toList()));
         return grid;
     }
 

@@ -11,6 +11,7 @@ import com.csun.mall.pojo.dto.SysUserDTO;
 import com.csun.mall.web.response.PageParam;
 import com.csun.mall.web.response.PageResult;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
@@ -22,6 +23,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import tk.mybatis.mapper.entity.Example;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -32,19 +34,19 @@ import java.util.stream.Collectors;
 public class SysUserService {
 
 
-    @Autowired
+    @Resource
     private SysUserMapper sysUserMapper;
 
-    @Autowired
+    @Resource
     private AuthenticationService authenticationService;
 
-    @Autowired
+    @Resource
     private SysUserLoginLogMapper sysUserLoginLogMapper;
 
-    @Autowired
+    @Resource
     private SysUserTokenMapper sysUserTokenMapper;
 
-    @Autowired
+    @Resource
     private SysUserRoleMapper sysUserRoleMapper;
 
 //    @Autowired
@@ -136,56 +138,30 @@ public class SysUserService {
     public PageResult<SysUserDTO> page(String keyword,String mobile, PageParam pageParam) {
         Example example = new Example(SysUser.class);
         Example.Criteria criteria = example.createCriteria();
+        Example.Criteria criteria1 = example.createCriteria();
         example.orderBy("sort").desc();
-        if (StringUtils.isNotBlank(keyword)&&StringUtils.isNotBlank(mobile)) {
+        if(StringUtils.isNotBlank(mobile)){
+            criteria.andEqualTo("mobile", mobile);
+        }
+        if(StringUtils.isNotBlank(keyword)){
             keyword = "%" + keyword + "%";
-            criteria.andLike("username", keyword);
-            example.or(example.createCriteria().andLike("nickName", keyword));
-            example.or(example.createCriteria().andLike("name", keyword));
-            example.and(example.createCriteria().andEqualTo("mobile", mobile));
+            criteria1.orLike("username", keyword);
+            criteria1.orLike("nickName", keyword);
+            criteria1.orLike("name", keyword);
         }
-        else if(StringUtils.isNotBlank(mobile)&&StringUtils.isBlank(keyword)){
-            example.and(example.createCriteria().andEqualTo("mobile", mobile));
-        }
-        else if(StringUtils.isNotBlank(keyword)&&StringUtils.isBlank(mobile)){
-            keyword = "%" + keyword + "%";
-            criteria.andLike("username", keyword);
-            example.or(example.createCriteria().andLike("nickName", keyword));
-            example.or(example.createCriteria().andLike("name", keyword));
-        }
+        example.and(criteria1);
         // FIXME mybatis-plus 查询方式 解决 通用mapper username 写死困境
 //        Page page = new Page(pageParam.getPageNum(), pageParam.getPageSize());
 //        LambdaQueryWrapper<SysUser> lambda = new QueryWrapper<SysUser>().lambda();
 //        lambda.and(e -> e.like(SysUser::getUsername,"%"+keyword+"%").or().like(SysUser::getNickName,"%"+keyword+"%"));
 //        Page page1 = userMapper.selectPage(page, lambda);
 
+        PageInfo<SysUser> userPages = PageHelper.startPage(pageParam)
+                .doSelectPageInfo(() -> sysUserMapper.selectByExample(example));
+        return PageResult.from(userPages,SysUserDTO.class);
 
-        // FIXME 建议这一种
-//        PageInfo<SysUser> userPages = PageHelper.startPage(pageParam)
-//                .doSelectPageInfo(() -> sysUserMapper.selectByExample(example));
-//        return PagedResult.from(userPages,SysUserDTO.class);
-
-
-        PageHelper.startPage(pageParam);
-        List<SysUserDTO> list = sysUserMapper.selectByExample(example)
-                .stream().map(e -> PojoConvertTool.convert(e, SysUserDTO.class))
-                .collect(Collectors.toList());
-        return PageResult.from(list);
     }
 
-//    public PageResult<SysUserDTO> getUserByMobile(String mobile, PageParam pageParam) {
-//        Example example = new Example(SysUser.class);
-//        Example.Criteria criteria = example.createCriteria();
-//        example.orderBy("sort").desc();
-//        if (StringUtils.isNotBlank(mobile)) {
-//            criteria.andEqualTo("mobile", mobile);
-//        }
-//        PageHelper.startPage(pageParam);
-//        List<SysUserDTO> list = sysUserMapper.selectByExample(example)
-//                .stream().map(e -> PojoConvertTool.convert(e, SysUserDTO.class))
-//                .collect(Collectors.toList());
-//        return PageResult.from(list);
-//    }
 
     public int update(Long id, SysUser user) {
         user.setId(id);

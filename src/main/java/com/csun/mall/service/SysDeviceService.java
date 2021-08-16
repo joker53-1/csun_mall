@@ -6,13 +6,14 @@ import com.csun.mall.mapper.SysDeviceMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.Date;
 import java.util.UUID;
 
 @Service
 public class SysDeviceService {
 
-    @Autowired
+    @Resource
     private SysDeviceMapper sysDeviceMapper;
 
 
@@ -28,6 +29,6 @@ public class SysDeviceService {
         device.setCreateTime(new Date());
         device.setInfo(userAgent);
         sysDeviceMapper.insert(device);
-        return sysDeviceMapper.selectOne(device);
+        return device;
     }
 }

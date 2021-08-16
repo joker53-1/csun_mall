@@ -13,6 +13,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.UUID;
@@ -23,10 +24,10 @@ import java.util.UUID;
 @Service
 public class AuthenticationService {
 
-    @Autowired
+    @Resource
     private SysUserTokenMapper userTokenMapper;
 
-    @Autowired
+    @Resource
     private SysUserMapper userMapper;
 
 

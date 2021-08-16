@@ -89,6 +89,9 @@ public class AuthenticationHandler implements AuthenticationSuccessHandler, Logo
         if (e instanceof BadCredentialsException) {
             ResponseData.failure(RESPONSE_STATUS.BAD_CREDENTIALS_ERROR, RESPONSE_STATUS.BAD_CREDENTIALS_ERROR.value).write(response);
         }
+        else {
+            ResponseData.failure(RESPONSE_STATUS.USER_DISENABLE_ERROR, RESPONSE_STATUS.USER_DISENABLE_ERROR.value).write(response);
+        }
     }
 
     /**

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
+import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
@@ -22,13 +23,13 @@ import java.util.List;
 @Service
 public class SysRoleService {
 
-    @Autowired
+    @Resource
     private SysRoleMapper sysRoleMapper;
 
-    @Autowired
+    @Resource
     private SysRoleDao sysRoleDao;
 
-    @Autowired
+    @Resource
     private SysRoleMenuMapper sysRoleMenuMapper;
 
     /**

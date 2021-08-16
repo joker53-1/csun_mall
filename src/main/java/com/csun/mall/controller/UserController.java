@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @RequestMapping("user")
@@ -33,7 +34,7 @@ public class UserController {
 //    }
     @ApiOperation(value = "用户注册")
     @PostMapping(value = "/register")
-    public ResponseData<SysUser> register(@RequestBody SysUserDTO userDTO, BindingResult result) {
+    public ResponseData<SysUser> register(SysUserDTO userDTO, BindingResult result) {
         SysUser sysUser = sysUserService.register(userDTO);
         if (sysUser == null) {
             ResponseData.failure();
@@ -53,13 +54,6 @@ public class UserController {
         return ResponseData.success(adminList);
     }
 
-//    @ApiOperation("根据手机号码查询用户")
-//    @GetMapping(value = "/getUserByMobile")
-//    public ResponseData<PageResult<SysUserDTO>> getUserByMobile(@RequestParam(value = "mobile", required = true) String mobile,
-//                                                    PageParam pageParam) {
-//        PageResult<SysUserDTO> adminList = sysUserService.getUserByMobile(mobile, pageParam);
-//        return ResponseData.success(adminList);
-//    }
 
     @ApiOperation("获取指定用户信息")
     @GetMapping(value = "/info")
@@ -69,8 +63,8 @@ public class UserController {
     }
 
     @ApiOperation("修改指定用户信息")
-    @PostMapping(value = "/update")
-    public ResponseData update(@RequestParam Long id, @RequestBody SysUser user) {
+    @PutMapping(value = "/update")
+    public ResponseData update(@RequestParam Long id, SysUser user) {
         int count = sysUserService.update(id, user);
         if (count > 0) {
             return ResponseData.success(sysUserService.getUserByUserId(id));
@@ -79,7 +73,7 @@ public class UserController {
     }
 
     @ApiOperation("给用户分配角色")
-    @PostMapping(value = "/role/update")
+    @PutMapping(value = "/role/update")
     public ResponseData updateRole(@RequestParam Long id,
                                    @RequestParam("roleIds")
                                    @ApiParam(value = "角色id列表")

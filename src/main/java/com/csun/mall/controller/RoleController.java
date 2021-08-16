@@ -23,7 +23,7 @@ public class RoleController {
 
     @ApiOperation("添加后台菜单")
     @PostMapping(value = "/create")
-    public ResponseData create(@RequestBody SysRole sysRole) {
+    public ResponseData create(SysRole sysRole) {
         int count = sysRoleService.create(sysRole);
         if (count > 0) {
             return ResponseData.success();
@@ -32,8 +32,8 @@ public class RoleController {
     }
 
     @ApiOperation("修改角色")
-    @PostMapping(value = "/update")
-    public ResponseData update(@RequestParam Long id, @RequestBody SysRole role) {
+    @PutMapping(value = "/update")
+    public ResponseData update(@RequestParam Long id, SysRole role) {
         int count = sysRoleService.update(id, role);
         if (count > 0) {
             return ResponseData.success();
@@ -42,7 +42,7 @@ public class RoleController {
     }
 
     @ApiOperation("批量删除角色")
-    @PostMapping(value = "/delete")
+    @DeleteMapping(value = "/delete")
     public ResponseData delete(@RequestParam("ids") List<Long> ids) {
         int count = sysRoleService.delete(ids);
         if (count > 0) {
@@ -53,7 +53,7 @@ public class RoleController {
 
 
     @ApiOperation("获取所有角色")
-    @GetMapping(value = "/listAll")
+    @GetMapping(value = "/listall")
     //TODO 通过某一字段进行获取
     public ResponseData<List<SysRole>> listAll() {
         List<SysRole> roleList = sysRoleService.list();
@@ -69,7 +69,7 @@ public class RoleController {
     }
 
     @ApiOperation("修改角色状态")
-    @PostMapping(value = "/updateStatus")
+    @PutMapping(value = "/updatestatus")
     public ResponseData updateStatus(@RequestParam Long id, @RequestParam(value = "status") Boolean enable) {
         SysRole sysRole = new SysRole();
         sysRole.setEnable(enable);
@@ -81,7 +81,7 @@ public class RoleController {
     }
 
     @ApiOperation("获取角色相关菜单")
-    @GetMapping(value = "/listMenu")
+    @GetMapping(value = "/listmenu")
     public ResponseData<List<SysMenu>> listMenu(@RequestParam Long roleId) {
         List<SysMenu> roleList = sysRoleService.listMenu(roleId);
         return ResponseData.success(roleList);
@@ -89,7 +89,7 @@ public class RoleController {
 
 
     @ApiOperation("给角色分配菜单")
-    @PostMapping(value = "/allocMenu")
+    @PostMapping(value = "/allocmenu")
     public ResponseData allocMenu(@RequestParam Long id, @RequestParam List<Long> menuIds) {
         int count = sysRoleService.allocMenu(id, menuIds);
         if (count > 0) {
