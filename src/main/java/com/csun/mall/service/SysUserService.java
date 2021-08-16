@@ -9,7 +9,7 @@ import com.csun.mall.mapper.SysUserRoleMapper;
 import com.csun.mall.mapper.SysUserTokenMapper;
 import com.csun.mall.pojo.dto.SysUserDTO;
 import com.csun.mall.web.response.PageParam;
-import com.csun.mall.web.response.PagedResult;
+import com.csun.mall.web.response.PageResult;
 import com.github.pagehelper.PageHelper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -133,13 +133,15 @@ public class SysUserService {
     }
 
 
-    public PagedResult<SysUserDTO> list(String keyword, PageParam pageParam) {
+    public PageResult<SysUserDTO> page(String keyword, PageParam pageParam) {
         Example example = new Example(SysUser.class);
         Example.Criteria criteria = example.createCriteria();
+        example.orderBy("sort").desc();
         if (StringUtils.isNotBlank(keyword)) {
-            keyword="%"+keyword+"%";
+            keyword = "%" + keyword + "%";
             criteria.andLike("username", keyword);
-            example.or(example.createCriteria().andEqualTo("nickName", keyword));
+            example.or(example.createCriteria().andLike("nickName", keyword));
+            example.or(example.createCriteria().andLike("name", keyword));
         }
         // FIXME mybatis-plus 查询方式 解决 通用mapper username 写死困境
 //        Page page = new Page(pageParam.getPageNum(), pageParam.getPageSize());
@@ -158,9 +160,22 @@ public class SysUserService {
         List<SysUserDTO> list = sysUserMapper.selectByExample(example)
                 .stream().map(e -> PojoConvertTool.convert(e, SysUserDTO.class))
                 .collect(Collectors.toList());
-        return PagedResult.from(list);
+        return PageResult.from(list);
     }
 
+    public PageResult<SysUserDTO> getUserByMobile(String mobile, PageParam pageParam) {
+        Example example = new Example(SysUser.class);
+        Example.Criteria criteria = example.createCriteria();
+        example.orderBy("sort").desc();
+        if (StringUtils.isNotBlank(mobile)) {
+            criteria.andEqualTo("mobile", mobile);
+        }
+        PageHelper.startPage(pageParam);
+        List<SysUserDTO> list = sysUserMapper.selectByExample(example)
+                .stream().map(e -> PojoConvertTool.convert(e, SysUserDTO.class))
+                .collect(Collectors.toList());
+        return PageResult.from(list);
+    }
 
     public int update(Long id, SysUser user) {
         user.setId(id);

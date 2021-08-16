@@ -5,10 +5,9 @@ import com.csun.mall.domain.SysUser;
 import com.csun.mall.pojo.dto.SysUserDTO;
 import com.csun.mall.service.SysUserService;
 import com.csun.mall.web.response.PageParam;
-import com.csun.mall.web.response.PagedResult;
+import com.csun.mall.web.response.PageResult;
 import com.csun.mall.web.response.ResponseData;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
@@ -42,12 +41,20 @@ public class UserController {
         return ResponseData.success(sysUser);
     }
 
-    @ApiOperation("根据用户名或姓名分页获取用户列表")
-    @GetMapping(value = "/list")
-    public ResponseData<PagedResult<SysUserDTO>> list(@RequestParam(value = "keyword", required = false)
-                                                                  @ApiParam(value = "用户名或姓名") String keyword,
-                                          PageParam pageParam) {
-        PagedResult<SysUserDTO> adminList = sysUserService.list(keyword, pageParam);
+    @ApiOperation("根据用户名、昵称或姓名分页获取用户列表")
+    @GetMapping(value = "/page")
+    public ResponseData<PageResult<SysUserDTO>> page(@RequestParam(value = "keyword", required = false)
+                                                                  @ApiParam(value = "用户名、昵称或姓名") String keyword,
+                                                     PageParam pageParam) {
+        PageResult<SysUserDTO> adminList = sysUserService.page(keyword, pageParam);
+        return ResponseData.success(adminList);
+    }
+
+    @ApiOperation("根据手机号码查询用户")
+    @GetMapping(value = "/getUserByMobile")
+    public ResponseData<PageResult<SysUserDTO>> getUserByMobile(@RequestParam(value = "mobile", required = true) String mobile,
+                                                    PageParam pageParam) {
+        PageResult<SysUserDTO> adminList = sysUserService.getUserByMobile(mobile, pageParam);
         return ResponseData.success(adminList);
     }
 

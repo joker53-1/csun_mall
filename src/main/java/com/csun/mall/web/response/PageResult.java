@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PagedResult<T> {
+public class PageResult<T> {
 
     private int pageNum;            // 当前页数
     private int PageSize;            // 每页大小
@@ -21,9 +21,9 @@ public class PagedResult<T> {
     private List<T> dataList;        // 每行显示的内容
 
 
-    public static <T> PagedResult<T> from(List<T> list) {
+    public static <T> PageResult<T> from(List<T> list) {
         PageInfo<T> pageInfo = PageInfo.of(list);
-        PagedResult<T> grid = new PagedResult<>();
+        PageResult<T> grid = new PageResult<>();
         grid.setPageNum(pageInfo.getPageNum());
         grid.setPageSize(pageInfo.getPageSize());
         grid.setTotalPage(pageInfo.getPages());
@@ -32,8 +32,8 @@ public class PagedResult<T> {
         return grid;
     }
 
-    public static <T> PagedResult<T> from(PageInfo<T> pageInfo) {
-        PagedResult<T> grid = new PagedResult<>();
+    public static <T> PageResult<T> from(PageInfo<T> pageInfo) {
+        PageResult<T> grid = new PageResult<>();
         grid.setPageNum(pageInfo.getPageNum());
         grid.setPageSize(pageInfo.getPageSize());
         grid.setTotalPage(pageInfo.getPages());
@@ -42,8 +42,8 @@ public class PagedResult<T> {
         return grid;
     }
 
-    public static <T, F> PagedResult<T> from(PageInfo<F> pageInfo, Class<T> targetClass) {
-        PagedResult<T> grid = new PagedResult<>();
+    public static <T, F> PageResult<T> from(PageInfo<F> pageInfo, Class<T> targetClass) {
+        PageResult<T> grid = new PageResult<>();
         grid.setPageNum(pageInfo.getPageNum());
         grid.setPageSize(pageInfo.getPageSize());
         grid.setTotalPage(pageInfo.getPages());
