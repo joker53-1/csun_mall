@@ -41,22 +41,25 @@ public class UserController {
         return ResponseData.success(sysUser);
     }
 
-    @ApiOperation("根据用户名、昵称或姓名分页获取用户列表")
+    @ApiOperation("根据用户名、昵称或姓名分页和手机号码获取用户列表")
     @GetMapping(value = "/page")
     public ResponseData<PageResult<SysUserDTO>> page(@RequestParam(value = "keyword", required = false)
                                                                   @ApiParam(value = "用户名、昵称或姓名") String keyword,
+                                                     @RequestParam(value = "mobile", required = false)
+                                                     @ApiParam(value = "手机号码")
+                                                             String mobile,
                                                      PageParam pageParam) {
-        PageResult<SysUserDTO> adminList = sysUserService.page(keyword, pageParam);
+        PageResult<SysUserDTO> adminList = sysUserService.page(keyword,mobile,pageParam);
         return ResponseData.success(adminList);
     }
 
-    @ApiOperation("根据手机号码查询用户")
-    @GetMapping(value = "/getUserByMobile")
-    public ResponseData<PageResult<SysUserDTO>> getUserByMobile(@RequestParam(value = "mobile", required = true) String mobile,
-                                                    PageParam pageParam) {
-        PageResult<SysUserDTO> adminList = sysUserService.getUserByMobile(mobile, pageParam);
-        return ResponseData.success(adminList);
-    }
+//    @ApiOperation("根据手机号码查询用户")
+//    @GetMapping(value = "/getUserByMobile")
+//    public ResponseData<PageResult<SysUserDTO>> getUserByMobile(@RequestParam(value = "mobile", required = true) String mobile,
+//                                                    PageParam pageParam) {
+//        PageResult<SysUserDTO> adminList = sysUserService.getUserByMobile(mobile, pageParam);
+//        return ResponseData.success(adminList);
+//    }
 
     @ApiOperation("获取指定用户信息")
     @GetMapping(value = "/info")

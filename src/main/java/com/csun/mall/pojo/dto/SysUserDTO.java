@@ -31,5 +31,7 @@ public class SysUserDTO {
     private String name;
     @ApiModelProperty(value = "电话号码",required = true)
     private String mobile;
+    @ApiModelProperty(value = "排序",required = true)
+    private Integer sort;
 
 }

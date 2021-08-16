@@ -11,6 +11,6 @@ import lombok.Setter;
 public class PageParam {
 
     private Integer pageNum = 1;
-    private Integer pageSize = 2;
+    private Integer pageSize = 20;
 
 }
