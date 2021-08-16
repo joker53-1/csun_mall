@@ -7,12 +7,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
+import springfox.documentation.oas.annotations.EnableOpenApi;
 import tk.mybatis.spring.annotation.MapperScan;
 
 
 @SpringBootApplication
 //扫描mybatis通用mapper所在包
 @MapperScan(basePackages = {"com.csun.mall.mapper"})
+@EnableOpenApi
 public class MallApplication {
 
     public static void main(String[] args) {

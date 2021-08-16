@@ -50,11 +50,11 @@ public class SysUserService {
 //    @Autowired
 //    private SysUserRoleDao sysUserRoleDao;
 
-    public SysUser getAdminByUserId(Long userId) {
+    public SysUser getUserByUserId(Long userId) {
         return sysUserMapper.selectByPrimaryKey(userId);
     }
 
-    public SysUser getAdminByUsername(String username) {
+    public SysUser getUserByUsername(String username) {
         Example example = new Example(SysUser.class);
         example.createCriteria().andEqualTo("username", username);
         SysUser user = sysUserMapper.selectOneByExample(example);
@@ -66,7 +66,7 @@ public class SysUserService {
         SysUser sysUser = new SysUser();
         BeanUtils.copyProperties(sysUserDTO, sysUser);
         sysUser.setCreateTime(new Date());
-//        sysUser.setEnable(true);
+        sysUser.setEnable(true);
         sysUser.setSort(1);
         //查询是否有相同用户名的用户
         Example userExample = new Example(SysUser.class);
@@ -110,7 +110,7 @@ public class SysUserService {
      * @param username 用户名
      */
     public void insertLoginLog(String username, String ip, String userAgent) {
-        SysUser sysUser = getAdminByUsername(username);
+        SysUser sysUser = getUserByUsername(username);
         if (sysUser == null) return;
         SysUserLoginLog loginLog = new SysUserLoginLog();
         loginLog.setUserId(sysUser.getId());
@@ -136,20 +136,19 @@ public class SysUserService {
     public PagedResult<SysUserDTO> list(String keyword, PageParam pageParam) {
         Example example = new Example(SysUser.class);
         Example.Criteria criteria = example.createCriteria();
-        // todo StringUtils.isNotBlank
-        if (!StringUtils.isBlank(keyword)) {
-            // todo 一般是模糊搜索 like
-            criteria.andEqualTo("username", keyword);
+        if (StringUtils.isNotBlank(keyword)) {
+            keyword="%"+keyword+"%";
+            criteria.andLike("username", keyword);
             example.or(example.createCriteria().andEqualTo("nickName", keyword));
         }
-        // todo mybatis-plus 查询方式 解决 通用mapper username 写死困境
+        // FIXME mybatis-plus 查询方式 解决 通用mapper username 写死困境
 //        Page page = new Page(pageParam.getPageNum(), pageParam.getPageSize());
 //        LambdaQueryWrapper<SysUser> lambda = new QueryWrapper<SysUser>().lambda();
 //        lambda.and(e -> e.like(SysUser::getUsername,"%"+keyword+"%").or().like(SysUser::getNickName,"%"+keyword+"%"));
 //        Page page1 = userMapper.selectPage(page, lambda);
 
 
-        // todo 建议这一种
+        // FIXME 建议这一种
 //        PageInfo<SysUser> userPages = PageHelper.startPage(pageParam)
 //                .doSelectPageInfo(() -> sysUserMapper.selectByExample(example));
 //        return PagedResult.from(userPages,SysUserDTO.class);
@@ -163,12 +162,12 @@ public class SysUserService {
     }
 
 
-    public int update(Long id, SysUser admin) {
-        admin.setId(id);
+    public int update(Long id, SysUser user) {
+        user.setId(id);
 //        SysUser rawAdmin = sysUserMapper.selectByPrimaryKey(id);
         //TODO 设置值
-        admin.setCreateTime(new Date());
-        int count = sysUserMapper.updateByPrimaryKeySelective(admin);
+        user.setCreateTime(new Date());
+        int count = sysUserMapper.updateByPrimaryKeySelective(user);
         return count;
     }
 

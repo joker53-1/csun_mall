@@ -54,7 +54,7 @@ public class AuthenticationHandler implements AuthenticationSuccessHandler, Logo
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
         SysUserToken loginToken = authenticationService.getLoginToken(authentication);
-        SysUser user = sysUserService.getAdminByUserId(loginToken.getUserId());
+        SysUser user = sysUserService.getUserByUserId(loginToken.getUserId());
 //        UserTokenDTO userTokenDTO = UserTokenDTO.builder().token(loginToken.getToken())
 //                .deviceId(loginToken.getDeviceId()).enable(user.getEnable()).icon(user.getIcon())
 //                .createTime(user.getCreateTime()).id(user.getId())

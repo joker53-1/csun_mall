@@ -74,7 +74,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.addFilterBefore(this.authenticationFilter, UsernamePasswordAuthenticationFilter.class);
         http.authorizeRequests()
-                .antMatchers("/static/**","/swagger-ui/*","/webjars/**","/v3/**","/doc.html","/swagger-ui.html"
+                .antMatchers("/swagger-ui.html",
+                        "/swagger-ui/*",
+                        "/swagger-resources/**",
+                        "/v2/api-docs",
+                        "/v3/api-docs",
+                        "/webjars/**","/static/**","/swagger-ui/*","/webjars/**","/v3/**","/doc.html","/swagger-ui.html"
                         ,"/swagger-resources/**","/v2/api-docs","/admin/**").permitAll()
                 .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
                 .anyRequest().authenticated()

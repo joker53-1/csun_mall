@@ -30,6 +30,6 @@ public class SysUserDTO {
     @ApiModelProperty(value = "姓名",required = true)
     private String name;
     @ApiModelProperty(value = "电话号码",required = true)
-    private String moblie;
+    private String mobile;
 
 }
