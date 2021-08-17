@@ -1,5 +1,6 @@
 package com.csun.mall.controller;
 
+import com.csun.mall.common.tools.PojoConvertTool;
 import com.csun.mall.domain.SysRole;
 import com.csun.mall.domain.SysUser;
 import com.csun.mall.pojo.dto.SysUserDTO;
@@ -62,12 +63,39 @@ public class UserController {
         return ResponseData.success(user);
     }
 
-    @ApiOperation("修改指定用户信息")
-    @PutMapping(value = "/update")
-    public ResponseData update(@RequestParam Long id, SysUser user) {
+    @ApiOperation("新增管理员")
+    @PutMapping(value = "/create")
+    public ResponseData<SysUserDTO> create(SysUserDTO user){
+        if(sysUserService.getUserByMobile(user.getMobile())!=null){
+            return ResponseData.failure("电话号码已存在！");
+        }
+        if(sysUserService.getUserByUsername(user.getUsername())!=null){
+            return ResponseData.failure("用户名已存在！");
+        }
+        SysUser sysUser = sysUserService.register(user);
+        if (sysUser == null) {
+            ResponseData.failure("新增失败");
+        }
+        return ResponseData.success(user);
+    }
+
+    @ApiOperation("修改指定管理员信息")
+    @PostMapping(value = "/update")
+    public ResponseData<SysUserDTO> update(@RequestParam Long id, SysUserDTO user) {
+        SysUser user1 = sysUserService.getUserByMobile(user.getMobile());
+        if(user1!=null&&user1.getId()!=id){
+            return ResponseData.failure("电话号码已存在！");
+        }
+        SysUser user2 = sysUserService.getUserByUsername(user.getUsername());
+        if(user2!=null&&user2.getId()!=id){
+            return ResponseData.failure("用户名已存在！");
+        }
+
         int count = sysUserService.update(id, user);
         if (count > 0) {
-            return ResponseData.success(sysUserService.getUserByUserId(id));
+            SysUserDTO sysUserDTO = PojoConvertTool.convert(sysUserService.getUserByUserId(id),SysUserDTO.class);
+            sysUserDTO.setPassword(null);
+            return ResponseData.success(sysUserDTO);
         }
         return ResponseData.failure();
     }

@@ -69,8 +69,8 @@ public class RoleController {
     }
 
     @ApiOperation("修改角色状态")
-    @PutMapping(value = "/updatestatus")
-    public ResponseData updateStatus(@RequestParam Long id, @RequestParam(value = "status") Boolean enable) {
+    @PutMapping(value = "/updateenable")
+    public ResponseData updateStatus(@RequestParam Long id, @RequestParam(value = "enable") Boolean enable) {
         SysRole sysRole = new SysRole();
         sysRole.setEnable(enable);
         int count = sysRoleService.update(id, sysRole);

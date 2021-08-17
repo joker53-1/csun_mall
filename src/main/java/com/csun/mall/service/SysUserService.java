@@ -62,6 +62,12 @@ public class SysUserService {
         SysUser user = sysUserMapper.selectOneByExample(example);
         return user;
     }
+    public SysUser getUserByMobile(String mobile){
+        Example example = new Example(SysUser.class);
+        example.createCriteria().andEqualTo("mobile", mobile);
+        SysUser user = sysUserMapper.selectOneByExample(example);
+        return user;
+    }
 
 
     public SysUser register(SysUserDTO sysUserDTO) {
@@ -69,15 +75,6 @@ public class SysUserService {
         BeanUtils.copyProperties(sysUserDTO, sysUser);
         sysUser.setCreateTime(new Date());
         sysUser.setEnable(true);
-        sysUser.setSort(1);
-        //查询是否有相同用户名的用户
-        Example userExample = new Example(SysUser.class);
-        Example.Criteria userCriteria = userExample.createCriteria();
-        userCriteria.andEqualTo("username", sysUserDTO.getUsername());
-        SysUser result = sysUserMapper.selectOneByExample(userExample);
-        if (result != null) {
-            return null;
-        }
         //将密码进行加密操作
         String encodePassword = new BCryptPasswordEncoder().encode(sysUser.getPassword());
         sysUser.setPassword(encodePassword);
@@ -92,8 +89,6 @@ public class SysUserService {
         //密码需要客户端加密后传递
         try {
             SysUser sysUser = authenticationService.loadUserByUsername(username);
-            log.info(sysUser.getPassword());
-            log.info("ijdifj" + new BCryptPasswordEncoder().encode(password));
             if (!new BCryptPasswordEncoder().matches(password, sysUser.getPassword())) {
                 throw new BadCredentialsException("密码不正确");
             }
@@ -163,12 +158,13 @@ public class SysUserService {
     }
 
 
-    public int update(Long id, SysUser user) {
-        user.setId(id);
+    public int update(Long id, SysUserDTO sysUserDTO) {
+        SysUser sysUser = new SysUser();
+        BeanUtils.copyProperties(sysUserDTO, sysUser);
+        sysUser.setId(id);
 //        SysUser rawAdmin = sysUserMapper.selectByPrimaryKey(id);
         //TODO 设置值
-        user.setCreateTime(new Date());
-        int count = sysUserMapper.updateByPrimaryKeySelective(user);
+        int count = sysUserMapper.updateByPrimaryKeySelective(sysUser);
         return count;
     }
 
