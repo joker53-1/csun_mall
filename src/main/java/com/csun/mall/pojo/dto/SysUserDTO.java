@@ -33,5 +33,6 @@ public class SysUserDTO {
     private String mobile;
     @ApiModelProperty(value = "排序",required = true)
     private Integer sort;
+    private Boolean enable;
 
 }
