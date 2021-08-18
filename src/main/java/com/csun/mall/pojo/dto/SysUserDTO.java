@@ -18,20 +18,19 @@ public class SysUserDTO {
     @NotEmpty(message = "用户名不能为空")
     private String username;
     @ApiModelProperty(value = "密码")
-    @NotEmpty(message = "密码不能为空")
     private String password;
     @ApiModelProperty(value = "用户头像")
     private String icon;
     @ApiModelProperty(value = "邮箱")
     @Email(message = "邮箱格式不合法")
     private String email;
-    @ApiModelProperty(value = "用户昵称",required = true)
+    @ApiModelProperty(value = "用户昵称", required = true)
     private String nickName;
-    @ApiModelProperty(value = "姓名",required = true)
+    @ApiModelProperty(value = "姓名", required = true)
     private String name;
-    @ApiModelProperty(value = "电话号码",required = true)
+    @ApiModelProperty(value = "电话号码", required = true)
     private String mobile;
-    @ApiModelProperty(value = "排序",required = true)
+    @ApiModelProperty(value = "排序", required = true)
     private Integer sort;
     private Boolean enable;
 

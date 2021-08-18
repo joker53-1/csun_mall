@@ -42,6 +42,19 @@ public class PageResult<T> {
         return grid;
     }
 
+    public static <T, R> PageResult<T> from(List<R> list, Class<T> targetClass) {
+        PageInfo<R> pageInfo = PageInfo.of(list);
+        PageResult<T> grid = new PageResult<>();
+        grid.setPageNum(pageInfo.getPageNum());
+        grid.setPageSize(pageInfo.getPageSize());
+        grid.setTotalPage(pageInfo.getPages());
+        grid.setTotalCount(pageInfo.getTotal());
+        grid.setDataList(list.stream().map(e -> PojoConvertTool.convert(e, targetClass)).collect(Collectors.toList()));
+        return grid;
+    }
+
+
+
     public static <T, F> PageResult<T> from(PageInfo<F> pageInfo, Class<T> targetClass) {
         PageResult<T> grid = new PageResult<>();
         grid.setPageNum(pageInfo.getPageNum());

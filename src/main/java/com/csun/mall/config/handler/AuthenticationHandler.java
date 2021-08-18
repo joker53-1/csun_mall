@@ -42,6 +42,7 @@ public class AuthenticationHandler implements AuthenticationSuccessHandler, Logo
 
     private final AuthenticationService authenticationService;
     private final SysUserService sysUserService;
+
     @Autowired
     public AuthenticationHandler(AuthenticationService authenticationService, SysUserService sysUserService) {
         this.authenticationService = authenticationService;
@@ -65,7 +66,7 @@ public class AuthenticationHandler implements AuthenticationSuccessHandler, Logo
         userTokenDTO.setDeviceId(loginToken.getDeviceId());
         userTokenDTO.setToken(loginToken.getToken());
         ResponseEntity.ok(userTokenDTO);
-        ResponseData.success("登录成功！",userTokenDTO).write(response);
+        ResponseData.success("登录成功！", userTokenDTO).write(response);
     }
 
     /**
@@ -88,8 +89,7 @@ public class AuthenticationHandler implements AuthenticationSuccessHandler, Logo
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException e) throws IOException {
         if (e instanceof BadCredentialsException) {
             ResponseData.failure(RESPONSE_STATUS.BAD_CREDENTIALS_ERROR, RESPONSE_STATUS.BAD_CREDENTIALS_ERROR.value).write(response);
-        }
-        else {
+        } else {
             ResponseData.failure(RESPONSE_STATUS.USER_DISENABLE_ERROR, RESPONSE_STATUS.USER_DISENABLE_ERROR.value).write(response);
         }
     }

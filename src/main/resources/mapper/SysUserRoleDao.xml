@@ -5,7 +5,15 @@
     <select id="getRoleList" resultMap="com.csun.mall.mapper.SysRoleMapper.BaseResultMap">
         select r.*
         from sys_user_role sr left join sys_role r on sr.role_id = r.id
-        where sr.user_id = #{adminId}
+        where sr.user_id = #{userId}
+    </select>
+
+    <select id="getPermissionList" resultMap="com.csun.mall.mapper.SysPermissionMapper.BaseResultMap">
+        select p.*
+        from sys_user_role ar left join sys_role r on ar.role_id = r.id
+            left join sys_role_permission rp on r.id = rp.role_id
+            left join sys_permission p on rp.permission_id=p.id
+            where ar.user_id = #{userId} and p.id is not null
     </select>
 
 </mapper>

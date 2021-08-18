@@ -3,10 +3,7 @@ package com.csun.mall.service;
 
 import com.csun.mall.common.tools.PojoConvertTool;
 import com.csun.mall.domain.*;
-import com.csun.mall.mapper.SysUserLoginLogMapper;
-import com.csun.mall.mapper.SysUserMapper;
-import com.csun.mall.mapper.SysUserRoleMapper;
-import com.csun.mall.mapper.SysUserTokenMapper;
+import com.csun.mall.mapper.*;
 import com.csun.mall.pojo.dto.SysUserDTO;
 import com.csun.mall.web.response.PageParam;
 import com.csun.mall.web.response.PageResult;
@@ -49,8 +46,12 @@ public class SysUserService {
     @Resource
     private SysUserRoleMapper sysUserRoleMapper;
 
-//    @Autowired
-//    private SysUserRoleDao sysUserRoleDao;
+    @Resource
+    private SysUserPermissionMapper sysUserPermissionMapper;
+
+    @Resource
+    private SysUserRoleDao sysUserRoleDao;
+
 
     public SysUser getUserByUserId(Long userId) {
         return sysUserMapper.selectByPrimaryKey(userId);
@@ -62,7 +63,8 @@ public class SysUserService {
         SysUser user = sysUserMapper.selectOneByExample(example);
         return user;
     }
-    public SysUser getUserByMobile(String mobile){
+
+    public SysUser getUserByMobile(String mobile) {
         Example example = new Example(SysUser.class);
         example.createCriteria().andEqualTo("mobile", mobile);
         SysUser user = sysUserMapper.selectOneByExample(example);
@@ -86,7 +88,6 @@ public class SysUserService {
 
     public String login(String username, String password) {
         String token = null;
-        //密码需要客户端加密后传递
         try {
             SysUser sysUser = authenticationService.loadUserByUsername(username);
             if (!new BCryptPasswordEncoder().matches(password, sysUser.getPassword())) {
@@ -112,33 +113,25 @@ public class SysUserService {
         SysUserLoginLog loginLog = new SysUserLoginLog();
         loginLog.setUserId(sysUser.getId());
         loginLog.setCreateTime(new Date());
-//        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-//        HttpServletRequest request = attributes.getRequest();
         loginLog.setIp(ip);
         loginLog.setUserAgent(userAgent);
         sysUserLoginLogMapper.insert(loginLog);
     }
-
-
-    public String refreshToken(String oldToken) {
-        return null;
-    }
-
 
     public SysUser getItem(Long id) {
         return sysUserMapper.selectByPrimaryKey(id);
     }
 
 
-    public PageResult<SysUserDTO> page(String keyword,String mobile, PageParam pageParam) {
+    public PageResult<SysUserDTO> page(String keyword, String mobile, PageParam pageParam) {
         Example example = new Example(SysUser.class);
         Example.Criteria criteria = example.createCriteria();
         Example.Criteria criteria1 = example.createCriteria();
         example.orderBy("sort").desc();
-        if(StringUtils.isNotBlank(mobile)){
+        if (StringUtils.isNotBlank(mobile)) {
             criteria.andEqualTo("mobile", mobile);
         }
-        if(StringUtils.isNotBlank(keyword)){
+        if (StringUtils.isNotBlank(keyword)) {
             keyword = "%" + keyword + "%";
             criteria1.orLike("username", keyword);
             criteria1.orLike("nickName", keyword);
@@ -153,7 +146,7 @@ public class SysUserService {
 
         PageInfo<SysUser> userPages = PageHelper.startPage(pageParam)
                 .doSelectPageInfo(() -> sysUserMapper.selectByExample(example));
-        return PageResult.from(userPages,SysUserDTO.class);
+        return PageResult.from(userPages, SysUserDTO.class);
 
     }
 
@@ -170,7 +163,9 @@ public class SysUserService {
 
 
     public int delete(Long id) {
-        return 0;
+        SysUser sysUser = sysUserMapper.selectByPrimaryKey(id);
+        sysUser.setEnable(false);
+        return sysUserMapper.updateByPrimaryKeySelective(sysUser);
     }
 
 
@@ -195,23 +190,13 @@ public class SysUserService {
     }
 
 
-//    public List<SysRole> getRoleList(Long adminId) {
-//        return sysUserRoleDao.getRoleList(adminId);
-//    }
-
-
-    public List<SysResource> getResourceList(Long adminId) {
-        return null;
+    public List<SysRole> getRoleList(Long adminId) {
+        return sysUserRoleDao.getRoleList(adminId);
     }
 
 
-    public int updatePermission(Long adminId, List<Long> permissionIds) {
-        return 0;
-    }
-
-
-    public List<SysPermission> getPermissionList(Long adminId) {
-        return null;
+    public List<SysPermission> getPermissionList(Long id) {
+        return sysUserRoleDao.getPermissionList(id);
     }
 
 }
