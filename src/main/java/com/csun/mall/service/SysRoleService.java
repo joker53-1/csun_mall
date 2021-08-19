@@ -6,21 +6,16 @@ import com.csun.mall.mapper.*;
 import com.csun.mall.pojo.dto.SysRoleDTO;
 import com.csun.mall.web.response.PageResult;
 import com.github.pagehelper.PageHelper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
-
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-/**
- * 后台角色管理Service
- * Created by macro on 2018/9/30.
- */
 @Service
+@Transactional
 public class SysRoleService {
 
     @Resource
@@ -51,6 +46,7 @@ public class SysRoleService {
     /**
      * 修改角色信息
      */
+    @Transactional
     public int update(Long id, SysRole role) {
         role.setId(id);
         role.setCreateTime(new Date());

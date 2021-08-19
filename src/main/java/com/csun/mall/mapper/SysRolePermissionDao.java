@@ -4,12 +4,14 @@ import com.csun.mall.domain.SysPermission;
 import com.csun.mall.domain.SysRolePermission;
 
 import org.apache.ibatis.annotations.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 /**
  * 自定义角色权限关系管理Dao
  */
+
 public interface SysRolePermissionDao {
     /**
      * 批量插入角色和权限关系

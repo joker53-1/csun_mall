@@ -15,6 +15,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
@@ -49,6 +50,7 @@ public class UserController {
 
     @ApiOperation("根据用户名、昵称或姓名分页和手机号码获取用户列表")
     @GetMapping(value = "/page")
+    @PreAuthorize("hasAnyAuthority('USER','USER_LIST')")
     public ResponseData<PageResult<SysUserDTO>> page(@RequestParam(value = "keyword", required = false)
                                                      @ApiParam(value = "用户名、昵称或姓名") String keyword,
                                                      @RequestParam(value = "mobile", required = false)
@@ -62,6 +64,7 @@ public class UserController {
 
     @ApiOperation("获取指定用户信息")
     @GetMapping(value = "/info")
+    @PreAuthorize("hasAnyAuthority('USER','USER_LIST')")
     public ResponseData<SysUser> getItem(@RequestParam Long id) {
         SysUser user = sysUserService.getItem(id);
         return ResponseData.success(user);
@@ -69,6 +72,7 @@ public class UserController {
 
     @ApiOperation("新增管理员")
     @PutMapping(value = "/create")
+    @PreAuthorize("hasAnyAuthority('USER','USER_ADD')")
     public ResponseData<SysUserDTO> create(SysUserDTO user) {
         if (sysUserService.getUserByMobile(user.getMobile()) != null) {
             return ResponseData.failure("电话号码已存在！");
@@ -85,6 +89,7 @@ public class UserController {
 
     @ApiOperation("删除指定用户信息")
     @DeleteMapping(value = "/delete")
+    @PreAuthorize("hasAnyAuthority('USER','USER_DELETE')")
     public ResponseData delete(@RequestParam Long id) {
         int count = sysUserService.delete(id);
         if (count > 0) {
@@ -95,6 +100,7 @@ public class UserController {
 
     @ApiOperation("修改指定管理员信息")
     @PostMapping(value = "/update")
+    @PreAuthorize("hasAnyAuthority('USER','USER_EDIT')")
     public ResponseData<SysUserDTO> update(@RequestParam Long id, SysUserDTO user) {
         SysUser user1 = sysUserService.getUserByMobile(user.getMobile());
         if (user1 != null && user1.getId() != id) {
@@ -116,6 +122,7 @@ public class UserController {
 
     @ApiOperation("给用户分配角色")
     @PutMapping(value = "/role/update")
+    @PreAuthorize("hasAnyAuthority('USER','USER_EDIT')")
     @ApiImplicitParam(name = "roleIds",value = "roleIds",dataTypeClass = List.class, paramType = "query")
     public ResponseData updateRole(@RequestParam Long id,
                                    @RequestParam("roleIds")
@@ -130,6 +137,7 @@ public class UserController {
 
     @ApiOperation("获取指定用户的角色")
     @GetMapping(value = "/role")
+    @PreAuthorize("hasAnyAuthority('USER','USER_LIST')")
     public ResponseData<List<SysRole>> getRoleList(@RequestParam Long id) {
         List<SysRole> roleList = sysUserService.getRoleList(id);
         return ResponseData.success(roleList);
@@ -138,6 +146,7 @@ public class UserController {
 
     @ApiOperation("获取用户所有权限")
     @GetMapping(value = "/permission")
+    @PreAuthorize("hasAnyAuthority('USER','USER_LIST')")
     public ResponseData<List<SysPermission>> getPermissionList(@RequestParam Long id) {
         List<SysPermission> permissionList = sysUserService.getPermissionList(id);
         return ResponseData.success(permissionList);

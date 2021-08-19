@@ -108,6 +108,6 @@ public class AuthenticationHandler implements AuthenticationSuccessHandler, Logo
     @Override
     @ExceptionHandler(value = AccessDeniedException.class)
     public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException e) throws IOException {
-        ResponseData.failure(RESPONSE_STATUS.ACCESS_DENIED_ERROR, RESPONSE_STATUS.ACCESS_DENIED_ERROR.value).write(response);
+        ResponseData.failure(RESPONSE_STATUS.UNAUTHORIZED_ERROR, RESPONSE_STATUS.UNAUTHORIZED_ERROR.value).write(response);
     }
 }

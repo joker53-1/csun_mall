@@ -3,6 +3,8 @@ package com.csun.mall.mapper;
 import com.csun.mall.domain.SysPermission;
 import com.csun.mall.domain.SysRole;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
 public interface SysUserRoleDao {

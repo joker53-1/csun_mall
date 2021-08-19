@@ -12,6 +12,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
@@ -26,7 +27,8 @@ public class RoleController {
     private SysRoleService sysRoleService;
 
     @ApiOperation("添加角色")
-    @PostMapping(value = "/create")
+    @PutMapping(value = "/create")
+    @PreAuthorize("hasAnyAuthority('USER','USER_ADD')")
     public ResponseData create(SysRole sysRole) {
         int count = sysRoleService.create(sysRole);
         if (count > 0) {
@@ -36,7 +38,8 @@ public class RoleController {
     }
 
     @ApiOperation("修改角色")
-    @PutMapping(value = "/update")
+    @PostMapping(value = "/update")
+    @PreAuthorize("hasAnyAuthority('USER','USER_EDIT')")
     public ResponseData update(@RequestParam Long id, SysRole role) {
         int count = sysRoleService.update(id, role);
         if (count > 0) {
@@ -47,6 +50,7 @@ public class RoleController {
 
     @ApiOperation("批量删除角色")
     @DeleteMapping(value = "/delete")
+    @PreAuthorize("hasAnyAuthority('USER','USER_DELETE')")
     public ResponseData delete(@RequestParam("ids") List<Long> ids) {
         int count = sysRoleService.delete(ids);
         if (count > 0) {
@@ -67,6 +71,7 @@ public class RoleController {
 
     @ApiOperation("根据角色名称分页获取角色列表")
     @GetMapping(value = "/list")
+    @PreAuthorize("hasAnyAuthority('USER','USER_LIST')")
     public ResponseData<PageResult<SysRoleDTO>> list(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
                                                      @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize) {
         PageResult<SysRoleDTO> list = sysRoleService.list(pageNum, pageSize);
@@ -74,15 +79,13 @@ public class RoleController {
     }
 
     @ApiOperation("修改角色状态")
-    @PutMapping(value = "/updateenable")
+    @PostMapping(value = "/updateenable")
+    @PreAuthorize("hasAnyAuthority('USER','USER_EDIT')")
     public ResponseData updateEnable(@RequestParam Long id, @RequestParam(value = "enable") Boolean enable) {
         SysRole sysRole = new SysRole();
         sysRole.setEnable(enable);
-        int count = sysRoleService.update(id, sysRole);
-        if (count > 0) {
-            return ResponseData.success();
-        }
-        return ResponseData.failure();
+
+        return sysRoleService.update(id,sysRole)>0?ResponseData.success():ResponseData.failure();
     }
 
 //    @ApiOperation("获取角色相关菜单")
@@ -105,6 +108,7 @@ public class RoleController {
 
     @ApiOperation("获取相应角色权限")
     @GetMapping(value = "/permission")
+    @PreAuthorize("hasAnyAuthority('USER','USER_LIST')")
     public ResponseData<List<SysPermission>> getPermissionList(@RequestParam Long id) {
         List<SysPermission> permissionList = sysRoleService.getPermissionList(id);
         return ResponseData.success(permissionList);
@@ -112,6 +116,7 @@ public class RoleController {
 
     @ApiOperation("修改角色权限")
     @PostMapping(value = "/permission/update")
+    @PreAuthorize("hasAnyAuthority('USER','USER_EDIT')")
     @ApiImplicitParam(name = "permissionIds",value = "permissionIds",dataTypeClass = List.class, paramType = "query")
     public ResponseData updatePermission(@RequestParam Long id,
                                          @RequestParam("permissionIds") List<Long> permissionIds) {

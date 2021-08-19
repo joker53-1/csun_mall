@@ -8,6 +8,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class PermissionController {
 
     @ApiOperation("添加权限")
     @PutMapping(value = "/create")
+    @PreAuthorize("hasAnyAuthority('USER','USER_ADD')")
     public ResponseData create(SysPermission permission) {
         int count = sysPermissionService.create(permission);
         if (count > 0) {
@@ -31,6 +33,7 @@ public class PermissionController {
 
     @ApiOperation("修改权限")
     @PostMapping(value = "/update")
+    @PreAuthorize("hasAnyAuthority('USER','USER_EDIT')")
     public ResponseData update(@RequestParam Long id, SysPermission permission) {
         int count = sysPermissionService.update(id, permission);
         if (count > 0) {
@@ -41,6 +44,7 @@ public class PermissionController {
 
     @ApiOperation("根据id批量删除权限")
     @DeleteMapping(value = "/delete")
+    @PreAuthorize("hasAnyAuthority('USER','USER_DELETE')")
     @ApiImplicitParam(name = "ids",value = "ids",dataTypeClass = List.class, paramType = "query")
     public ResponseData delete(@RequestParam("ids") List<Long> ids) {
         int count = sysPermissionService.delete(ids);
@@ -52,6 +56,7 @@ public class PermissionController {
 
     @ApiOperation("以层级结构返回所有权限")
     @GetMapping(value = "/treeList")
+    @PreAuthorize("hasAnyAuthority('USER','USER_LIST')")
     public ResponseData<List<SysPermissionNode>> treeList() {
         List<SysPermissionNode> permissionNodeList = sysPermissionService.treeList();
         return ResponseData.success(permissionNodeList);
@@ -59,6 +64,7 @@ public class PermissionController {
 
     @ApiOperation("获取所有权限列表")
     @GetMapping(value = "/list")
+    @PreAuthorize("hasAnyAuthority('USER','USER_LIST')")
     public ResponseData<List<SysPermission>> list() {
         List<SysPermission> permissionList = sysPermissionService.list();
         return ResponseData.success(permissionList);

@@ -3,6 +3,11 @@ package com.csun.mall.config;
 import com.csun.mall.config.filter.AuthenticationFilter;
 import com.csun.mall.config.handler.AuthenticationHandler;
 import com.csun.mall.config.provider.UserAuthenticationDetailsSource;
+import com.csun.mall.domain.SysPermission;
+import com.csun.mall.domain.SysUser;
+import com.csun.mall.mapper.SysUserMapper;
+import com.csun.mall.mapper.SysUserRoleDao;
+import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -16,13 +21,23 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsUtils;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
+import tk.mybatis.mapper.entity.Example;
+
+import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author cxr
@@ -30,6 +45,7 @@ import org.springframework.web.filter.CorsFilter;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
 
     private final AuthenticationFilter authenticationFilter;
 
@@ -63,8 +79,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      *
      */
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) {
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(this.authenticationProvider);
+//        auth.userDetailsService(userDetailsService);
     }
 
     /**
@@ -121,8 +138,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return bean;
     }
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+
 }

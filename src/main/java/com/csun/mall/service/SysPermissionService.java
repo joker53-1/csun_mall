@@ -6,6 +6,7 @@ import com.csun.mall.mapper.SysPermissionMapper;
 import com.csun.mall.pojo.dto.SysPermissionNode;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@Transactional
 public class SysPermissionService {
 
     @Resource
@@ -40,6 +42,7 @@ public class SysPermissionService {
      * 批量删除权限
      */
     public int delete(List<Long> ids){
+
         Example example = new Example(SysPermission.class);
         example.createCriteria().andIn("id",ids);
         return sysPermissionMapper.deleteByExample(example);
