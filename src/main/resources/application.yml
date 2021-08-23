@@ -16,7 +16,7 @@ spring:
       max-lifetime: 1800000
       connection-test-query: select 1
   redis:
-    host: server.internal.ceeg-global.com
+    host: 10.8.8.52
     port: 6379
     database: 0
   messages:
@@ -31,23 +31,36 @@ spring:
           content:
             enabled: false
             paths: /**
-  thymeleaf:
-    cache: false
-    mode: HTML5
-    prefix: classpath:/templates/
-    suffix: .html
-    servlet:
-      content-type: text/html
   devtools:
     restart:
       enabled: true
       additional-paths: src/**
-#logging:
-#  file:
-#    name: logs/app.log
-#  level:
-#    root: ERROR
-#debug: true
+  mail:
+#    gmail
+#    host: smtp.gmail.com
+#    port: 465
+#    username: yimcarson@gmail.com
+#    password: ****************
+#    qq
+#    host: smtp.qq.com
+#    port: 587
+#    username: yimcarson@qq.com
+#    password: ************
+    # 163
+    host: smtp.163.com
+    port:
+    username: jokerni53@163.com
+    password: LHQKCZUMBUEUOQMZ
+    protocol: smtp
+    default-encoding: UTF-8
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      mail.smtp.starttls.required: true
+      mail.smtp.socketFactory.port: 465
+      mail.smtp.socketFactory.class: javax.net.ssl.SSLSocketFactory
+      mail.smtp.socketFactory.fallback: false
+
 
 #mybatis配置
 #

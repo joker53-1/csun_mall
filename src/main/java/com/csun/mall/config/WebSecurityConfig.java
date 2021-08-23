@@ -3,11 +3,6 @@ package com.csun.mall.config;
 import com.csun.mall.config.filter.AuthenticationFilter;
 import com.csun.mall.config.handler.AuthenticationHandler;
 import com.csun.mall.config.provider.UserAuthenticationDetailsSource;
-import com.csun.mall.domain.SysPermission;
-import com.csun.mall.domain.SysUser;
-import com.csun.mall.mapper.SysUserMapper;
-import com.csun.mall.mapper.SysUserRoleDao;
-import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -21,23 +16,13 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.switchuser.SwitchUserFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsUtils;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
-import tk.mybatis.mapper.entity.Example;
 
-import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author cxr
@@ -97,7 +82,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/v2/api-docs",
                         "/v3/api-docs",
                         "/webjars/**","/static/**","/swagger-ui/*","/webjars/**","/v3/**","/doc.html","/swagger-ui.html"
-                        ,"/swagger-resources/**","/v2/api-docs","/user/login","/user/register").permitAll()
+                        ,"/swagger-resources/**","/v2/api-docs","/user/login","/user/register","/customer/**").permitAll()
                 .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
                 .anyRequest().authenticated()
                 .and()

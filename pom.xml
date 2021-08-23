@@ -33,7 +33,16 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
 
+        <!--引入redis依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -79,11 +88,6 @@
             <version>1.2.12</version>
         </dependency>
 
-<!--        &lt;!&ndash;thymeleaf  &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-thymeleaf</artifactId>-->
-<!--        </dependency>-->
 
         <!-- swagger2 配置 -->
         <!--swagger2-->
@@ -92,28 +96,6 @@
             <artifactId>springfox-boot-starter</artifactId>
             <version>3.0.0</version>
         </dependency>
-<!--      -->
-<!--        <dependency>-->
-<!--            <groupId>io.springfox</groupId>-->
-<!--            <artifactId>springfox-swagger2</artifactId>-->
-<!--            <version>2.4.0</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>io.springfox</groupId>-->
-<!--            <artifactId>springfox-swagger-ui</artifactId>-->
-<!--            <version>2.4.0</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>com.github.xiaoymin</groupId>-->
-<!--            <artifactId>swagger-bootstrap-ui</artifactId>-->
-<!--            <version>1.6</version>-->
-<!--        </dependency>-->
-<!--        &lt;!&ndash;        jwt&ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>io.jsonwebtoken</groupId>-->
-<!--            <artifactId>jjwt</artifactId>-->
-<!--            <version>0.9.1</version>-->
-<!--        </dependency>-->
         <!--        apache工具类-->
         <dependency>
             <groupId>commons-codec</groupId>
@@ -145,6 +127,15 @@
             <artifactId>validation-api</artifactId>
             <version>2.0.1.Final</version>
         </dependency>
+
+        <!--        &lt;!&ndash; https://mvnrepository.com/artifact/junit/junit &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupIdjunit</groupId>-->
+<!--            <artifactId>junit</artifactId>-->
+<!--            <version>4.12</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
+
     </dependencies>
 
     <build>

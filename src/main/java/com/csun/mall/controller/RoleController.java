@@ -70,11 +70,11 @@ public class RoleController {
     }
 
     @ApiOperation("根据角色名称分页获取角色列表")
-    @GetMapping(value = "/list")
+    @GetMapping(value = "/page")
     @PreAuthorize("hasAnyAuthority('USER','USER_LIST')")
-    public ResponseData<PageResult<SysRoleDTO>> list(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+    public ResponseData<PageResult<SysRoleDTO>> page(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
                                                      @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize) {
-        PageResult<SysRoleDTO> list = sysRoleService.list(pageNum, pageSize);
+        PageResult<SysRoleDTO> list = sysRoleService.page(pageNum, pageSize);
         return ResponseData.success(list);
     }
 

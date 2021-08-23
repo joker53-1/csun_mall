@@ -100,7 +100,7 @@ public class SysRoleService {
     /**
      * 分页获取角色列表
      */
-    public PageResult<SysRoleDTO> list(Integer pageNum, Integer pageSize) {
+    public PageResult<SysRoleDTO> page(Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<SysRole> list = sysRoleMapper.selectAll();
         return PageResult.from(list, SysRoleDTO.class);

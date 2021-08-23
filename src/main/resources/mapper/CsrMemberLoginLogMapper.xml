@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csun.mall.mapper.CsrMemberLoginLogMapper" >
+  <resultMap id="BaseResultMap" type="com.csun.mall.domain.CsrMemberLoginLog" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="member_id" property="memberId" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="login_type" property="loginType" jdbcType="INTEGER" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+  </resultMap>
+</mapper>

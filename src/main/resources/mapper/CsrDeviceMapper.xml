@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csun.mall.mapper.CsrDeviceMapper" >
+  <resultMap id="BaseResultMap" type="com.csun.mall.domain.CsrDevice" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="info" property="info" jdbcType="VARCHAR" />
+    <result column="token" property="token" jdbcType="VARCHAR" />
+    <result column="creator_ip" property="creatorIp" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="last_sync_ip" property="lastSyncIp" jdbcType="VARCHAR" />
+    <result column="last_sync_time" property="lastSyncTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+</mapper>
