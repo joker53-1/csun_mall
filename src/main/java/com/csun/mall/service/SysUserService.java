@@ -88,21 +88,20 @@ public class SysUserService {
     }
 
 
-    public String login(String username, String password) {
-        String token = null;
-        try {
-            SysUser sysUser = authenticationService.loadUserByUsername(username);
-            if (!new BCryptPasswordEncoder().matches(password, sysUser.getPassword())) {
-                throw new BadCredentialsException("密码不正确");
-            }
-
-            insertLoginLog(username, null, null);
-            authenticationService.generalUserToken(sysUser, null);
-        } catch (AuthenticationException e) {
-            log.warn("登录异常:{}", e.getMessage());
-        }
-        return token;
-    }
+//    public String login(String username, String password) {
+//        String token = null;
+//        try {
+//            SysUser sysUser = authenticationService.loadUserByUsername(username);
+//            if (!new BCryptPasswordEncoder().matches(password, sysUser.getPassword())) {
+//                throw new BadCredentialsException("密码不正确");
+//            }
+//            insertLoginLog(username, null, null);
+//            authenticationService.generalUserToken(sysUser, null);
+//        } catch (AuthenticationException e) {
+//            log.warn("登录异常:{}", e.getMessage());
+//        }
+//        return token;
+//    }
 
     /**
      * 添加登录记录
