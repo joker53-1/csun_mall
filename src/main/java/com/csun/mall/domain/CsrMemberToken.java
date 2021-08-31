@@ -25,7 +25,7 @@ public class CsrMemberToken {
     private Long memberId;
 
     @Column(name = "device_id")
-    private Long deviceId;
+    private String deviceId;
 
     private String token;
 
@@ -89,14 +89,14 @@ public class CsrMemberToken {
     /**
      * @return device_id
      */
-    public Long getDeviceId() {
+    public String getDeviceId() {
         return deviceId;
     }
 
     /**
      * @param deviceId
      */
-    public void setDeviceId(Long deviceId) {
+    public void setDeviceId(String deviceId) {
         this.deviceId = deviceId;
     }
 

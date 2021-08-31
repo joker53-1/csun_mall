@@ -10,7 +10,7 @@
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="ip" property="ip" jdbcType="VARCHAR" />
     <result column="city" property="city" jdbcType="VARCHAR" />
-    <result column="login_type" property="loginType" jdbcType="INTEGER" />
+    <result column="user_agent" property="userAgent" jdbcType="VARCHAR" />
     <result column="province" property="province" jdbcType="VARCHAR" />
   </resultMap>
 </mapper>

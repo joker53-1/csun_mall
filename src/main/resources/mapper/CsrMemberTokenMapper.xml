@@ -8,7 +8,7 @@
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="enable" property="enable" jdbcType="BIT" />
     <result column="member_id" property="memberId" jdbcType="BIGINT" />
-    <result column="device_id" property="deviceId" jdbcType="BIGINT" />
+    <result column="device_id" property="deviceId" jdbcType="VARCHAR" />
     <result column="token" property="token" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
   </resultMap>

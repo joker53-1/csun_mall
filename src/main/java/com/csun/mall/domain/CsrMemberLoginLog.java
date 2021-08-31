@@ -26,13 +26,15 @@ public class CsrMemberLoginLog {
     /**
      * 登录类型：0->PC；1->android;2->ios;3->小程序
      */
-    @Column(name = "login_type")
-    private Integer loginType;
+    @Column(name = "user_agent")
+    private String userAgent;
 
     /**
      * 省份
      */
     private String province;
+
+
 
     /**
      * @return id
@@ -108,24 +110,14 @@ public class CsrMemberLoginLog {
         this.city = city;
     }
 
-    /**
-     * 获取登录类型：0->PC；1->android;2->ios;3->小程序
-     *
-     * @return login_type - 登录类型：0->PC；1->android;2->ios;3->小程序
-     */
-    public Integer getLoginType() {
-        return loginType;
+
+    public String getUserAgent() {
+        return userAgent;
     }
 
-    /**
-     * 设置登录类型：0->PC；1->android;2->ios;3->小程序
-     *
-     * @param loginType 登录类型：0->PC；1->android;2->ios;3->小程序
-     */
-    public void setLoginType(Integer loginType) {
-        this.loginType = loginType;
+    public void setUserAgent(String userAgent) {
+        this.userAgent = userAgent;
     }
-
     /**
      * 获取省份
      *

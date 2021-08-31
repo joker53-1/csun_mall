@@ -1,4 +1,4 @@
-package com.csun.mall.controller;
+package com.csun.mall.controller.sysuser;
 
 import com.csun.mall.common.tools.PojoConvertTool;
 import com.csun.mall.domain.SysPermission;

@@ -44,4 +44,8 @@ public class CsrMemberDTO {
     private String job;
 
     private String personalizedSignature;
+
+    private String deviceId;
+
+    private String token;
 }

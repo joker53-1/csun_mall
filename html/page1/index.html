@@ -6,11 +6,14 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <link rel="stylesheet" href="../static1/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
     <title>CSUN Mall</title>
     <link rel="shortcut icon" href="img/foodie.ico"   />
-
-    <link href="../static1/css/app.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" th:href="@{/static/owlcarousel/assets/owl.carousel.css}">
+    <link rel="stylesheet" th:href="@{/static/owlcarousel/assets/owl.theme.default.css}">
+    <link href="../static/css/app.css" rel="stylesheet" type="text/css" />
+    <script th:src="@{/static/js/jquery-3.5.1.min.js}"></script>
+    <script th:src="@{/static/owlcarousel/owl.carousel.js}"></script>
 
 </head>
 <body>
@@ -42,10 +45,10 @@
 
                             <div class="header-wrapper-right-social">
                                 <ul class="header-social-icon">
-                                    <li><a href=""><img src="../static1/pic/facebook%20(2).png" alt=""></a></li>
-                                    <li><a href=""><img src="../static1/pic/twitter.png" alt=""></a></li>
-                                    <li><a href=""><img height="26" width="26" src="../static1/pic/chat.png" alt=""></a></li>
-                                    <li><a href=""><img height="24" width="24" src="../static1/pic/linkedin-in.png" alt=""></a></li>
+                                    <li><a href=""><img src="../static/pic/facebook%20(2).png" alt=""></a></li>
+                                    <li><a href=""><img src="../static/pic/twitter.png" alt=""></a></li>
+                                    <li><a href=""><img height="26" width="26" src="../static/pic/chat.png" alt=""></a></li>
+                                    <li><a href=""><img height="24" width="24" src="../static/pic/linkedin-in.png" alt=""></a></li>
                                 </ul>
                             </div>
 
@@ -79,7 +82,7 @@
 <!--                    右边的关闭符号-->
                     <button id="announcement-bar--close" type="button" aria-label="TopbarClose" class="header-close-btn" >
                         <span class="header-close-btn-icon">
-                            <img width="22" height="22" src="../static1/pic/close.png" alt="">
+                            <img width="22" height="22" src="../static/pic/close.png" alt="">
                         </span>
                     </button>
 
@@ -96,7 +99,7 @@
                         <div class="row">
                             <div class="header-nav-left col-3">
                                    <a href="">
-                                       <img width="142" height="50" src="../static1/pic/logo-1.png" alt="">
+                                       <img width="142" height="50" src="../static/pic/logo-1.png" alt="">
                                    </a>
                             </div>
 
@@ -114,17 +117,17 @@
                                             <input name="q" type="text" placeholder="Search for products..." autocomplete="off">
                                             <button type="submit" class="btn-search">
                                                 <span class="svg-element-ui">
-                                                   <img src="../static1/pic/seach.png" alt="">
+                                                   <img src="../static/pic/seach.png" alt="">
                                                 </span>
                                             </button>
                                         </form>
                                     </div>
                                     
                                     <div class="header-nav-right-icons">
-                                        <a href="" class="header-nav-right-icons-p"><img width="24" height="24" src="../static1/pic/my.png" alt=""></a>
+                                        <a href="" class="header-nav-right-icons-p"><img width="24" height="24" src="../static/pic/my.png" alt=""></a>
                                         <a href="" class="header-nav-right-icons-p">
                                             <span>
-                                            <img width="24" height="24" src="../static1/pic/fav.png" alt="">
+                                            <img width="24" height="24" src="../static/pic/fav.png" alt="">
                                             </span>
                                             <span class="number">
                                                 <span class="number-item">0</span>
@@ -133,7 +136,7 @@
 
                                         <a href="" class="header-nav-right-icons-p">
                                             <span>
-                                            <img width="24" height="24" src="../static1/pic/data.png" alt="">
+                                            <img width="24" height="24" src="../static/pic/data.png" alt="">
                                             </span>
                                             <span class="number">
                                                 <span class="number-item">0</span>
@@ -142,7 +145,7 @@
 
                                         <a href="" class="header-nav-right-icons-p" id="cart">
                                              <span>
-                                            <img width="24" height="24" src="../static1/pic/cart.png" alt="">
+                                            <img width="24" height="24" src="../static/pic/cart.png" alt="">
                                             </span>
                                             <span class="number">
                                                 <span class="number-item">0</span>
@@ -177,7 +180,7 @@
                                                                     <div class="shopping-cart-col-3">
                                                                         <div class="img-style">
                                                                             <a href="">
-                                                                                <img sizes="80px" src="../static1/pic/change/product.png" alt="">
+                                                                                <img sizes="80px" src="../static/pic/change/product.png" alt="">
                                                                             </a>
                                                                         </div>
                                                                     </div>
@@ -219,7 +222,7 @@
                                                                     <div class="shopping-cart-col-3">
                                                                         <div class="img-style">
                                                                             <a href="">
-                                                                                <img sizes="80px" src="../static1/pic/change/product.png" alt="">
+                                                                                <img sizes="80px" src="../static/pic/change/product.png" alt="">
                                                                             </a>
                                                                         </div>
                                                                     </div>
@@ -261,7 +264,7 @@
                                                                     <div class="shopping-cart-col-3">
                                                                         <div class="img-style">
                                                                             <a href="">
-                                                                                <img sizes="80px" src="../static1/pic/change/product.png" alt="">
+                                                                                <img sizes="80px" src="../static/pic/change/product.png" alt="">
                                                                             </a>
                                                                         </div>
                                                                     </div>
@@ -303,7 +306,7 @@
                                                                     <div class="shopping-cart-col-3">
                                                                         <div class="img-style">
                                                                             <a href="">
-                                                                                <img sizes="80px" src="../static1/pic/change/product.png" alt="">
+                                                                                <img sizes="80px" src="../static/pic/change/product.png" alt="">
                                                                             </a>
                                                                         </div>
                                                                     </div>
@@ -346,7 +349,7 @@
                                                                     <div class="shopping-cart-col-3">
                                                                         <div class="img-style">
                                                                             <a href="">
-                                                                                <img sizes="80px" src="../static1/pic/change/product.png" alt="">
+                                                                                <img sizes="80px" src="../static/pic/change/product.png" alt="">
                                                                             </a>
                                                                         </div>
                                                                     </div>
@@ -613,7 +616,7 @@
                             <div class="row">
                                 <div class="header-mobile-col-1 col-6">
                                     <div class="header-mobile-logo-wrapper">
-                                        <a href=""> <img width="140" height="50" src="../static1/pic/logo-1.png" alt=""></a>
+                                        <a href=""> <img width="140" height="50" src="../static/pic/logo-1.png" alt=""></a>
                                     </div>
                                 </div>
                                 <div class="header-mobile-col-2 col-6">
@@ -651,7 +654,7 @@
                                         <input name="q" type="text" placeholder="Search for products..." autocomplete="off">
                                         <button type="submit" class="btn-search">
                                                 <span class="svg-element-ui">
-                                                   <img src="../static1/pic/seach.png" alt="">
+                                                   <img src="../static/pic/seach.png" alt="">
                                                 </span>
                                         </button>
                                     </form>
@@ -669,13 +672,43 @@
     <main>
         <div class="contain-wrapper">
 <!--            banner部分-->
-            <div class="mall-section banner">
-                <div class="container mall-banner-size">
-                    <div class="mall-section-content">
-                        <a class="mall-section-content-bg" href=""><img src="../static1/pic/change/banner.png" alt=""></a>
-                    </div>
-                </div>
+<!--            <div class="mall-section banner">-->
+<!--                <div class="container mall-banner-size">-->
+<!--&lt;!&ndash;                    <a th:href="@{'/news/Super-black'}">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="item"&ndash;&gt;-->
+<!--&lt;!&ndash;                             style="width: 100%;height: 880px;background: url(../static/pic/change/banner.png) no-repeat top center;"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="item"&ndash;&gt;-->
+<!--&lt;!&ndash;                         style="width: 100%;height: 880px;background: url(../static/pic/change/banner.png) no-repeat top center;"></div>&ndash;&gt;-->
+
+<!--                    <div class="mall-section-content">-->
+<!--                        <a class="mall-section-content-bg" href=""><img src="../static/pic/change/banner.png" alt=""></a>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--            </div>-->
+            <div class="banner owl-carousel owl-theme" id="owl-demo">
+                <a th:href="@{'/news/Super-black'}">
+                    <div class="item"
+                         style="width: 100%;height: 880px;background: url(//csunsolartech.oss-accelerate.aliyuncs.com/o/csun/image/pic/20210617105458.jpg) no-repeat top center;background-size: cover;"></div>
+                </a>
+                <div class="item"
+                     style="width: 100%;height: 880px;background: url(//csunsolartech.oss-accelerate.aliyuncs.com/o/csun/image/pic/20210617105049.jpg) no-repeat top center;background-size: cover;"></div>
+
             </div>
+            <script>
+                $(document).ready(function () {
+                    $("#owl-demo").owlCarousel({
+                        loop: true,
+                        items: 1,
+                        autoplay: true,
+                        autoplayTimeout: 6000,
+                        autoplayHoverPause: true,
+                        autoplaySpeed: 2000,
+
+                    });
+                });
+            </script>
 
 <!--            副banner-->
             <div class="mall-section-second">
@@ -685,11 +718,11 @@
                             <div class="mall-section-second-content-body">
                                 <div class="d-grid">
                                     <div class="mall-section-second-content-body-left">
-                                        <img src="../static1/pic/change/second-one.png" alt="" sizes="605px">
+                                        <img src="../static/pic/change/second-one.png" alt="" sizes="605px">
 
                                     </div>
                                     <div class="mall-section-second-content-body-right">
-                                        <img src="../static1/pic/change/second-2.png" alt="" sizes="605px">
+                                        <img src="../static/pic/change/second-2.png" alt="" sizes="605px">
                                     </div>
                                 </div>
 
@@ -715,26 +748,26 @@
                                       <li class="product-section-item ">
                                           <div class="product-section-item-wrapper">
                                               <div class="product-wrapper-header">
-                                                  <img width="196" height="196" src="../static1/pic/change/product.png" alt="">
+                                                  <img width="196" height="196" src="../static/pic/change/product.png" alt="">
                                                   <div class="sale">
                                                       <span class="label_ui-sale">sale</span>
                                                   </div>
                                                   <div class="product-icon" >
                                                       <span class="product-icon-button">
                                                         <a href="">
-                                                            <img width="20" height="20" src="../static1/pic/fav-l.png" alt="">
+                                                            <img width="20" height="20" src="../static/pic/fav-l.png" alt="">
                                                         </a>
                                                       </span>
 
                                                       <span class="product-icon-button">
                                                         <a href="">
-                                                            <img width="20" height="20" src="../static1/pic/data-l.png" alt="">
+                                                            <img width="20" height="20" src="../static/pic/data-l.png" alt="">
                                                         </a>
                                                       </span>
 
                                                       <span class="product-icon-button">
                                                        <a href="">
-                                                           <img width="20" height="20" src="../static1/pic/seach.png" alt="">
+                                                           <img width="20" height="20" src="../static/pic/seach.png" alt="">
                                                        </a>
                                                      </span>
 
@@ -757,26 +790,26 @@
                                       <li class="product-section-item">
                                           <div class="product-section-item-wrapper">
                                               <div class="product-wrapper-header">
-                                                  <img width="196" height="196" src="../static1/pic/change/product.png" alt="">
+                                                  <img width="196" height="196" src="../static/pic/change/product.png" alt="">
                                                   <div class="sale">
                                                       <span class="label_ui-sale">sale</span>
                                                   </div>
                                                   <div class="product-icon" >
                                                       <span class="product-icon-button">
                                                         <a href="">
-                                                            <img width="20" height="20" src="../static1/pic/fav-l.png" alt="">
+                                                            <img width="20" height="20" src="../static/pic/fav-l.png" alt="">
                                                         </a>
                                                       </span>
 
                                                       <span class="product-icon-button">
                                                         <a href="">
-                                                            <img width="20" height="20" src="../static1/pic/data-l.png" alt="">
+                                                            <img width="20" height="20" src="../static/pic/data-l.png" alt="">
                                                         </a>
                                                       </span>
 
                                                       <span class="product-icon-button">
                                                        <a href="">
-                                                           <img width="20" height="20" src="../static1/pic/seach.png" alt="">
+                                                           <img width="20" height="20" src="../static/pic/seach.png" alt="">
                                                        </a>
                                                      </span>
 
@@ -799,26 +832,26 @@
                                       <li class="product-section-item">
                                           <div class="product-section-item-wrapper">
                                               <div class="product-wrapper-header">
-                                                  <img width="196" height="196" src="../static1/pic/change/product.png" alt="">
+                                                  <img width="196" height="196" src="../static/pic/change/product.png" alt="">
                                                   <div class="sale">
                                                       <span class="label_ui-sale">sale</span>
                                                   </div>
                                                   <div class="product-icon" >
                                                       <span class="product-icon-button">
                                                         <a href="">
-                                                            <img width="20" height="20" src="../static1/pic/fav-l.png" alt="">
+                                                            <img width="20" height="20" src="../static/pic/fav-l.png" alt="">
                                                         </a>
                                                       </span>
 
                                                       <span class="product-icon-button">
                                                         <a href="">
-                                                            <img width="20" height="20" src="../static1/pic/data-l.png" alt="">
+                                                            <img width="20" height="20" src="../static/pic/data-l.png" alt="">
                                                         </a>
                                                       </span>
 
                                                       <span class="product-icon-button">
                                                        <a href="">
-                                                           <img width="20" height="20" src="../static1/pic/seach.png" alt="">
+                                                           <img width="20" height="20" src="../static/pic/seach.png" alt="">
                                                        </a>
                                                      </span>
 
@@ -841,26 +874,26 @@
                                       <li class="product-section-item">
                                           <div class="product-section-item-wrapper">
                                               <div class="product-wrapper-header">
-                                                  <img width="196" height="196" src="../static1/pic/change/product.png" alt="">
+                                                  <img width="196" height="196" src="../static/pic/change/product.png" alt="">
                                                   <div class="sale">
                                                       <span class="label_ui-sale">sale</span>
                                                   </div>
                                                   <div class="product-icon" >
                                                       <span class="product-icon-button">
                                                         <a href="">
-                                                            <img width="20" height="20" src="../static1/pic/fav-l.png" alt="">
+                                                            <img width="20" height="20" src="../static/pic/fav-l.png" alt="">
                                                         </a>
                                                       </span>
 
                                                       <span class="product-icon-button">
                                                         <a href="">
-                                                            <img width="20" height="20" src="../static1/pic/data-l.png" alt="">
+                                                            <img width="20" height="20" src="../static/pic/data-l.png" alt="">
                                                         </a>
                                                       </span>
 
                                                       <span class="product-icon-button">
                                                        <a href="">
-                                                           <img width="20" height="20" src="../static1/pic/seach.png" alt="">
+                                                           <img width="20" height="20" src="../static/pic/seach.png" alt="">
                                                        </a>
                                                      </span>
 
@@ -883,26 +916,26 @@
                                       <li class="product-section-item">
                                           <div class="product-section-item-wrapper">
                                               <div class="product-wrapper-header">
-                                                  <img width="196" height="196" src="../static1/pic/change/product.png" alt="">
+                                                  <img width="196" height="196" src="../static/pic/change/product.png" alt="">
                                                   <div class="sale">
                                                       <span class="label_ui-sale">sale</span>
                                                   </div>
                                                   <div class="product-icon" >
                                                       <span class="product-icon-button">
                                                         <a href="">
-                                                            <img width="20" height="20" src="../static1/pic/fav-l.png" alt="">
+                                                            <img width="20" height="20" src="../static/pic/fav-l.png" alt="">
                                                         </a>
                                                       </span>
 
                                                       <span class="product-icon-button">
                                                         <a href="">
-                                                            <img width="20" height="20" src="../static1/pic/data-l.png" alt="">
+                                                            <img width="20" height="20" src="../static/pic/data-l.png" alt="">
                                                         </a>
                                                       </span>
 
                                                       <span class="product-icon-button">
                                                        <a href="">
-                                                           <img width="20" height="20" src="../static1/pic/seach.png" alt="">
+                                                           <img width="20" height="20" src="../static/pic/seach.png" alt="">
                                                        </a>
                                                      </span>
 
@@ -925,26 +958,26 @@
                                       <li class="product-section-item">
                                           <div class="product-section-item-wrapper">
                                               <div class="product-wrapper-header">
-                                                  <img width="196" height="196" src="../static1/pic/change/product.png" alt="">
+                                                  <img width="196" height="196" src="../static/pic/change/product.png" alt="">
                                                   <div class="sale">
                                                       <span class="label_ui-sale">sale</span>
                                                   </div>
                                                   <div class="product-icon" >
                                                       <span class="product-icon-button">
                                                         <a href="">
-                                                            <img width="20" height="20" src="../static1/pic/fav-l.png" alt="">
+                                                            <img width="20" height="20" src="../static/pic/fav-l.png" alt="">
                                                         </a>
                                                       </span>
 
                                                       <span class="product-icon-button">
                                                         <a href="">
-                                                            <img width="20" height="20" src="../static1/pic/data-l.png" alt="">
+                                                            <img width="20" height="20" src="../static/pic/data-l.png" alt="">
                                                         </a>
                                                       </span>
 
                                                       <span class="product-icon-button">
                                                        <a href="">
-                                                           <img width="20" height="20" src="../static1/pic/seach.png" alt="">
+                                                           <img width="20" height="20" src="../static/pic/seach.png" alt="">
                                                        </a>
                                                      </span>
 
@@ -967,26 +1000,26 @@
                                       <li class="product-section-item">
                                           <div class="product-section-item-wrapper">
                                               <div class="product-wrapper-header">
-                                                  <img width="196" height="196" src="../static1/pic/change/product.png" alt="">
+                                                  <img width="196" height="196" src="../static/pic/change/product.png" alt="">
                                                   <div class="sale">
                                                       <span class="label_ui-sale">sale</span>
                                                   </div>
                                                   <div class="product-icon" >
                                                       <span class="product-icon-button">
                                                         <a href="">
-                                                            <img width="20" height="20" src="../static1/pic/fav-l.png" alt="">
+                                                            <img width="20" height="20" src="../static/pic/fav-l.png" alt="">
                                                         </a>
                                                       </span>
 
                                                       <span class="product-icon-button">
                                                         <a href="">
-                                                            <img width="20" height="20" src="../static1/pic/data-l.png" alt="">
+                                                            <img width="20" height="20" src="../static/pic/data-l.png" alt="">
                                                         </a>
                                                       </span>
 
                                                       <span class="product-icon-button">
                                                        <a href="">
-                                                           <img width="20" height="20" src="../static1/pic/seach.png" alt="">
+                                                           <img width="20" height="20" src="../static/pic/seach.png" alt="">
                                                        </a>
                                                      </span>
 
@@ -1009,26 +1042,26 @@
                                       <li class="product-section-item">
                                           <div class="product-section-item-wrapper">
                                               <div class="product-wrapper-header">
-                                                  <img width="196" height="196" src="../static1/pic/change/product.png" alt="">
+                                                  <img width="196" height="196" src="../static/pic/change/product.png" alt="">
                                                   <div class="sale">
                                                       <span class="label_ui-sale">sale</span>
                                                   </div>
                                                   <div class="product-icon" >
                                                       <span class="product-icon-button">
                                                         <a href="">
-                                                            <img width="20" height="20" src="../static1/pic/fav-l.png" alt="">
+                                                            <img width="20" height="20" src="../static/pic/fav-l.png" alt="">
                                                         </a>
                                                       </span>
 
                                                       <span class="product-icon-button">
                                                         <a href="">
-                                                            <img width="20" height="20" src="../static1/pic/data-l.png" alt="">
+                                                            <img width="20" height="20" src="../static/pic/data-l.png" alt="">
                                                         </a>
                                                       </span>
 
                                                       <span class="product-icon-button">
                                                        <a href="">
-                                                           <img width="20" height="20" src="../static1/pic/seach.png" alt="">
+                                                           <img width="20" height="20" src="../static/pic/seach.png" alt="">
                                                        </a>
                                                      </span>
 
@@ -1070,7 +1103,7 @@
                 <div class="footer-container row ">
                     <div class="footer-container-left col-md-5  visible-xs visible-md visible-sm visible-lg">
                         <div class="footer-logo">
-                            <img src="../static1/pic/logo-1.png" alt="">
+                            <img src="../static/pic/logo-1.png" alt="">
                         </div>
 
                         <div class="footer-call-us">
@@ -1084,17 +1117,17 @@
 
                         <div class="footter-address">
                             <strong class="footer-address-title">Contact Info</strong>
-                            <span><img height="26" width="26" src="../static1/pic/mail%20(3).png" alt=""></span>
+                            <span><img height="26" width="26" src="../static/pic/mail%20(3).png" alt=""></span>
                             <span class="footer-address-sales">sales@chinasunergy.com</span>
                         </div>
 
                         <div class="footer-social-icons">
                             <ul class="social-icons footer-social-list-icon">
 
-                                    <li><a href=""><img height="34" width="34" src="../static1/pic/facebook%20(2).png" alt=""></a></li>
-                                    <li><a href=""><img height="34" width="34" src="../static1/pic/twitter.png" alt=""></a></li>
-                                    <li><a href=""><img height="30" width="30" src="../static1/pic/chat.png" alt=""></a></li>
-                                    <li><a href=""><img height="26" width="26" src="../static1/pic/linkedin-in.png" alt=""></a></li>
+                                    <li><a href=""><img height="34" width="34" src="../static/pic/facebook%20(2).png" alt=""></a></li>
+                                    <li><a href=""><img height="34" width="34" src="../static/pic/twitter.png" alt=""></a></li>
+                                    <li><a href=""><img height="30" width="30" src="../static/pic/chat.png" alt=""></a></li>
+                                    <li><a href=""><img height="26" width="26" src="../static/pic/linkedin-in.png" alt=""></a></li>
 
 
                             </ul>
@@ -1177,7 +1210,7 @@
                         <span>Copyright © 2020 Mymedi. All Rights Reserved</span>
                     </div>
                     <div class="footer-copy-content-pic ">
-                    <img height="40" width="350" src="../static1/pic/copyright.png" alt="">
+                    <img height="40" width="350" src="../static/pic/copyright.png" alt="">
                    </div>
                 </div>
             </div>
@@ -1239,7 +1272,7 @@
                         <div class="mobile-bar-cart mobile-bar relative">
                             <a   href="" class="btn">
                             <span class="svg-element-ui">
-                                 <img width="25" height="23" src="../static1/pic/cart.png" alt="">
+                                 <img width="25" height="23" src="../static/pic/cart.png" alt="">
                             </span>
                              <span class="number">
                                 <span>0</span>

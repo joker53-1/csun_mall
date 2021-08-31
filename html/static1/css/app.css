@@ -1160,7 +1160,7 @@ p,li,a,i,em,strong,button,input,div,span{
     opacity: 1;
 }
 .color-item .color-item-label:after{
-    content: url(../../static1/pic/g.svg);
+    content: url(../../static/pic/g.svg);
     opacity: 0;
     transform: translate(-50%, -50%);
     position: absolute;

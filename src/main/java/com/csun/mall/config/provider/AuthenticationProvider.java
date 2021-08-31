@@ -41,10 +41,6 @@ public class AuthenticationProvider implements org.springframework.security.auth
 
     @Autowired
     private SysUserService sysUserService;
-//    @Autowired
-//    public AuthenticationProvider(DeviceService deviceService) {
-//        this.deviceService = deviceService;
-//    }
 
     /**
      *

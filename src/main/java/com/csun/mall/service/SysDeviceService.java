@@ -27,6 +27,7 @@ public class SysDeviceService {
             }
         }
         SysDevice device = new SysDevice();
+        device.setCreatorIp(ip);
         device.setCode(UUID.randomUUID().toString());
         device.setCreateTime(new Date());
         device.setInfo(userAgent);
