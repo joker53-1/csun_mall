@@ -30,9 +30,6 @@ public class ProductService {
     private ProductItemDao productItemDao;
 
     @Resource
-    private ProductCategoryMapper productCategoryMapper;
-
-    @Resource
     private ProductAttributeValueMapper productAttributeValueMapper;
     @Resource
     private ProductItemMapper productItemMapper;
@@ -49,10 +46,6 @@ public class ProductService {
 //        if(catId!=null)
         return productItemDao.getProducts(catId);
 //        return null;
-    }
-
-    public List<ProductCategory> getTypeList() {
-        return productCategoryMapper.selectAll();
     }
 
     public int create(ProductParam productParam) {

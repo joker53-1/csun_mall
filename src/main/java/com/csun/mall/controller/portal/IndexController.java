@@ -2,8 +2,10 @@ package com.csun.mall.controller.portal;
 
 import com.csun.mall.domain.Products;
 import com.csun.mall.pojo.dto.ProductsDTO;
+import com.csun.mall.service.CategoryService;
 import com.csun.mall.service.ProductService;
 import org.apache.commons.lang3.ObjectUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,16 +25,19 @@ import java.util.stream.Collectors;
 @Controller
 @RequestMapping("index")
 public class IndexController {
-    @Resource
+
+    @Autowired
     private ProductService productsService;
 
+    @Autowired
+    private CategoryService categoryService;
 
 
     @GetMapping("/products")
     public String getListProduct(Long typeCode, Model model) {
         List<ProductsDTO> list = productsService.getProductList(typeCode);
         model.addAttribute("productList", list);
-        model.addAttribute("productTypeList", productsService.getTypeList());
+        model.addAttribute("productTypeList", categoryService.getTypeList());
         return "/index";
     }
 
@@ -40,7 +45,7 @@ public class IndexController {
     public String getListProductByType(Long typeCode, Model model) {
         List<ProductsDTO> list = productsService.getProductList(typeCode);
         model.addAttribute("productList", list);
-        model.addAttribute("productTypeList", productsService.getTypeList());
+        model.addAttribute("productTypeList", categoryService.getTypeList());
         return "/product_all";
     }
     @GetMapping("/product")
@@ -58,19 +63,8 @@ public class IndexController {
         model.addAttribute("currentProduct", productsDTO);
         model.addAttribute("productList",collect);
         model.addAttribute("currentHeaderType", "Products");
+        //todo
         model.addAttribute("productList1", collect1.subList(0,1));
-//        Products products = list.stream().filter(e -> e.getId().equals(id)).findFirst().orElse(new Products());
-//        if (ObjectUtils.isEmpty(products)) {
-//            return "index";
-//        }
-//        List<Products> collect = list.stream().filter(e -> e.getTypeCode().equals(products.getTypeCode())).filter(e -> !e.getId().equals(id)).collect(Collectors.toList());
-//        List<Products> collect1 = list.stream().sorted(Comparator.comparing(Products::getSort)).filter(e -> !e.getId().equals(id)).collect(Collectors.toList());
-//        Collections.reverse(collect1);
-//        model.addAttribute("currentProduct", products);
-//        // 同类型其他产品
-//        model.addAttribute("productList", collect);
-//        model.addAttribute("currentHeaderType", "Products");
-//        model.addAttribute("productList1", collect1.subList(0,5));
         return "/product";
 
     }
@@ -84,7 +78,7 @@ public class IndexController {
     public String getProductlist(Long typeCode, Model model){
         List<ProductsDTO> list = productsService.getProductList(typeCode);
         model.addAttribute("productList", list);
-        model.addAttribute("productTypeList", productsService.getTypeList());
+        model.addAttribute("productTypeList", categoryService.getTypeList());
         return "/product_all";
     }
 

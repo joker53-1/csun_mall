@@ -8,7 +8,17 @@ public class ProductCategory {
     @Id
     private Long id;
 
+    private Long parentId;
+
     private String name;
+
+    public Long getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(Long parentId) {
+        this.parentId = parentId;
+    }
 
     private Integer sort;
 

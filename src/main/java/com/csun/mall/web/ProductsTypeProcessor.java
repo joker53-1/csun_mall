@@ -1,6 +1,7 @@
 package com.csun.mall.web;
 
 import com.csun.mall.domain.ProductCategory;
+import com.csun.mall.service.CategoryService;
 import com.csun.mall.service.ProductService;
 import org.springframework.context.ApplicationContext;
 import org.thymeleaf.context.ITemplateContext;
@@ -36,8 +37,8 @@ public class ProductsTypeProcessor extends AbstractElementTagProcessor {
                              IProcessableElementTag tag,
                              IElementTagStructureHandler structureHandler) {
         ApplicationContext applicationContext = SpringContextUtils.getApplicationContext(context);
-        ProductService productsTypeService = (ProductService) applicationContext.getBean("productService");
-        List<ProductCategory> list = productsTypeService.getTypeList();
+        CategoryService categoryService = (CategoryService) applicationContext.getBean("categoryService");
+        List<ProductCategory> list = categoryService.getTypeList();
         structureHandler.setLocalVariable("productTypeList", list);
     }
 

@@ -7,6 +7,7 @@ import com.csun.mall.pojo.dto.ProductAttributeParam;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
@@ -18,6 +19,7 @@ import java.util.concurrent.Executors;
  * @create 2021/9/3 14:09
  */
 @Service
+@Transactional
 public class ProductAttributeService {
 
     @Resource
