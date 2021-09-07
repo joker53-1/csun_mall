@@ -71,7 +71,7 @@ public class UserController {
     }
 
     @ApiOperation("新增管理员")
-    @PutMapping(value = "/create")
+    @PostMapping(value = "/create")
     @PreAuthorize("hasAnyAuthority('USER','USER_ADD')")
     public ResponseData<SysUserDTO> create(SysUserDTO user) {
         if (sysUserService.getUserByMobile(user.getMobile()) != null) {
@@ -99,7 +99,7 @@ public class UserController {
     }
 
     @ApiOperation("修改指定管理员信息")
-    @PostMapping(value = "/update")
+    @PutMapping(value = "/update")
     @PreAuthorize("hasAnyAuthority('USER','USER_EDIT')")
     public ResponseData<SysUserDTO> update(@RequestParam Long id, SysUserDTO user) {
         SysUser user1 = sysUserService.getUserByMobile(user.getMobile());
@@ -121,7 +121,7 @@ public class UserController {
     }
 
     @ApiOperation("给用户分配角色")
-    @PutMapping(value = "/role/update")
+    @PostMapping(value = "/role/update")
     @PreAuthorize("hasAnyAuthority('USER','USER_EDIT')")
     @ApiImplicitParam(name = "roleIds",value = "roleIds",dataTypeClass = List.class, paramType = "query")
     public ResponseData updateRole(@RequestParam Long id,

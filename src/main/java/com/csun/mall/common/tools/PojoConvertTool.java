@@ -27,6 +27,6 @@ public class PojoConvertTool {
 
     public static void main(String[] args) {
         String str = "123456";
-        System.out.println(str.contains("123"));
+        System.out.println(str.matches(".*123.*"));
     }
 }

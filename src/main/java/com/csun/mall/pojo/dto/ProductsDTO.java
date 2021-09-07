@@ -1,27 +1,28 @@
-package com.csun.mall.pojo.dto.vo;
+package com.csun.mall.pojo.dto;
 
 import lombok.*;
 import lombok.experimental.Accessors;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Builder
-@ToString
-@Accessors(chain = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductsVO {
+public class ProductsDTO {
 
     private Long id;
 
     private String name;
 
-    private String typeCode;
+    private Integer sort;
 
-    private String typeName;
+    private Long categoryId;
 
-    private String pic;
+    private String categoryName;
+
+    private List<String> pic;
 
     private String description;
 

@@ -27,7 +27,7 @@ public class RoleController {
     private SysRoleService sysRoleService;
 
     @ApiOperation("添加角色")
-    @PutMapping(value = "/create")
+    @PostMapping(value = "/create")
     @PreAuthorize("hasAnyAuthority('USER','USER_ADD')")
     public ResponseData create(SysRole sysRole) {
         int count = sysRoleService.create(sysRole);
@@ -38,7 +38,7 @@ public class RoleController {
     }
 
     @ApiOperation("修改角色")
-    @PostMapping(value = "/update")
+    @PutMapping(value = "/update")
     @PreAuthorize("hasAnyAuthority('USER','USER_EDIT')")
     public ResponseData update(@RequestParam Long id, SysRole role) {
         int count = sysRoleService.update(id, role);
@@ -79,7 +79,7 @@ public class RoleController {
     }
 
     @ApiOperation("修改角色状态")
-    @PostMapping(value = "/updateenable")
+    @PutMapping(value = "/updateenable")
     @PreAuthorize("hasAnyAuthority('USER','USER_EDIT')")
     public ResponseData updateEnable(@RequestParam Long id, @RequestParam(value = "enable") Boolean enable) {
         SysRole sysRole = new SysRole();
@@ -115,7 +115,7 @@ public class RoleController {
     }
 
     @ApiOperation("修改角色权限")
-    @PostMapping(value = "/permission/update")
+    @PutMapping(value = "/permission/update")
     @PreAuthorize("hasAnyAuthority('USER','USER_EDIT')")
     @ApiImplicitParam(name = "permissionIds",value = "permissionIds",dataTypeClass = List.class, paramType = "query")
     public ResponseData updatePermission(@RequestParam Long id,
