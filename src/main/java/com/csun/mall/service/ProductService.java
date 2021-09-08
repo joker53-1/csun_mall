@@ -9,9 +9,12 @@ import com.csun.mall.pojo.dto.ProductsDTO;
 import com.csun.mall.pojo.dto.SysRoleDTO;
 import com.csun.mall.web.response.PageResult;
 import com.github.pagehelper.PageHelper;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.entity.EntityTable;
 import tk.mybatis.mapper.entity.Example;
+import tk.mybatis.mapper.mapperhelper.EntityHelper;
 
 import javax.annotation.Resource;
 import java.util.Date;
@@ -37,12 +40,18 @@ public class ProductService {
     @Resource
     private ProductImgMapper productImgMapper;
 
+    @Resource
+    private ProductLadderPriceMapper productLadderPriceMapper;
+
     public List<ProductsDTO> getProductList(Long catId) {
 //        Example example = new Example(Products.class);
-//        if(StringUtils.isNotBlank(typeCode)) {
-//            example.createCriteria().andEqualTo("typeCode", typeCode);
+//        if(StringUtils.isNotBlank(catId)) {
+//            example.createCriteria().andEqualTo("typeCode", catId);
 //        }
-//        return productsMapper.selectByExample(example);
+//        example.setTableName("product_en");
+//        String s = example.getDynamicTableName();
+//        EntityTable et = EntityHelper.getEntityTable(Products.class);
+//        productsMapper.selectByExample(example);
 //        if(catId!=null)
         return productItemDao.getProducts(catId);
 //        return null;
@@ -57,12 +66,15 @@ public class ProductService {
 //        productItem.setId(null);
         Long id = productItem.getId();
         List<ProductImg> imgList = productParam.getImage();
-        imgList.stream().forEach(e -> e.setProductId(id));
-        imgList.stream().forEach(e -> e.setCreateTime(new Date()));
+        imgList.forEach(e -> e.setProductId(id));
+        imgList.forEach(e -> e.setCreateTime(new Date()));
         List<ProductAttributeValue> productAttributeValues = productParam.getProductAttributeValueList();
-        productAttributeValues.stream().forEach(e -> e.setProductId(id));
+        productAttributeValues.forEach(e -> e.setProductId(id));
+        List<ProductLadderPrice> prices = productParam.getPrices();
+        prices.forEach(e->e.setProductId(id));
         if (productImgMapper.insertList(imgList) > 0
-                && productAttributeValueMapper.insertList(productAttributeValues) > 0)
+                && productAttributeValueMapper.insertList(productAttributeValues) > 0
+                &&productLadderPriceMapper.insertList(prices)>0)
             return 1;
         return 0;
     }
@@ -75,14 +87,22 @@ public class ProductService {
         example1.createCriteria().andEqualTo("productId", id);
         productAttributeValueMapper.deleteByExample(example1);
         List<ProductAttributeValue> productAttributeValues = productParam.getProductAttributeValueList();
+        productAttributeValues.forEach(e->e.setProductId(id));
 
         Example example2 = new Example(ProductImg.class);
         example1.createCriteria().andEqualTo("productId", id);
         productImgMapper.deleteByExample(example2);
         List<ProductImg> imgList = productParam.getImage();
+        imgList.forEach(e->e.setProductId(id));
+
+        Example example3 = new Example(ProductLadderPrice.class);
+        example3.createCriteria().andEqualTo("productId",id);
+        productLadderPriceMapper.deleteByExample(example3);
+        List<ProductLadderPrice> prices = productParam.getPrices();
+        prices.forEach(e->e.setProductId(id));
 
         if (productItemMapper.updateByPrimaryKeySelective(productItem) > 0 && productImgMapper.insertList(imgList) > 0
-                && productAttributeValueMapper.insertList(productAttributeValues) > 0)
+                && productAttributeValueMapper.insertList(productAttributeValues) > 0&&productLadderPriceMapper.insertList(prices)>0)
             return 1;
         return 0;
     }
@@ -101,6 +121,7 @@ public class ProductService {
         List<ProductQueryDTO> list = productItemDao.getList();
         return PageResult.from(list.stream().filter(e ->e.getName().matches(".*"+name+".*")).collect(Collectors.toList()), ProductQueryDTO.class);
     }
+
     public int updateEnable(List<Long> ids,Boolean enable){
         ProductItem productItem = new ProductItem();
         productItem.setEnable(enable);

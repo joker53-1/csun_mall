@@ -1402,7 +1402,7 @@ lable {
 }
 
 .option-cart > div {
-    padding: 0 .5rem;
+    padding: 0 0rem;
     margin: 0 0 1rem;
 }
 
@@ -2683,7 +2683,7 @@ lable {
 }
 
 .products-all-row-name a {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: #103178;
     /*transition: all .35s ease-in-out 0s;*/
 }
@@ -2698,7 +2698,7 @@ lable {
 }
 
 .products-all-row-price .price-sale {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     padding-inline-end: .7rem;
     font-weight: 600;
 }
@@ -3724,18 +3724,22 @@ lable {
 }
 
 .publichead_nav_li_a {
-    display: inline-block;
-    color: #4b4b4b;
-    /*color: #333333;*/
-    padding: 0 15px;
-    line-height: 64px;
-    text-decoration: none;
-    transition: all 0.3s;
+    margin-inline-end: 1.3rem;
 }
 
-.publichead_nav_li_a:hover {
-    transform: scale(1.2);
+.publichead_nav_li_a {
+    line-height: 2.5rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #103178;
+    display: flex;
+    align-items: center;
+    padding: 1.7rem 0;
 }
+
+/*.publichead_nav_li_a:hover {*/
+/*    transform: scale(1.2);*/
+/*}*/
 
 
 .publichead_nav ul li.menu-item a {
@@ -3748,5 +3752,62 @@ lable {
     border: 6px solid transparent;
     border-top-color: #4b4646;
     border-radius: 2px;
+}
+
+
+.mulit-price {
+    width: 100%;
+    height: 100px;
+    background: #f7f7f7;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.mulit-price .mulit-price-title {
+    width: 60px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.mulit-price .mulit-price-section {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.mulit-price .mulit-price-section .priceItem {
+    width: 146px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.mulit-price .mulit-price-section .priceItem p {
+    font-size: 24px;
+    font-weight: 500;
+    color: #ee201d;
 }
 

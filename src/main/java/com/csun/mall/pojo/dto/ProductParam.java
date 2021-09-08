@@ -3,6 +3,7 @@ package com.csun.mall.pojo.dto;
 import com.csun.mall.domain.ProductAttributeValue;
 import com.csun.mall.domain.ProductImg;
 import com.csun.mall.domain.ProductItem;
+import com.csun.mall.domain.ProductLadderPrice;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -48,4 +49,7 @@ public class ProductParam{
 
     @ApiModelProperty("商品图片")
     private List<ProductImg> image;
+
+    @ApiModelProperty("商品阶梯价格")
+    private List<ProductLadderPrice> prices;
 }

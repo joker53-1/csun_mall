@@ -1,8 +1,10 @@
 package com.csun.mall.domain;
 
 import javax.persistence.Column;
+import javax.persistence.Table;
 import java.util.Date;
 
+@Table
 public class Products {
     private Long id;
 

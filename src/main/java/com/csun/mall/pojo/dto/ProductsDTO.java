@@ -3,6 +3,8 @@ package com.csun.mall.pojo.dto;
 import lombok.*;
 import lombok.experimental.Accessors;
 
+import javax.persistence.Column;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -29,5 +31,9 @@ public class ProductsDTO {
     private String descriptionPic;
 
     private Date createTime;
+
+    private BigDecimal price;
+
+    private BigDecimal originalPrice;
 
 }

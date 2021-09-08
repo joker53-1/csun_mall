@@ -11,6 +11,8 @@
         <result column="description" property="description"/>
         <result column="descriptionPic" property="descriptionPic"/>
         <result column="createTime" property="createTime"/>
+        <result column="price" property="price"/>
+        <result column="originalPrice" property="originalPrice"/>
         <collection property="pic" ofType="String">
             <result column="url" property="url"/>
         </collection>
@@ -18,7 +20,7 @@
     </resultMap>
     <select id="getProducts" resultMap="productsVO" parameterType="LONG">
         SELECT pi.id,pi.name,pi.sort,pi.product_category_id categoryId,pc.name
-        categoryName,pi.description,pi.detail_desc descriptionPic,pi.create_time createTime,
+        categoryName,pi.description,pi.detail_desc descriptionPic,pi.create_time createTime,pi.price,pi.original_price originalPrice,
         pimg.url
 
         FROM
@@ -58,6 +60,10 @@
             <result column="isMain" property="isMain"/>
             <result column="imageEnable" property="enable"/>
         </collection>
+        <collection property="prices" ofType="com.csun.mall.domain.ProductLadderPrice">
+            <result column="count" property="count"/>
+            <result column="price" property="price"/>
+        </collection>
 
     </resultMap>
     <select id="getUpdateInfo" resultMap="productsItem" parameterType="LONG">
@@ -79,12 +85,16 @@
                pimg.sort                imageSort,
                pimg.`enable`            imageEnable,
                pav.product_attribute_id productAttributeId,
-               pav.`value`
+               pav.`value`,
+               plp.count                `count`,
+               plp.price                price
         FROM product_item pi
                  LEFT JOIN product_img pimg
                            on pi.id = pimg.product_id
                  LEFT JOIN product_attribute_value pav
                            on pi.id = pav.product_id
+                 LEFT JOIN product_ladder_price plp
+                           on pi.id = plp.product_id
         WHERE pi.id = #{id}
 
 
@@ -122,7 +132,7 @@
         from product_item pi
                  LEFT JOIN product_img pimg
                            on pi.id = pimg.product_id
-        where pimg.is_main=1
+        where pimg.is_main = 1
     </select>
 
 </mapper>
