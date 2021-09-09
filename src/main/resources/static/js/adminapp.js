@@ -11,7 +11,7 @@ function setConnected(connected) {
     }
     $("#greetings").html("");
 }
-var uid =1;
+var uid = 2;
 function connect() {
     var socket = new SockJS('/messages');
     stompClient = Stomp.over(socket);
@@ -55,7 +55,7 @@ $(function () {
 function sendName() {
     var data = {
         "message": $("#question").val(),
-        "receiver":"2"
+        "receiver":"1"
     };
     console.log(data);
     stompClient.send("/app/chat", {}, JSON.stringify(data));

@@ -70,26 +70,42 @@ function closeChat() {
 }
 
 function loginChat() {
+    connect();
     chat.chatLogin = false
     chat.chatMain = true
 }
 
-(function () {
-    var socket = new SockJS('/messages');
-    var stompClient = Stomp.over(socket);
-    stompClient.connect(
-        {},
-        function connectCallback(frame) {
-            console.log("************链接成功**********")
-            // debugger
-            stompClient.subscribe('/users/test/message', function (response) {
-            });
-            // debugger
-            stompClient.send('/app/marco',{principal:'test'},"Hellow")
-        },
-        function errorCallBack(error) {
-            console.log("************链接**********失败**********")
-        }
-    );
+// (function () {
+//     var socket = new SockJS('/messages');
+//     var stompClient = Stomp.over(socket);
+//     stompClient.connect(
+//         {},
+//         function connectCallback(frame) {
+//             console.log("************链接成功**********")
+//             // debugger
+//             stompClient.subscribe('/topic/subscribe', function (greeting) {
+//                 // debugger
+//                 console.log(greeting.body)
+//                 showMessage(greeting.body)
+//                 // showGreeting(greeting.body);
+//             });
+//             // debugger
+//             stompClient.send('/app/marco',{principal:'test'},"Hellow")
+//         },
+//         function errorCallBack(error) {
+//             console.log("************链接**********失败**********")
+//         }
+//     );
+//
+// })();
+//
+function showMessage(data){
+    console.log(data);
+    $("#show_content_admin").append(data.message);
+}
 
-})();
+function getData(data) {
+    var obj = JSON.parse(data);
+    // codeMapping(obj);
+    return obj;
+}
