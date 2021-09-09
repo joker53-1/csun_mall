@@ -29,10 +29,12 @@ public class CsrProductService {
 
     public List<Products> getList(String typeCode) {
         Example example = new Example(Products.class);
+        example.setTableName("products_en");
         if(StringUtils.isNotBlank(typeCode)) {
             example.createCriteria().andEqualTo("typeCode", typeCode);
         }
-        return productsMapper.selectByExample(example);
+        List<Products> products = productsMapper.selectByExample(example);
+        return products;
     }
 
     public List<ProductsType> getTypeList(){
