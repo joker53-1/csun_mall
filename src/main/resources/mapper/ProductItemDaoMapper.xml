@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csun.mall.mapper.ProductItemDao">
+    <resultMap id="productsVO" type="com.csun.mall.pojo.dto.ProductsDTO">
+
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="name" property="name"/>
+        <result column="sort" property="sort"/>
+        <result column="categoryId" property="categoryId"/>
+        <result column="categoryName" property="categoryName"/>
+        <result column="description" property="description"/>
+        <result column="descriptionPic" property="descriptionPic"/>
+        <result column="createTime" property="createTime"/>
+        <collection property="pic" ofType="String">
+            <result column="url" property="url"/>
+        </collection>
+
+    </resultMap>
+    <select id="getProducts" resultMap="productsVO" parameterType="LONG">
+        SELECT pi.id,pi.name,pi.sort,pi.product_category_id categoryId,pc.name
+        categoryName,pi.description,pi.detail_desc descriptionPic,pi.create_time createTime,
+        pimg.url
+
+        FROM
+        product_item pi
+        LEFT JOIN product_category pc
+        on pi.product_category_id=pc.id
+        LEFT JOIN product_img pimg
+        on pi.id = pimg.product_id
+        <if test="categoryId != null">
+            WHERE pi.product_category_id = #{categoryId}
+        </if>
+
+
+    </select>
+    <resultMap id="productsItem" type="com.csun.mall.pojo.dto.ProductParam">
+
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="enable" property="enable"/>
+        <result column="productCategoryId" property="productCategoryId"/>
+        <result column="name" property="name"/>
+        <result column="sort" property="sort"/>
+        <result column="sale" property="sale"/>
+        <result column="price" property="price"/>
+        <result column="originalPrice" property="originalPrice"/>
+        <result column="stock" property="stock"/>
+        <result column="lowStock" property="lowStock"/>
+        <result column="description" property="description"/>
+        <result column="detailDesc" property="detailDesc"/>
+        <collection property="productAttributeValueList" ofType="com.csun.mall.domain.ProductAttributeValue">
+            <result column="productAttributeId" property="productAttributeId"/>
+            <result column="value" property="value"/>
+        </collection>
+        <collection property="image" ofType="com.csun.mall.domain.ProductImg">
+            <result column="imageId" property="id"/>
+            <result column="url" property="url"/>
+            <result column="imageSort" property="sort"/>
+            <result column="isMain" property="isMain"/>
+            <result column="imageEnable" property="enable"/>
+        </collection>
+
+    </resultMap>
+    <select id="getUpdateInfo" resultMap="productsItem" parameterType="LONG">
+        SELECT pi.id,
+               pi.enable,
+               pi.product_category_id   productCategoryId,
+               pi.name,
+               pi.sort,
+               pi.sale,
+               pi.price,
+               pi.original_price        originalPrice,
+               pi.stock,
+               pi.low_stock             lowStock,
+               pi.description,
+               pi.detail_desc           detailDesc,
+               pimg.id                  imageId,
+               pimg.url,
+               pimg.is_main             isMain,
+               pimg.sort                imageSort,
+               pimg.`enable`            imageEnable,
+               pav.product_attribute_id productAttributeId,
+               pav.`value`
+        FROM product_item pi
+                 LEFT JOIN product_img pimg
+                           on pi.id = pimg.product_id
+                 LEFT JOIN product_attribute_value pav
+                           on pi.id = pav.product_id
+        WHERE pi.id = #{id}
+
+
+    </select>
+    <resultMap id="productSimple" type="com.csun.mall.pojo.dto.ProductQueryDTO">
+
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="enable" property="enable"/>
+        <result column="productCategoryId" property="productCategoryId"/>
+        <result column="name" property="name"/>
+        <result column="sort" property="sort"/>
+        <result column="sale" property="sale"/>
+        <result column="price" property="price"/>
+        <result column="originalPrice" property="originalPrice"/>
+        <result column="stock" property="stock"/>
+        <result column="lowStock" property="lowStock"/>
+        <result column="description" property="description"/>
+        <result column="detailDesc" property="detailDesc"/>
+        <result column="pic" property="pic"/>
+    </resultMap>
+    <select id="getList" resultMap="productSimple">
+        select pi.id,
+               pi.enable,
+               pi.product_category_id productCategoryId,
+               pi.name,
+               pi.sort,
+               pi.sale,
+               pi.price,
+               pi.original_price      originalPrice,
+               pi.stock,
+               pi.low_stock           lowStock,
+               pi.description,
+               pi.detail_desc         detailDesc,
+               pimg.url               pic
+        from product_item pi
+                 LEFT JOIN product_img pimg
+                           on pi.id = pimg.product_id
+        where pimg.is_main=1
+    </select>
+
+</mapper>

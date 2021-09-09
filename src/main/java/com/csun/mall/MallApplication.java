@@ -29,4 +29,5 @@ public class MallApplication {
                 .withSerializerModifier(new NullBeanSerializerModifier()));
         return objectMapper;
     }
+
 }

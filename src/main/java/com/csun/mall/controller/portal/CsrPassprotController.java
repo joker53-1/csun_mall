@@ -58,7 +58,7 @@ public class CsrPassprotController {
     }
 
     @ApiOperation(value = "用户注册", notes = "用户注册", httpMethod = "POST")
-    @PutMapping("/regist")
+    @PostMapping("/regist")
     public ResponseData<CsrMemberDTO> regist(String username, String email, String password, String code) {
         if (username.contains(" ")) {
             return ResponseData.failure("不能含有空格");

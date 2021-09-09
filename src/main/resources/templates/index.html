@@ -17,6 +17,8 @@
     <script src="/static/js/websocket/sockjs.min.js"></script>
     <script src="/static/js/websocket/stomp.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/static/css/chat.css"/>
+    <link rel="stylesheet" href="/static/css/app.css"/>
+    <script th:src="@{/static/js/app.js}"></script>
     <script src="/static/js/chat.js"></script>
 
     <!-- <script src="js/axios.min.js"></script> -->
@@ -508,7 +510,7 @@
                                                                     </span>
                                                                 </li>
                                                                 <li class="header-menu-open-wrapper-list-row-one-link">
-                                                                    <a href="">Products</a>
+                                                                    <a href="productlist">Products</a>
                                                                     <span class="svg-element-ui">
                                                                         <svg width="4" height="8" viewBox="0 0 4 8"
                                                                              fill="none"
@@ -552,7 +554,7 @@
                                                                     </span>
                                                                 </li>
                                                                 <li class="header-menu-open-wrapper-list-row-one-link">
-                                                                    <a href="">Contact</a>
+                                                                    <a href="contact">Contact</a>
                                                                     <span class="svg-element-ui">
                                                                         <svg width="4" height="8" viewBox="0 0 4 8"
                                                                              fill="none"
@@ -640,10 +642,21 @@
                                             </a>
                                         </div>
 
-                                        <divi class="header-bottom-main-nav-item">
-                                            <a href="">
+                                        <divi class="has_sub_menu">
+                                            <a class="publichead_nav_li_a" href="/index/productlist">
                                                 <span>Products</span>
+                                                <span class="triangle"></span>
                                             </a>
+                                            <products-types>
+                                                <div class="sub_menu">
+                                                    <div>
+                                                        <th:block th:each="productType : ${ productTypeList }">
+                                                            <a th:href="@{'/index/productsbytype?typeCode='+ ${productType.id}}" th:text="${productType.name}">
+                                                                module</a>
+                                                        </th:block>
+                                                    </div>
+                                                </div>
+                                            </products-types>
                                         </divi>
 
                                         <div class="header-bottom-main-nav-item">
@@ -665,7 +678,7 @@
                                         </div>
 
                                         <div class="header-bottom-main-nav-item">
-                                            <a href="">
+                                            <a href="contact">
                                                 <span>Contact</span>
                                             </a>
                                         </div>
@@ -823,8 +836,8 @@
                             <div th:each="product : ${productList}">
                                 <a style="margin-left: 30px;text-decoration: none;color: black"
                                    th:href="@{'/index/product?id='+ ${product.id}}">
-                                    <img width="196"  th:src="@{${#strings.arraySplit(product.pic,'@##@')[0]}}">
-                                    <h5 th:text="${product.typeCode}"></h5>
+                                    <img width="196"  th:src="@{${product.pic[0]}}">
+                                    <h5 th:text="${product.categoryName}"></h5>
                                     <p th:text="${product.name}"></p>
                                 </a>
                             </div>
@@ -913,7 +926,7 @@
                             <div class="columns-center-body columns">
                                 <ul class="menu">
                                     <li><a href="">About</a></li>
-                                    <li><a href="">Contact</a></li>
+                                    <li><a href="contact">Contact</a></li>
                                     <li><a href="">Wishlist</a></li>
                                     <li><a href="">FAQ</a></li>
                                     <li><a href="">Store Directory</a></li>

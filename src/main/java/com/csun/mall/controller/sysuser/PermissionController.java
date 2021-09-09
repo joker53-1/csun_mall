@@ -21,7 +21,7 @@ public class PermissionController {
     private SysPermissionService sysPermissionService;
 
     @ApiOperation("添加权限")
-    @PutMapping(value = "/create")
+    @PostMapping(value = "/create")
     @PreAuthorize("hasAnyAuthority('USER','USER_ADD')")
     public ResponseData create(SysPermission permission) {
         int count = sysPermissionService.create(permission);
@@ -32,7 +32,7 @@ public class PermissionController {
     }
 
     @ApiOperation("修改权限")
-    @PostMapping(value = "/update")
+    @PutMapping(value = "/update")
     @PreAuthorize("hasAnyAuthority('USER','USER_EDIT')")
     public ResponseData update(@RequestParam Long id, SysPermission permission) {
         int count = sysPermissionService.update(id, permission);
