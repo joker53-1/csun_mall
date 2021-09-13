@@ -50,6 +50,12 @@ $(function () {
     $( "#connect" ).click(function() { connect(); });
     $( "#disconnect" ).click(function() { disconnect(); });
     $( "#send" ).click(function() { sendName(); });
+
+    $(".has_sub_menu").hover(function () {
+        $(this).find(".sub_menu").show();
+    }, function () {
+        $(this).find(".sub_menu").hide();
+    });
 });
 
 function sendName() {

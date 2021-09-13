@@ -6,12 +6,12 @@
         <meta name="viewport"
               content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-        <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
         <title>CSUN Mall</title>
         <link rel="shortcut icon" href="img/foodie.ico"/>
         <link rel="stylesheet" th:href="@{/static/owlcarousel/assets/owl.carousel.css}">
         <link rel="stylesheet" th:href="@{/static/owlcarousel/assets/owl.theme.default.css}">
-        <link href="../static/css/app.css" rel="stylesheet" type="text/css"/>
+        <link href="/static/css/app.css" rel="stylesheet" type="text/css"/>
         <script th:src="@{/static/js/jquery-3.5.1.min.js}"></script>
         <script th:src="@{/static/owlcarousel/owl.carousel.js}"></script>
         <script src="/static/js/websocket/sockjs.min.js"></script>
@@ -653,7 +653,7 @@
                                         <products-types>
                                             <div class="sub_menu">
                                                 <div>
-                                                    <th:block th:each="productType : ${ productTypeList }">
+                                                    <th:block th:each="productType : ${productTypeList}">
                                                         <a th:href="@{'/index/productlist?typeCode='+ ${productType.id}}" th:text="${productType.name}">
                                                             module</a>
                                                     </th:block>
