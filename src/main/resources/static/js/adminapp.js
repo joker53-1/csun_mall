@@ -11,7 +11,7 @@ function setConnected(connected) {
     }
     $("#greetings").html("");
 }
-var uid =1;
+var uid = 2;
 function connect() {
     var socket = new SockJS('/messages');
     stompClient = Stomp.over(socket);
@@ -50,18 +50,12 @@ $(function () {
     $( "#connect" ).click(function() { connect(); });
     $( "#disconnect" ).click(function() { disconnect(); });
     $( "#send" ).click(function() { sendName(); });
-
-    $(".has_sub_menu").hover(function () {
-        $(this).find(".sub_menu").show();
-    }, function () {
-        $(this).find(".sub_menu").hide();
-    });
 });
 
 function sendName() {
     var data = {
         "message": $("#question").val(),
-        "receiver":"2"
+        "receiver":"1"
     };
     console.log(data);
     stompClient.send("/app/chat", {}, JSON.stringify(data));

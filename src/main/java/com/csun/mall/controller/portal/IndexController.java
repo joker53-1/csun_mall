@@ -1,8 +1,10 @@
 package com.csun.mall.controller.portal;
 
+import com.csun.mall.domain.ProductLadderPrice;
 import com.csun.mall.domain.Products;
 import com.csun.mall.pojo.dto.ProductsDTO;
 import com.csun.mall.service.CategoryService;
+import com.csun.mall.service.PriceService;
 import com.csun.mall.service.ProductService;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +34,9 @@ public class IndexController {
     @Autowired
     private CategoryService categoryService;
 
+    @Autowired
+    private PriceService priceService;
+
 
     @GetMapping("/products")
     public String getListProduct(Long typeCode, Model model) {
@@ -41,13 +46,13 @@ public class IndexController {
         return "/index";
     }
 
-    @GetMapping("/productsbytype")
-    public String getListProductByType(Long typeCode, Model model) {
-        List<ProductsDTO> list = productsService.getProductList(typeCode);
-        model.addAttribute("productList", list);
-        model.addAttribute("productTypeList", categoryService.getTypeList());
-        return "/product_all";
-    }
+//    @GetMapping("/productsbytype")
+//    public String getListProductByType(Long typeCode, Model model) {
+//        List<ProductsDTO> list = productsService.getProductList(typeCode);
+//        model.addAttribute("productList", list);
+//        model.addAttribute("productTypeList", categoryService.getTypeList());
+//        return "/product_all";
+//    }
     @GetMapping("/product")
     public String getProduct(@RequestParam Long id, Model model) {
         List<ProductsDTO> list = productsService.getProductList(null);
@@ -65,6 +70,8 @@ public class IndexController {
         model.addAttribute("currentHeaderType", "Products");
         //todo
         model.addAttribute("productList1", collect1.subList(0,1));
+        List<ProductLadderPrice> plp = priceService.getList(id);
+        model.addAttribute("prices",plp);
         return "/product";
 
     }
