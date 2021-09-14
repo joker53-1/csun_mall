@@ -3694,6 +3694,7 @@ lable {
 }
 
 .has_sub_menu {
+    margin-inline-end: 1.3rem;
     position: relative;
 }
 
@@ -3709,6 +3710,7 @@ lable {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
+
 }
 
 .sub_menu a {
@@ -3717,6 +3719,7 @@ lable {
     background-color: rgba(0, 0, 0, 0.5);
     color: #FFFFFF;
     text-decoration: none;
+    width: 100px !important;
 }
 
 .sub_menu a:hover {

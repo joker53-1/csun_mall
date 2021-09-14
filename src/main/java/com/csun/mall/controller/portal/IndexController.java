@@ -42,11 +42,11 @@ public class IndexController {
     public String getListProduct(Long typeCode, Model model) {
         List<ProductsDTO> list = productsService.getProductList(typeCode);
         model.addAttribute("productList", list);
-        model.addAttribute("productTypeList", categoryService.getTypeList());
+//        model.addAttribute("productTypeList", categoryService.getTypeList());
         return "/index";
     }
 
-//    @GetMapping("/productsbytype")
+    //    @GetMapping("/productsbytype")
 //    public String getListProductByType(Long typeCode, Model model) {
 //        List<ProductsDTO> list = productsService.getProductList(typeCode);
 //        model.addAttribute("productList", list);
@@ -57,7 +57,7 @@ public class IndexController {
     public String getProduct(@RequestParam Long id, Model model) {
         List<ProductsDTO> list = productsService.getProductList(null);
         ProductsDTO productsDTO = list.stream().filter(e -> e.getId().equals(id)).findFirst().orElse(new ProductsDTO());
-        if(ObjectUtils.isEmpty(productsDTO)){
+        if (ObjectUtils.isEmpty(productsDTO)) {
             return "index";
         }
         List<ProductsDTO> collect = list.stream().filter(e -> e.getCategoryId().equals(productsDTO.getCategoryId()))
@@ -66,23 +66,24 @@ public class IndexController {
                 .filter(e -> !e.getId().equals(id)).collect(Collectors.toList());
         Collections.reverse(collect1);
         model.addAttribute("currentProduct", productsDTO);
-        model.addAttribute("productList",collect);
+        model.addAttribute("productList", collect);
         model.addAttribute("currentHeaderType", "Products");
         //todo
-        model.addAttribute("productList1", collect1.subList(0,1));
+        model.addAttribute("productList1", collect1.subList(0, 1));
         List<ProductLadderPrice> plp = priceService.getList(id);
-        model.addAttribute("prices",plp);
+        model.addAttribute("prices", plp);
         return "/product";
 
     }
 
     @GetMapping("/contact")
-    public String getContact(){
+    public String getContact() {
+
         return "/contact-us";
     }
 
     @GetMapping("/productlist")
-    public String getProductlist(Long typeCode, Model model){
+    public String getProductlist(Long typeCode, Model model) {
         List<ProductsDTO> list = productsService.getProductList(typeCode);
         model.addAttribute("productList", list);
         model.addAttribute("productTypeList", categoryService.getTypeList());
@@ -90,11 +91,12 @@ public class IndexController {
     }
 
     @GetMapping
-    public String hello(){
+    public String hello() {
         return "/index";
     }
+
     @GetMapping("p")
-    public String pro(){
+    public String pro() {
         return "/product";
     }
 }
