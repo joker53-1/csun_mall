@@ -17,6 +17,8 @@ public class ProductQueryDTO {
     private Boolean enable;
     @ApiModelProperty("商品分类")
     private Long productCategoryId;
+    @ApiModelProperty("商品分类名称")
+    private String categoryName;
     @ApiModelProperty("商品名称")
     private String name;
     @ApiModelProperty("排序")

@@ -21,8 +21,8 @@
         <script th:src="@{/static/js/app.js}"></script>
         <script src="/static/js/chat.js"></script>
 
-        <link th:href="@{/static/css/app.css}" rel="stylesheet" type="text/css" />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link th:href="@{/static/css/app.css}" rel="stylesheet" type="text/css"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="viewport"
               content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <link rel="stylesheet" th:href="@{/static/bootstrap/css/bootstrap.min.css}">
@@ -31,46 +31,46 @@
     </head>
 </th:block>
 <th:block th:fragment="header">
-<header>
-    <!--        顶部提示框-->
-    <div class="header-section">
+    <header>
+        <!--        顶部提示框-->
+        <div class="header-section">
 
-        <div class="header-section-announcement">
-            <div class="container">
-                <!--                    左边内容栏-->
-                <div class="header-section-announcement-wrapper ">
-                    <div class="header-section-announcement-wrapper-left ">
-                        <div class="header-announcement-column-text">
-                            <p><strong>100% Secure delivery</strong> without contacting the courier</p>
-                        </div>
-                    </div>
-
-                    <div class="header-section-announcement-wrapper-right ">
-
-                        <div class="header-wrapper-right-menu">
-                            <ul class="header-wrapper-menu-list">
-                                <li><a href="">Order tracking</a></li>
-                                <li><a href="">blog</a></li>
-                            </ul>
+            <div class="header-section-announcement">
+                <div class="container">
+                    <!--                    左边内容栏-->
+                    <div class="header-section-announcement-wrapper ">
+                        <div class="header-section-announcement-wrapper-left ">
+                            <div class="header-announcement-column-text">
+                                <p><strong>100% Secure delivery</strong> without contacting the courier</p>
+                            </div>
                         </div>
 
-                        <div class="header-wrapper-right-social">
-                            <ul class="header-social-icon">
-                                <li><a href=""><img src="../static/pic/facebook%20(2).png" alt=""></a></li>
-                                <li><a href=""><img src="../static/pic/twitter.png" alt=""></a></li>
-                                <li><a href=""><img height="26" width="26" src="../static/pic/chat.png" alt=""></a>
-                                </li>
-                                <li><a href=""><img height="24" width="24" src="../static/pic/linkedin-in.png"
-                                                    alt=""></a></li>
-                            </ul>
-                        </div>
+                        <div class="header-section-announcement-wrapper-right ">
 
-                        <div class="header-wrapper-right-selectGroup">
-                            <div class="header-selectGroup-ui">
-                                <div class="header-selectGroup-ui-language-Eng">
-                                    <a href="">
-                                        <span>English</span>
-                                        <span class="svg-element-ui">
+                            <div class="header-wrapper-right-menu">
+                                <ul class="header-wrapper-menu-list">
+                                    <li><a href="">Order tracking</a></li>
+                                    <li><a href="">blog</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="header-wrapper-right-social">
+                                <ul class="header-social-icon">
+                                    <li><a href=""><img src="../static/pic/facebook%20(2).png" alt=""></a></li>
+                                    <li><a href=""><img src="../static/pic/twitter.png" alt=""></a></li>
+                                    <li><a href=""><img height="26" width="26" src="../static/pic/chat.png" alt=""></a>
+                                    </li>
+                                    <li><a href=""><img height="24" width="24" src="../static/pic/linkedin-in.png"
+                                                        alt=""></a></li>
+                                </ul>
+                            </div>
+
+                            <div class="header-wrapper-right-selectGroup">
+                                <div class="header-selectGroup-ui">
+                                    <div class="header-selectGroup-ui-language-Eng">
+                                        <a href="">
+                                            <span>English</span>
+                                            <span class="svg-element-ui">
                                                 <svg width="9" height="6" viewBox="0 0 9 6" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -78,12 +78,12 @@
                                                           fill="#5B6C8F"></path>
                                                 </svg>
                                             </span>
-                                    </a>
-                                </div>
-                                <div class="header-selectGroup-ui-language-Usd">
-                                    <a href="">
-                                        <span>USD</span>
-                                        <span class="svg-element-ui">
+                                        </a>
+                                    </div>
+                                    <div class="header-selectGroup-ui-language-Usd">
+                                        <a href="">
+                                            <span>USD</span>
+                                            <span class="svg-element-ui">
                                                 <svg width="9" height="6" viewBox="0 0 9 6" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -91,385 +91,386 @@
                                                           fill="#5B6C8F"></path>
                                                 </svg>
                                             </span>
-                                    </a>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!--                    右边的关闭符号-->
-                <button id="announcement-bar--close" type="button" aria-label="TopbarClose"
-                        class="header-close-btn">
+                    <!--                    右边的关闭符号-->
+                    <button id="announcement-bar--close" type="button" aria-label="TopbarClose"
+                            class="header-close-btn">
                         <span class="header-close-btn-icon">
                             <img width="22" height="22" src="../static/pic/close.png" alt="">
                         </span>
-                </button>
+                    </button>
 
+                </div>
             </div>
         </div>
-    </div>
 
-    <!--头部悬浮框-->
-    <div class="header-section-nav">
-        <div class="header-section-nav-2" style="min-height: 16.7rem;">
-            <div class="container header-nav-content">
+        <!--头部悬浮框-->
+        <div class="header-section-nav">
+            <div class="header-section-nav-2" style="min-height: 16.7rem;">
+                <div class="container header-nav-content">
 
-                <div class="header-nav-row-top ">
-                    <div class="row">
-                        <div class="header-nav-left col-3">
-                            <a href="/index/products">
-                                <img width="142" height="50" src="../static/pic/logo-1.png" alt="">
-                            </a>
-                        </div>
+                    <div class="header-nav-row-top ">
+                        <div class="row">
+                            <div class="header-nav-left col-3">
+                                <a href="/index/products">
+                                    <img width="142" height="50" src="../static/pic/logo-1.png" alt="">
+                                </a>
+                            </div>
 
-                        <div class="header-nav-right col-9">
-                            <div class="header-nav-right-col">
-                                <div class="header-nav-right-custom-info">
-                                    <p>
-                                        Need help?
-                                        <strong>0020 500</strong>
-                                    </p>
-                                </div>
+                            <div class="header-nav-right col-9">
+                                <div class="header-nav-right-col">
+                                    <div class="header-nav-right-custom-info">
+                                        <p>
+                                            Need help?
+                                            <strong>0020 500</strong>
+                                        </p>
+                                    </div>
 
-                                <div class="header-nav-right-form-search col-10">
-                                    <form action="/search">
-                                        <input name="q" type="text" placeholder="Search for products..."
-                                               autocomplete="off">
-                                        <button type="submit" class="btn-search">
+                                    <div class="header-nav-right-form-search col-10">
+                                        <form action="/search">
+                                            <input name="q" type="text" placeholder="Search for products..."
+                                                   autocomplete="off">
+                                            <button type="submit" class="btn-search">
                                                 <span class="svg-element-ui">
                                                    <img src="../static/pic/seach.png" alt="">
                                                 </span>
-                                        </button>
-                                    </form>
-                                </div>
+                                            </button>
+                                        </form>
+                                    </div>
 
-                                <div class="header-nav-right-icons">
-                                    <a href="" class="header-nav-right-icons-p"><img width="24" height="24"
-                                                                                     src="../static/pic/my.png"
-                                                                                     alt=""></a>
-                                    <a href="" class="header-nav-right-icons-p">
+                                    <div class="header-nav-right-icons">
+                                        <a href="" class="header-nav-right-icons-p"><img width="24" height="24"
+                                                                                         src="../static/pic/my.png"
+                                                                                         alt=""></a>
+                                        <a href="" class="header-nav-right-icons-p">
                                             <span>
                                             <img width="24" height="24" src="../static/pic/fav.png" alt="">
                                             </span>
-                                        <span class="number">
+                                            <span class="number">
                                                 <span class="number-item">0</span>
                                             </span>
-                                    </a>
+                                        </a>
 
-                                    <a href="" class="header-nav-right-icons-p">
+                                        <a href="" class="header-nav-right-icons-p">
                                             <span>
                                             <img width="24" height="24" src="../static/pic/data.png" alt="">
                                             </span>
-                                        <span class="number">
+                                            <span class="number">
                                                 <span class="number-item">0</span>
                                             </span>
-                                    </a>
+                                        </a>
 
-                                    <a href="" class="header-nav-right-icons-p" id="cart">
+                                        <a href="" class="header-nav-right-icons-p" id="cart">
                                              <span>
                                             <img width="24" height="24" src="../static/pic/cart.png" alt="">
                                             </span>
-                                        <span class="number">
+                                            <span class="number">
                                                 <span class="number-item">0</span>
                                             </span>
-                                    </a>
+                                        </a>
 
-                                    <div class="shopping-cart" id="shoppingCart" style="display: none;">
-                                        <div class="dialog"></div>
+                                        <div class="shopping-cart" id="shoppingCart" style="display: none;">
+                                            <div class="dialog"></div>
 
-                                        <div class="shopping-cart-wrapper">
-                                            <a href="" class="shopping-cart-close">
-                                                <svg width="22" height="19" viewBox="0 0 22 19" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M17.3805 16.895L2.9182 2.43267C2.6584 2.17286 2.55963 1.92523 2.67128 1.81358L3.71333 0.77153C3.82498 0.659881 4.07262 0.758651 4.33242 1.01845L18.8813 15.5674C19.1411 15.8272 19.2399 16.0748 19.1283 16.1865L18.0862 17.2285C17.9252 17.2163 17.6403 17.1548 17.3805 16.895Z"
-                                                          fill="#103178"></path>
-                                                    <path d="M4.41928 16.895L18.8816 2.43267C19.1414 2.17286 19.2402 1.92523 19.1285 1.81358L18.0865 0.77153C17.9748 0.659881 17.7272 0.758651 17.4674 1.01845L2.91847 15.5674C2.65866 15.8272 2.55989 16.0748 2.67154 16.1865L3.7136 17.2285C3.87463 17.2163 4.15948 17.1548 4.41928 16.895Z"
-                                                          fill="#103178"></path>
+                                            <div class="shopping-cart-wrapper">
+                                                <a href="" class="shopping-cart-close">
+                                                    <svg width="22" height="19" viewBox="0 0 22 19" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M17.3805 16.895L2.9182 2.43267C2.6584 2.17286 2.55963 1.92523 2.67128 1.81358L3.71333 0.77153C3.82498 0.659881 4.07262 0.758651 4.33242 1.01845L18.8813 15.5674C19.1411 15.8272 19.2399 16.0748 19.1283 16.1865L18.0862 17.2285C17.9252 17.2163 17.6403 17.1548 17.3805 16.895Z"
+                                                              fill="#103178"></path>
+                                                        <path d="M4.41928 16.895L18.8816 2.43267C19.1414 2.17286 19.2402 1.92523 19.1285 1.81358L18.0865 0.77153C17.9748 0.659881 17.7272 0.758651 17.4674 1.01845L2.91847 15.5674C2.65866 15.8272 2.55989 16.0748 2.67154 16.1865L3.7136 17.2285C3.87463 17.2163 4.15948 17.1548 4.41928 16.895Z"
+                                                              fill="#103178"></path>
 
-                                                </svg>
-                                            </a>
+                                                    </svg>
+                                                </a>
 
-                                            <form action="" class="form-cart">
-                                                <div class="shopping-cart-head">
-                                                    <h3>
-                                                        <a href="">Shopping cart
-                                                            <span class="number">(1)</span>
-                                                        </a>
-                                                    </h3>
-                                                </div>
-                                                <div class="shopping-cart-body">
+                                                <form action="" class="form-cart">
+                                                    <div class="shopping-cart-head">
+                                                        <h3>
+                                                            <a href="">Shopping cart
+                                                                <span class="number">(1)</span>
+                                                            </a>
+                                                        </h3>
+                                                    </div>
+                                                    <div class="shopping-cart-body">
 
-                                                    <div class="shopping-cart-body-inner">
-                                                        <div class="shopping-cart-body-inner-item">
-                                                            <div class="row">
-                                                                <div class="shopping-cart-col-3">
-                                                                    <div class="img-style">
-                                                                        <a href="">
-                                                                            <img sizes="80px"
-                                                                                 src="../static/pic/change/product.png"
-                                                                                 alt="">
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="shopping-cart-col-9">
-
-                                                                    <div class="shopping-cart-product-info">
-                                                                        <h6>
+                                                        <div class="shopping-cart-body-inner">
+                                                            <div class="shopping-cart-body-inner-item">
+                                                                <div class="row">
+                                                                    <div class="shopping-cart-col-3">
+                                                                        <div class="img-style">
                                                                             <a href="">
-                                                                                <span class="shopping-cart-title">3-layer mask with an elastic band (1 piece)-</span>
-                                                                                <span class="shopping-cart-text">Dark/Large</span>
+                                                                                <img sizes="80px"
+                                                                                     src="../static/pic/change/product.png"
+                                                                                     alt="">
                                                                             </a>
-                                                                        </h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="shopping-cart-col-9">
 
-                                                                        <div class="shopping-cart-price-info">
-                                                                            <div class="shopping-cart-price">
-                                                                                <span class="price">$119.00</span>
-                                                                                <del class="money">$129.00</del>
-                                                                            </div>
+                                                                        <div class="shopping-cart-product-info">
+                                                                            <h6>
+                                                                                <a href="">
+                                                                                    <span class="shopping-cart-title">3-layer mask with an elastic band (1 piece)-</span>
+                                                                                    <span class="shopping-cart-text">Dark/Large</span>
+                                                                                </a>
+                                                                            </h6>
 
-                                                                            <div class="shopping-cart-qty">
+                                                                            <div class="shopping-cart-price-info">
+                                                                                <div class="shopping-cart-price">
+                                                                                    <span class="price">$119.00</span>
+                                                                                    <del class="money">$129.00</del>
+                                                                                </div>
+
+                                                                                <div class="shopping-cart-qty">
                                                                                     <span>
                                                                                         <span class="number-1">1</span>X
                                                                                         <span class="number-2">item</span>
                                                                                     </span>
-                                                                                <a href="">Remove</a>
+                                                                                    <a href="">Remove</a>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
+
+
                                                                     </div>
-
-
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
 
-                                                    <div class="shopping-cart-body-inner">
-                                                        <div class="shopping-cart-body-inner-item">
-                                                            <div class="row">
-                                                                <div class="shopping-cart-col-3">
-                                                                    <div class="img-style">
-                                                                        <a href="">
-                                                                            <img sizes="80px"
-                                                                                 src="../static/pic/change/product.png"
-                                                                                 alt="">
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="shopping-cart-col-9">
-
-                                                                    <div class="shopping-cart-product-info">
-                                                                        <h6>
+                                                        <div class="shopping-cart-body-inner">
+                                                            <div class="shopping-cart-body-inner-item">
+                                                                <div class="row">
+                                                                    <div class="shopping-cart-col-3">
+                                                                        <div class="img-style">
                                                                             <a href="">
-                                                                                <span class="shopping-cart-title">3-layer mask with an elastic band (1 piece)-</span>
-                                                                                <span class="shopping-cart-text">Dark/Large</span>
+                                                                                <img sizes="80px"
+                                                                                     src="../static/pic/change/product.png"
+                                                                                     alt="">
                                                                             </a>
-                                                                        </h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="shopping-cart-col-9">
 
-                                                                        <div class="shopping-cart-price-info">
-                                                                            <div class="shopping-cart-price">
-                                                                                <span class="price">$119.00</span>
-                                                                                <del class="money">$129.00</del>
-                                                                            </div>
+                                                                        <div class="shopping-cart-product-info">
+                                                                            <h6>
+                                                                                <a href="">
+                                                                                    <span class="shopping-cart-title">3-layer mask with an elastic band (1 piece)-</span>
+                                                                                    <span class="shopping-cart-text">Dark/Large</span>
+                                                                                </a>
+                                                                            </h6>
 
-                                                                            <div class="shopping-cart-qty">
+                                                                            <div class="shopping-cart-price-info">
+                                                                                <div class="shopping-cart-price">
+                                                                                    <span class="price">$119.00</span>
+                                                                                    <del class="money">$129.00</del>
+                                                                                </div>
+
+                                                                                <div class="shopping-cart-qty">
                                                                                     <span>
                                                                                         <span class="number-1">1</span>X
                                                                                         <span class="number-2">item</span>
                                                                                     </span>
-                                                                                <a href="">Remove</a>
+                                                                                    <a href="">Remove</a>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
+
+
                                                                     </div>
-
-
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
 
-                                                    <div class="shopping-cart-body-inner">
-                                                        <div class="shopping-cart-body-inner-item">
-                                                            <div class="row">
-                                                                <div class="shopping-cart-col-3">
-                                                                    <div class="img-style">
-                                                                        <a href="">
-                                                                            <img sizes="80px"
-                                                                                 src="../static/pic/change/product.png"
-                                                                                 alt="">
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="shopping-cart-col-9">
-
-                                                                    <div class="shopping-cart-product-info">
-                                                                        <h6>
+                                                        <div class="shopping-cart-body-inner">
+                                                            <div class="shopping-cart-body-inner-item">
+                                                                <div class="row">
+                                                                    <div class="shopping-cart-col-3">
+                                                                        <div class="img-style">
                                                                             <a href="">
-                                                                                <span class="shopping-cart-title">3-layer mask with an elastic band (1 piece)-</span>
-                                                                                <span class="shopping-cart-text">Dark/Large</span>
+                                                                                <img sizes="80px"
+                                                                                     src="../static/pic/change/product.png"
+                                                                                     alt="">
                                                                             </a>
-                                                                        </h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="shopping-cart-col-9">
 
-                                                                        <div class="shopping-cart-price-info">
-                                                                            <div class="shopping-cart-price">
-                                                                                <span class="price">$119.00</span>
-                                                                                <del class="money">$129.00</del>
-                                                                            </div>
+                                                                        <div class="shopping-cart-product-info">
+                                                                            <h6>
+                                                                                <a href="">
+                                                                                    <span class="shopping-cart-title">3-layer mask with an elastic band (1 piece)-</span>
+                                                                                    <span class="shopping-cart-text">Dark/Large</span>
+                                                                                </a>
+                                                                            </h6>
 
-                                                                            <div class="shopping-cart-qty">
+                                                                            <div class="shopping-cart-price-info">
+                                                                                <div class="shopping-cart-price">
+                                                                                    <span class="price">$119.00</span>
+                                                                                    <del class="money">$129.00</del>
+                                                                                </div>
+
+                                                                                <div class="shopping-cart-qty">
                                                                                     <span>
                                                                                         <span class="number-1">1</span>X
                                                                                         <span class="number-2">item</span>
                                                                                     </span>
-                                                                                <a href="">Remove</a>
+                                                                                    <a href="">Remove</a>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
+
+
                                                                     </div>
-
-
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
 
-                                                    <div class="shopping-cart-body-inner">
-                                                        <div class="shopping-cart-body-inner-item">
-                                                            <div class="row">
-                                                                <div class="shopping-cart-col-3">
-                                                                    <div class="img-style">
-                                                                        <a href="">
-                                                                            <img sizes="80px"
-                                                                                 src="../static/pic/change/product.png"
-                                                                                 alt="">
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="shopping-cart-col-9">
-
-                                                                    <div class="shopping-cart-product-info">
-                                                                        <h6>
+                                                        <div class="shopping-cart-body-inner">
+                                                            <div class="shopping-cart-body-inner-item">
+                                                                <div class="row">
+                                                                    <div class="shopping-cart-col-3">
+                                                                        <div class="img-style">
                                                                             <a href="">
-                                                                                <span class="shopping-cart-title">3-layer mask with an elastic band (1 piece)-</span>
-                                                                                <span class="shopping-cart-text">Dark/Large</span>
+                                                                                <img sizes="80px"
+                                                                                     src="../static/pic/change/product.png"
+                                                                                     alt="">
                                                                             </a>
-                                                                        </h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="shopping-cart-col-9">
 
-                                                                        <div class="shopping-cart-price-info">
-                                                                            <div class="shopping-cart-price">
-                                                                                <span class="price">$119.00</span>
-                                                                                <del class="money">$129.00</del>
-                                                                            </div>
+                                                                        <div class="shopping-cart-product-info">
+                                                                            <h6>
+                                                                                <a href="">
+                                                                                    <span class="shopping-cart-title">3-layer mask with an elastic band (1 piece)-</span>
+                                                                                    <span class="shopping-cart-text">Dark/Large</span>
+                                                                                </a>
+                                                                            </h6>
 
-                                                                            <div class="shopping-cart-qty">
+                                                                            <div class="shopping-cart-price-info">
+                                                                                <div class="shopping-cart-price">
+                                                                                    <span class="price">$119.00</span>
+                                                                                    <del class="money">$129.00</del>
+                                                                                </div>
+
+                                                                                <div class="shopping-cart-qty">
                                                                                     <span>
                                                                                         <span class="number-1">1</span>X
                                                                                         <span class="number-2">item</span>
                                                                                     </span>
-                                                                                <a href="">Remove</a>
+                                                                                    <a href="">Remove</a>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
+
+
                                                                     </div>
-
-
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
 
 
-                                                    <div class="shopping-cart-body-inner">
-                                                        <div class="shopping-cart-body-inner-item">
-                                                            <div class="row">
-                                                                <div class="shopping-cart-col-3">
-                                                                    <div class="img-style">
-                                                                        <a href="">
-                                                                            <img sizes="80px"
-                                                                                 src="../static/pic/change/product.png"
-                                                                                 alt="">
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="shopping-cart-col-9">
-
-                                                                    <div class="shopping-cart-product-info">
-                                                                        <h6>
+                                                        <div class="shopping-cart-body-inner">
+                                                            <div class="shopping-cart-body-inner-item">
+                                                                <div class="row">
+                                                                    <div class="shopping-cart-col-3">
+                                                                        <div class="img-style">
                                                                             <a href="">
-                                                                                <span class="shopping-cart-title">3-layer mask with an elastic band (1 piece)-</span>
-                                                                                <span class="shopping-cart-text">Dark/Large</span>
+                                                                                <img sizes="80px"
+                                                                                     src="../static/pic/change/product.png"
+                                                                                     alt="">
                                                                             </a>
-                                                                        </h6>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="shopping-cart-col-9">
 
-                                                                        <div class="shopping-cart-price-info">
-                                                                            <div class="shopping-cart-price">
-                                                                                <span class="price">$119.00</span>
-                                                                                <del class="money">$129.00</del>
-                                                                            </div>
+                                                                        <div class="shopping-cart-product-info">
+                                                                            <h6>
+                                                                                <a href="">
+                                                                                    <span class="shopping-cart-title">3-layer mask with an elastic band (1 piece)-</span>
+                                                                                    <span class="shopping-cart-text">Dark/Large</span>
+                                                                                </a>
+                                                                            </h6>
 
-                                                                            <div class="shopping-cart-qty">
+                                                                            <div class="shopping-cart-price-info">
+                                                                                <div class="shopping-cart-price">
+                                                                                    <span class="price">$119.00</span>
+                                                                                    <del class="money">$129.00</del>
+                                                                                </div>
+
+                                                                                <div class="shopping-cart-qty">
                                                                                     <span>
                                                                                         <span class="number-1">1</span>X
                                                                                         <span class="number-2">item</span>
                                                                                     </span>
-                                                                                <a href="">Remove</a>
+                                                                                    <a href="">Remove</a>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
+
+
                                                                     </div>
-
-
                                                                 </div>
                                                             </div>
                                                         </div>
+
+
                                                     </div>
 
+                                                    <div class="shopping-cart-footer">
+                                                        <div class="shopping-cart-footer-text">
+                                                            <div class="shopping-cart-footer-text-row">
+                                                                <p>Total:
+                                                                    <span>$107.10</span>
+                                                                </p>
 
-                                                </div>
-
-                                                <div class="shopping-cart-footer">
-                                                    <div class="shopping-cart-footer-text">
-                                                        <div class="shopping-cart-footer-text-row">
-                                                            <p>Total:
-                                                                <span>$107.10</span>
-                                                            </p>
-
-                                                            <a href="" class="cart-clear-item">Remove all items</a>
-                                                        </div>
-                                                        <div class="shopping-cart-footer-text-row">
-                                                            <button class="btn btn-1 btn-cart-footer" type="submit"
-                                                                    name="checkout">
-                                                                <span class="btn-label">Checkout</span>
-                                                            </button>
+                                                                <a href="" class="cart-clear-item">Remove all items</a>
+                                                            </div>
+                                                            <div class="shopping-cart-footer-text-row">
+                                                                <button class="btn btn-1 btn-cart-footer" type="submit"
+                                                                        name="checkout">
+                                                                    <span class="btn-label">Checkout</span>
+                                                                </button>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </form>
+                                                </form>
+                                            </div>
                                         </div>
+                                        <script>
+                                            var cart = document.getElementById('cart');
+                                            var shoppingCart = document.getElementById('shoppingCart');
+                                            cart.onmousedown = function () {
+                                                shoppingCart.style = 'bolck';
+                                            }
+                                        </script>
+
+
                                     </div>
-                                    <script>
-                                        var cart = document.getElementById('cart');
-                                        var shoppingCart = document.getElementById('shoppingCart');
-                                        cart.onmousedown = function () {
-                                            shoppingCart.style = 'bolck';
-                                        }
-                                    </script>
-
-
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="header-nav-row-center header-nav-row ">
-                    <div class="header-border"></div>
-                </div>
+                    <div class="header-nav-row-center header-nav-row ">
+                        <div class="header-border"></div>
+                    </div>
 
-                <div class="header-nav-row-bottom header-nav-row">
-                    <div class="row">
-                        <div class="header-nav-row-bottom-col col-12">
-                            <div class="header-bottom-col-left">
-                                <div class="header-bottom-main-menu">
-                                    <div class="header-bottom-main-nav-item" id="headerMenuOpen">
-                                        <a href="">
+                    <div class="header-nav-row-bottom header-nav-row">
+                        <div class="row">
+                            <div class="header-nav-row-bottom-col col-12">
+                                <div class="header-bottom-col-left">
+                                    <products-types>
+                                    <div class="header-bottom-main-menu">
+                                        <div class="header-bottom-main-nav-item" id="headerMenuOpen">
+                                            <a href="">
                                             <span class="svg-element">
                                                 <svg width="18" height="16" viewBox="0 0 18 16" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -481,104 +482,104 @@
                                                           fill="#103178"></path>
                                                 </svg>
                                             </span>
-                                        </a>
-                                    </div>
-
-                                    <div class="header-menu-open" id="Open" style="display:none;">
-                                        <div class="dialog"></div>
-                                        <div class="header-menu-open-wrapper">
-                                            <a href="" class="header-menu-close-button">
-                                                <svg width="22" height="19" viewBox="0 0 22 19" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M17.3805 16.895L2.9182 2.43267C2.6584 2.17286 2.55963 1.92523 2.67128 1.81358L3.71333 0.77153C3.82498 0.659881 4.07262 0.758651 4.33242 1.01845L18.8813 15.5674C19.1411 15.8272 19.2399 16.0748 19.1283 16.1865L18.0862 17.2285C17.9252 17.2163 17.6403 17.1548 17.3805 16.895Z"
-                                                          fill="#fff"></path>
-                                                    <path d="M4.41928 16.895L18.8816 2.43267C19.1414 2.17286 19.2402 1.92523 19.1285 1.81358L18.0865 0.77153C17.9748 0.659881 17.7272 0.758651 17.4674 1.01845L2.91847 15.5674C2.65866 15.8272 2.55989 16.0748 2.67154 16.1865L3.7136 17.2285C3.87463 17.2163 4.15948 17.1548 4.41928 16.895Z"
-                                                          fill="#fff"></path>
-
-                                                </svg>
                                             </a>
-                                            <div class="header-menu-open-wrapper-list">
-                                                <div class="header-menu-open-wrapper-list-row-1">
-                                                    <div class="header-menu-open-wrapper-list-row-one">
-                                                        <ul>
-                                                            <li class="header-menu-open-wrapper-list-row-one-link">
-                                                                <a href="">Pages</a>
-                                                                <span class="svg-element-ui">
-                                                                        <svg width="4" height="8" viewBox="0 0 4 8"
-                                                                             fill="none"
-                                                                             xmlns="http://www.w3.org/2000/svg">
-                                                                        <path d="M2.1 4.05596L0 6.65996L0.7 7.28996L3.36 3.99996L0.7 0.709961L0 1.33996L2.1 4.05596Z"
-                                                                              fill="#5B6C8F"></path>
-                                                                        </svg>
-                                                                    </span>
-                                                            </li>
-                                                            <li class="header-menu-open-wrapper-list-row-one-link">
-                                                                <a href="productlist">Products</a>
-                                                                <span class="svg-element-ui">
-                                                                        <svg width="4" height="8" viewBox="0 0 4 8"
-                                                                             fill="none"
-                                                                             xmlns="http://www.w3.org/2000/svg">
-                                                                        <path d="M2.1 4.05596L0 6.65996L0.7 7.28996L3.36 3.99996L0.7 0.709961L0 1.33996L2.1 4.05596Z"
-                                                                              fill="#5B6C8F"></path>
-                                                                        </svg>
-                                                                    </span>
-                                                            </li>
-                                                            <li class="header-menu-open-wrapper-list-row-one-link">
-                                                                <a href="">Transformer</a>
-                                                                <span class="svg-element-ui">
-                                                                        <svg width="4" height="8" viewBox="0 0 4 8"
-                                                                             fill="none"
-                                                                             xmlns="http://www.w3.org/2000/svg">
-                                                                        <path d="M2.1 4.05596L0 6.65996L0.7 7.28996L3.36 3.99996L0.7 0.709961L0 1.33996L2.1 4.05596Z"
-                                                                              fill="#5B6C8F"></path>
-                                                                        </svg>
-                                                                    </span>
-                                                            </li>
-                                                            <li class="header-menu-open-wrapper-list-row-one-link">
-                                                                <a href="">Energy storage</a>
-                                                                <span class="svg-element-ui">
-                                                                        <svg width="4" height="8" viewBox="0 0 4 8"
-                                                                             fill="none"
-                                                                             xmlns="http://www.w3.org/2000/svg">
-                                                                        <path d="M2.1 4.05596L0 6.65996L0.7 7.28996L3.36 3.99996L0.7 0.709961L0 1.33996L2.1 4.05596Z"
-                                                                              fill="#5B6C8F"></path>
-                                                                        </svg>
-                                                                    </span>
-                                                            </li>
-<!--                                                            <li class="header-menu-open-wrapper-list-row-one-link">-->
-<!--                                                                <a href="">Collections</a>-->
-<!--                                                                <span class="svg-element-ui">-->
-<!--                                                                        <svg width="4" height="8" viewBox="0 0 4 8"-->
-<!--                                                                             fill="none"-->
-<!--                                                                             xmlns="http://www.w3.org/2000/svg">-->
-<!--                                                                        <path d="M2.1 4.05596L0 6.65996L0.7 7.28996L3.36 3.99996L0.7 0.709961L0 1.33996L2.1 4.05596Z"-->
-<!--                                                                              fill="#5B6C8F"></path>-->
-<!--                                                                        </svg>-->
-<!--                                                                    </span>-->
-<!--                                                            </li>-->
-                                                            <li class="header-menu-open-wrapper-list-row-one-link">
-                                                                <a href="contact">Contact</a>
-                                                                <span class="svg-element-ui">
-                                                                        <svg width="4" height="8" viewBox="0 0 4 8"
-                                                                             fill="none"
-                                                                             xmlns="http://www.w3.org/2000/svg">
-                                                                        <path d="M2.1 4.05596L0 6.65996L0.7 7.28996L3.36 3.99996L0.7 0.709961L0 1.33996L2.1 4.05596Z"
-                                                                              fill="#5B6C8F"></path>
-                                                                        </svg>
-                                                                    </span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
+                                        </div>
 
-                                                <div class="header-menu-open-wrapper-list-row-2">
-                                                    <div class="header-menu-open-mobile-search-box">
-                                                        <div class="header-menu-open-mobile-search-box-r">
-                                                            <form action="">
-                                                                <input type="text"
-                                                                       placeholder="Search for products..."
-                                                                       autocomplete="off">
-                                                                <button type="submit" class="btn btn-search">
+                                        <div class="header-menu-open" id="Open" style="display:none;">
+                                            <div class="dialog"></div>
+                                            <div class="header-menu-open-wrapper">
+                                                <a href="" class="header-menu-close-button">
+                                                    <svg width="22" height="19" viewBox="0 0 22 19" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M17.3805 16.895L2.9182 2.43267C2.6584 2.17286 2.55963 1.92523 2.67128 1.81358L3.71333 0.77153C3.82498 0.659881 4.07262 0.758651 4.33242 1.01845L18.8813 15.5674C19.1411 15.8272 19.2399 16.0748 19.1283 16.1865L18.0862 17.2285C17.9252 17.2163 17.6403 17.1548 17.3805 16.895Z"
+                                                              fill="#fff"></path>
+                                                        <path d="M4.41928 16.895L18.8816 2.43267C19.1414 2.17286 19.2402 1.92523 19.1285 1.81358L18.0865 0.77153C17.9748 0.659881 17.7272 0.758651 17.4674 1.01845L2.91847 15.5674C2.65866 15.8272 2.55989 16.0748 2.67154 16.1865L3.7136 17.2285C3.87463 17.2163 4.15948 17.1548 4.41928 16.895Z"
+                                                              fill="#fff"></path>
+
+                                                    </svg>
+                                                </a>
+                                                <div class="header-menu-open-wrapper-list">
+                                                    <div class="header-menu-open-wrapper-list-row-1">
+                                                        <div class="header-menu-open-wrapper-list-row-one">
+                                                            <ul>
+                                                                <li class="header-menu-open-wrapper-list-row-one-link">
+                                                                    <a href="">Pages</a>
+                                                                    <span class="svg-element-ui">
+                                                                        <svg width="4" height="8" viewBox="0 0 4 8"
+                                                                             fill="none"
+                                                                             xmlns="http://www.w3.org/2000/svg">
+                                                                        <path d="M2.1 4.05596L0 6.65996L0.7 7.28996L3.36 3.99996L0.7 0.709961L0 1.33996L2.1 4.05596Z"
+                                                                              fill="#5B6C8F"></path>
+                                                                        </svg>
+                                                                    </span>
+                                                                </li>
+                                                                <li class="header-menu-open-wrapper-list-row-one-link">
+                                                                    <a href="productlist">Products</a>
+                                                                    <span class="svg-element-ui">
+                                                                        <svg width="4" height="8" viewBox="0 0 4 8"
+                                                                             fill="none"
+                                                                             xmlns="http://www.w3.org/2000/svg">
+                                                                        <path d="M2.1 4.05596L0 6.65996L0.7 7.28996L3.36 3.99996L0.7 0.709961L0 1.33996L2.1 4.05596Z"
+                                                                              fill="#5B6C8F"></path>
+                                                                        </svg>
+                                                                    </span>
+                                                                </li>
+                                                                <li class="header-menu-open-wrapper-list-row-one-link">
+                                                                    <a href="">Transformer</a>
+                                                                    <span class="svg-element-ui">
+                                                                        <svg width="4" height="8" viewBox="0 0 4 8"
+                                                                             fill="none"
+                                                                             xmlns="http://www.w3.org/2000/svg">
+                                                                        <path d="M2.1 4.05596L0 6.65996L0.7 7.28996L3.36 3.99996L0.7 0.709961L0 1.33996L2.1 4.05596Z"
+                                                                              fill="#5B6C8F"></path>
+                                                                        </svg>
+                                                                    </span>
+                                                                </li>
+                                                                <li class="header-menu-open-wrapper-list-row-one-link">
+                                                                    <a href="">Energy storage</a>
+                                                                    <span class="svg-element-ui">
+                                                                        <svg width="4" height="8" viewBox="0 0 4 8"
+                                                                             fill="none"
+                                                                             xmlns="http://www.w3.org/2000/svg">
+                                                                        <path d="M2.1 4.05596L0 6.65996L0.7 7.28996L3.36 3.99996L0.7 0.709961L0 1.33996L2.1 4.05596Z"
+                                                                              fill="#5B6C8F"></path>
+                                                                        </svg>
+                                                                    </span>
+                                                                </li>
+                                                                <!--                                                            <li class="header-menu-open-wrapper-list-row-one-link">-->
+                                                                <!--                                                                <a href="">Collections</a>-->
+                                                                <!--                                                                <span class="svg-element-ui">-->
+                                                                <!--                                                                        <svg width="4" height="8" viewBox="0 0 4 8"-->
+                                                                <!--                                                                             fill="none"-->
+                                                                <!--                                                                             xmlns="http://www.w3.org/2000/svg">-->
+                                                                <!--                                                                        <path d="M2.1 4.05596L0 6.65996L0.7 7.28996L3.36 3.99996L0.7 0.709961L0 1.33996L2.1 4.05596Z"-->
+                                                                <!--                                                                              fill="#5B6C8F"></path>-->
+                                                                <!--                                                                        </svg>-->
+                                                                <!--                                                                    </span>-->
+                                                                <!--                                                            </li>-->
+                                                                <li class="header-menu-open-wrapper-list-row-one-link">
+                                                                    <a href="contact">Contact</a>
+                                                                    <span class="svg-element-ui">
+                                                                        <svg width="4" height="8" viewBox="0 0 4 8"
+                                                                             fill="none"
+                                                                             xmlns="http://www.w3.org/2000/svg">
+                                                                        <path d="M2.1 4.05596L0 6.65996L0.7 7.28996L3.36 3.99996L0.7 0.709961L0 1.33996L2.1 4.05596Z"
+                                                                              fill="#5B6C8F"></path>
+                                                                        </svg>
+                                                                    </span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="header-menu-open-wrapper-list-row-2">
+                                                        <div class="header-menu-open-mobile-search-box">
+                                                            <div class="header-menu-open-mobile-search-box-r">
+                                                                <form action="">
+                                                                    <input type="text"
+                                                                           placeholder="Search for products..."
+                                                                           autocomplete="off">
+                                                                    <button type="submit" class="btn btn-search">
                                                                         <span class="svg-element-open">
                                                                             <svg t="1628228695470" class="icon"
                                                                                  viewBox="0 0 1024 1024" version="1.1"
@@ -588,19 +589,19 @@
                                                                                     fill="#103178"
                                                                                     p-id="3628"></path></svg>
                                                                         </span>
-                                                                </button>
-                                                            </form>
+                                                                    </button>
+                                                                </form>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="header-menu-open-wrapper-list-row-3">
-                                                    <div class="header-menu-open-wrapper-list-language">
-                                                        <div class="header-menu-open-wrapper-list-language-EN">
-                                                            <a href="">
-                                                                <span>English</span>
+                                                    <div class="header-menu-open-wrapper-list-row-3">
+                                                        <div class="header-menu-open-wrapper-list-language">
+                                                            <div class="header-menu-open-wrapper-list-language-EN">
+                                                                <a href="">
+                                                                    <span>English</span>
 
-                                                                <span class="svg-element-ui">
+                                                                    <span class="svg-element-ui">
                                                                     <svg width="9" height="6" viewBox="0 0 9 6"
                                                                          fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -608,13 +609,13 @@
                                                                           fill="#5B6C8F"></path>
                                                                     </svg>
                                                                 </span>
-                                                            </a>
-                                                        </div>
-                                                        <div class="header-menu-open-wrapper-list-language-USD">
-                                                            <a href="">
-                                                                <span>USD</span>
+                                                                </a>
+                                                            </div>
+                                                            <div class="header-menu-open-wrapper-list-language-USD">
+                                                                <a href="">
+                                                                    <span>USD</span>
 
-                                                                <span class="svg-element-ui">
+                                                                    <span class="svg-element-ui">
                                                                     <svg width="9" height="6" viewBox="0 0 9 6"
                                                                          fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -622,98 +623,98 @@
                                                                           fill="#5B6C8F"></path>
                                                                     </svg>
                                                                 </span>
-                                                            </a>
+                                                                </a>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+
+                                        </div>
+                                        <script>
+                                            var headerMenuOpen = document.getElementById('headerMenuOpen');
+                                            var Open = document.getElementById('Open');
+                                            headerMenuOpen.onmousedown = function () {
+                                                Open.style = 'bolck';
+                                            }
+                                        </script>
+
+
+                                        <div class="header-bottom-main-nav-item">
+                                            <a href="">
+                                                <span>Pages</span>
+                                            </a>
+                                        </div>
+
+                                            <div  th:each="productType : ${productTypeList}"  class="has_sub_menu">
+                                                <a class="publichead_nav_li_a" href="/index/productlist">
+                                                    <span th:text="${productType.name}">Products</span>
+                                                    <!--                                            <span class="triangle"></span>-->
+                                                </a>
+
+
+                                                <div class="sub_menu">
+                                                    <div>
+                                                        <th:block th:each="productChildType : ${productType.children}">
+                                                            <a th:href="@{'/index/productlist?typeCode='+ ${productChildType.id}}"
+                                                               th:text="${productChildType.name}">
+                                                                module</a>
+                                                        </th:block>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        <!--                                            <div class="header-bottom-main-nav-item">-->
+                                        <!--                                                <a href="">-->
+                                        <!--                                                    <span>Transformer</span>-->
+                                        <!--                                                </a>-->
+                                        <!--                                            </div>-->
+
+                                        <!--                                            <div class="header-bottom-main-nav-item">-->
+                                        <!--                                                <a href="">-->
+                                        <!--                                                    <span>Energy storage</span>-->
+                                        <!--                                                </a>-->
+                                        <!--                                            </div>-->
+
+                                        <!--                                    <div class="header-bottom-main-nav-item">-->
+                                        <!--                                        <a href="">-->
+                                        <!--                                            <span>Collections</span>-->
+                                        <!--                                        </a>-->
+                                        <!--                                    </div>-->
+
+                                        <div class="header-bottom-main-nav-item">
+                                            <a href="contact">
+                                                <span>Contact</span>
+                                            </a>
                                         </div>
 
                                     </div>
-                                    <script>
-                                        var headerMenuOpen = document.getElementById('headerMenuOpen');
-                                        var Open = document.getElementById('Open');
-                                        headerMenuOpen.onmousedown = function () {
-                                            Open.style = 'bolck';
-                                        }
-                                    </script>
-
-
-                                    <div class="header-bottom-main-nav-item">
-                                        <a href="">
-                                            <span>Pages</span>
-                                        </a>
-                                    </div>
-
-                                    <div class="has_sub_menu">
-                                        <a class="publichead_nav_li_a" href="/index/productlist">
-                                            <span>Products</span>
-<!--                                            <span class="triangle"></span>-->
-                                        </a>
-
-
-                                        <products-types>
-                                            <div class="sub_menu">
-                                                <div>
-                                                    <th:block th:each="productType : ${productTypeList}">
-                                                        <a th:href="@{'/index/productlist?typeCode='+ ${productType.id}}" th:text="${productType.name}">
-                                                            module</a>
-                                                    </th:block>
-                                                </div>
-                                            </div>
-                                        </products-types>
-
-                                    </div>
-
-                                    <div class="header-bottom-main-nav-item">
-                                        <a href="">
-                                            <span>Transformer</span>
-                                        </a>
-                                    </div>
-
-                                    <div class="header-bottom-main-nav-item">
-                                        <a href="">
-                                            <span>Energy storage</span>
-                                        </a>
-                                    </div>
-
-<!--                                    <div class="header-bottom-main-nav-item">-->
-<!--                                        <a href="">-->
-<!--                                            <span>Collections</span>-->
-<!--                                        </a>-->
-<!--                                    </div>-->
-
-                                    <div class="header-bottom-main-nav-item">
-                                        <a href="contact">
-                                            <span>Contact</span>
-                                        </a>
-                                    </div>
-
+                                    </products-types>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="header-section-nav-mobile-2">
-            <div class="header-section-nav-mobile-2-content">
-                <div class="container">
+            <div class="header-section-nav-mobile-2">
+                <div class="header-section-nav-mobile-2-content">
+                    <div class="container">
 
-                    <div class="header-mobile-row-1">
-                        <div class="row">
-                            <div class="header-mobile-col-1 col-6">
-                                <div class="header-mobile-logo-wrapper">
-                                    <a href=""> <img width="140" height="50" src="../static/pic/logo-1.png" alt=""></a>
+                        <div class="header-mobile-row-1">
+                            <div class="row">
+                                <div class="header-mobile-col-1 col-6">
+                                    <div class="header-mobile-logo-wrapper">
+                                        <a href=""> <img width="140" height="50" src="../static/pic/logo-1.png" alt=""></a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="header-mobile-col-2 col-6">
-                                <div class="header-mobile-col-2-right">
-                                    <div class="header-mobile-ui">
-                                        <div class="header-mobile-ui-language-Eng">
-                                            <a href="">
-                                                <span>English</span>
-                                                <span class="svg-element-ui">
+                                <div class="header-mobile-col-2 col-6">
+                                    <div class="header-mobile-col-2-right">
+                                        <div class="header-mobile-ui">
+                                            <div class="header-mobile-ui-language-Eng">
+                                                <a href="">
+                                                    <span>English</span>
+                                                    <span class="svg-element-ui">
                                                 <svg width="9" height="6" viewBox="0 0 9 6" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -721,12 +722,12 @@
                                                           fill="#5B6C8F"></path>
                                                 </svg>
                                             </span>
-                                            </a>
-                                        </div>
-                                        <div class="header-mobile-ui-language-Usd">
-                                            <a href="">
-                                                <span>USD</span>
-                                                <span class="svg-element-ui">
+                                                </a>
+                                            </div>
+                                            <div class="header-mobile-ui-language-Usd">
+                                                <a href="">
+                                                    <span>USD</span>
+                                                    <span class="svg-element-ui">
                                                     <svg width="9" height="6" viewBox="0 0 9 6" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -734,32 +735,32 @@
                                                           fill="#5B6C8F"></path>
                                                 </svg>
                                             </span>
-                                            </a>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="header-mobile-row-2">
-                        <div class="row">
-                            <div class="header-mobile-form-search col-12">
-                                <form action="/search">
-                                    <input name="q" type="text" placeholder="Search for products..."
-                                           autocomplete="off">
-                                    <button type="submit" class="btn-search">
+                        <div class="header-mobile-row-2">
+                            <div class="row">
+                                <div class="header-mobile-form-search col-12">
+                                    <form action="/search">
+                                        <input name="q" type="text" placeholder="Search for products..."
+                                               autocomplete="off">
+                                        <button type="submit" class="btn-search">
                                                 <span class="svg-element-ui">
                                                    <img src="../static/pic/seach.png" alt="">
                                                 </span>
-                                    </button>
-                                </form>
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-</header>
+    </header>
 </th:block>

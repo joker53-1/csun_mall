@@ -42,7 +42,7 @@ public class IndexController {
     public String getListProduct(Long typeCode, Model model) {
         List<ProductsDTO> list = productsService.getProductList(typeCode);
         model.addAttribute("productList", list);
-//        model.addAttribute("productTypeList", categoryService.getTypeList());
+        model.addAttribute("productTypeList", categoryService.listWithChildren());
         return "/index";
     }
 

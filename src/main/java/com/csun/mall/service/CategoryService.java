@@ -1,9 +1,12 @@
 package com.csun.mall.service;
 
 import com.csun.mall.domain.ProductCategory;
+import com.csun.mall.mapper.ProductCategoryDao;
 import com.csun.mall.mapper.ProductCategoryMapper;
+import com.csun.mall.pojo.dto.ProductCategoryWithChildren;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -19,8 +22,16 @@ public class CategoryService {
     @Resource
     private ProductCategoryMapper productCategoryMapper;
 
+    @Resource
+    private ProductCategoryDao productCategoryDao;
+
+    public List<ProductCategoryWithChildren> listWithChildren() {
+        return productCategoryDao.listWithChildren();
+    }
 
     public List<ProductCategory> getTypeList() {
-        return productCategoryMapper.selectAll();
+        Example example = new Example(ProductCategory.class);
+        example.createCriteria().andEqualTo("parentId",0);
+        return productCategoryMapper.selectByExample(example);
     }
 }
