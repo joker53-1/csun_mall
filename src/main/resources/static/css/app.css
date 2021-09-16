@@ -520,11 +520,12 @@ p, li, a, i, em, strong, button, input, div, span {
     align-items: center;
 }
 
+
 .header-bottom-main-nav-item {
     margin-inline-end: 1.3rem;
 }
 
-.header-bottom-main-menu > .header-bottom-main-nav-item > a {
+.header-bottom-main-nav-item > a {
     line-height: 2.5rem;
     font-size: 1.6rem;
     font-weight: 600;
@@ -540,7 +541,7 @@ p, li, a, i, em, strong, button, input, div, span {
     justify-content: center;
 }
 
-.header-bottom-main-menu > .header-bottom-main-nav-item:not(:last-child) {
+.header-bottom-main-nav-item:not(:last-child) {
     margin-inline-end: 3rem;
 }
 
@@ -3694,6 +3695,7 @@ lable {
 }
 
 .has_sub_menu {
+    margin-inline-end: 1.3rem;
     position: relative;
 }
 
@@ -3709,6 +3711,7 @@ lable {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
+
 }
 
 .sub_menu a {
@@ -3717,6 +3720,7 @@ lable {
     background-color: rgba(0, 0, 0, 0.5);
     color: #FFFFFF;
     text-decoration: none;
+    width: 100px !important;
 }
 
 .sub_menu a:hover {

@@ -114,8 +114,9 @@
         <result column="description" property="description"/>
         <result column="detailDesc" property="detailDesc"/>
         <result column="pic" property="pic"/>
+        <result column="categoryName" property="categoryName"/>
     </resultMap>
-    <select id="getList" resultMap="productSimple">
+    <select id="getList" resultMap="productSimple" >
         select pi.id,
                pi.enable,
                pi.product_category_id productCategoryId,
@@ -128,11 +129,17 @@
                pi.low_stock           lowStock,
                pi.description,
                pi.detail_desc         detailDesc,
-               pimg.url               pic
+               pimg.url               pic,
+               pc.name                categoryName
         from product_item pi
                  LEFT JOIN product_img pimg
                            on pi.id = pimg.product_id
+                LEFT JOIN product_category pc
+                           on pi.product_category_id = pc.id
         where pimg.is_main = 1
+        <if test="keyword != null">
+            and pi.name like '%${keyword}%'
+        </if>
     </select>
 
 </mapper>

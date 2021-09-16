@@ -28,14 +28,18 @@
         <!--                </div>-->
 
         <!--            </div>-->
-        <div class="banner owl-carousel owl-theme" id="owl-demo">
-            <a th:href="@{'/news/Super-black'}">
-                <div class="item"
-                     style="width: 100%;height: 400px;background: url(../static/pic/change/banner.png) no-repeat top center;"></div>
-            </a>
-            <div class="item"
-                 style="width: 100%;height: 400px;background: url(../static/pic/change/banner.png) no-repeat top center;"></div>
+        <div class="mall-section banner">
+            <div class="container mall-banner-size">
+                <div class="banner owl-carousel owl-theme" id="owl-demo">
 
+                    <div class="item"
+                         style="width: 100%;height: 400px;background: url(//csunsolartech.oss-accelerate.aliyuncs.com/o/csun/image/pic/20210617105049.jpg) no-repeat top center;"></div>
+
+                    <div class="item"
+                         style="width: 100%;height: 400px;background: url(../static/pic/change/banner.png) no-repeat top center;"></div>
+
+                </div>
+            </div>
         </div>
         <script>
             $(document).ready(function () {
@@ -83,16 +87,16 @@
                         </div>
                         <div class="mall-section-products-body">
 
-<!--                            <td>${productList}</td>-->
+                            <!--                            <td>${productList}</td>-->
                             <div class="owl-carousel owl-theme" id="owl-carousel">
-                            <div th:each="product : ${productList}">
-                                <a style="margin-left: 30px;text-decoration: none;color: black"
-                                   th:href="@{'/index/product?id='+ ${product.id}}">
-                                    <img width="196"  th:src="@{${product.pic[0]}}">
-                                    <h5 th:text="${product.categoryName}"></h5>
-                                    <p th:text="${product.name}"></p>
-                                </a>
-                            </div>
+                                <div th:each="product : ${productList}">
+                                    <a style="margin-left: 30px;text-decoration: none;color: black"
+                                       th:href="@{'/index/product?id='+ ${product.id}}">
+                                        <img width="196" th:src="@{${product.pic[0]}}">
+                                        <h5 th:text="${product.categoryName}"></h5>
+                                        <p th:text="${product.name}"></p>
+                                    </a>
+                                </div>
                             </div>
                             <script>
                                 $(document).ready(function () {
@@ -385,7 +389,7 @@
                 <div class="chat_line"></div>
 
                 <div class="chat_enter">
-                    <textarea type="text"  id="question" placeholder="请输入您想咨询的问题"></textarea>
+                    <textarea type="text" id="question" placeholder="请输入您想咨询的问题"></textarea>
                     <button id="send" type="button">发送</button>
                 </div>
 

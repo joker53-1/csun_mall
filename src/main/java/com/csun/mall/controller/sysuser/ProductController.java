@@ -56,27 +56,21 @@ public class ProductController {
             return ResponseData.failure();
         }
     }
+
     @ApiOperation("查询商品列表")
     @GetMapping(value = "/list")
-    public ResponseData<PageResult<ProductQueryDTO>> getList(@RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize,
+    public ResponseData<PageResult<ProductQueryDTO>> getList(String keyword,
+                                                             @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize,
                                                              @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
-        PageResult<ProductQueryDTO> productList = productService.list(pageSize, pageNum);
+        PageResult<ProductQueryDTO> productList = productService.list(keyword, pageNum,pageSize);
         return ResponseData.success(productList);
     }
 
-    @ApiOperation("根据商品名称模糊查询")
-    @GetMapping(value = "/simpleList")
-    public ResponseData<PageResult<ProductQueryDTO>> getList(String keyword,
-                                                        @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize,
-                                                       @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
-        PageResult<ProductQueryDTO> productList = productService.list(keyword,pageNum,pageSize);
-        return ResponseData.success(productList);
-    }
 
     @ApiOperation("批量修改删除状态")
     @PutMapping(value = "/updateEnable")
-    @ApiImplicitParam(name = "ids",value = "ids",dataTypeClass = List.class, paramType = "query")
-    public ResponseData updateEnable(@RequestParam List<Long> ids,Boolean enable) {
+    @ApiImplicitParam(name = "ids", value = "ids", dataTypeClass = List.class, paramType = "query")
+    public ResponseData updateEnable(@RequestParam List<Long> ids, Boolean enable) {
         int count = productService.updateEnable(ids, enable);
         if (count > 0) {
             return ResponseData.success(count);

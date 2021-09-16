@@ -8,6 +8,7 @@ import com.csun.mall.pojo.dto.ProductQueryDTO;
 import com.csun.mall.pojo.dto.ProductsDTO;
 import com.csun.mall.pojo.dto.SysRoleDTO;
 import com.csun.mall.web.response.PageResult;
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
@@ -111,15 +112,13 @@ public class ProductService {
         return productItemDao.getUpdateInfo(id);
     }
 
-    public PageResult<ProductQueryDTO> list(Integer pageSize, Integer pageNum) {
-        PageHelper.startPage(pageNum, pageSize);
-        List<ProductQueryDTO> list = productItemDao.getList();
-        return PageResult.from(list, ProductQueryDTO.class);
-    }
-    public PageResult<ProductQueryDTO> list(String name,Integer pageNum, Integer pageSize) {
-        PageHelper.startPage(pageNum, pageSize);
-        List<ProductQueryDTO> list = productItemDao.getList();
-        return PageResult.from(list.stream().filter(e ->e.getName().matches(".*"+name+".*")).collect(Collectors.toList()), ProductQueryDTO.class);
+
+    public PageResult<ProductQueryDTO> list(String keyword,Integer pageNum, Integer pageSize) {
+//        PageHelper.clearPage();
+        PageHelper.startPage(pageNum,pageSize);
+        List<ProductQueryDTO> list = productItemDao.getList(keyword);
+//        return PageResult.from(list.stream().filter(e ->e.getName().matches(".*"+name+".*")).collect(Collectors.toList()), ProductQueryDTO.class);
+        return PageResult.from(list,ProductQueryDTO.class);
     }
 
     public int updateEnable(List<Long> ids,Boolean enable){
