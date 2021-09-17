@@ -14,6 +14,7 @@ import java.util.List;
  */
 public interface ProductItemDao {
     List<ProductsDTO> getProducts(@Param("categoryId") Long categoryId);
+    List<ProductsDTO> getProductsByList(@Param("categoryIds") List<Long> categoryId);
     ProductParam getUpdateInfo(@Param("id") Long id);
     List<ProductQueryDTO> getList(@Param("keyword") String keyword);
 }

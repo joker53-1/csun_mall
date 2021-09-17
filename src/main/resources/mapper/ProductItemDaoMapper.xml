@@ -35,6 +35,27 @@
 
 
     </select>
+
+    <select id="getProductsByList" resultMap="productsVO" parameterType="List">
+        SELECT pi.id,pi.name,pi.sort,pi.product_category_id categoryId,pc.name
+        categoryName,pi.description,pi.detail_desc descriptionPic,pi.create_time createTime,pi.price,pi.original_price originalPrice,
+        pimg.url
+
+        FROM
+        product_item pi
+        LEFT JOIN product_category pc
+        on pi.product_category_id=pc.id
+        LEFT JOIN product_img pimg
+        on pi.id = pimg.product_id
+        <if test="categoryIds != null">
+            WHERE pi.product_category_id in
+            <foreach collection="categoryIds" index="index" item="cid" open="(" separator="," close=")">
+                #{cid}
+            </foreach>
+        </if>
+
+
+    </select>
     <resultMap id="productsItem" type="com.csun.mall.pojo.dto.ProductParam">
 
         <id column="id" property="id" jdbcType="BIGINT"/>

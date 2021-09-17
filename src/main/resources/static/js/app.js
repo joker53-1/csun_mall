@@ -56,6 +56,19 @@ $(function () {
     }, function () {
         $(this).find(".sub_menu").hide();
     });
+
+    $("#contact_form").submit(function () {
+        let values = $("#contact_form").serialize();
+        $("#contact_submit").html("Send...").attr("disabled", "disabled")
+        $.post("/contact/contactUs", values, function (data) {
+            $("#contact_submit").html("Submit").removeAttr("disabled");
+            alert(data.body)
+            if (data.status === "SUCCESS") {
+                document.getElementById("contact_form").reset();
+            }
+        })
+        return false
+    })
 });
 
 function sendName() {
@@ -65,4 +78,42 @@ function sendName() {
     };
     console.log(data);
     stompClient.send("/app/chat", {}, JSON.stringify(data));
+    document.getElementById("question").value = "";
+    var span = '<div class="chat_message_box chat_right_box">\n' +
+        '                        <div class="chat_box_head">\n' +
+        '                                <span>\n' +
+        '                                    用户1\n' +
+        '                                </span>\n' +
+        '                            <span>\n' +
+        '                                    下午04:46\n' +
+        '                                </span>\n' +
+        '                        </div>\n' +
+        '                        <div class="chat_message">\n' +
+        '\n' +data.message+
+        '                        </div>\n' +
+        '                    </div>'
+    $("#show_content_admin").append(span);
+}
+
+function showMessage(data){
+    console.log(data);
+    var span = '<div class="chat_message_box chat_left_box">\n' +
+        '                        <div class="chat_box_head">\n' +
+        '                                <span>\n' +
+        '                                    客服\n' +
+        '                                </span>\n' +
+        '                            <span>\n' +
+        '                                    下午04:46\n' +
+        '                                </span>\n' +
+        '                        </div>\n' +
+        '                        <div class="chat_message">\n' +
+        '\n' +data.message+
+        '                        </div>\n' +
+        '                    </div>'
+    $("#show_content_admin").append(span);
+
+}
+
+function headerMenuClose(){
+    $("#Open").hide()
 }
