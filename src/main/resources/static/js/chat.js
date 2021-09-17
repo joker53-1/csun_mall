@@ -99,10 +99,7 @@ function loginChat() {
 //
 // })();
 //
-function showMessage(data){
-    console.log(data);
-    $("#show_content_admin").append(data.message);
-}
+
 
 function getData(data) {
     var obj = JSON.parse(data);

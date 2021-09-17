@@ -59,4 +59,38 @@ function sendName() {
     };
     console.log(data);
     stompClient.send("/app/chat", {}, JSON.stringify(data));
+    document.getElementById("question").value = "";
+    var span = '<div class="chat_message_box chat_right_box">\n' +
+        '                        <div class="chat_box_head">\n' +
+        '                                <span>\n' +
+        '                                    客服\n' +
+        '                                </span>\n' +
+        '                            <span>\n' +
+        '                                    下午04:46\n' +
+        '                                </span>\n' +
+        '                        </div>\n' +
+        '                        <div class="chat_message">\n' +
+        '\n' +data.message+
+        '                        </div>\n' +
+        '                    </div>'
+    $("#show_content_admin").append(span);
+}
+
+function showMessage(data){
+    console.log(data);
+    var span = '<div class="chat_message_box chat_left_box">\n' +
+        '                        <div class="chat_box_head">\n' +
+        '                                <span>\n' +
+        '                                    用户1\n' +
+        '                                </span>\n' +
+        '                            <span>\n' +
+        '                                    下午04:46\n' +
+        '                                </span>\n' +
+        '                        </div>\n' +
+        '                        <div class="chat_message">\n' +
+        '\n' +data.message+
+        '                        </div>\n' +
+        '                    </div>'
+    $("#show_content_admin").append(span);
+
 }

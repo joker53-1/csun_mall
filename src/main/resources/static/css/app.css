@@ -1832,6 +1832,7 @@ lable {
 
 .contact-form-button {
     margin: 3rem 0 0;
+    padding: 5px 200px
 }
 
 .btn-1 {
@@ -3815,3 +3816,8 @@ lable {
     color: #ee201d;
 }
 
+.wrap-content-rightLine1 {
+    margin: 10px 0;
+    width: 100%;
+    background-color: #282828;
+}

@@ -1,11 +1,17 @@
 package com.csun.mall.domain;
 
+import io.swagger.annotations.ApiModelProperty;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Table(name = "product_category")
 public class ProductCategory {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty(hidden = true)
     private Long id;
 
     private Long parentId;
@@ -25,6 +31,7 @@ public class ProductCategory {
     /**
      * 描述
      */
+    @ApiModelProperty(required = false)
     private String description;
 
     /**

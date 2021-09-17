@@ -10,6 +10,7 @@ import com.csun.mall.pojo.dto.SysRoleDTO;
 import com.csun.mall.web.response.PageResult;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -56,6 +57,12 @@ public class ProductService {
 //        if(catId!=null)
         return productItemDao.getProducts(catId);
 //        return null;
+    }
+
+    public List<ProductsDTO> getProductListByList(List<Long> catIds){
+        if(ObjectUtils.isEmpty(catIds))
+            return null;
+        return productItemDao.getProductsByList(catIds);
     }
 
     public int create(ProductParam productParam) {

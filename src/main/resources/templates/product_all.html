@@ -26,7 +26,7 @@
                                 <path d="M2.1 4.05596L0 6.65996L0.7 7.28996L3.36 3.99996L0.7 0.709961L0 1.33996L2.1 4.05596Z" fill="#5B6C8F"></path>
                             </svg>
                         </li>
-                        <li><a href=""><span>Products</span></a></li>
+                        <li><a href=""><span th:text="${rootCategory}"></span></a></li>
 
                     </ul>
                 </div>
@@ -37,8 +37,8 @@
             <div class="container">
                 <div class="products-all-heading">
                     <div class="products-all-heading-title">
-                        <h1>Products</h1>
-                        <span>(29)</span>
+                        <h3 th:text="${rootCategory}">Products</h3>
+<!--                        <span>(29)</span>-->
                     </div>
                 </div>
 

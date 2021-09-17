@@ -1,7 +1,9 @@
 package com.csun.mall.controller.portal;
 
+import com.csun.mall.domain.ProductCategory;
 import com.csun.mall.domain.ProductLadderPrice;
 import com.csun.mall.domain.Products;
+import com.csun.mall.pojo.dto.ProductCategoryWithChildren;
 import com.csun.mall.pojo.dto.ProductsDTO;
 import com.csun.mall.service.CategoryService;
 import com.csun.mall.service.PriceService;
@@ -84,9 +86,26 @@ public class IndexController {
 
     @GetMapping("/productlist")
     public String getProductlist(Long typeCode, Model model) {
-        List<ProductsDTO> list = productsService.getProductList(typeCode);
-        model.addAttribute("productList", list);
-        model.addAttribute("productTypeList", categoryService.getTypeList());
+
+
+        ProductCategory category= categoryService.getParent(typeCode);
+        Long parentCode = category.getParentId();
+        model.addAttribute("rootCategory",category.getName());
+        if(parentCode==0){
+            List<ProductCategory> categories =  categoryService.getList(typeCode);
+            model.addAttribute("productTypeList", categories);
+            List<Long> codeList = categories.stream().map(e -> e.getId()).collect(Collectors.toList());
+            List<ProductsDTO> list = productsService.getProductListByList(codeList);
+            model.addAttribute("productList", list);
+//            typeCode=null;
+        }
+        else {
+            model.addAttribute("productTypeList", categoryService.getList(parentCode));
+            List<ProductCategoryWithChildren> categoryWithChildren = categoryService.listWithChildren();
+            List<ProductsDTO> list = productsService.getProductList(typeCode);
+            model.addAttribute("productList", list);
+        }
+
         return "/product_all";
     }
 
