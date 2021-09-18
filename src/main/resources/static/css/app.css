@@ -3696,7 +3696,7 @@ lable {
 }
 
 .has_sub_menu {
-    margin-inline-end: 1.3rem;
+    margin-inline-end: 1.6rem;
     position: relative;
 }
 
@@ -3711,21 +3711,23 @@ lable {
 .sub_menu div {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    margin-top: 0;
 
 }
 
 .sub_menu a {
+    width:200px;
     padding: 10px;
     font-weight: 300;
     background-color: rgba(0, 0, 0, 0.5);
     color: #FFFFFF;
     text-decoration: none;
-    width: 100px !important;
 }
 
 .sub_menu a:hover {
     background-color: rgba(0, 0, 0, 0.7);
+    color: #fff ;
+    text-decoration: none;
 }
 
 .publichead_nav_li_a {
