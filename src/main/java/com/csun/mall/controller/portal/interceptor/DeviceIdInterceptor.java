@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.UUID;
 
-public class UserTokenInterceptor implements HandlerInterceptor {
+public class DeviceIdInterceptor implements HandlerInterceptor {
 
     @Autowired
     private CsrDeviceService csrDeviceService;

@@ -1,9 +1,11 @@
 package com.csun.mall.controller.Message;
 
+import com.csun.mall.common.tools.CookieTool;
 import com.csun.mall.domain.CsrMember;
 import com.csun.mall.pojo.dto.MessageRO;
 import com.csun.mall.pojo.dto.MessageVO;
 import com.csun.mall.service.MessageService;
+import org.springframework.http.HttpRequest;
 import org.springframework.messaging.handler.annotation.MessageExceptionHandler;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -12,6 +14,7 @@ import org.springframework.messaging.simp.annotation.SendToUser;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 
 @RestController
@@ -54,12 +57,12 @@ public class MessagesController {
      * @param user 发送消息的用户对象
      * @throws Exception
      */
-    @MessageMapping("/chatRoom")
-    public void chatRoom(MessageRO messageRO, CsrMember user) throws Exception {
-        String message = messageRO.getMessage();
-
-        messageService.sendMessage("/topic/chatRoom", new MessageVO(user, message, messageRO.getImage()));
-    }
+//    @MessageMapping("/chatRoom")
+//    public void chatRoom(MessageRO messageRO, CsrMember user) throws Exception {
+//        String message = messageRO.getMessage();
+//
+//        messageService.sendMessage("/topic/chatRoom", new MessageVO(user, message, messageRO.getImage()));
+//    }
 
     /**
      * 发送消息到指定用户
@@ -70,9 +73,8 @@ public class MessagesController {
      */
     @MessageMapping("/chat")
     public void sendToUser(MessageRO messageRO, CsrMember user) throws Exception {
-
         messageService.sendMessageToUser(messageRO.getReceiver(), new MessageVO(user, messageRO.getMessage(),
-                messageRO.getImage()));
+                messageRO.getImage(),messageRO.getType()));
     }
 
 }

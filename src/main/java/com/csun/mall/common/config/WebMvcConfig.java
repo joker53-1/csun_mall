@@ -1,10 +1,8 @@
 package com.csun.mall.common.config;
 
-import com.csun.mall.controller.portal.interceptor.UserTokenInterceptor;
-import org.springframework.boot.web.client.RestTemplateBuilder;
+import com.csun.mall.controller.portal.interceptor.DeviceIdInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -21,8 +19,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
     }
 
     @Bean
-    public UserTokenInterceptor userTokenInterceptor(){
-        return new UserTokenInterceptor();
+    public DeviceIdInterceptor deviceIdInterceptor(){
+        return new DeviceIdInterceptor();
     }
 
     /**
@@ -31,7 +29,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(userTokenInterceptor())
+        registry.addInterceptor(deviceIdInterceptor())
                 .addPathPatterns("/customer/login","/index/*");
 //        registry.addInterceptor(userTokenInterceptor())
 //                .addPathPatterns("/hello")
