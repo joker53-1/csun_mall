@@ -74,7 +74,9 @@ $(function () {
 function sendName() {
     var data = {
         "message": $("#question").val(),
-        "receiver":"2"
+        "receiver":"2",
+        "type":0
+        // "deviceId":getCookie("device_id")
     };
     console.log(data);
     stompClient.send("/app/chat", {}, JSON.stringify(data));

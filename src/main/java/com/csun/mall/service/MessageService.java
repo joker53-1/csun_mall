@@ -1,5 +1,6 @@
 package com.csun.mall.service;
 
+import com.csun.mall.common.annotation.ChatRecord;
 import com.csun.mall.pojo.dto.MessageVO;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -24,6 +25,7 @@ public class MessageService {
         messagingTemplate.convertAndSend(subAddress, messageVO);
     }
 
+    @ChatRecord
     public void sendMessageToUser(String receiver, MessageVO messageVO) throws Exception{
         if (StringUtils.isEmpty(receiver)) {
             throw new NullPointerException("地址为空！");

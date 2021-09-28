@@ -6,12 +6,6 @@ import lombok.ToString;
 
 import java.io.Serializable;
 
-/**
- * 消息请求
- *
- * @author yanpanyi
- * @date 2019/3/20
- */
 @Getter
 @Setter
 @ToString
@@ -32,11 +26,7 @@ public class MessageRO implements Serializable {
      */
     private String image;
 
-    public String getReceiver() {
-        return receiver;
-    }
+    private Integer type;
 
-    public void setReceiver(String receiver) {
-        this.receiver = receiver;
-    }
+
 }

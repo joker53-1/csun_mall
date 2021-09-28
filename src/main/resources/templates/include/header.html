@@ -8,7 +8,7 @@
 
         <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
         <title>CSUN Mall</title>
-        <link rel="shortcut icon" href="img/foodie.ico"/>
+
         <link rel="stylesheet" th:href="@{/static/fontawesome/css/all.css}">
         <link rel="stylesheet" th:href="@{/static/owlcarousel/assets/owl.carousel.css}">
         <link rel="stylesheet" th:href="@{/static/owlcarousel/assets/owl.theme.default.css}">
@@ -42,7 +42,8 @@
                     <div class="header-section-announcement-wrapper ">
                         <div class="header-section-announcement-wrapper-left ">
                             <div class="header-announcement-column-text">
-                                <p><strong>100% Secure delivery</strong> without contacting the courier</p>
+                                <p ><strong th:text="#{co_secure_delivery}">100% Secure delivery</strong>
+                                    <span th:text="#{co_withoutContact}">without contacting the courier</span></p>
                             </div>
                         </div>
 
@@ -50,8 +51,8 @@
 
                             <div class="header-wrapper-right-menu">
                                 <ul class="header-wrapper-menu-list">
-                                    <li><a href="">Order tracking</a></li>
-                                    <li><a href="">blog</a></li>
+                                    <li><a href="" th:text="#{co_order_tracking}">Order tracking</a></li>
+                                    <li><a href="" th:text="#{co_blog}">blog</a></li>
                                 </ul>
                             </div>
 
@@ -59,8 +60,8 @@
                                 <ul class="header-social-icon">
                                     <li><a href=""><img src="../static/pic/facebook%20(2).png" alt=""></a></li>
                                     <li><a href=""><img src="../static/pic/twitter.png" alt=""></a></li>
-                                    <li><a href=""><img height="26" width="26" src="../static/pic/chat.png" alt=""></a>
-                                    </li>
+<!--                                    <li><a href=""><img height="26" width="26" src="../static/pic/chat.png" alt=""></a>-->
+<!--                                    </li>-->
                                     <li><a href=""><img height="24" width="24" src="../static/pic/linkedin-in.png"
                                                         alt=""></a></li>
                                 </ul>
@@ -70,7 +71,7 @@
                                 <div class="header-selectGroup-ui">
                                     <div class="header-selectGroup-ui-language-Eng">
                                         <a href="">
-                                            <span>English</span>
+                                            <span th:text="#{co_lang}">English</span>
                                             <span class="svg-element-ui">
                                                 <svg width="9" height="6" viewBox="0 0 9 6" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -83,7 +84,7 @@
                                     </div>
                                     <div class="header-selectGroup-ui-language-Usd">
                                         <a href="">
-                                            <span>USD</span>
+                                            <span th:text="#{co_currency}">USD</span>
                                             <span class="svg-element-ui">
                                                 <svg width="9" height="6" viewBox="0 0 9 6" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -128,14 +129,14 @@
                                 <div class="header-nav-right-col">
                                     <div class="header-nav-right-custom-info">
                                         <p>
-                                            Need help?
-                                            <strong>0020 500</strong>
+                                            <span th:text="#{co_need_help}">Need help?</span>
+                                            <strong>+86-25-52766958</strong>
                                         </p>
                                     </div>
 
                                     <div class="header-nav-right-form-search col-10">
                                         <form action="/search">
-                                            <input name="q" type="text" placeholder="Search for products..."
+                                            <input name="q" type="text" th:placeholder="#{co_search}"
                                                    autocomplete="off">
                                             <button type="submit" class="btn-search">
                                                 <span class="svg-element-ui">
@@ -504,7 +505,7 @@
                                                             <div class="header-menu-open-wrapper-list-row-one">
                                                                 <ul>
                                                                     <li class="header-menu-open-wrapper-list-row-one-link">
-                                                                        <a href="/index/products">Pages</a>
+                                                                        <a href="/index/products" th:text="#{co_pages}">Pages</a>
                                                                         <span class="svg-element-ui">
                                                                         <svg width="4" height="8" viewBox="0 0 4 8"
                                                                              fill="none"
@@ -528,7 +529,7 @@
 
 
                                                                     <li class="header-menu-open-wrapper-list-row-one-link">
-                                                                        <a href="contact">Contact</a>
+                                                                        <a href="contact" th:text="#{co_contact}">Contact</a>
                                                                         <span class="svg-element-ui">
                                                                         <svg width="4" height="8" viewBox="0 0 4 8"
                                                                              fill="none"
@@ -547,7 +548,7 @@
                                                                 <div class="header-menu-open-mobile-search-box-r">
                                                                     <form action="">
                                                                         <input type="text"
-                                                                               placeholder="Search for products..."
+                                                                               th:placeholder="#{co_search}"
                                                                                autocomplete="off">
                                                                         <button type="submit" class="btn btn-search">
                                                                         <span class="svg-element-open">
@@ -569,7 +570,7 @@
                                                             <div class="header-menu-open-wrapper-list-language">
                                                                 <div class="header-menu-open-wrapper-list-language-EN">
                                                                     <a href="">
-                                                                        <span>English</span>
+                                                                        <span th:text="#{co_lang}">English</span>
 
                                                                         <span class="svg-element-ui">
                                                                     <svg width="9" height="6" viewBox="0 0 9 6"
@@ -583,7 +584,7 @@
                                                                 </div>
                                                                 <div class="header-menu-open-wrapper-list-language-USD">
                                                                     <a href="">
-                                                                        <span>USD</span>
+                                                                        <span th:text="#{co_currency}">USD</span>
 
                                                                         <span class="svg-element-ui">
                                                                     <svg width="9" height="6" viewBox="0 0 9 6"
@@ -612,7 +613,7 @@
 
                                             <div class="header-bottom-main-nav-item">
                                                 <a href="/index/products">
-                                                    <span>Pages</span>
+                                                    <span th:text="#{co_pages}">Pages</span>
                                                 </a>
                                             </div>
 
@@ -655,7 +656,7 @@
 
                                             <div class="header-bottom-main-nav-item">
                                                 <a href="contact">
-                                                    <span>Contact</span>
+                                                    <span th:text="#{co_contact}">Contact</span>
                                                 </a>
                                             </div>
 
@@ -683,7 +684,7 @@
                                         <div class="header-mobile-ui">
                                             <div class="header-mobile-ui-language-Eng">
                                                 <a href="">
-                                                    <span>English</span>
+                                                    <span th:text="#{co_lang}">English</span>
                                                     <span class="svg-element-ui">
                                                 <svg width="9" height="6" viewBox="0 0 9 6" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -696,7 +697,7 @@
                                             </div>
                                             <div class="header-mobile-ui-language-Usd">
                                                 <a href="">
-                                                    <span>USD</span>
+                                                    <span th:text="#{co_currency}">USD</span>
                                                     <span class="svg-element-ui">
                                                     <svg width="9" height="6" viewBox="0 0 9 6" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg">
@@ -716,7 +717,7 @@
                             <div class="row">
                                 <div class="header-mobile-form-search col-12">
                                     <form action="/search">
-                                        <input name="q" type="text" placeholder="Search for products..."
+                                        <input name="q" type="text" th:placeholder="#{co_search}"
                                                autocomplete="off">
                                         <button type="submit" class="btn-search">
                                                 <span class="svg-element-ui">

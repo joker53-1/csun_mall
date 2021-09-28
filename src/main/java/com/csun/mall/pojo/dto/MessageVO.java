@@ -3,12 +3,15 @@ package com.csun.mall.pojo.dto;
 import com.csun.mall.domain.CsrMember;
 import lombok.Data;
 
+import java.util.Date;
+
 /**
  * @Author Joker Zheng
  * @create 2021/8/30 10:08
  */
 @Data
 public class MessageVO {
+
     /**
      * 用户
      */
@@ -28,17 +31,20 @@ public class MessageVO {
     /**
      * 发送时间
      */
-    private String sendTime;
+    private Date sendTime;
 
     /**
      * 接收者
      */
     private String receiver;
 
-    public MessageVO(CsrMember user, String message, String image) {
+    private Integer type;
+
+    public MessageVO(CsrMember user, String message, String image,Integer type) {
         this.user = user;
         this.message = message;
         this.image = image;
+        this.type = type;
     }
 
     public MessageVO(CsrMember user, String message, String image,String receiver) {
