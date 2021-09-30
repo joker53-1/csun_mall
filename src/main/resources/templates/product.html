@@ -15,21 +15,21 @@
         <div class="breadcrumb">
             <div class="container">
                 <ul class="breadcrumb-list">
-                    <li><a href="/index/products"><span>Home</span></a></li>
+                    <li><a href="/index/products" th:text="#{co_home}"><span>Home</span></a></li>
                     <li class="svg-element-product">
                         <svg width="4" height="8" viewBox="0 0 4 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M2.1 4.05596L0 6.65996L0.7 7.28996L3.36 3.99996L0.7 0.709961L0 1.33996L2.1 4.05596Z"
                                   fill="#5B6C8F"></path>
                         </svg>
                     </li>
-                    <li><a href=""><span>Accessories</span></a></li>
+                    <li><a th:href="@{'/index/productlist?typeCode='+ ${currentProduct.categoryId}}"><span th:text="${currentProduct.categoryName}">Accessories</span></a></li>
                     <li class="svg-element-product">
                         <svg width="4" height="8" viewBox="0 0 4 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M2.1 4.05596L0 6.65996L0.7 7.28996L3.36 3.99996L0.7 0.709961L0 1.33996L2.1 4.05596Z"
                                   fill="#5B6C8F"></path>
                         </svg>
                     </li>
-                    <li><a href=""><span th:text="${currentProduct.name}"></span></a></li>
+                    <li><span th:text="${currentProduct.name}"></span></li>
 
                 </ul>
             </div>
@@ -227,7 +227,7 @@
                                                                     <div class="option-cart">
                                                                         <div class="option-cart-data">
                                                                             <div class="option-cart-data-wrapper">
-                                                                                <label for="quantity">Quantity</label>
+                                                                                <label for="quantity" th:text="#{co_quantity}">Quantity</label>
                                                                                 <div class="option-cart-data-select">
                                                                                     <a href="javascript:void(0);"
                                                                                        class="qty-minus">-</a>
@@ -241,7 +241,7 @@
                                                                         <div class="option-cart-button">
                                                                             <button type="submit" name="add"
                                                                                     class="btn">
-                                                                                <span class="cart-btn-label">Add to cart</span>
+                                                                                <span class="cart-btn-label" th:text="#{co_add_to_cart}">Add to cart</span>
                                                                             </button>
                                                                         </div>
                                                                     </div>
@@ -252,22 +252,23 @@
                                                         <div class="product-right-info-three-target">
                                                             <div class="product-right-info-three-target-one three-target">
                                                                 <a href="">
-                                                                    <span>Add to wishlist</span>
+                                                                    <span th:text="#{co_add_to_wishlist}">Add to wishlist</span>
                                                                 </a>
                                                             </div>
-                                                            <div class="product-right-info-three-target-two three-target">
-                                                                <a href="">
-                                                                    <span>Add to comparet</span>
-                                                                </a>
-                                                            </div>
+<!--                                                            <div class="product-right-info-three-target-two three-target">-->
+<!--                                                                <a href="">-->
+<!--                                                                    <span>Add to comparet</span>-->
+<!--                                                                </a>-->
+<!--                                                            </div>-->
                                                         </div>
                                                     </div>
 
 
                                                     <div class="product-right-info-four">
                                                         <div class="product-right-info-four-top">
-                                                            <span class="strong">SKU</span>
-                                                            <span>8DJ21A-3</span>
+                                                            <span class="strong" th:text="#{co_sku}">SKU</span>
+                                                            <span th:text="${currentProduct.stock}">8DJ21A-3</span>
+                                                            <span th:text="#{co_sku_unit}"></span>
                                                         </div>
                                                         <div class="product-right-info-four-bottom">
                                                             <ul>
@@ -459,7 +460,7 @@
                                     <div class="sidebar-content-body-four sidebar-item">
                                         <div class="product-recommendation">
                                             <div class="product-recommendation-header">
-                                                <p>Related products</p>
+                                                <p th:text="#{co_related_products}">Related products</p>
                                             </div>
 
 
@@ -570,7 +571,7 @@
                     <div class="container">
                         <div class="mall-section-products-content-wrapper">
                             <div class="mall-section-products-head">
-                                <div class="mall-section-head-title">
+                                <div class="mall-section-head-title" th:text="#{co_recommend}">
                                     Customers albo bought
                                 </div>
                             </div>

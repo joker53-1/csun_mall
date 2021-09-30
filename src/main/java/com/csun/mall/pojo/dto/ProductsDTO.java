@@ -20,6 +20,10 @@ public class ProductsDTO {
 
     private Integer sort;
 
+    private Integer sale;
+
+    private Integer stock;
+
     private Long categoryId;
 
     private String categoryName;

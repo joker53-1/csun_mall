@@ -109,56 +109,56 @@ public class WebSecurityConfig {
         }
     }
 
-    @Configuration
-    @Order(1)
-    static class CustomerConfigurerAdapter extends WebSecurityConfigurerAdapter {
-
-        @Autowired
-        private CsrMemberService csrMemberService;
-        @Autowired
-        private AuthenticationHandler authenticationHandler;
-        @Autowired
-        private CustomerAuthenticationFilter authenticationFilter;
-//        @Override
-//        protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//            DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
-//            daoAuthenticationProvider.setUserDetailsService(new UserDetailsService() {
-//                @Override
-//                public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//                    CsrMember csrMember = csrMemberService.queryByUsername(username);
-//                    return new User(csrMember.getUsername(), csrMember.getPassword(), true, true, true, true, null);
-//                }
-//            });
-//            auth.authenticationProvider(daoAuthenticationProvider);
-//        }
+//    @Configuration
+//    @Order(1)
+//    static class CustomerConfigurerAdapter extends WebSecurityConfigurerAdapter {
+//
+//        @Autowired
+//        private CsrMemberService csrMemberService;
+//        @Autowired
+//        private AuthenticationHandler authenticationHandler;
+//        @Autowired
+//        private CustomerAuthenticationFilter authenticationFilter;
+////        @Override
+////        protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+////            DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
+////            daoAuthenticationProvider.setUserDetailsService(new UserDetailsService() {
+////                @Override
+////                public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+////                    CsrMember csrMember = csrMemberService.queryByUsername(username);
+////                    return new User(csrMember.getUsername(), csrMember.getPassword(), true, true, true, true, null);
+////                }
+////            });
+////            auth.authenticationProvider(daoAuthenticationProvider);
+////        }
+////
+////        @Override
+////        public void configure(WebSecurity web) {
+////            try {
+////                super.configure(web);
+////            } catch (Exception e) {
+////                e.printStackTrace();
+////            }
+////        }
 //
 //        @Override
-//        public void configure(WebSecurity web) {
-//            try {
-//                super.configure(web);
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
+//        protected void configure(HttpSecurity http) throws Exception {
+//            http.addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
+//            http.authorizeRequests()
+////                    .antMatchers().permitAll()
+//                    .antMatchers("/customer/passport/b","/customer/passport/logout").authenticated()
+//                    .anyRequest().permitAll()
+////                    .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
+//                    .and()
+//                    .exceptionHandling()
+//                    .authenticationEntryPoint(this.authenticationHandler)
+//                    .and()
+//                    .csrf().disable();
+//            http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+//            http.headers().cacheControl();
+//
 //        }
-
-        @Override
-        protected void configure(HttpSecurity http) throws Exception {
-            http.addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
-            http.authorizeRequests()
-//                    .antMatchers().permitAll()
-                    .antMatchers("/customer/passport/b","/customer/passport/logout").authenticated()
-                    .anyRequest().permitAll()
-//                    .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
-                    .and()
-                    .exceptionHandling()
-                    .authenticationEntryPoint(this.authenticationHandler)
-                    .and()
-                    .csrf().disable();
-            http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-            http.headers().cacheControl();
-
-        }
-    }
+//    }
 
     /**
      *
