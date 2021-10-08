@@ -1,4 +1,4 @@
-const chat = {
+const chatProp = {
     // 聊天组件显示
     chatBox: true,
     // 聊天登录显示
@@ -7,7 +7,7 @@ const chat = {
     chatMain: false
 };
 $(function () {
-    Object.defineProperties(chat, {
+    Object.defineProperties(chatProp, {
         'chatBox': {
             configurable: true,
             set: function (newValue) {
@@ -53,8 +53,8 @@ $(function () {
 
 
 function clickChat() {
-    if (!chat.chatBox) {
-
+    let chatBox = chatProp.chatBox === false || chatProp.chatBox === true ? chatProp.chatBox : false
+    if (!chatBox) {
         openChat()
     } else {
         closeChat()
@@ -62,35 +62,158 @@ function clickChat() {
 }
 
 function openChat() {
-    chat.chatBox = true
+    chatProp.chatBox = true
+    if (getMessageId() === '') {
+        chatProp.chatLogin = true
+        chatProp.chatMain = false
+    } else {
+        if (stompClient === null) {
+            connect()
+            renderChat()
+            chatProp.chatLogin = false
+            chatProp.chatMain = true
+        }
+    }
 }
 
 function closeChat() {
-    chat.chatBox = false
+    chatProp.chatBox = false
+    chatProp.chatLogin = false
+    chatProp.chatMain = false
 }
 
 function loginChat() {
-    connect();
-    chat.chatLogin = false
-    chat.chatMain = true
-}
-
-function getCookie(name){
-    var strcookie = document.cookie;//获取cookie字符串
-    var arrcookie = strcookie.split("; ");//分割
-    //遍历匹配
-    for ( var i = 0; i < arrcookie.length; i++) {
-        var arr = arrcookie[i].split("=");
-        if (arr[0] == name){
-            return arr[1];
+    let chatFrom = $("#chat_from");
+    $.post("/message/commit", chatFrom.serialize(), function (res) {
+        if (res.status === "SUCCESS") {
+            setMessageId(res.body)
+            connect();
+            chatProp.chatLogin = false
+            chatProp.chatMain = true
+            return false;
+        } else {
+            alert("开启聊天失败")
         }
-    }
-    return "";
+    })
+}
+
+var stompClient = null;
+
+function connect() {
+    var socket = new SockJS('/messages');
+    stompClient = Stomp.over(socket);
+    stompClient.connect({}, function () {
+        let messageId = localStorage.getItem("messageId");
+        stompClient.subscribe('/user/' + messageId + '/chat', function (data) {
+            showMessage(JSON.parse(data.body));
+        });
+    });
+}
+
+function sendMessage(that) {
+    $(that).html("发送中...").attr("disabled", "disabled")
+    let message = $("#question")
+    var data = {
+        "messageId": getMessageId(),
+        "message": message.val(),
+        "type": 0,
+        "sendTime": new Date(),
+    };
+    stompClient.send("/app/chat", {}, JSON.stringify(data));
+    showMessage(data)
+    message.val("")
+    $(that).html("发送").removeAttr("disabled")
 }
 
 
-function getData(data) {
-    var obj = JSON.parse(data);
-    // codeMapping(obj);
-    return obj;
+function showMessage(messageInfo) {
+    console.log(messageInfo)
+    let span = '';
+    if (messageInfo.type) {
+        span = `<div class="chat_message_box chat_left_box" >
+                            <div class="chat_box_head">
+                                <span>
+                                    ${messageInfo.replyUserName}
+                                </span>
+                                <span>
+                                ${simpleTime(messageInfo.sendTime)}
+                                </span>
+                            </div>
+                            <div class="chat_message" >
+                                ${messageInfo.message}
+                            </div>
+                        </div>`;
+    } else {
+        span = `<div class="chat_message_box chat_right_box">
+                            <div class="chat_box_head">
+                                <span>
+                                </span>
+                                <span>
+                                   ${simpleTime(messageInfo.sendTime)}
+                                </span>
+                            </div>
+                            <div class="chat_message">
+                                ${messageInfo.message}
+                            </div>
+                        </div>`;
+    }
+    $("#show_content_admin").append(span);
+
+
+}
+
+function headerMenuClose() {
+    $("#Open").hide()
+}
+
+function getMessageId() {
+    let messageId = localStorage.getItem("messageId");
+    if (messageId === undefined || messageId === null) {
+        messageId = ''
+    }
+    return messageId;
+}
+
+function setMessageId(messageId) {
+    localStorage.setItem("messageId", messageId);
+}
+function slideBottom(){
+    // $("#show_content_admin").scrollTo(0,$("#show_content_admin").scrollHeight);
+}
+
+
+function renderChat() {
+    $.get("/message/page/" + getMessageId(), function (res) {
+        let dataList = res.body.dataList;
+        for (let index in dataList) {
+            showMessage(dataList[index])
+        }
+    })
+    slideBottom()
+}
+
+function simpleTime(time) {
+    let today = new Date();
+    let date;
+    if (time instanceof Date) {
+        date = time
+    } else {
+        date = new Date(time);
+    }
+    let year = date.getFullYear()
+    let month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1)
+    let day = date.getDay()< 10 ? "0" + date.getDay() : date.getDay()
+    let hour = date.getHours()< 10 ? "0" + date.getHours() : date.getHours()
+    let minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()
+    if( today.getFullYear() === year ){
+        if(today.getMonth() === date.getMonth() && today.getDay() === date.getDay()){
+            return `&nbsp;&nbsp;&nbsp;${hour}:${minutes}&nbsp;`
+        }else{
+            return `&nbsp;&nbsp;&nbsp;${month}-${day} ${hour}:${minutes}&nbsp;`
+        }
+    }else{
+        return `&nbsp;&nbsp;&nbsp;${year}-${month}-${day} ${hour}:${minutes}&nbsp;`
+    }
+
+
 }

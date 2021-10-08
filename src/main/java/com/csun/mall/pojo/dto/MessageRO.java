@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.io.Serializable;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -13,20 +14,13 @@ public class MessageRO implements Serializable {
 
     private static final long serialVersionUID = 3544216886850149310L;
 
-    /**
-     * 接收者
-     */
-    private String receiver;
-    /**
-     * 消息
-     */
+    private String messageId;
+
     private String message;
-    /**
-     * 图片
-     */
-    private String image;
+
+//    private String image;
 
     private Integer type;
 
-
+    private Date sendTime;
 }

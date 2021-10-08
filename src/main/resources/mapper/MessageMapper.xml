@@ -11,5 +11,7 @@
     <result column="email" property="email" jdbcType="VARCHAR" />
     <result column="topic" property="topic" jdbcType="VARCHAR" />
     <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="reply_user_id" property="replyUserId" jdbcType="BIGINT" />
+    <result column="unread_number" property="unreadNumber" jdbcType="INTEGER" />
   </resultMap>
 </mapper>

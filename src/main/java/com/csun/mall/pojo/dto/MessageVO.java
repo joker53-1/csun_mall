@@ -33,24 +33,5 @@ public class MessageVO {
      */
     private Date sendTime;
 
-    /**
-     * 接收者
-     */
-    private String receiver;
-
     private Integer type;
-
-    public MessageVO(CsrMember user, String message, String image,Integer type) {
-        this.user = user;
-        this.message = message;
-        this.image = image;
-        this.type = type;
-    }
-
-    public MessageVO(CsrMember user, String message, String image,String receiver) {
-        this.user = user;
-        this.message = message;
-        this.image = image;
-        this.receiver = receiver;
-    }
 }

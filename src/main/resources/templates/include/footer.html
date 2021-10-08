@@ -129,23 +129,23 @@
             </div>
             <div class="chat_body">
                 <form class="chat_from" id="chatLogin" onsubmit="return false">
+<!--                    <div class="chat_from_item">-->
+<!--                        <label>名字 *</label>-->
+<!--                        <input type="text" placeholder="请输入您的名字" required oninvalid="return false"-->
+<!--                               οninput="return false">-->
+<!--&lt;!&ndash;                        <span id="name_invalid">必填项</span>&ndash;&gt;-->
+<!--                    </div>-->
                     <div class="chat_from_item">
-                        <label>名字 *</label>
-                        <input type="text" placeholder="请输入您的名字" required oninvalid="return false"
-                               οninput="return false">
-                        <span id="name_invalid">必填项</span>
-                    </div>
-                    <div class="chat_from_item">
-                        <label>姓氏</label>
-                        <input type="text" placeholder="请输入您的姓氏">
+                        <label>称呼</label>
+                        <input type="text" name="name" placeholder="称呼">
                     </div>
                     <div class="chat_from_item">
                         <label>电子邮件</label>
-                        <input type="text" placeholder="请输入您的电子邮件">
+                        <input type="text" name="email" placeholder="请输入您的电子邮件">
                     </div>
                     <div class="chat_from_item">
                         <label>聊天话题</label>
-                        <input type="text" placeholder="请输入您的聊天话题">
+                        <input type="text" name="topic" placeholder="请输入您的聊天话题">
                     </div>
 
                     <div class="chat_from_item">
@@ -154,19 +154,19 @@
                 </form>
                 <div class="chat_main" id="chatMain">
                     <div class="chat_message_wrap" id="show_content_admin">
-                        <div class="chat_message_box chat_right_box">
-                            <div class="chat_box_head">
-                                <span>
-                                    用户1
-                                </span>
-                                <span>
-                                    下午04:46
-                                </span>
-                            </div>
-                            <div class="chat_message">
-                                您可以开始与在线人工客服对话了
-                            </div>
-                        </div>
+<!--                        <div class="chat_message_box chat_right_box">-->
+<!--                            <div class="chat_box_head">-->
+<!--                                <span>-->
+
+<!--                                </span>-->
+<!--                                <span>-->
+<!--                                    2021-09-29 12:04:46-->
+<!--                                </span>-->
+<!--                            </div>-->
+<!--                            <div class="chat_message">-->
+<!--                                您可以开始与在线人工客服对话了-->
+<!--                            </div>-->
+<!--                        </div>-->
                         <div class="chat_message_box chat_left_box" >
                             <div class="chat_box_head">
                                 <span>
@@ -180,19 +180,14 @@
                                 您好，欢迎您访问人工客服，请问有什么可以帮您
                             </div>
                         </div>
-
                     </div>
-                    <div class="chat_line"></div>
-
-                    <div class="chat_enter">
-                        <textarea type="text" id="question" placeholder="请输入您想咨询的问题"></textarea>
-                        <button id="send" type="button">发送</button>
-                    </div>
-
                 </div>
-
+                <div class="chat_line"></div>
+                <div class="chat_enter">
+                    <textarea type="text" id="question" placeholder="请输入您想咨询的问题"></textarea>
+                    <button onclick="sendMessage()"  type="button">发送</button>
+                </div>
             </div>
-
         </div>
 
 
