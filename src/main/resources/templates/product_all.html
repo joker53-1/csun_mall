@@ -14,18 +14,18 @@
             <div class="breadcrumb">
                 <div class="container">
                     <ul class="breadcrumb-list">
-                        <li><a href=""><span>Home</span></a></li>
+                        <li><a href="/index/products"><span th:text="#{co_home}">Home</span></a></li>
                         <li class="svg-element-product">
                             <svg width="4" height="8" viewBox="0 0 4 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M2.1 4.05596L0 6.65996L0.7 7.28996L3.36 3.99996L0.7 0.709961L0 1.33996L2.1 4.05596Z" fill="#5B6C8F"></path>
                             </svg>
                         </li>
-                        <li><a href=""><span>All Collections</span></a></li>
-                        <li class="svg-element-product">
-                            <svg width="4" height="8" viewBox="0 0 4 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M2.1 4.05596L0 6.65996L0.7 7.28996L3.36 3.99996L0.7 0.709961L0 1.33996L2.1 4.05596Z" fill="#5B6C8F"></path>
-                            </svg>
-                        </li>
+<!--                        <li><a href=""><span>All Collections</span></a></li>-->
+<!--                        <li class="svg-element-product">-->
+<!--                            <svg width="4" height="8" viewBox="0 0 4 8" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                                <path d="M2.1 4.05596L0 6.65996L0.7 7.28996L3.36 3.99996L0.7 0.709961L0 1.33996L2.1 4.05596Z" fill="#5B6C8F"></path>-->
+<!--                            </svg>-->
+<!--                        </li>-->
                         <li><a href=""><span th:text="${rootCategory}"></span></a></li>
 
                     </ul>
@@ -47,9 +47,9 @@
                         <div class="products-all-contain-sidebar-wrapper">
                             <div class="products-all-contain-sidebar-wrapper-body">
                                 <div class="products-all-contain-sidebar-wrapper-body-list">
-                                    <div class="products-all-contain-sidebar-wrapper-body-list-header">
-                                        <p>Type</p>
-                                    </div>
+<!--                                    <div class="products-all-contain-sidebar-wrapper-body-list-header">-->
+<!--                                        <p>Type</p>-->
+<!--                                    </div>-->
 
                                     <div class="products-all-contain-sidebar-wrapper-body-list-body">
                                         <ul class="products-all-contain-sidebar-wrapper-body-list-body-ul" th:each="type : ${productTypeList}">
@@ -131,8 +131,8 @@
                                                     <div class="products-all-top-bar-flex-center-item">
                                                         <a href="">
                                                             <span class="d-none d-md-flex">
-                                                                <span>Sort by</span>
-                                                                <span class="two">Alphabetically, A-Z</span>
+                                                                <span th:text="#{co_sort_by}">Sort by</span>
+                                                                <span class="two" th:text="#{co_alphabetically}">Alphabetically, A-Z</span>
                                                                 <span class="svg-element-ui svg-element-products-all">
                                                                     <svg width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M4.01529 2.98179L1.35057 0.317078L0 1.66765L4.01529 5.68294L8.03057 1.66765L6.68 0.317078L4.01529 2.98179Z" fill="#5B6C8F"></path>
@@ -289,8 +289,8 @@
                         <div class="container">
                             <div class="mall-section-products-content-wrapper">
                                 <div class="mall-section-products-head">
-                                    <div class="mall-section-head-title">
-                                        Customers albo bought
+                                    <div class="mall-section-head-title" th:text="#{co_recommend}">
+                                        Customers also bought
                                     </div>
                                 </div>
                                 <div class="mall-section-products-body">

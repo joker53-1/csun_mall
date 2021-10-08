@@ -6,6 +6,8 @@
         <id column="id" property="id" jdbcType="BIGINT"/>
         <result column="name" property="name"/>
         <result column="sort" property="sort"/>
+        <result column="sale" property="sale"/>
+        <result column="stock" property="stock"/>
         <result column="categoryId" property="categoryId"/>
         <result column="categoryName" property="categoryName"/>
         <result column="description" property="description"/>
@@ -19,7 +21,7 @@
 
     </resultMap>
     <select id="getProducts" resultMap="productsVO" parameterType="LONG">
-        SELECT pi.id,pi.name,pi.sort,pi.product_category_id categoryId,pc.name
+        SELECT pi.id,pi.name,pi.sort,pi.sale,pi.stock,pi.product_category_id categoryId,pc.name
         categoryName,pi.description,pi.detail_desc descriptionPic,pi.create_time createTime,pi.price,pi.original_price originalPrice,
         pimg.url
 

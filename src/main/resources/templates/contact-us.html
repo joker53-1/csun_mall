@@ -14,14 +14,14 @@
         <div class="breadcrumb">
             <div class="container">
                 <ul class="breadcrumb-list">
-                    <li><a href=""><span>Home</span></a></li>
+                    <li><a href=""><span th:text="#{co_home}">Home</span></a></li>
                     <li class="svg-element-product">
                         <svg width="4" height="8" viewBox="0 0 4 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M2.1 4.05596L0 6.65996L0.7 7.28996L3.36 3.99996L0.7 0.709961L0 1.33996L2.1 4.05596Z"
                                   fill="#5B6C8F"></path>
                         </svg>
                     </li>
-                    <li><a href=""><span>Contact Us</span></a></li>
+                    <li><span th:text="#{co_contact}">Contact Us</span></li>
                 </ul>
             </div>
         </div>
@@ -39,8 +39,8 @@
                                     <div class="contact-info">
                                         <div class="contact-info-title contact-info-same">
                                             <div class="contact-info-title-heading">
-                                                <h1>How can we <br>help you?</h1>
-                                                <p>We are at your disposal 7 days a week!</p>
+                                                <h1 th:text="#{co_how_to_help}">How can we <br>help you?</h1>
+                                                <p th:text="#{co_disposal}">We are at your disposal 7 days a week!</p>
                                             </div>
                                         </div>
                                         <div class="contact-info-tel  contact-info-same">
@@ -65,7 +65,7 @@
                                                 <!--                                                </div>-->
                                                 <!--                                            </li>-->
                                                 <li>
-                                                    <a class="wrap-content-leftLittitle" href="tel:+025-52095705">Marketing:</a>
+                                                    <a class="wrap-content-leftLittitle" href="tel:+025-52095705" th:text="#{co_marketing}">Marketing:</a>
                                                 </li>
                                                 <li>
                                                     <a href="tel:+025-52095705">
@@ -80,7 +80,7 @@
                                                 </li>
 
                                                 <li>
-                                                    <a class="wrap-content-leftLittitle" href="tel:+86-25-87138220"
+                                                    <a class="wrap-content-leftLittitle" href="tel:+86-25-87138220" th:text="#{co_after_sales_service}"
                                                     >After-Sales Service:</a>
                                                 </li>
                                                 <li>
@@ -94,7 +94,7 @@
                                                     >customer_service@Chinasunergy.Com</a>
                                                 </li>
                                                 <li>
-                                                    <a class="wrap-content-leftLittitle" href="tel:+86-25-52095678"
+                                                    <a class="wrap-content-leftLittitle" href="tel:+86-25-52095678" th:text="#{co_administartionhr}"
                                                     >Administration/HR:</a>
                                                 </li>
                                                 <li>
@@ -143,54 +143,54 @@
                         </div>
 
 
-                        <div class="contact-wrapper-item-two">
-                            <div class="contact-form">
-                                <div class="contact-form-title">
-                                    <div class="form-title">Fill up the form if you have any question</div>
-                                </div>
+<!--                        <div class="contact-wrapper-item-two">-->
+<!--                            <div class="contact-form">-->
+<!--                                <div class="contact-form-title">-->
+<!--                                    <div class="form-title">Fill up the form if you have any question</div>-->
+<!--                                </div>-->
 
-                                <div class="contact-form-body">
-                                    <form action="" id="contact_form">
-                                        <div class="contact-form-body-wrapper">
-                                            <div class="contact-form-email form-group">
+<!--                                <div class="contact-form-body">-->
+<!--                                    <form action="" id="contact_form">-->
+<!--                                        <div class="contact-form-body-wrapper">-->
+<!--                                            <div class="contact-form-email form-group">-->
 
-                                                <label for="comp3"><input class="comp" id="comp3" name="company"
-                                                                          placeholder="Company*"
-                                                                          required type="text"></label>
+<!--                                                <label for="comp3"><input class="comp" id="comp3" name="company"-->
+<!--                                                                          placeholder="Company*"-->
+<!--                                                                          required type="text"></label>-->
 
-                                                <label for="mail3"><input class="mail mail2" id="mail3" name="phone"
-                                                                          placeholder="Phone"
-                                                                          type="text"></label>
+<!--                                                <label for="mail3"><input class="mail mail2" id="mail3" name="phone"-->
+<!--                                                                          placeholder="Phone"-->
+<!--                                                                          type="text"></label>-->
 
-                                            </div>
+<!--                                            </div>-->
 
-                                            <div class="contact-form-email form-group">
-                                                <label for="comp2"><input class="comp" id="comp2" name="name"
-                                                                          placeholder="Name*"
-                                                                          required type="text"></label>
-                                                <label for="mail2"><input class="mail" id="mail2" name="email"
-                                                                          placeholder="Email*"
-                                                                          required type="text"></label>
+<!--                                            <div class="contact-form-email form-group">-->
+<!--                                                <label for="comp2"><input class="comp" id="comp2" name="name"-->
+<!--                                                                          placeholder="Name*"-->
+<!--                                                                          required type="text"></label>-->
+<!--                                                <label for="mail2"><input class="mail" id="mail2" name="email"-->
+<!--                                                                          placeholder="Email*"-->
+<!--                                                                          required type="text"></label>-->
 
-                                            </div>
+<!--                                            </div>-->
 
-                                            <div class="contact-form-message form-group">
-                                                <label for="mess"><input class="mess" id="mess" placeholder="Message*"
-                                                                         name="message" required="required"></label>
-                                            </div>
+<!--                                            <div class="contact-form-message form-group">-->
+<!--                                                <label for="mess"><input class="mess" id="mess" placeholder="Message*"-->
+<!--                                                                         name="message" required="required"></label>-->
+<!--                                            </div>-->
 
-                                            <div class="contact-form-button">
-                                                <!--                                            <button class="submit" id="contact_submit" type="submit">Submit</button>&ndash;&gt;-->
-                                                <button type="submit" class="btn btn-1" id="contact_submit">Send
-                                                    message
-                                                </button>
-                                            </div>
-                                        </div>
+<!--                                            <div class="contact-form-button">-->
+<!--                                                &lt;!&ndash;                                            <button class="submit" id="contact_submit" type="submit">Submit</button>&ndash;&gt;&ndash;&gt;-->
+<!--                                                <button type="submit" class="btn btn-1" id="contact_submit">Send-->
+<!--                                                    message-->
+<!--                                                </button>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
 
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+<!--                                    </form>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
 
                     </div>
                 </div>
@@ -202,7 +202,7 @@
                         <div class="container">
                             <div class="mall-section-products-content-wrapper">
                                 <div class="mall-section-products-head">
-                                    <div class="mall-section-head-title">
+                                    <div class="mall-section-head-title" th:text="#{co_follow}">
                                         Follow @MYMEDI on instagram
                                     </div>
                                 </div>
