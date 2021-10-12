@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
     <title>CSUN Mall</title>
     <link rel="shortcut icon" href="img/foodie.ico"/>
-
+    <script th:src="@{/static/js/jquery-3.5.1.min.js}"></script>
+    <script th:src="@{/static/js/app.js}"></script>
     <link href="../static/css/app.css" rel="stylesheet" type="text/css" />
     <link href="../static/css/mystyle320.css" media ="screen and (min-width: 320px)" rel="stylesheet" type="text/css" />
     <link href="../static/css/mystyle1024.css" media ="screen and (min-width: 1200px)" rel="stylesheet" type="text/css" />
@@ -37,65 +38,67 @@
                 </div>
 
 
-                    <div class="sign-center-bg-left  visible-sm visible-md visible-lg">
-                        <div class="sign-center-bg-left-contain">
-                            <h4>Welcome Back!</h4>
-                            <p>To keep connected with us please login with your personal info</p>
-                            <button type="submit">SIGN IN</button>
+                <div class="sign-center-bg-l">
+                    <div class="sign-center-bg-right-contain bg-l-contain">
+                        <h4 th:text="#{co_sign_in_CSUN}">Sign in to CSUN</h4>
+                        <div class="sign-icon">
+                            <ul class="social-icons footer-social-list-icon">
+                                <li>
+                                    <a class="fab fa-facebook" href="">
+                                        <img src="../static/pic/sign-icoin-03.png" alt=""></a>
+                                </li>
+
+                                <li>
+                                    <a class="fab fa-twitter" href="">
+                                        <img src="../static/pic/sign-icoin-01.png" alt=""></a>
+                                </li>
+
+                                <li>
+                                    <a class="fab fa-linked" href="">
+                                        <img src="../static/pic/sign-icoin-02.png" alt=""></a>
+                                </li>
+
+
+                            </ul>
                         </div>
-                    </div>
 
-                    <div class="sign-center-bg-right">
-                        <div class="sign-center-bg-right-contain">
-                            <h4>Create Account</h4>
-                            <div class="sign-icon">
-                                <ul class="social-icons footer-social-list-icon">
-                                    <li>
-                                        <a class="fab fa-facebook" href="">
-                                            <img src="../static/pic/sign-icoin-03.png" alt=""></a>
-                                    </li>
+                        <p th:text="#{co_user_email}">or use your email for registration:</p>
+                        <form action="" id="sign_in">
+                            <div class="from-group">
 
-                                    <li>
-                                        <a class="fab fa-twitter" href="">
-                                            <img src="../static/pic/sign-icoin-01.png" alt=""></a>
-                                    </li>
-
-                                    <li>
-                                        <a class="fab fa-linked" href="">
-                                            <img src="../static/pic/sign-icoin-02.png" alt=""></a>
-                                    </li>
+                                <input type="text"  placeholder="keyword" id="keyword" name="keyword"/><br/>
+                                <input type="password" placeholder="password" id="password"><br/>
+                                <h4><a href="" th:text="#{co_forgot_password}">Forgot your password?</a></h4>
 
 
-                                </ul>
                             </div>
 
-                            <p>or use your email for registration:</p>
-                            <form action="">
-                               <div class="from-group">
+                            <button type="submit" id="sign_in_submit" th:text="#{co_sign_in}">SIGN IN</button>
 
-                                   <input type="text"  placeholder="name" id="name" name="name"/><br/>
-                                   <input type="email" placeholder="Email" class="email"id="email"><br/>
-                                   <input type="password" placeholder="password" id="password"><br/>
+<!--                            <div class="sign-in-xs  visible-xs"><a href="">SIGN IN</a></div>-->
+                        </form>
 
 
-                               </div>
-
-                                <button type="submit">SIGN UP</button>
-
-                                <div class="sign-in-xs  visible-xs"><a href="">SIGN IN</a></div>
-                            </form>
-
-
-                        </div>
                     </div>
+                </div>
+
+
+                <div class="sign-center-bg-r  visible-sm visible-md visible-lg">
+                    <div class="sign-center-bg-r-contain">
+                        <h4 th:text="#{co_hello}">Hello,Friend!</h4>
+                        <p th:text="#{co_enter_details}">Enter your personal details and start journey with us</p>
+                        <button onclick="window.location.href='registry'" type="submit" th:text="#{co_sign_up}">SIGN UP</button>
+                    </div>
+                </div>
 
             </div>
+
+
+
             </div>
         </div>
 
     </div>
-
-
 
 
 

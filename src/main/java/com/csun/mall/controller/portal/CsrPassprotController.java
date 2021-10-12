@@ -44,7 +44,7 @@ public class CsrPassprotController {
     @ApiOperation(value = "获取验证码", notes = "获取验证码", httpMethod = "GET")
     @GetMapping("/verification")
     public ResponseData getVerification(String email) {
-        if(csrMemberService.queryMemberByEmail(email)==null){
+        if(csrMemberService.queryMemberByEmail(email)!=null){
             return ResponseData.failure("邮箱已存在");
         }
         if (!MobileEmailTool.checkEmailIsOk(email)) {
@@ -77,7 +77,7 @@ public class CsrPassprotController {
         if (csrMember != null) {
             return ResponseData.failure("用户名已经存在");
         }
-        if(csrMemberService.queryMemberByEmail(email)==null){
+        if(csrMemberService.queryMemberByEmail(email)!=null){
             return ResponseData.failure("邮箱已存在");
         }
         if (password.length() < 6) {
@@ -123,6 +123,7 @@ public class CsrPassprotController {
         CsrMemberDTO csrMemberDTO = PojoConvertTool.convert(csrMember,CsrMemberDTO.class);
         csrMemberDTO.setDeviceId(deviceId);
         csrMemberDTO.setToken(token.getToken());
+        CookieTool.setCookie(request,response,"user_token",token.getToken());
         return ResponseData.success(csrMemberDTO);
     }
 

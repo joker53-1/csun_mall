@@ -2,7 +2,6 @@ package com.csun.mall.controller.portal;
 
 import com.csun.mall.domain.ProductCategory;
 import com.csun.mall.domain.ProductLadderPrice;
-import com.csun.mall.domain.Products;
 import com.csun.mall.pojo.dto.ProductCategoryWithChildren;
 import com.csun.mall.pojo.dto.ProductsDTO;
 import com.csun.mall.service.CategoryService;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.annotation.Resource;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -39,6 +37,15 @@ public class IndexController {
     @Autowired
     private PriceService priceService;
 
+    @GetMapping("registry")
+    public String toRegistry(){
+        return "/sign_up";
+    }
+
+    @GetMapping("login")
+    public String toLogin(){
+        return "/sign_in";
+    }
 
     @GetMapping("/products")
     public String getListProduct(Long typeCode, Model model) {

@@ -7,7 +7,7 @@ spring:
     url: jdbc:mysql://test.internal.ceeg-global.com:3306/mall?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
     username: db
     password: db_system
-#    url: jdbc:mysql://localhost:3306/csun?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+#    url: jdbc:mysql://localhost:3306/csun1?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
 #    username: root
 #    password: zheng
     hikari:
@@ -17,6 +17,7 @@ spring:
       connection-test-query: select 1
   redis:
     host: 10.8.8.52
+#    host: 47.111.143.81
     port: 6379
     database: 0
   messages:

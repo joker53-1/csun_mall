@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html th:lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <title>CSUN Mall</title>
+    <link rel="shortcut icon" href="img/foodie.ico"/>
+    <script th:src="@{/static/js/jquery-3.5.1.min.js}"></script>
+    <script th:src="@{/static/js/app.js}"></script>
+    <link href="../static/css/app.css" rel="stylesheet" type="text/css" />
+    <link href="../static/css/mystyle320.css" media ="screen and (min-width: 320px)" rel="stylesheet" type="text/css" />
+    <link href="../static/css/mystyle1024.css" media ="screen and (min-width: 1200px)" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+<body>
+    <div class="sign-up">
+        <div class="sign-color-blue">
+            <img src="../static/pic/logo-flower.png" alt="">
+        </div>
+        <div class="sign-color-yellow"> </div>
+
+        <div class="sign-center container ">
+            <div class="sign-center-bg sign-center-bg-right-xs">
+                <div class="sign-center-bg-flower">
+                    <img class="flower-one" src="../static/pic/logo-flower-one-01.png" alt="">
+                </div>
+                <div class="sign-center-bg-flower-two">
+                    <img src="../static/pic/logo-flower-two-01.png" alt="">
+                </div>
+                <div class="sign-center-bg-flower-three">
+                    <img src="../static/pic/logo-flower-three-01.png" alt="">
+                </div>
+
+
+                    <div class="sign-center-bg-left  visible-sm visible-md visible-lg">
+                        <div class="sign-center-bg-left-contain">
+                            <h4 th:text="#{co_welcome_back}">Welcome Back!</h4>
+                            <p th:text="#{co_keep_connect}">To keep connected with us please login with your personal info</p>
+                            <button onclick="window.location.href='login'" type="submit" th:text="#{co_sign_in}">SIGN IN</button>
+                        </div>
+                    </div>
+
+                    <div class="sign-center-bg-right">
+                        <div class="sign-center-bg-right-contain">
+                            <h4 th:text="#{co_create_account}">Create Account</h4>
+                            <div class="sign-icon">
+                                <ul class="social-icons footer-social-list-icon">
+                                    <li>
+                                        <a class="fab fa-facebook" href="">
+                                            <img src="../static/pic/sign-icoin-03.png" alt=""></a>
+                                    </li>
+
+                                    <li>
+                                        <a class="fab fa-twitter" href="">
+                                            <img src="../static/pic/sign-icoin-01.png" alt=""></a>
+                                    </li>
+
+                                    <li>
+                                        <a class="fab fa-linked" href="">
+                                            <img src="../static/pic/sign-icoin-02.png" alt=""></a>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+
+                            <p th:text="#{co_user_email}">or use your email for registration:</p>
+                            <form action="" id="sign_up">
+                               <div class="from-group">
+
+                                   <input type="text"  placeholder="username" id="username" name="username"/><br/>
+                                   <input type="email" placeholder="email" class="email"id="email"><br/>
+<!--                                   <input id="TANGRAM__PSP_4__verifyCodeSend" type="button" value="获取验证码" class="pass-button pass-button-verifyCodeSend" autocomplete="off">-->
+                                   <div class="from-group1">
+                                   <input type="code" placeholder="code" class="code"id="code">
+                                   <button id="get_code" type="button" th:text="#{co_get_code}">GET CODE</button>
+                                   </div>
+<!--                                   <a href="'/customer/passport/verification?email='+">GET CODE</a>-->
+<!--                                   <button id="get_code" type="submit">GET CODE</button>-->
+                                   <input type="password" placeholder="password" id="password"><br/>
+
+
+                               </div>
+
+                                <button type="submit" th:text="#{co_sign_up}">SIGN UP</button>
+
+                                <div class="sign-in-xs  visible-xs"><a href="">SIGN IN</a></div>
+                            </form>
+
+
+                        </div>
+                    </div>
+
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
