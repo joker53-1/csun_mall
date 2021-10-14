@@ -75,10 +75,16 @@ public class IndexController {
                 .filter(e -> !e.getId().equals(id)).collect(Collectors.toList());
         Collections.reverse(collect1);
         model.addAttribute("currentProduct", productsDTO);
+        if(collect.size()>=3){
+            collect = collect.subList(0,3);
+        }
         model.addAttribute("productList", collect);
-        model.addAttribute("currentHeaderType", "Products");
+//        model.addAttribute("currentHeaderType", "Products");
         //todo
-        model.addAttribute("productList1", collect1.subList(0, 1));
+        if(collect1.size()>=1){
+            collect1 = collect1.subList(0,1);
+        }
+        model.addAttribute("productList1", collect1);
         List<ProductLadderPrice> plp = priceService.getList(id);
         model.addAttribute("prices", plp);
         return "/product";

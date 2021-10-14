@@ -31,8 +31,9 @@
         on pi.product_category_id=pc.id
         LEFT JOIN product_img pimg
         on pi.id = pimg.product_id
+        WHERE pi.enable=1
         <if test="categoryId != null">
-            WHERE pi.product_category_id = #{categoryId}
+            and  pi.product_category_id = #{categoryId}
         </if>
 
 
@@ -54,6 +55,7 @@
             <foreach collection="categoryIds" index="index" item="cid" open="(" separator="," close=")">
                 #{cid}
             </foreach>
+                and pi.enable=1
         </if>
 
 

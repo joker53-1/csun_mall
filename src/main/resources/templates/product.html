@@ -579,9 +579,9 @@
                                 <!--                              <div class="row">-->
                                 <ul class="product-section col-lg-5th col-6 ">
                                     <li class="product-section-item bg-white" th:each="product : ${productList1}">
-                                        <div class="product-section-item-wrapper">
+                                        <div class="product-section-item-wrapper" >
                                             <div class="product-wrapper-header">
-                                                <img width="196" height="196" th:src="@{${currentProduct.pic[0]}}"
+                                                <img width="196" height="196" th:src="@{${product.pic[0]}}"
                                                      alt="">
                                                 <div class="sale">
                                                     <span class="label_ui-sale">sale</span>
@@ -623,7 +623,6 @@
                                             </div>
                                         </div>
                                     </li>
-
 
                                 </ul>
                             </div>
