@@ -23,7 +23,7 @@
         <!--&lt;!&ndash;                         style="width: 100%;height: 880px;background: url(../static/pic/change/banner.png) no-repeat top center;"></div>&ndash;&gt;-->
 
         <!--                    <div class="mall-section-content">-->
-        <!--                        <a class="mall-section-content-bg" href=""><img src="../static/pic/change/banner.png" alt=""></a>-->
+        <!--                        <a class="mall-section-content-bg" href="javascript:"><img src="../static/pic/change/banner.png" alt=""></a>-->
         <!--                    </div>-->
         <!--                </div>-->
 
@@ -91,7 +91,7 @@
                             <div class="owl-carousel owl-theme" id="owl-carousel">
                                 <div th:each="product : ${productList}">
                                     <a style="margin-left: 30px;text-decoration: none;color: black"
-                                       th:href="@{'/index/product?id='+ ${product.id}}">
+                                       th:href="@{'/product?id='+ ${product.id}}">
                                         <img width="196" th:src="@{${product.pic[0]}}">
                                         <h5 th:text="${product.categoryName}"></h5>
                                         <p th:text="${product.name}"></p>
@@ -128,7 +128,7 @@
                 <!--                <div class="container">-->
                 <div class="mobile-section-wrapper">
                     <div class="mobile-bar-content mobile-bar">
-                        <a href="" class="btn">
+                        <a href="javascript:" class="btn">
                             <span class="svg-element-ui">
                               <svg width="22" height="18" viewBox="0 0 22 18" fill="none"
                                    xmlns="http://www.w3.org/2000/svg">
@@ -143,7 +143,7 @@
                         </a>
                     </div>
                     <div class="mobile-bar-home mobile-bar">
-                        <a href="" class="btn">
+                        <a href="javascript:" class="btn">
                             <span class="svg-element-ui">
                                 <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -156,7 +156,7 @@
                         </a>
                     </div>
                     <div class="mobile-bar-my-account mobile-bar">
-                        <a href="" class="btn">
+                        <a href="javascript:" class="btn">
                             <span class="svg-element-ui">
                                 <svg width="19" height="19" viewBox="0 0 19 19" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -169,7 +169,7 @@
                         </a>
                     </div>
                     <div class="mobile-bar-fav mobile-bar">
-                        <a href="" class="btn">
+                        <a href="javascript:" class="btn">
                             <span class="svg-element-ui">
                                 <svg width="24" height="21" viewBox="0 0 24 21" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -183,7 +183,7 @@
                         </a>
                     </div>
                     <div class="mobile-bar-cart mobile-bar relative">
-                        <a href="" class="btn">
+                        <a href="javascript:" class="btn">
                             <span class="svg-element-ui">
                                  <img width="25" height="23" src="../static/pic/cart.png" alt="">
                             </span>

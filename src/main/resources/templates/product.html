@@ -15,14 +15,14 @@
         <div class="breadcrumb">
             <div class="container">
                 <ul class="breadcrumb-list">
-                    <li><a href="/index/products" th:text="#{co_home}"><span>Home</span></a></li>
+                    <li><a href="/" th:text="#{co_home}"><span>Home</span></a></li>
                     <li class="svg-element-product">
                         <svg width="4" height="8" viewBox="0 0 4 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M2.1 4.05596L0 6.65996L0.7 7.28996L3.36 3.99996L0.7 0.709961L0 1.33996L2.1 4.05596Z"
                                   fill="#5B6C8F"></path>
                         </svg>
                     </li>
-                    <li><a th:href="@{'/index/productlist?typeCode='+ ${currentProduct.categoryId}}"><span th:text="${currentProduct.categoryName}">Accessories</span></a></li>
+                    <li><a th:href="@{'/productlist?typeCode='+ ${currentProduct.categoryId}}"><span th:text="${currentProduct.categoryName}">Accessories</span></a></li>
                     <li class="svg-element-product">
                         <svg width="4" height="8" viewBox="0 0 4 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M2.1 4.05596L0 6.65996L0.7 7.28996L3.36 3.99996L0.7 0.709961L0 1.33996L2.1 4.05596Z"
@@ -86,24 +86,8 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-right-info-two">
-                                                        <div class="product-right-info-two-detail">
-                                                            <ul>
-                                                                <li>
-                                                                    <img width="10px" height="8px"
-                                                                         src="../static/pic/change/checked.png" alt="">
-                                                                    Study history up to 30 days
-                                                                </li>
-                                                                <li>
-                                                                    <img width="10px" height="8px"
-                                                                         src="../static/pic/change/checked.png" alt="">
-                                                                    Up to 5 users simultaneously
-                                                                </li>
-                                                                <li>
-                                                                    <img width="10px" height="8px"
-                                                                         src="../static/pic/change/checked.png" alt="">
-                                                                    Has HEALTH certificate
-                                                                </li>
-                                                            </ul>
+                                                        <div class="product-right-info-two-detail" th:utext="${currentProduct.description}">
+
                                                         </div>
                                                     </div>
                                                     <div class="product-right-info-three">
@@ -229,12 +213,9 @@
                                                                             <div class="option-cart-data-wrapper">
                                                                                 <label for="quantity" th:text="#{co_quantity}">Quantity</label>
                                                                                 <div class="option-cart-data-select">
-                                                                                    <a href="javascript:void(0);"
-                                                                                       class="qty-minus">-</a>
-                                                                                    <input type="number" name="quantity"
-                                                                                           value="1" min="1">
-                                                                                    <a href="javascript:void(0);"
-                                                                                       class="qty-plus">+</a>
+                                                                                    <a href="javascript:void(0);" class="qty-minus">-</a>
+                                                                                    <input type="number" name="quantity" id="quantity" value="1" min="1">
+                                                                                    <a href="javascript:void(0);" class="qty-plus">+</a>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -251,12 +232,12 @@
 
                                                         <div class="product-right-info-three-target">
                                                             <div class="product-right-info-three-target-one three-target">
-                                                                <a href="">
+                                                                <a href="javascript:">
                                                                     <span th:text="#{co_add_to_wishlist}">Add to wishlist</span>
                                                                 </a>
                                                             </div>
 <!--                                                            <div class="product-right-info-three-target-two three-target">-->
-<!--                                                                <a href="">-->
+<!--                                                                <a href="javascript:">-->
 <!--                                                                    <span>Add to comparet</span>-->
 <!--                                                                </a>-->
 <!--                                                            </div>-->
@@ -273,7 +254,7 @@
                                                         <div class="product-right-info-four-bottom">
                                                             <ul>
                                                                 <li>
-                                                                    <a href="" title="Facebook">
+                                                                    <a th:href="#{co_facebook_link}" title="Facebook">
                                                                         <span class="svg-element-ui">
                                                                             <svg width="8" height="15"
                                                                                  viewBox="0 0 8 15" fill="none"
@@ -286,7 +267,7 @@
                                                                 </li>
 
                                                                 <li>
-                                                                    <a href="" title="Twitter">
+                                                                    <a th:href="#{co_twitter_link}" title="Twitter">
                                                                         <span class="svg-element-ui">
                                                                             <svg width="15" height="13"
                                                                                  viewBox="0 0 15 13" fill="none"
@@ -299,7 +280,7 @@
                                                                 </li>
 
                                                                 <li>
-                                                                    <a href="" title="Linkedin">
+                                                                    <a th:href="#{co_linkedin_link}" title="Linkedin">
                                                                         <span class="svg-element-ui">
                                                                             <svg t="1627377054207" class="icon"
                                                                                  viewBox="0 0 1024 1024" version="1.1"
@@ -337,126 +318,125 @@
                         <div class="sidebar">
                             <div class="sidebar-content">
                                 <div class="sidebar-content-body">
-                                    <div class="sidebar-content-body-one sidebar-item">
-                                        <div class="sidebar-body-one-inner">
-                                            <div class="sidebar-body-one-inner-icon">
-                                                <div class="svg-element-ui">
-                                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M17.1584 1.25V6.025H3.63337C3.02455 5.98902 2.45247 5.7218 2.03414 5.27801C1.6158 4.83422 1.38281 4.24738 1.38281 3.6375C1.38281 3.02762 1.6158 2.44078 2.03414 1.99699C2.45247 1.55319 3.02455 1.28598 3.63337 1.25H17.1584Z"
-                                                              stroke="#103178" stroke-width="1.91"
-                                                              stroke-miterlimit="10" stroke-linecap="square"></path>
-                                                        <path d="M15.5667 10.833H18.75V14.0163H15.5667C15.1446 14.0163 14.7397 13.8486 14.4412 13.5502C14.1427 13.2517 13.975 12.8468 13.975 12.4247C13.975 12.0025 14.1427 11.5977 14.4412 11.2992C14.7397 11.0007 15.1446 10.833 15.5667 10.833Z"
-                                                              stroke="#103178" stroke-width="1.91"
-                                                              stroke-miterlimit="10" stroke-linecap="square"></path>
-                                                        <path d="M18.75 6.02546V18.7505H2.84168C2.42022 18.7483 2.01664 18.5799 1.71862 18.2818C1.4206 17.9838 1.2522 17.5803 1.25001 17.1588V3.63379C1.24892 3.94747 1.30976 4.25829 1.42904 4.54841C1.54832 4.83853 1.7237 5.10225 1.94512 5.32445C2.16655 5.54665 2.42965 5.72295 2.71936 5.84324C3.00906 5.96354 3.31966 6.02546 3.63335 6.02546H18.75Z"
-                                                              stroke="#103178" stroke-width="1.91"
-                                                              stroke-miterlimit="10" stroke-linecap="square"></path>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                            <div class="sidebar-body-one-inner-text">
-                                                <p>
-                                                    100% <br>
-                                                    Money back
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="sidebar-body-one-inner">
-                                            <div class="sidebar-body-one-inner-icon">
-                                                <div class="svg-element-ui">
-                                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M15.5667 1.25H4.43333L1.25 6.81667V18.75H18.75V6.81667L15.5667 1.25Z"
-                                                              stroke="#103178" stroke-width="1.91"
-                                                              stroke-miterlimit="10" stroke-linecap="square"></path>
-                                                        <path d="M3.63336 15.5664H6.8167" stroke="#103178"
-                                                              stroke-width="1.91" stroke-miterlimit="10"
-                                                              stroke-linecap="square"></path>
-                                                        <path d="M10 1.25V10" stroke="#103178" stroke-width="1.91"
-                                                              stroke-miterlimit="10" stroke-linecap="square"></path>
-                                                        <path d="M1.25 6.81641H18.75" stroke="#103178"
-                                                              stroke-width="1.91" stroke-miterlimit="10"
-                                                              stroke-linecap="square"></path>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                            <div class="sidebar-body-one-inner-text">
-                                                <p>
-                                                    Non-contact <br>
-                                                    shipping
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="sidebar-body-one-inner">
-                                            <div class="sidebar-body-one-inner-icon">
-                                                <div class="svg-element-ui">
-                                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M5.22503 16.3669C6.10408 16.3669 6.8167 15.6543 6.8167 14.7753C6.8167 13.8962 6.10408 13.1836 5.22503 13.1836C4.34598 13.1836 3.63336 13.8962 3.63336 14.7753C3.63336 15.6543 4.34598 16.3669 5.22503 16.3669Z"
-                                                              stroke="#103178" stroke-width="1.91"
-                                                              stroke-miterlimit="10" stroke-linecap="square"></path>
-                                                        <path d="M14.775 16.3669C15.6541 16.3669 16.3667 15.6543 16.3667 14.7753C16.3667 13.8962 15.6541 13.1836 14.775 13.1836C13.896 13.1836 13.1833 13.8962 13.1833 14.7753C13.1833 15.6543 13.896 16.3669 14.775 16.3669Z"
-                                                              stroke="#103178" stroke-width="1.91"
-                                                              stroke-miterlimit="10" stroke-linecap="square"></path>
-                                                        <path d="M3.63333 14.7755H1.25V3.63379H15.5667V6.81712L17.1583 10.0005L18.75 10.8921V14.7755H16.3667"
-                                                              stroke="#103178" stroke-width="1.91"
-                                                              stroke-miterlimit="10" stroke-linecap="square"></path>
-                                                        <path d="M13.1833 14.7754H6.81665" stroke="#103178"
-                                                              stroke-width="1.91" stroke-miterlimit="10"
-                                                              stroke-linecap="square"></path>
-                                                        <path d="M17.1584 9.99974H12.3834V6.81641H15.5667"
-                                                              stroke="#103178" stroke-width="1.91"
-                                                              stroke-miterlimit="10" stroke-linecap="square"></path>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                            <div class="sidebar-body-one-inner-text">
-                                                <p>
-                                                    Free delivery for <br>
-                                                    order over $200
-                                                </p>
-                                            </div>
-                                        </div>
+<!--                                    <div class="sidebar-content-body-one sidebar-item">-->
+<!--                                        <div class="sidebar-body-one-inner">-->
+<!--                                            <div class="sidebar-body-one-inner-icon">-->
+<!--                                                <div class="svg-element-ui">-->
+<!--                                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"-->
+<!--                                                         xmlns="http://www.w3.org/2000/svg">-->
+<!--                                                        <path d="M17.1584 1.25V6.025H3.63337C3.02455 5.98902 2.45247 5.7218 2.03414 5.27801C1.6158 4.83422 1.38281 4.24738 1.38281 3.6375C1.38281 3.02762 1.6158 2.44078 2.03414 1.99699C2.45247 1.55319 3.02455 1.28598 3.63337 1.25H17.1584Z"-->
+<!--                                                              stroke="#103178" stroke-width="1.91"-->
+<!--                                                              stroke-miterlimit="10" stroke-linecap="square"></path>-->
+<!--                                                        <path d="M15.5667 10.833H18.75V14.0163H15.5667C15.1446 14.0163 14.7397 13.8486 14.4412 13.5502C14.1427 13.2517 13.975 12.8468 13.975 12.4247C13.975 12.0025 14.1427 11.5977 14.4412 11.2992C14.7397 11.0007 15.1446 10.833 15.5667 10.833Z"-->
+<!--                                                              stroke="#103178" stroke-width="1.91"-->
+<!--                                                              stroke-miterlimit="10" stroke-linecap="square"></path>-->
+<!--                                                        <path d="M18.75 6.02546V18.7505H2.84168C2.42022 18.7483 2.01664 18.5799 1.71862 18.2818C1.4206 17.9838 1.2522 17.5803 1.25001 17.1588V3.63379C1.24892 3.94747 1.30976 4.25829 1.42904 4.54841C1.54832 4.83853 1.7237 5.10225 1.94512 5.32445C2.16655 5.54665 2.42965 5.72295 2.71936 5.84324C3.00906 5.96354 3.31966 6.02546 3.63335 6.02546H18.75Z"-->
+<!--                                                              stroke="#103178" stroke-width="1.91"-->
+<!--                                                              stroke-miterlimit="10" stroke-linecap="square"></path>-->
+<!--                                                    </svg>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                            <div class="sidebar-body-one-inner-text">-->
+<!--                                                <p>-->
+<!--                                                    100% <br>-->
+<!--                                                    Money back-->
+<!--                                                </p>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                        <div class="sidebar-body-one-inner">-->
+<!--                                            <div class="sidebar-body-one-inner-icon">-->
+<!--                                                <div class="svg-element-ui">-->
+<!--                                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"-->
+<!--                                                         xmlns="http://www.w3.org/2000/svg">-->
+<!--                                                        <path d="M15.5667 1.25H4.43333L1.25 6.81667V18.75H18.75V6.81667L15.5667 1.25Z"-->
+<!--                                                              stroke="#103178" stroke-width="1.91"-->
+<!--                                                              stroke-miterlimit="10" stroke-linecap="square"></path>-->
+<!--                                                        <path d="M3.63336 15.5664H6.8167" stroke="#103178"-->
+<!--                                                              stroke-width="1.91" stroke-miterlimit="10"-->
+<!--                                                              stroke-linecap="square"></path>-->
+<!--                                                        <path d="M10 1.25V10" stroke="#103178" stroke-width="1.91"-->
+<!--                                                              stroke-miterlimit="10" stroke-linecap="square"></path>-->
+<!--                                                        <path d="M1.25 6.81641H18.75" stroke="#103178"-->
+<!--                                                              stroke-width="1.91" stroke-miterlimit="10"-->
+<!--                                                              stroke-linecap="square"></path>-->
+<!--                                                    </svg>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                            <div class="sidebar-body-one-inner-text">-->
+<!--                                                <p>-->
+<!--                                                    Non-contact <br>-->
+<!--                                                    shipping-->
+<!--                                                </p>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                        <div class="sidebar-body-one-inner">-->
+<!--                                            <div class="sidebar-body-one-inner-icon">-->
+<!--                                                <div class="svg-element-ui">-->
+<!--                                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"-->
+<!--                                                         xmlns="http://www.w3.org/2000/svg">-->
+<!--                                                        <path d="M5.22503 16.3669C6.10408 16.3669 6.8167 15.6543 6.8167 14.7753C6.8167 13.8962 6.10408 13.1836 5.22503 13.1836C4.34598 13.1836 3.63336 13.8962 3.63336 14.7753C3.63336 15.6543 4.34598 16.3669 5.22503 16.3669Z"-->
+<!--                                                              stroke="#103178" stroke-width="1.91"-->
+<!--                                                              stroke-miterlimit="10" stroke-linecap="square"></path>-->
+<!--                                                        <path d="M14.775 16.3669C15.6541 16.3669 16.3667 15.6543 16.3667 14.7753C16.3667 13.8962 15.6541 13.1836 14.775 13.1836C13.896 13.1836 13.1833 13.8962 13.1833 14.7753C13.1833 15.6543 13.896 16.3669 14.775 16.3669Z"-->
+<!--                                                              stroke="#103178" stroke-width="1.91"-->
+<!--                                                              stroke-miterlimit="10" stroke-linecap="square"></path>-->
+<!--                                                        <path d="M3.63333 14.7755H1.25V3.63379H15.5667V6.81712L17.1583 10.0005L18.75 10.8921V14.7755H16.3667"-->
+<!--                                                              stroke="#103178" stroke-width="1.91"-->
+<!--                                                              stroke-miterlimit="10" stroke-linecap="square"></path>-->
+<!--                                                        <path d="M13.1833 14.7754H6.81665" stroke="#103178"-->
+<!--                                                              stroke-width="1.91" stroke-miterlimit="10"-->
+<!--                                                              stroke-linecap="square"></path>-->
+<!--                                                        <path d="M17.1584 9.99974H12.3834V6.81641H15.5667"-->
+<!--                                                              stroke="#103178" stroke-width="1.91"-->
+<!--                                                              stroke-miterlimit="10" stroke-linecap="square"></path>-->
+<!--                                                    </svg>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                            <div class="sidebar-body-one-inner-text">-->
+<!--                                                <p>-->
+<!--                                                    Free delivery for <br>-->
+<!--                                                    order over $200-->
+<!--                                                </p>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
 
-                                    </div>
-                                    <div class="sidebar-content-body-two sidebar-item">
-                                        <div class="pay-card">
-                                            <div class="col-4">
-                                                <div class="payment-item">
-                                                    <img width="220" src="../static/pic/card.png" alt="">
-                                                </div>
-                                            </div>
+<!--                                    </div>-->
+<!--                                    <div class="sidebar-content-body-two sidebar-item">-->
+<!--                                        <div class="pay-card">-->
+<!--                                            <div class="col-4">-->
+<!--                                                <div class="payment-item">-->
+<!--                                                    <img width="220" src="../static/pic/card.png" alt="">-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="sidebar-content-body-three sidebar-item">-->
+<!--                                        <div class="sidebar-content-three-img">-->
+<!--                                            <img width="436" height="524" src="../static/pic/product-4_436x.png" alt="">-->
+<!--                                        </div>-->
+<!--                                        <div class="sidebar-content-three-text">-->
+<!--                                            <div class="sidebar-content-three-text-inner">-->
+<!--                                                <div class="sidebar-inner-top">-->
+<!--                                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"-->
+<!--                                                         xmlns="http://www.w3.org/2000/svg">-->
+<!--                                                        <path d="M10 18.75C7.75643 18.3029 5.73719 17.0919 4.28612 15.3233C2.83506 13.5546 2.04189 11.3377 2.04169 9.05V2.84167L10 1.25L17.9584 2.84167V9.05C17.9581 11.3377 17.165 13.5546 15.7139 15.3233C14.2629 17.0919 12.2436 18.3029 10 18.75V18.75Z"-->
+<!--                                                              stroke="#12A05C" stroke-width="1.91"-->
+<!--                                                              stroke-miterlimit="10"></path>-->
+<!--                                                        <path d="M6.02502 9.10788L9.00836 12.0912L13.975 7.11621"-->
+<!--                                                              stroke="#12A05C" stroke-width="1.91"-->
+<!--                                                              stroke-miterlimit="10"></path>-->
+<!--                                                    </svg>-->
+<!--                                                </div>-->
+<!--                                                <div class="sidebar-inner-bottom">-->
+<!--                                                    <b>100% Secure delivery</b>-->
+<!--                                                    without contacting the courier-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
 
 
-                                        </div>
-                                    </div>
-                                    <div class="sidebar-content-body-three sidebar-item">
-                                        <div class="sidebar-content-three-img">
-                                            <img width="436" height="524" src="../static/pic/product-4_436x.png" alt="">
-                                        </div>
-                                        <div class="sidebar-content-three-text">
-                                            <div class="sidebar-content-three-text-inner">
-                                                <div class="sidebar-inner-top">
-                                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M10 18.75C7.75643 18.3029 5.73719 17.0919 4.28612 15.3233C2.83506 13.5546 2.04189 11.3377 2.04169 9.05V2.84167L10 1.25L17.9584 2.84167V9.05C17.9581 11.3377 17.165 13.5546 15.7139 15.3233C14.2629 17.0919 12.2436 18.3029 10 18.75V18.75Z"
-                                                              stroke="#12A05C" stroke-width="1.91"
-                                                              stroke-miterlimit="10"></path>
-                                                        <path d="M6.02502 9.10788L9.00836 12.0912L13.975 7.11621"
-                                                              stroke="#12A05C" stroke-width="1.91"
-                                                              stroke-miterlimit="10"></path>
-                                                    </svg>
-                                                </div>
-                                                <div class="sidebar-inner-bottom">
-                                                    <b>100% Secure delivery</b>
-                                                    without contacting the courier
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
+<!--                                    </div>-->
                                     <div class="sidebar-content-body-four sidebar-item">
                                         <div class="product-recommendation">
                                             <div class="product-recommendation-header">
@@ -464,31 +444,30 @@
                                             </div>
 
 
-                                            <div class="product-section-item " th:each="product : ${productList}">
+                                            <div class="product-section-item" th:each="product : ${productList}">
                                                 <div class="product-section-item-wrapper">
                                                     <div class="product-wrapper-header">
-                                                        <img width="196" height="196" th:src="@{${product.pic[0]}}"
-                                                             alt="">
+                                                        <img width="160" th:src="@{${product.pic[0]}}"
+                                                             alt="" >
                                                         <div class="sale">
                                                             <span class="label_ui-sale">sale</span>
                                                         </div>
                                                         <div class="product-icon">
                                                       <span class="product-icon-button">
-                                                        <a href="">
+                                                        <a href="javascript:">
                                                             <img width="20" height="20" src="../static/pic/fav-l.png"
                                                                  alt="">
                                                         </a>
                                                       </span>
-
                                                             <span class="product-icon-button">
-                                                        <a href="">
+                                                        <a href="javascript:">
                                                             <img width="20" height="20" src="../static/pic/data-l.png"
                                                                  alt="">
                                                         </a>
                                                       </span>
 
                                                             <span class="product-icon-button">
-                                                       <a href="">
+                                                       <a href="javascript:">
                                                            <img width="20" height="20" src="../static/pic/seach.png"
                                                                 alt="">
                                                        </a>
@@ -499,11 +478,11 @@
                                                     <div class="product-wrapper-item-info">
                                                         <div class="product-item-info-body">
                                                             <div class="product-item-name">
-                                                                <a href="" th:text="${product.name}"></a>
+                                                                <a th:href="|/product?id=${product.id}|" th:text="${product.name}"></a>
                                                             </div>
                                                             <div class="product-price">
-                                                                <span class="price-sale">$119.00</span>
-                                                                <del class="price-compare">$129.00</del>
+<!--                                                                <span class="price-sale">$119.00</span>-->
+<!--                                                                <del class="price-compare">$129.00</del>-->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -519,19 +498,19 @@
                                             <!--                                                        </div>-->
                                             <!--                                                        <div class="product-icon" >-->
                                             <!--                                                      <span class="product-icon-button">-->
-                                            <!--                                                        <a href="">-->
+                                            <!--                                                        <a href="javascript:">-->
                                             <!--                                                            <img width="20" height="20" src="../static/pic/fav-l.png" alt="">-->
                                             <!--                                                        </a>-->
                                             <!--                                                      </span>-->
 
                                             <!--                                                            <span class="product-icon-button">-->
-                                            <!--                                                        <a href="">-->
+                                            <!--                                                        <a href="javascript:">-->
                                             <!--                                                            <img width="20" height="20" src="../static/pic/data-l.png" alt="">-->
                                             <!--                                                        </a>-->
                                             <!--                                                      </span>-->
 
                                             <!--                                                            <span class="product-icon-button">-->
-                                            <!--                                                       <a href="">-->
+                                            <!--                                                       <a href="javascript:">-->
                                             <!--                                                           <img width="20" height="20" src="../static/pic/seach.png" alt="">-->
                                             <!--                                                       </a>-->
                                             <!--                                                     </span>-->
@@ -541,7 +520,7 @@
                                             <!--                                                    <div class="product-wrapper-item-info">-->
                                             <!--                                                        <div class="product-item-info-body">-->
                                             <!--                                                            <div class="product-item-name">-->
-                                            <!--                                                                <a href="">3-layer mask with an elastic band (1 piece)</a>-->
+                                            <!--                                                                <a href="javascript:">3-layer mask with an elastic band (1 piece)</a>-->
                                             <!--                                                            </div>-->
                                             <!--                                                            <div class="product-price">-->
                                             <!--                                                                <span class="price-sale">$119.00</span>-->
@@ -566,72 +545,72 @@
 
 
             <!--            产品展示部分-->
-            <div class="mall-section-products product-html">
-                <div class="mall-section-products-content">
-                    <div class="container">
-                        <div class="mall-section-products-content-wrapper">
-                            <div class="mall-section-products-head">
-                                <div class="mall-section-head-title" th:text="#{co_recommend}">
-                                    Customers albo bought
-                                </div>
-                            </div>
-                            <div class="mall-section-products-body">
-                                <!--                              <div class="row">-->
-                                <ul class="product-section col-lg-5th col-6 ">
-                                    <li class="product-section-item bg-white" th:each="product : ${productList1}">
-                                        <div class="product-section-item-wrapper">
-                                            <div class="product-wrapper-header">
-                                                <img width="196" height="196" th:src="@{${currentProduct.pic[0]}}"
-                                                     alt="">
-                                                <div class="sale">
-                                                    <span class="label_ui-sale">sale</span>
-                                                </div>
-                                                <div class="product-icon">
-                                                      <span class="product-icon-button">
-                                                        <a href="">
-                                                            <img width="20" height="20" src="../static/pic/fav-l.png"
-                                                                 alt="">
-                                                        </a>
-                                                      </span>
+<!--            <div class="mall-section-products product-html">-->
+<!--                <div class="mall-section-products-content">-->
+<!--                    <div class="container">-->
+<!--                        <div class="mall-section-products-content-wrapper">-->
+<!--                            <div class="mall-section-products-head">-->
+<!--                                <div class="mall-section-head-title" th:text="#{co_recommend}">-->
+<!--                                    Customers albo bought-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="mall-section-products-body">-->
+<!--                                &lt;!&ndash;                              <div class="row">&ndash;&gt;-->
+<!--                                <ul class="product-section col-lg-5th col-6 ">-->
+<!--                                    <li class="product-section-item bg-white" th:each="product : ${productList1}">-->
+<!--                                        <div class="product-section-item-wrapper">-->
+<!--                                            <div class="product-wrapper-header">-->
+<!--                                                <img width="196" height="196" th:src="@{${currentProduct.pic[0]}}"-->
+<!--                                                     alt="">-->
+<!--                                                <div class="sale">-->
+<!--                                                    <span class="label_ui-sale">sale</span>-->
+<!--                                                </div>-->
+<!--                                                <div class="product-icon">-->
+<!--                                                      <span class="product-icon-button">-->
+<!--                                                        <a href="javascript:">-->
+<!--                                                            <img width="20" height="20" src="../static/pic/fav-l.png"-->
+<!--                                                                 alt="">-->
+<!--                                                        </a>-->
+<!--                                                      </span>-->
 
-                                                    <span class="product-icon-button">
-                                                        <a href="">
-                                                            <img width="20" height="20" src="../static/pic/data-l.png"
-                                                                 alt="">
-                                                        </a>
-                                                      </span>
+<!--                                                    <span class="product-icon-button">-->
+<!--                                                        <a href="javascript:">-->
+<!--                                                            <img width="20" height="20" src="../static/pic/data-l.png"-->
+<!--                                                                 alt="">-->
+<!--                                                        </a>-->
+<!--                                                      </span>-->
 
-                                                    <span class="product-icon-button">
-                                                       <a href="">
-                                                           <img width="20" height="20" src="../static/pic/seach.png"
-                                                                alt="">
-                                                       </a>
-                                                     </span>
+<!--                                                    <span class="product-icon-button">-->
+<!--                                                       <a href="javascript:">-->
+<!--                                                           <img width="20" height="20" src="../static/pic/seach.png"-->
+<!--                                                                alt="">-->
+<!--                                                       </a>-->
+<!--                                                     </span>-->
 
-                                                </div>
-                                            </div>
-                                            <div class="product-wrapper-item-info">
-                                                <div class="product-item-info-body">
-                                                    <div class="product-item-name">
-                                                        <a href="" th:text="${product.name}"></a>
-                                                    </div>
-                                                    <div class="product-price">
-                                                        <span class="price-sale">$119.00</span>
-                                                        <del class="price-compare">$129.00</del>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                            <div class="product-wrapper-item-info">-->
+<!--                                                <div class="product-item-info-body">-->
+<!--                                                    <div class="product-item-name">-->
+<!--                                                        <a href="javascript:" th:text="${product.name}"></a>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="product-price">-->
+<!--                                                        <span class="price-sale">$119.00</span>-->
+<!--                                                        <del class="price-compare">$129.00</del>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </li>-->
 
 
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+<!--                                </ul>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
 
-                </div>
-            </div>
+<!--                </div>-->
+<!--            </div>-->
         </div>
     </main>
 
@@ -644,7 +623,7 @@
                 <!--                <div class="container">-->
                 <div class="mobile-section-wrapper">
                     <div class="mobile-bar-content mobile-bar">
-                        <a href="" class="btn">
+                        <a href="javascript:" class="btn">
                             <span class="svg-element-ui">
                               <svg width="22" height="18" viewBox="0 0 22 18" fill="none"
                                    xmlns="http://www.w3.org/2000/svg">
@@ -659,7 +638,7 @@
                         </a>
                     </div>
                     <div class="mobile-bar-home mobile-bar">
-                        <a href="" class="btn">
+                        <a href="javascript:" class="btn">
                             <span class="svg-element-ui">
                                 <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -672,7 +651,7 @@
                         </a>
                     </div>
                     <div class="mobile-bar-my-account mobile-bar">
-                        <a href="" class="btn">
+                        <a href="javascript:" class="btn">
                             <span class="svg-element-ui">
                                 <svg width="19" height="19" viewBox="0 0 19 19" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -685,7 +664,7 @@
                         </a>
                     </div>
                     <div class="mobile-bar-fav mobile-bar">
-                        <a href="" class="btn">
+                        <a href="javascript:" class="btn">
                             <span class="svg-element-ui">
                                 <svg width="24" height="21" viewBox="0 0 24 21" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -699,7 +678,7 @@
                         </a>
                     </div>
                     <div class="mobile-bar-cart mobile-bar relative">
-                        <a href="" class="btn">
+                        <a href="javascript:" class="btn">
                             <span class="svg-element-ui">
                                  <img width="25" height="23" src="../static/pic/cart.png" alt="">
                             </span>

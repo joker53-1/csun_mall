@@ -28,12 +28,12 @@
                         <div class="footer-social-icons">
                             <ul class="social-icons footer-social-list-icon">
 
-                                <li><a href=""><img height="34" width="34" src="../static/pic/facebook%20(2).png"
+                                <li><a th:href="#{co_facebook_link}"><img height="34" width="34" src="../static/pic/facebook%20(2).png"
                                                     alt=""></a></li>
-                                <li><a href=""><img height="34" width="34" src="../static/pic/twitter.png" alt=""></a>
+                                <li><a th:href="#{co_twitter_link}"><img height="34" width="34" src="../static/pic/twitter.png" alt=""></a>
                                 </li>
-<!--                                <li><a href=""><img height="30" width="30" src="../static/pic/chat.png" alt=""></a></li>-->
-                                <li><a href=""><img height="26" width="26" src="../static/pic/linkedin-in.png"
+<!--                                <li><a href="javascript:"><img height="30" width="30" src="../static/pic/chat.png" alt=""></a></li>-->
+                                <li><a th:href="#{co_linkedin_link}"><img height="26" width="26" src="../static/pic/linkedin-in.png"
                                                     alt=""></a></li>
 
 
@@ -48,22 +48,18 @@
                                     <div class="columns-left-body">
                                         <h4 th:text="#{co_find_in_fast}">Find It Fast</h4>
                                         <div class="columns-left-container">
-
                                             <ul class="menu" th:each="productType : ${productTypeList}">
-
-                                                <li><a th:href="@{'/index/productlist?typeCode='+ ${productType.id}}" th:text="${productType.name}">About</a></li>
+                                                <li><a th:href="@{'/productlist?typeCode='+ ${productType.id}}" th:text="${productType.name}">About</a></li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="columns-center-body columns">
+                                <h4>关于我们</h4>
                                 <ul class="menu">
-                                    <li><a href="" th:text="#{co_about}">About</a></li>
+                                    <li><a href="javascript:" th:text="#{co_about}">About</a></li>
                                     <li><a href="contact" th:text="#{co_contact}">Contact</a></li>
-                                    <li><a href="" th:text="#{co_wishlist}">Wishlist</a></li>
-                                    <li><a href="" th:text="#{co_FAQ}">FAQ</a></li>
-                                    <li><a href="" th:text="#{co_store_directory}">Store Directory</a></li>
                                 </ul>
                             </div>
                             <div class="columns">
@@ -71,11 +67,11 @@
                                     <h4 th:text="#{co_customer_care}">Customer Care</h4>
                                     <div class="columns-right-container">
                                         <ul class="menu">
-                                            <li><a href="" th:text="#{co_my_account}">My Account</a></li>
-                                            <li><a href="" th:text="#{co_order_tracking}">Track your Order</a></li>
-                                            <li><a href="" th:text="#{co_customer_service}">Customer Service</a></li>
-                                            <li><a href="" th:text="#{co_returns}">Returns/Exchange</a></li>
-                                            <li><a href="" th:text="#{co_product_support}">Product Support</a></li>
+                                            <li><a href="javascript:" th:text="#{co_my_account}">My Account</a></li>
+                                            <li><a href="javascript:" th:text="#{co_order_tracking}">Track your Order</a></li>
+                                            <li><a href="javascript:" th:text="#{co_customer_service}">Customer Service</a></li>
+                                            <li><a href="javascript:" th:text="#{co_returns}">Returns/Exchange</a></li>
+                                            <li><a href="javascript:" th:text="#{co_product_support}">Product Support</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -87,7 +83,7 @@
                 <!--                <div class="footer-mobile visible-xs">-->
                 <!--                    <div class="footer-mobile-icon">-->
                 <!--                        <div class="footer-mobile-icon-nav">-->
-                <!--                            <a href="" class="footer-nav-element">-->
+                <!--                            <a href="javascript:" class="footer-nav-element">-->
                 <!--                                <span class="svg-element">-->
                 <!--                                    <svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">-->
                 <!--                                        <path d="M21.0652 2.00879H0.61236C0.244944 2.00879 0 1.90353 0 1.74563V0.271947C0 0.114052 0.244944 0.00878906 0.61236 0.00878906H21.1876C21.5551 0.00878906 21.8 0.114052 21.8 0.271947V1.74563C21.6775 1.90353 21.4326 2.00879 21.0652 2.00879Z" fill="#FF9923"></path>-->
@@ -114,9 +110,9 @@
                     <div class="footer-copy-content-text ">
                         <span>Copyright © 2021 CSUN. All Rights Reserved</span>
                     </div>
-                    <div class="footer-copy-content-pic ">
-                        <img height="40" width="350" src="../static/pic/copyright.png" alt="">
-                    </div>
+<!--                    <div class="footer-copy-content-pic ">-->
+<!--                        <img height="40" width="350" src="../static/pic/copyright.png" alt="">-->
+<!--                    </div>-->
                 </div>
             </div>
         </div>

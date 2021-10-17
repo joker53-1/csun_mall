@@ -15,6 +15,7 @@ import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @Author Joker Zheng
@@ -61,6 +62,13 @@ public class CategoryService {
         List<ProductCategory> list = productCategoryMapper.selectByExample(example);
 //        return PageResult.from(list.stream().filter(e ->e.getName().matches(".*"+name+".*")).collect(Collectors.toList()), ProductQueryDTO.class);
         return list;
+    }
+    public List<Long> getIdList(Long parentId) {
+        Example example = new Example(ProductCategory.class);
+        example.createCriteria().andEqualTo("parentId",parentId);
+
+        return productCategoryMapper.selectByExample(example).stream().map(ProductCategory::getId).collect(Collectors.toList());
+
     }
 
     public List<ProductCategoryWithChildren> listWithChildren() {

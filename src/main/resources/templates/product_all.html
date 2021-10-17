@@ -14,7 +14,7 @@
             <div class="breadcrumb">
                 <div class="container">
                     <ul class="breadcrumb-list">
-                        <li><a href="/index/products"><span th:text="#{co_home}">Home</span></a></li>
+                        <li><a href="/"><span th:text="#{co_home}">Home</span></a></li>
                         <li class="svg-element-product">
                             <svg width="4" height="8" viewBox="0 0 4 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M2.1 4.05596L0 6.65996L0.7 7.28996L3.36 3.99996L0.7 0.709961L0 1.33996L2.1 4.05596Z" fill="#5B6C8F"></path>
@@ -54,14 +54,14 @@
                                     <div class="products-all-contain-sidebar-wrapper-body-list-body">
                                         <ul class="products-all-contain-sidebar-wrapper-body-list-body-ul" th:each="type : ${productTypeList}">
                                             <li class="products-all-first-li">
-                                                <a th:href="@{'/index/productlist?typeCode='+ ${type.id}}" class="products-all-first-li-a" th:text="${type.name}">
+                                                <a th:href="@{'/productlist?typeCode='+ ${type.id}}" class="products-all-first-li-a" th:text="${type.name}">
                                                 </a>
                                             </li>
                                         </ul>
 
                                         <div class="products-all-contain-sidebar-wrapper-body-list-body-img">
                                             <span>
-                                                <img src="../static/pic/change/side.png" alt="">
+<!--                                                <img src="../static/pic/change/side.png" alt="">-->
                                             </span>
                                         </div>
                                     </div>
@@ -74,91 +74,91 @@
                         <div class="products-all-contain-main-wrapper">
                             <div class="products-all-contain-main-wrapper-template">
                                 <div class="products-all-contain-main-wrapper-template-section">
-                                    <div class="products-all-contain-main-wrapper-template-section-head">
-                                        <div class="products-all-contain-main-wrapper-template-section-head-top-bar">
-                                            <div class="products-all-contain-main-wrapper-template-section-head-top-bar-flex">
-                                                <div class="products-all-top-bar-flex-left">
-                                                    <div class="products-all-top-bar-flex-left-view-mode">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="">
-                                                                    <span class="svg-element-product">
-                                                                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                            <path d="M0 1.5C0 0.671573 0.671573 0 1.5 0H13.5C14.3284 0 15 0.671573 15 1.5C15 2.32843 14.3284 3 13.5 3H1.5C0.671573 3 0 2.32843 0 1.5Z"></path>
-                                                                            <path d="M0 7.5C0 6.67157 0.671573 6 1.5 6H13.5C14.3284 6 15 6.67157 15 7.5C15 8.32843 14.3284 9 13.5 9H1.5C0.671573 9 0 8.32843 0 7.5Z"></path>
-                                                                            <path d="M0 13.5C0 12.6716 0.671573 12 1.5 12H13.5C14.3284 12 15 12.6716 15 13.5C15 14.3284 14.3284 15 13.5 15H1.5C0.671573 15 0 14.3284 0 13.5Z"></path>
-                                                                        </svg>
-                                                                    </span>
-                                                                </a>
-                                                            </li>
+<!--                                    <div class="products-all-contain-main-wrapper-template-section-head">-->
+<!--                                        <div class="products-all-contain-main-wrapper-template-section-head-top-bar">-->
+<!--                                            <div class="products-all-contain-main-wrapper-template-section-head-top-bar-flex">-->
+<!--                                                <div class="products-all-top-bar-flex-left">-->
+<!--                                                    <div class="products-all-top-bar-flex-left-view-mode">-->
+<!--                                                        <ul>-->
+<!--                                                            <li>-->
+<!--                                                                <a href="">-->
+<!--                                                                    <span class="svg-element-product">-->
+<!--                                                                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                                                                            <path d="M0 1.5C0 0.671573 0.671573 0 1.5 0H13.5C14.3284 0 15 0.671573 15 1.5C15 2.32843 14.3284 3 13.5 3H1.5C0.671573 3 0 2.32843 0 1.5Z"></path>-->
+<!--                                                                            <path d="M0 7.5C0 6.67157 0.671573 6 1.5 6H13.5C14.3284 6 15 6.67157 15 7.5C15 8.32843 14.3284 9 13.5 9H1.5C0.671573 9 0 8.32843 0 7.5Z"></path>-->
+<!--                                                                            <path d="M0 13.5C0 12.6716 0.671573 12 1.5 12H13.5C14.3284 12 15 12.6716 15 13.5C15 14.3284 14.3284 15 13.5 15H1.5C0.671573 15 0 14.3284 0 13.5Z"></path>-->
+<!--                                                                        </svg>-->
+<!--                                                                    </span>-->
+<!--                                                                </a>-->
+<!--                                                            </li>-->
 
-                                                            <li>
-                                                                <a href="">
-                                                                    <span class="svg-element-product">
-                                                                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                            <path d="M0 3C0 1.34315 1.34315 0 3 0C4.65685 0 6 1.34315 6 3C6 4.65685 4.65685 6 3 6C1.34315 6 0 4.65685 0 3Z"></path>
-                                                                            <path d="M9 3C9 1.34315 10.3431 0 12 0C13.6569 0 15 1.34315 15 3C15 4.65685 13.6569 6 12 6C10.3431 6 9 4.65685 9 3Z"></path>
-                                                                            <path d="M0 12C0 10.3431 1.34315 9 3 9C4.65685 9 6 10.3431 6 12C6 13.6569 4.65685 15 3 15C1.34315 15 0 13.6569 0 12Z"></path>
-                                                                            <path d="M9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12Z"></path>
-                                                                        </svg>
-                                                                    </span>
-                                                                </a>
-                                                            </li>
+<!--                                                            <li>-->
+<!--                                                                <a href="">-->
+<!--                                                                    <span class="svg-element-product">-->
+<!--                                                                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                                                                            <path d="M0 3C0 1.34315 1.34315 0 3 0C4.65685 0 6 1.34315 6 3C6 4.65685 4.65685 6 3 6C1.34315 6 0 4.65685 0 3Z"></path>-->
+<!--                                                                            <path d="M9 3C9 1.34315 10.3431 0 12 0C13.6569 0 15 1.34315 15 3C15 4.65685 13.6569 6 12 6C10.3431 6 9 4.65685 9 3Z"></path>-->
+<!--                                                                            <path d="M0 12C0 10.3431 1.34315 9 3 9C4.65685 9 6 10.3431 6 12C6 13.6569 4.65685 15 3 15C1.34315 15 0 13.6569 0 12Z"></path>-->
+<!--                                                                            <path d="M9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12Z"></path>-->
+<!--                                                                        </svg>-->
+<!--                                                                    </span>-->
+<!--                                                                </a>-->
+<!--                                                            </li>-->
 
-                                                            <li>
-                                                                <a href="">
-                                                                    <span class="svg-element-product">
-                                                                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                            <path d="M0 1.5C0 0.671573 0.671573 0 1.5 0C2.32843 0 3 0.671573 3 1.5C3 2.32843 2.32843 3 1.5 3C0.671573 3 0 2.32843 0 1.5Z"></path>
-                                                                            <path d="M6 1.5C6 0.671573 6.67157 0 7.5 0C8.32843 0 9 0.671573 9 1.5C9 2.32843 8.32843 3 7.5 3C6.67157 3 6 2.32843 6 1.5Z"></path>
-                                                                            <path d="M12 1.5C12 0.671573 12.6716 0 13.5 0C14.3284 0 15 0.671573 15 1.5C15 2.32843 14.3284 3 13.5 3C12.6716 3 12 2.32843 12 1.5Z"></path>
-                                                                            <path d="M0 7.5C0 6.67157 0.671573 6 1.5 6C2.32843 6 3 6.67157 3 7.5C3 8.32843 2.32843 9 1.5 9C0.671573 9 0 8.32843 0 7.5Z"></path>
-                                                                            <path d="M6 7.5C6 6.67157 6.67157 6 7.5 6C8.32843 6 9 6.67157 9 7.5C9 8.32843 8.32843 9 7.5 9C6.67157 9 6 8.32843 6 7.5Z"></path>
-                                                                            <path d="M12 7.5C12 6.67157 12.6716 6 13.5 6C14.3284 6 15 6.67157 15 7.5C15 8.32843 14.3284 9 13.5 9C12.6716 9 12 8.32843 12 7.5Z"></path>
-                                                                            <path d="M0 13.5C0 12.6716 0.671573 12 1.5 12C2.32843 12 3 12.6716 3 13.5C3 14.3284 2.32843 15 1.5 15C0.671573 15 0 14.3284 0 13.5Z"></path>
-                                                                            <path d="M6 13.5C6 12.6716 6.67157 12 7.5 12C8.32843 12 9 12.6716 9 13.5C9 14.3284 8.32843 15 7.5 15C6.67157 15 6 14.3284 6 13.5Z"></path>
-                                                                            <path d="M12 13.5C12 12.6716 12.6716 12 13.5 12C14.3284 12 15 12.6716 15 13.5C15 14.3284 14.3284 15 13.5 15C12.6716 15 12 14.3284 12 13.5Z"></path>
-                                                                        </svg>
-                                                                    </span>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
+<!--                                                            <li>-->
+<!--                                                                <a href="">-->
+<!--                                                                    <span class="svg-element-product">-->
+<!--                                                                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                                                                            <path d="M0 1.5C0 0.671573 0.671573 0 1.5 0C2.32843 0 3 0.671573 3 1.5C3 2.32843 2.32843 3 1.5 3C0.671573 3 0 2.32843 0 1.5Z"></path>-->
+<!--                                                                            <path d="M6 1.5C6 0.671573 6.67157 0 7.5 0C8.32843 0 9 0.671573 9 1.5C9 2.32843 8.32843 3 7.5 3C6.67157 3 6 2.32843 6 1.5Z"></path>-->
+<!--                                                                            <path d="M12 1.5C12 0.671573 12.6716 0 13.5 0C14.3284 0 15 0.671573 15 1.5C15 2.32843 14.3284 3 13.5 3C12.6716 3 12 2.32843 12 1.5Z"></path>-->
+<!--                                                                            <path d="M0 7.5C0 6.67157 0.671573 6 1.5 6C2.32843 6 3 6.67157 3 7.5C3 8.32843 2.32843 9 1.5 9C0.671573 9 0 8.32843 0 7.5Z"></path>-->
+<!--                                                                            <path d="M6 7.5C6 6.67157 6.67157 6 7.5 6C8.32843 6 9 6.67157 9 7.5C9 8.32843 8.32843 9 7.5 9C6.67157 9 6 8.32843 6 7.5Z"></path>-->
+<!--                                                                            <path d="M12 7.5C12 6.67157 12.6716 6 13.5 6C14.3284 6 15 6.67157 15 7.5C15 8.32843 14.3284 9 13.5 9C12.6716 9 12 8.32843 12 7.5Z"></path>-->
+<!--                                                                            <path d="M0 13.5C0 12.6716 0.671573 12 1.5 12C2.32843 12 3 12.6716 3 13.5C3 14.3284 2.32843 15 1.5 15C0.671573 15 0 14.3284 0 13.5Z"></path>-->
+<!--                                                                            <path d="M6 13.5C6 12.6716 6.67157 12 7.5 12C8.32843 12 9 12.6716 9 13.5C9 14.3284 8.32843 15 7.5 15C6.67157 15 6 14.3284 6 13.5Z"></path>-->
+<!--                                                                            <path d="M12 13.5C12 12.6716 12.6716 12 13.5 12C14.3284 12 15 12.6716 15 13.5C15 14.3284 14.3284 15 13.5 15C12.6716 15 12 14.3284 12 13.5Z"></path>-->
+<!--                                                                        </svg>-->
+<!--                                                                    </span>-->
+<!--                                                                </a>-->
+<!--                                                            </li>-->
+<!--                                                        </ul>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
 
-                                                <div class="products-all-top-bar-flex-center">
-                                                    <div class="d-md-inline-flex"></div>
-                                                    <div class="products-all-top-bar-flex-center-item">
-                                                        <a href="">
-                                                            <span class="d-none d-md-flex">
-                                                                <span th:text="#{co_sort_by}">Sort by</span>
-                                                                <span class="two" th:text="#{co_alphabetically}">Alphabetically, A-Z</span>
-                                                                <span class="svg-element-ui svg-element-products-all">
-                                                                    <svg width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.01529 2.98179L1.35057 0.317078L0 1.66765L4.01529 5.68294L8.03057 1.66765L6.68 0.317078L4.01529 2.98179Z" fill="#5B6C8F"></path>
-                                                                    </svg>
-                                                                </span>
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                </div>
+<!--                                                <div class="products-all-top-bar-flex-center">-->
+<!--                                                    <div class="d-md-inline-flex"></div>-->
+<!--                                                    <div class="products-all-top-bar-flex-center-item">-->
+<!--                                                        <a href="">-->
+<!--                                                            <span class="d-none d-md-flex">-->
+<!--&lt;!&ndash;                                                                <span th:text="#{co_sort_by}">Sort by</span>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                                <span class="two" th:text="#{co_alphabetically}">Alphabetically, A-Z</span>&ndash;&gt;-->
+<!--                                                                <span class="svg-element-ui svg-element-products-all">-->
+<!--                                                                    <svg width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.01529 2.98179L1.35057 0.317078L0 1.66765L4.01529 5.68294L8.03057 1.66765L6.68 0.317078L4.01529 2.98179Z" fill="#5B6C8F"></path>-->
+<!--                                                                    </svg>-->
+<!--                                                                </span>-->
+<!--                                                            </span>-->
+<!--                                                        </a>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
 
-                                                <div class="products-all-top-bar-flex-right">
-                                                    <div class="products-all-top-bar-flex-right-item">
-                                                        <a href="" class="products-all-top-bar-flex-right-item-a">
-                                                            <span>Show</span>
-                                                            <span class="number-12">12</span>
-                                                            <span class="svg-element-ui">
-                                                                <svg width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.01529 2.98179L1.35057 0.317078L0 1.66765L4.01529 5.68294L8.03057 1.66765L6.68 0.317078L4.01529 2.98179Z" fill="#5B6C8F"></path>
-                                                                </svg>
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+<!--                                                <div class="products-all-top-bar-flex-right">-->
+<!--                                                    <div class="products-all-top-bar-flex-right-item">-->
+<!--                                                        <a href="" class="products-all-top-bar-flex-right-item-a">-->
+<!--                                                            <span>Show</span>-->
+<!--                                                            <span class="number-12">12</span>-->
+<!--                                                            <span class="svg-element-ui">-->
+<!--                                                                <svg width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg" >-->
+<!--                                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.01529 2.98179L1.35057 0.317078L0 1.66765L4.01529 5.68294L8.03057 1.66765L6.68 0.317078L4.01529 2.98179Z" fill="#5B6C8F"></path>-->
+<!--                                                                </svg>-->
+<!--                                                            </span>-->
+<!--                                                        </a>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
 
                                     <div class="products-all-contain-main-wrapper-template-section-body">
                                         <div class="col-main">
@@ -169,10 +169,7 @@
                                                             <div class="products-all-body-section-item-wrapper-head">
                                                                 <div class="products-all-body-section-item-wrapper-head-img">
                                                                     <img th:src="@{${product.pic[0]}}" alt="" width="150" height="150">
-                                                                    <a th:href="@{'/index/product?id='+ ${product.id}}"></a>
-<!--                                                                    <div class="sale-ui">-->
-<!--                                                                        <div class="label-sale-ui">Sale</div>-->
-<!--                                                                    </div>-->
+                                                                    <a th:href="@{'/product?id='+ ${product.id}}"></a>
 
                                                                     <div class="cart-button" >
                                                                         <div class="btn-quick-view">
@@ -195,18 +192,7 @@
                                                                         <span class="price-sale" th:text="'$'+${product.price}"></span>
                                                                         <del class="money" th:text="'$'+${product.originalPrice}">$25.00</del>
                                                                     </p>
-                                                                    <div class="products-all-row-description">
-                                                                        <ul>
-                                                                            <li>
-                                                                                <img width="10" height="8" src="../static/pic/checked%20.png.crdownload" alt="">Study history up to 30 days
-                                                                            </li>
-                                                                            <li>
-                                                                                <img width="10" height="8" src="../static/pic/checked%20.png.crdownload" alt="">Up to 5 users simultaneously
-                                                                            </li>
-                                                                            <li>
-                                                                                <img width="10" height="8" src="../static/pic/checked%20.png.crdownload" alt="">Has HEALTH certificate
-                                                                            </li>
-                                                                        </ul>
+                                                                    <div class="products-all-row-description" th:utext="${product.description}">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -248,28 +234,28 @@
 
                                             </div>
                                             
-                                            <div>
-                                                <div class="product-all-page-holder">
-                                                    <ul class="product-all-page-holder-ul">
-                                                        <li class="active">
-                                                            <a href="javascript:;">1</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="javascript:;">2</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="javascript:;">3</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="javascript:;" class="next">
-                                                                <span class="svg-element-ui">
-                                                                    <svg t="1628748494166" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="12282" width="250" height="250"><path d="M741.504 512L402.752 173.248l90.496-90.496L922.496 512l-429.248 429.248-90.496-90.496L741.504 512z m-320 0L82.752 173.248l90.496-90.496L602.496 512l-429.248 429.248-90.496-90.496L421.504 512z" p-id="12283" fill="#103178"></path></svg>
-                                                                </span>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
+<!--                                            <div>-->
+<!--                                                <div class="product-all-page-holder">-->
+<!--                                                    <ul class="product-all-page-holder-ul">-->
+<!--                                                        <li class="active">-->
+<!--                                                            <a href="javascript:;">1</a>-->
+<!--                                                        </li>-->
+<!--                                                        <li>-->
+<!--                                                            <a href="javascript:;">2</a>-->
+<!--                                                        </li>-->
+<!--                                                        <li>-->
+<!--                                                            <a href="javascript:;">3</a>-->
+<!--                                                        </li>-->
+<!--                                                        <li>-->
+<!--                                                            <a href="javascript:;" class="next">-->
+<!--                                                                <span class="svg-element-ui">-->
+<!--                                                                    <svg t="1628748494166" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="12282" width="250" height="250"><path d="M741.504 512L402.752 173.248l90.496-90.496L922.496 512l-429.248 429.248-90.496-90.496L741.504 512z m-320 0L82.752 173.248l90.496-90.496L602.496 512l-429.248 429.248-90.496-90.496L421.504 512z" p-id="12283" fill="#103178"></path></svg>-->
+<!--                                                                </span>-->
+<!--                                                            </a>-->
+<!--                                                        </li>-->
+<!--                                                    </ul>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
                                         </div>
                                     </div>
                                 </div>
@@ -284,236 +270,236 @@
 
 
                 <!--            产品展示部分-->
-                <div class="mall-section-products product-html">
-                    <div class="mall-section-products-content">
-                        <div class="container">
-                            <div class="mall-section-products-content-wrapper">
-                                <div class="mall-section-products-head">
-                                    <div class="mall-section-head-title" th:text="#{co_recommend}">
-                                        Customers also bought
-                                    </div>
-                                </div>
-                                <div class="mall-section-products-body">
-                                    <!--                              <div class="row">-->
-                                    <ul class="product-section">
-                                        <li class="product-section-item bg-white col-lg-5th col-m-4 col-m-6">
-                                            <div class="product-section-item-wrapper">
-                                                <div class="product-wrapper-header">
-                                                    <img width="196" height="196" src="../static/pic/change/product.png" alt="">
-                                                    <div class="sale">
-                                                        <span class="label_ui-sale">sale</span>
-                                                    </div>
-                                                    <div class="product-icon" >
-                                                      <span class="product-icon-button">
-                                                        <a href="">
-                                                            <img width="20" height="20" src="../static/pic/fav-l.png" alt="">
-                                                        </a>
-                                                      </span>
+<!--                <div class="mall-section-products product-html">-->
+<!--                    <div class="mall-section-products-content">-->
+<!--                        <div class="container">-->
+<!--                            <div class="mall-section-products-content-wrapper">-->
+<!--                                <div class="mall-section-products-head">-->
+<!--                                    <div class="mall-section-head-title" th:text="#{co_recommend}">-->
+<!--                                        Customers also bought-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="mall-section-products-body">-->
+<!--                                    &lt;!&ndash;                              <div class="row">&ndash;&gt;-->
+<!--                                    <ul class="product-section">-->
+<!--                                        <li class="product-section-item bg-white col-lg-5th col-m-4 col-m-6">-->
+<!--                                            <div class="product-section-item-wrapper">-->
+<!--                                                <div class="product-wrapper-header">-->
+<!--                                                    <img width="196" height="196" src="../static/pic/change/product.png" alt="">-->
+<!--                                                    <div class="sale">-->
+<!--                                                        <span class="label_ui-sale">sale</span>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="product-icon" >-->
+<!--                                                      <span class="product-icon-button">-->
+<!--                                                        <a href="">-->
+<!--                                                            <img width="20" height="20" src="../static/pic/fav-l.png" alt="">-->
+<!--                                                        </a>-->
+<!--                                                      </span>-->
 
-                                                        <span class="product-icon-button">
-                                                        <a href="">
-                                                            <img width="20" height="20" src="../static/pic/data-l.png" alt="">
-                                                        </a>
-                                                      </span>
+<!--                                                        <span class="product-icon-button">-->
+<!--                                                        <a href="">-->
+<!--                                                            <img width="20" height="20" src="../static/pic/data-l.png" alt="">-->
+<!--                                                        </a>-->
+<!--                                                      </span>-->
 
-                                                        <span class="product-icon-button">
-                                                       <a href="">
-                                                           <img width="20" height="20" src="../static/pic/seach.png" alt="">
-                                                       </a>
-                                                     </span>
+<!--                                                        <span class="product-icon-button">-->
+<!--                                                       <a href="">-->
+<!--                                                           <img width="20" height="20" src="../static/pic/seach.png" alt="">-->
+<!--                                                       </a>-->
+<!--                                                     </span>-->
 
-                                                    </div>
-                                                </div>
-                                                <div class="product-wrapper-item-info">
-                                                    <div class="product-item-info-body">
-                                                        <div class="product-item-name">
-                                                            <a href="">3-layer mask with an elastic band (1 piece)</a>
-                                                        </div>
-                                                        <div class="product-price">
-                                                            <span class="price-sale">$119.00</span>
-                                                            <del class="price-compare">$129.00</del>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="product-wrapper-item-info">-->
+<!--                                                    <div class="product-item-info-body">-->
+<!--                                                        <div class="product-item-name">-->
+<!--                                                            <a href="">3-layer mask with an elastic band (1 piece)</a>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="product-price">-->
+<!--                                                            <span class="price-sale">$119.00</span>-->
+<!--                                                            <del class="price-compare">$129.00</del>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
 
-                                        <li class="product-section-item bg-white col-lg-5th col-m-4 col-m-6">
-                                            <div class="product-section-item-wrapper">
-                                                <div class="product-wrapper-header">
-                                                    <img width="196" height="196" src="../static/pic/change/product.png" alt="">
-                                                    <div class="sale">
-                                                        <span class="label_ui-sale">sale</span>
-                                                    </div>
-                                                    <div class="product-icon" >
-                                                      <span class="product-icon-button">
-                                                        <a href="">
-                                                            <img width="20" height="20" src="../static/pic/fav-l.png" alt="">
-                                                        </a>
-                                                      </span>
+<!--                                        <li class="product-section-item bg-white col-lg-5th col-m-4 col-m-6">-->
+<!--                                            <div class="product-section-item-wrapper">-->
+<!--                                                <div class="product-wrapper-header">-->
+<!--                                                    <img width="196" height="196" src="../static/pic/change/product.png" alt="">-->
+<!--                                                    <div class="sale">-->
+<!--                                                        <span class="label_ui-sale">sale</span>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="product-icon" >-->
+<!--                                                      <span class="product-icon-button">-->
+<!--                                                        <a href="">-->
+<!--                                                            <img width="20" height="20" src="../static/pic/fav-l.png" alt="">-->
+<!--                                                        </a>-->
+<!--                                                      </span>-->
 
-                                                        <span class="product-icon-button">
-                                                        <a href="">
-                                                            <img width="20" height="20" src="../static/pic/data-l.png" alt="">
-                                                        </a>
-                                                      </span>
+<!--                                                        <span class="product-icon-button">-->
+<!--                                                        <a href="">-->
+<!--                                                            <img width="20" height="20" src="../static/pic/data-l.png" alt="">-->
+<!--                                                        </a>-->
+<!--                                                      </span>-->
 
-                                                        <span class="product-icon-button">
-                                                       <a href="">
-                                                           <img width="20" height="20" src="../static/pic/seach.png" alt="">
-                                                       </a>
-                                                     </span>
+<!--                                                        <span class="product-icon-button">-->
+<!--                                                       <a href="">-->
+<!--                                                           <img width="20" height="20" src="../static/pic/seach.png" alt="">-->
+<!--                                                       </a>-->
+<!--                                                     </span>-->
 
-                                                    </div>
-                                                </div>
-                                                <div class="product-wrapper-item-info">
-                                                    <div class="product-item-info-body">
-                                                        <div class="product-item-name">
-                                                            <a href="">3-layer mask with an elastic band (1 piece)</a>
-                                                        </div>
-                                                        <div class="product-price">
-                                                            <span class="price-sale">$119.00</span>
-                                                            <del class="price-compare">$129.00</del>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="product-wrapper-item-info">-->
+<!--                                                    <div class="product-item-info-body">-->
+<!--                                                        <div class="product-item-name">-->
+<!--                                                            <a href="">3-layer mask with an elastic band (1 piece)</a>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="product-price">-->
+<!--                                                            <span class="price-sale">$119.00</span>-->
+<!--                                                            <del class="price-compare">$129.00</del>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
 
-                                        <li class="product-section-item bg-white col-lg-5th col-m-4 col-m-6">
-                                            <div class="product-section-item-wrapper">
-                                                <div class="product-wrapper-header">
-                                                    <img width="196" height="196" src="../static/pic/change/product.png" alt="">
-                                                    <div class="sale">
-                                                        <span class="label_ui-sale">sale</span>
-                                                    </div>
-                                                    <div class="product-icon" >
-                                                      <span class="product-icon-button">
-                                                        <a href="">
-                                                            <img width="20" height="20" src="../static/pic/fav-l.png" alt="">
-                                                        </a>
-                                                      </span>
+<!--                                        <li class="product-section-item bg-white col-lg-5th col-m-4 col-m-6">-->
+<!--                                            <div class="product-section-item-wrapper">-->
+<!--                                                <div class="product-wrapper-header">-->
+<!--                                                    <img width="196" height="196" src="../static/pic/change/product.png" alt="">-->
+<!--                                                    <div class="sale">-->
+<!--                                                        <span class="label_ui-sale">sale</span>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="product-icon" >-->
+<!--                                                      <span class="product-icon-button">-->
+<!--                                                        <a href="">-->
+<!--                                                            <img width="20" height="20" src="../static/pic/fav-l.png" alt="">-->
+<!--                                                        </a>-->
+<!--                                                      </span>-->
 
-                                                        <span class="product-icon-button">
-                                                        <a href="">
-                                                            <img width="20" height="20" src="../static/pic/data-l.png" alt="">
-                                                        </a>
-                                                      </span>
+<!--                                                        <span class="product-icon-button">-->
+<!--                                                        <a href="">-->
+<!--                                                            <img width="20" height="20" src="../static/pic/data-l.png" alt="">-->
+<!--                                                        </a>-->
+<!--                                                      </span>-->
 
-                                                        <span class="product-icon-button">
-                                                       <a href="">
-                                                           <img width="20" height="20" src="../static/pic/seach.png" alt="">
-                                                       </a>
-                                                     </span>
+<!--                                                        <span class="product-icon-button">-->
+<!--                                                       <a href="">-->
+<!--                                                           <img width="20" height="20" src="../static/pic/seach.png" alt="">-->
+<!--                                                       </a>-->
+<!--                                                     </span>-->
 
-                                                    </div>
-                                                </div>
-                                                <div class="product-wrapper-item-info">
-                                                    <div class="product-item-info-body">
-                                                        <div class="product-item-name">
-                                                            <a href="">3-layer mask with an elastic band (1 piece)</a>
-                                                        </div>
-                                                        <div class="product-price">
-                                                            <span class="price-sale">$119.00</span>
-                                                            <del class="price-compare">$129.00</del>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="product-wrapper-item-info">-->
+<!--                                                    <div class="product-item-info-body">-->
+<!--                                                        <div class="product-item-name">-->
+<!--                                                            <a href="">3-layer mask with an elastic band (1 piece)</a>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="product-price">-->
+<!--                                                            <span class="price-sale">$119.00</span>-->
+<!--                                                            <del class="price-compare">$129.00</del>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
 
-                                        <li class="product-section-item bg-white col-lg-5th col-m-4 col-m-6">
-                                            <div class="product-section-item-wrapper">
-                                                <div class="product-wrapper-header">
-                                                    <img width="196" height="196" src="../static/pic/change/product.png" alt="">
-                                                    <div class="sale">
-                                                        <span class="label_ui-sale">sale</span>
-                                                    </div>
-                                                    <div class="product-icon" >
-                                                      <span class="product-icon-button">
-                                                        <a href="">
-                                                            <img width="20" height="20" src="../static/pic/fav-l.png" alt="">
-                                                        </a>
-                                                      </span>
+<!--                                        <li class="product-section-item bg-white col-lg-5th col-m-4 col-m-6">-->
+<!--                                            <div class="product-section-item-wrapper">-->
+<!--                                                <div class="product-wrapper-header">-->
+<!--                                                    <img width="196" height="196" src="../static/pic/change/product.png" alt="">-->
+<!--                                                    <div class="sale">-->
+<!--                                                        <span class="label_ui-sale">sale</span>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="product-icon" >-->
+<!--                                                      <span class="product-icon-button">-->
+<!--                                                        <a href="">-->
+<!--                                                            <img width="20" height="20" src="../static/pic/fav-l.png" alt="">-->
+<!--                                                        </a>-->
+<!--                                                      </span>-->
 
-                                                        <span class="product-icon-button">
-                                                        <a href="">
-                                                            <img width="20" height="20" src="../static/pic/data-l.png" alt="">
-                                                        </a>
-                                                      </span>
+<!--                                                        <span class="product-icon-button">-->
+<!--                                                        <a href="">-->
+<!--                                                            <img width="20" height="20" src="../static/pic/data-l.png" alt="">-->
+<!--                                                        </a>-->
+<!--                                                      </span>-->
 
-                                                        <span class="product-icon-button">
-                                                       <a href="">
-                                                           <img width="20" height="20" src="../static/pic/seach.png" alt="">
-                                                       </a>
-                                                     </span>
+<!--                                                        <span class="product-icon-button">-->
+<!--                                                       <a href="">-->
+<!--                                                           <img width="20" height="20" src="../static/pic/seach.png" alt="">-->
+<!--                                                       </a>-->
+<!--                                                     </span>-->
 
-                                                    </div>
-                                                </div>
-                                                <div class="product-wrapper-item-info">
-                                                    <div class="product-item-info-body">
-                                                        <div class="product-item-name">
-                                                            <a href="">3-layer mask with an elastic band (1 piece)</a>
-                                                        </div>
-                                                        <div class="product-price">
-                                                            <span class="price-sale">$119.00</span>
-                                                            <del class="price-compare">$129.00</del>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="product-wrapper-item-info">-->
+<!--                                                    <div class="product-item-info-body">-->
+<!--                                                        <div class="product-item-name">-->
+<!--                                                            <a href="">3-layer mask with an elastic band (1 piece)</a>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="product-price">-->
+<!--                                                            <span class="price-sale">$119.00</span>-->
+<!--                                                            <del class="price-compare">$129.00</del>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
 
-                                        <li class="product-section-item bg-white col-lg-5th col-m-4 col-m-6">
-                                            <div class="product-section-item-wrapper">
-                                                <div class="product-wrapper-header">
-                                                    <img width="196" height="196" src="../static/pic/change/product.png" alt="">
-                                                    <div class="sale">
-                                                        <span class="label_ui-sale">sale</span>
-                                                    </div>
-                                                    <div class="product-icon" >
-                                                      <span class="product-icon-button">
-                                                        <a href="">
-                                                            <img width="20" height="20" src="../static/pic/fav-l.png" alt="">
-                                                        </a>
-                                                      </span>
+<!--                                        <li class="product-section-item bg-white col-lg-5th col-m-4 col-m-6">-->
+<!--                                            <div class="product-section-item-wrapper">-->
+<!--                                                <div class="product-wrapper-header">-->
+<!--                                                    <img width="196" height="196" src="../static/pic/change/product.png" alt="">-->
+<!--                                                    <div class="sale">-->
+<!--                                                        <span class="label_ui-sale">sale</span>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="product-icon" >-->
+<!--                                                      <span class="product-icon-button">-->
+<!--                                                        <a href="">-->
+<!--                                                            <img width="20" height="20" src="../static/pic/fav-l.png" alt="">-->
+<!--                                                        </a>-->
+<!--                                                      </span>-->
 
-                                                        <span class="product-icon-button">
-                                                        <a href="">
-                                                            <img width="20" height="20" src="../static/pic/data-l.png" alt="">
-                                                        </a>
-                                                      </span>
+<!--                                                        <span class="product-icon-button">-->
+<!--                                                        <a href="">-->
+<!--                                                            <img width="20" height="20" src="../static/pic/data-l.png" alt="">-->
+<!--                                                        </a>-->
+<!--                                                      </span>-->
 
-                                                        <span class="product-icon-button">
-                                                       <a href="">
-                                                           <img width="20" height="20" src="../static/pic/seach.png" alt="">
-                                                       </a>
-                                                     </span>
+<!--                                                        <span class="product-icon-button">-->
+<!--                                                       <a href="">-->
+<!--                                                           <img width="20" height="20" src="../static/pic/seach.png" alt="">-->
+<!--                                                       </a>-->
+<!--                                                     </span>-->
 
-                                                    </div>
-                                                </div>
-                                                <div class="product-wrapper-item-info">
-                                                    <div class="product-item-info-body">
-                                                        <div class="product-item-name">
-                                                            <a href="">3-layer mask with an elastic band (1 piece)</a>
-                                                        </div>
-                                                        <div class="product-price">
-                                                            <span class="price-sale">$119.00</span>
-                                                            <del class="price-compare">$129.00</del>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="product-wrapper-item-info">-->
+<!--                                                    <div class="product-item-info-body">-->
+<!--                                                        <div class="product-item-name">-->
+<!--                                                            <a href="">3-layer mask with an elastic band (1 piece)</a>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="product-price">-->
+<!--                                                            <span class="price-sale">$119.00</span>-->
+<!--                                                            <del class="price-compare">$129.00</del>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
 
 
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
 
-                    </div>
-                </div>
+<!--                    </div>-->
+<!--                </div>-->
             </div>
     </main>
 

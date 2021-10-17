@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
  * @create 2021/8/24 13:46
  */
 @Controller
-@RequestMapping("index")
+@RequestMapping("/")
 public class IndexController {
 
     @Autowired
@@ -37,14 +37,24 @@ public class IndexController {
     @Autowired
     private PriceService priceService;
 
-    @GetMapping("registry")
+    @GetMapping("/index/registry")
     public String toRegistry(){
         return "/sign_up";
     }
 
-    @GetMapping("login")
+    @GetMapping("/index/login")
     public String toLogin(){
         return "/sign_in";
+    }
+
+    @GetMapping("/")
+    public String index(Long typeCode, Model model) {
+
+        List<ProductsDTO> list = productsService.getProductListByList(categoryService.getIdList(7L));
+
+        model.addAttribute("productList", list);
+        model.addAttribute("productTypeList", categoryService.listWithChildren());
+        return "/index";
     }
 
     @GetMapping("/products")
@@ -55,19 +65,14 @@ public class IndexController {
         return "/index";
     }
 
-    //    @GetMapping("/productsbytype")
-//    public String getListProductByType(Long typeCode, Model model) {
-//        List<ProductsDTO> list = productsService.getProductList(typeCode);
-//        model.addAttribute("productList", list);
-//        model.addAttribute("productTypeList", categoryService.getTypeList());
-//        return "/product_all";
-//    }
+
     @GetMapping("/product")
     public String getProduct(@RequestParam Long id, Model model) {
+        model.addAttribute("productTypeList", categoryService.listWithChildren());
         List<ProductsDTO> list = productsService.getProductList(null);
         ProductsDTO productsDTO = list.stream().filter(e -> e.getId().equals(id)).findFirst().orElse(new ProductsDTO());
         if (ObjectUtils.isEmpty(productsDTO)) {
-            return "index";
+            return "/index";
         }
         List<ProductsDTO> collect = list.stream().filter(e -> e.getCategoryId().equals(productsDTO.getCategoryId()))
                 .filter(e -> !e.getId().equals(id)).collect(Collectors.toList());
@@ -86,14 +91,15 @@ public class IndexController {
     }
 
     @GetMapping("/contact")
-    public String getContact() {
-
+    public String getContact(Model model) {
+        List<ProductsDTO> list = productsService.getProductList(null);
+        model.addAttribute("productList", list);
+        model.addAttribute("productTypeList", categoryService.listWithChildren());
         return "/contact-us";
     }
 
     @GetMapping("/productlist")
     public String getProductlist(Long typeCode, Model model) {
-
 
         ProductCategory category= categoryService.getParent(typeCode);
         Long parentCode = category.getParentId();
@@ -112,17 +118,7 @@ public class IndexController {
             List<ProductsDTO> list = productsService.getProductList(typeCode);
             model.addAttribute("productList", list);
         }
-
         return "/product_all";
     }
 
-    @GetMapping
-    public String hello() {
-        return "/index";
-    }
-
-    @GetMapping("p")
-    public String pro() {
-        return "/product";
-    }
 }

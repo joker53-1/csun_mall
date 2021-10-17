@@ -14,7 +14,7 @@
         <div class="breadcrumb">
             <div class="container">
                 <ul class="breadcrumb-list">
-                    <li><a href=""><span th:text="#{co_home}">Home</span></a></li>
+                    <li><a href="javascript:"><span th:text="#{co_home}">Home</span></a></li>
                     <li class="svg-element-product">
                         <svg width="4" height="8" viewBox="0 0 4 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M2.1 4.05596L0 6.65996L0.7 7.28996L3.36 3.99996L0.7 0.709961L0 1.33996L2.1 4.05596Z"
@@ -113,16 +113,16 @@
                                                 <ul class="social-icons footer-social-list-icon">
 
                                                     <li>
-                                                        <a href="https://www.facebook.com/CSUN-Solar-103759638523279"><img
+                                                        <a th:href="#{co_facebook_link}"><img
                                                                 height="34" width="34"
                                                                 src="../static/pic/facebook%20(2).png" alt=""></a></li>
-                                                    <li><a href="https://twitter.com/CsunSolarTech"><img height="34"
+                                                    <li><a th:href="#{co_twitter_link}"><img height="34"
                                                                                                          width="34"
                                                                                                          src="../static/pic/twitter.png"
                                                                                                          alt=""></a>
                                                     </li>
-                                                    <!--                                                <li><a href=""><img height="30" width="30" src="../static/pic/chat.png" alt=""></a></li>-->
-                                                    <li><a href="https://www.linkedin.com/company/73061453/admin/"><img
+                                                    <!--                                                <li><a href="javascript:"><img height="30" width="30" src="../static/pic/chat.png" alt=""></a></li>-->
+                                                    <li><a th:href="#{co_linkedin_link}"><img
                                                             height="26" width="26" src="../static/pic/linkedin-in.png"
                                                             alt=""></a></li>
 
@@ -260,7 +260,7 @@
                 <!--                <div class="container">-->
                 <div class="mobile-section-wrapper">
                     <div class="mobile-bar-content mobile-bar">
-                        <a href="" class="btn">
+                        <a href="javascript:" class="btn">
                             <span class="svg-element-ui">
                               <svg width="22" height="18" viewBox="0 0 22 18" fill="none"
                                    xmlns="http://www.w3.org/2000/svg">
@@ -275,7 +275,7 @@
                         </a>
                     </div>
                     <div class="mobile-bar-home mobile-bar">
-                        <a href="" class="btn">
+                        <a href="javascript:" class="btn">
                             <span class="svg-element-ui">
                                 <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -288,7 +288,7 @@
                         </a>
                     </div>
                     <div class="mobile-bar-my-account mobile-bar">
-                        <a href="" class="btn">
+                        <a href="javascript:" class="btn">
                             <span class="svg-element-ui">
                                 <svg width="19" height="19" viewBox="0 0 19 19" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -301,7 +301,7 @@
                         </a>
                     </div>
                     <div class="mobile-bar-fav mobile-bar">
-                        <a href="" class="btn">
+                        <a href="javascript:" class="btn">
                             <span class="svg-element-ui">
                                 <svg width="24" height="21" viewBox="0 0 24 21" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -315,7 +315,7 @@
                         </a>
                     </div>
                     <div class="mobile-bar-cart mobile-bar relative">
-                        <a href="" class="btn">
+                        <a href="javascript:" class="btn">
                             <span class="svg-element-ui">
                                  <img width="25" height="23" src="../static/pic/cart.png" alt="">
                             </span>

@@ -45,7 +45,7 @@ $(function () {
                 // document.getElementById("contact_form").reset();
                 var user = data.body;
                 console.log(user);
-                window.location.href="/index/products";
+                window.location.href="/";
             }
             else {
                 console.log(data.body);

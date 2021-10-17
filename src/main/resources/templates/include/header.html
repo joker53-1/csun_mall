@@ -42,8 +42,8 @@
                     <div class="header-section-announcement-wrapper ">
                         <div class="header-section-announcement-wrapper-left ">
                             <div class="header-announcement-column-text">
-                                <p ><strong th:text="#{co_secure_delivery}">100% Secure delivery</strong>
-                                    <span th:text="#{co_withoutContact}">without contacting the courier</span></p>
+<!--                                <p ><strong th:text="#{co_secure_delivery}">100% Secure delivery</strong>-->
+<!--                                    <span th:text="#{co_withoutContact}">without contacting the courier</span></p>-->
                             </div>
                         </div>
 
@@ -51,26 +51,24 @@
 
                             <div class="header-wrapper-right-menu">
                                 <ul class="header-wrapper-menu-list">
-                                    <li><a href="" th:text="#{co_order_tracking}">Order tracking</a></li>
-                                    <li><a href="" th:text="#{co_blog}">blog</a></li>
+<!--                                    <li><a href="javascript:" th:text="#{co_order_tracking}">Order tracking</a></li>-->
+<!--                                    <li><a href="javascript:" th:text="#{co_blog}">blog</a></li>-->
                                 </ul>
                             </div>
 
                             <div class="header-wrapper-right-social">
                                 <ul class="header-social-icon">
-                                    <li><a href=""><img src="../static/pic/facebook%20(2).png" alt=""></a></li>
-                                    <li><a href=""><img src="../static/pic/twitter.png" alt=""></a></li>
-<!--                                    <li><a href=""><img height="26" width="26" src="../static/pic/chat.png" alt=""></a>-->
-<!--                                    </li>-->
-                                    <li><a href=""><img height="24" width="24" src="../static/pic/linkedin-in.png"
-                                                        alt=""></a></li>
+                                    <li><a th:href="#{co_facebook_link}"><img src="../static/pic/facebook%20(2).png" alt=""></a></li>
+
+                                    <li><a th:href="#{co_twitter_link}"><img src="../static/pic/twitter.png" alt=""></a></li>
+                                    <li><a th:href="#{co_linkedin_link}"><img src="../static/pic/linkedin-in.png" alt=""></a></li>
                                 </ul>
                             </div>
 
                             <div class="header-wrapper-right-selectGroup">
                                 <div class="header-selectGroup-ui">
                                     <div class="header-selectGroup-ui-language-Eng">
-                                        <a href="">
+                                        <a href="javascript:">
                                             <span th:text="#{co_lang}">English</span>
                                             <span class="svg-element-ui">
                                                 <svg width="9" height="6" viewBox="0 0 9 6" fill="none"
@@ -83,16 +81,16 @@
                                         </a>
                                     </div>
                                     <div class="header-selectGroup-ui-language-Usd">
-                                        <a href="">
-                                            <span th:text="#{co_currency}">USD</span>
-                                            <span class="svg-element-ui">
-                                                <svg width="9" height="6" viewBox="0 0 9 6" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                                          d="M4.01529 2.98179L1.35057 0.317078L0 1.66765L4.01529 5.68294L8.03057 1.66765L6.68 0.317078L4.01529 2.98179Z"
-                                                          fill="#5B6C8F"></path>
-                                                </svg>
-                                            </span>
+                                        <a href="javascript:">
+<!--                                            <span th:text="#{co_currency}">USD</span>-->
+<!--                                            <span class="svg-element-ui">-->
+<!--                                                <svg width="9" height="6" viewBox="0 0 9 6" fill="none"-->
+<!--                                                     xmlns="http://www.w3.org/2000/svg">-->
+<!--                                                    <path fill-rule="evenodd" clip-rule="evenodd"-->
+<!--                                                          d="M4.01529 2.98179L1.35057 0.317078L0 1.66765L4.01529 5.68294L8.03057 1.66765L6.68 0.317078L4.01529 2.98179Z"-->
+<!--                                                          fill="#5B6C8F"></path>-->
+<!--                                                </svg>-->
+<!--                                            </span>-->
                                         </a>
                                     </div>
                                 </div>
@@ -104,7 +102,7 @@
                     <button id="announcement-bar--close" type="button" aria-label="TopbarClose"
                             class="header-close-btn">
                         <span class="header-close-btn-icon">
-                            <img width="22" height="22" src="../static/pic/close.png" alt="">
+<!--                            <img width="22" height="22" src="../static/pic/close.png" alt="">-->
                         </span>
                     </button>
 
@@ -120,8 +118,8 @@
                     <div class="header-nav-row-top ">
                         <div class="row">
                             <div class="header-nav-left col-3">
-                                <a href="/index/products">
-                                    <img width="142" height="50" src="../static/pic/logo-1.png" alt="">
+                                <a href="/">
+                                    <img height="50" src="../static/pic/logo-1.png" alt="">
                                 </a>
                             </div>
 
@@ -134,23 +132,23 @@
                                         </p>
                                     </div>
 
-                                    <div class="header-nav-right-form-search col-10">
-                                        <form action="/search">
-                                            <input name="q" type="text" th:placeholder="#{co_search}"
-                                                   autocomplete="off">
-                                            <button type="submit" class="btn-search">
-                                                <span class="svg-element-ui">
-                                                   <img src="../static/pic/seach.png" alt="">
-                                                </span>
-                                            </button>
-                                        </form>
-                                    </div>
+<!--                                    <div class="header-nav-right-form-search col-10">-->
+<!--                                        <form action="/search">-->
+<!--                                            <input name="q" type="text" th:placeholder="#{co_search}"-->
+<!--                                                   autocomplete="off">-->
+<!--                                            <button type="submit" class="btn-search">-->
+<!--                                                <span class="svg-element-ui">-->
+<!--                                                   <img src="../static/pic/seach.png" alt="">-->
+<!--                                                </span>-->
+<!--                                            </button>-->
+<!--                                        </form>-->
+<!--                                    </div>-->
 
                                     <div class="header-nav-right-icons">
                                         <a href="/index/login" class="header-nav-right-icons-p"><img width="24" height="24"
                                                                                          src="../static/pic/my.png"
                                                                                          alt=""></a>
-                                        <a href="" class="header-nav-right-icons-p">
+                                        <a href="javascript:" class="header-nav-right-icons-p">
                                             <span>
                                             <img width="24" height="24" src="../static/pic/fav.png" alt="">
                                             </span>
@@ -159,7 +157,7 @@
                                             </span>
                                         </a>
 
-                                        <a href="" class="header-nav-right-icons-p">
+                                        <a href="javascript:" class="header-nav-right-icons-p">
                                             <span>
                                             <img width="24" height="24" src="../static/pic/data.png" alt="">
                                             </span>
@@ -168,7 +166,7 @@
                                             </span>
                                         </a>
 
-                                        <a href="" class="header-nav-right-icons-p" id="cart">
+                                        <a href="javascript:" class="header-nav-right-icons-p" id="cart">
                                              <span>
                                             <img width="24" height="24" src="../static/pic/cart.png" alt="">
                                             </span>
@@ -181,7 +179,7 @@
                                             <div class="dialog"></div>
 
                                             <div class="shopping-cart-wrapper">
-                                                <a href="" class="shopping-cart-close">
+                                                <a href="javascript:" class="shopping-cart-close">
                                                     <svg width="22" height="19" viewBox="0 0 22 19" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M17.3805 16.895L2.9182 2.43267C2.6584 2.17286 2.55963 1.92523 2.67128 1.81358L3.71333 0.77153C3.82498 0.659881 4.07262 0.758651 4.33242 1.01845L18.8813 15.5674C19.1411 15.8272 19.2399 16.0748 19.1283 16.1865L18.0862 17.2285C17.9252 17.2163 17.6403 17.1548 17.3805 16.895Z"
@@ -195,7 +193,7 @@
                                                 <form action="" class="form-cart">
                                                     <div class="shopping-cart-head">
                                                         <h3>
-                                                            <a href="">Shopping cart
+                                                            <a href="javascript:">Shopping cart
                                                                 <span class="number">(1)</span>
                                                             </a>
                                                         </h3>
@@ -207,7 +205,7 @@
                                                                 <div class="row">
                                                                     <div class="shopping-cart-col-3">
                                                                         <div class="img-style">
-                                                                            <a href="">
+                                                                            <a href="javascript:">
                                                                                 <img sizes="80px"
                                                                                      src="../static/pic/change/product.png"
                                                                                      alt="">
@@ -218,7 +216,7 @@
 
                                                                         <div class="shopping-cart-product-info">
                                                                             <h6>
-                                                                                <a href="">
+                                                                                <a href="javascript:">
                                                                                     <span class="shopping-cart-title">3-layer mask with an elastic band (1 piece)-</span>
                                                                                     <span class="shopping-cart-text">Dark/Large</span>
                                                                                 </a>
@@ -235,7 +233,7 @@
                                                                                         <span class="number-1">1</span>X
                                                                                         <span class="number-2">item</span>
                                                                                     </span>
-                                                                                    <a href="">Remove</a>
+                                                                                    <a href="javascript:">Remove</a>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -251,7 +249,7 @@
                                                                 <div class="row">
                                                                     <div class="shopping-cart-col-3">
                                                                         <div class="img-style">
-                                                                            <a href="">
+                                                                            <a href="javascript:">
                                                                                 <img sizes="80px"
                                                                                      src="../static/pic/change/product.png"
                                                                                      alt="">
@@ -262,7 +260,7 @@
 
                                                                         <div class="shopping-cart-product-info">
                                                                             <h6>
-                                                                                <a href="">
+                                                                                <a href="javascript:">
                                                                                     <span class="shopping-cart-title">3-layer mask with an elastic band (1 piece)-</span>
                                                                                     <span class="shopping-cart-text">Dark/Large</span>
                                                                                 </a>
@@ -279,7 +277,7 @@
                                                                                         <span class="number-1">1</span>X
                                                                                         <span class="number-2">item</span>
                                                                                     </span>
-                                                                                    <a href="">Remove</a>
+                                                                                    <a href="javascript:">Remove</a>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -295,7 +293,7 @@
                                                                 <div class="row">
                                                                     <div class="shopping-cart-col-3">
                                                                         <div class="img-style">
-                                                                            <a href="">
+                                                                            <a href="javascript:">
                                                                                 <img sizes="80px"
                                                                                      src="../static/pic/change/product.png"
                                                                                      alt="">
@@ -306,7 +304,7 @@
 
                                                                         <div class="shopping-cart-product-info">
                                                                             <h6>
-                                                                                <a href="">
+                                                                                <a href="javascript:">
                                                                                     <span class="shopping-cart-title">3-layer mask with an elastic band (1 piece)-</span>
                                                                                     <span class="shopping-cart-text">Dark/Large</span>
                                                                                 </a>
@@ -323,7 +321,7 @@
                                                                                         <span class="number-1">1</span>X
                                                                                         <span class="number-2">item</span>
                                                                                     </span>
-                                                                                    <a href="">Remove</a>
+                                                                                    <a href="javascript:">Remove</a>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -339,7 +337,7 @@
                                                                 <div class="row">
                                                                     <div class="shopping-cart-col-3">
                                                                         <div class="img-style">
-                                                                            <a href="">
+                                                                            <a href="javascript:">
                                                                                 <img sizes="80px"
                                                                                      src="../static/pic/change/product.png"
                                                                                      alt="">
@@ -350,7 +348,7 @@
 
                                                                         <div class="shopping-cart-product-info">
                                                                             <h6>
-                                                                                <a href="">
+                                                                                <a href="javascript:">
                                                                                     <span class="shopping-cart-title">3-layer mask with an elastic band (1 piece)-</span>
                                                                                     <span class="shopping-cart-text">Dark/Large</span>
                                                                                 </a>
@@ -367,7 +365,7 @@
                                                                                         <span class="number-1">1</span>X
                                                                                         <span class="number-2">item</span>
                                                                                     </span>
-                                                                                    <a href="">Remove</a>
+                                                                                    <a href="javascript:">Remove</a>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -384,7 +382,7 @@
                                                                 <div class="row">
                                                                     <div class="shopping-cart-col-3">
                                                                         <div class="img-style">
-                                                                            <a href="">
+                                                                            <a href="javascript:">
                                                                                 <img sizes="80px"
                                                                                      src="../static/pic/change/product.png"
                                                                                      alt="">
@@ -395,7 +393,7 @@
 
                                                                         <div class="shopping-cart-product-info">
                                                                             <h6>
-                                                                                <a href="">
+                                                                                <a href="javascript:">
                                                                                     <span class="shopping-cart-title">3-layer mask with an elastic band (1 piece)-</span>
                                                                                     <span class="shopping-cart-text">Dark/Large</span>
                                                                                 </a>
@@ -412,7 +410,7 @@
                                                                                         <span class="number-1">1</span>X
                                                                                         <span class="number-2">item</span>
                                                                                     </span>
-                                                                                    <a href="">Remove</a>
+                                                                                    <a href="javascript:">Remove</a>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -433,7 +431,7 @@
                                                                     <span>$107.10</span>
                                                                 </p>
 
-                                                                <a href="" class="cart-clear-item">Remove all items</a>
+                                                                <a href="javascript:" class="cart-clear-item">Remove all items</a>
                                                             </div>
                                                             <div class="shopping-cart-footer-text-row">
                                                                 <button class="btn btn-1 btn-cart-footer" type="submit"
@@ -446,13 +444,13 @@
                                                 </form>
                                             </div>
                                         </div>
-                                        <script>
-                                            var cart = document.getElementById('cart');
-                                            var shoppingCart = document.getElementById('shoppingCart');
-                                            cart.onmousedown = function () {
-                                                shoppingCart.style = 'bolck';
-                                            }
-                                        </script>
+<!--                                        <script>-->
+<!--                                            var cart = document.getElementById('cart');-->
+<!--                                            var shoppingCart = document.getElementById('shoppingCart');-->
+<!--                                            cart.onmousedown = function () {-->
+<!--                                                shoppingCart.style = 'bolck';-->
+<!--                                            }-->
+<!--                                        </script>-->
 
 
                                     </div>
@@ -472,7 +470,7 @@
                                     <products-types>
                                         <div class="header-bottom-main-menu">
                                             <div class="header-bottom-main-nav-item" id="headerMenuOpen">
-                                                <a href="">
+                                                <a href="javascript:">
                                             <span class="svg-element">
                                                 <svg width="18" height="16" viewBox="0 0 18 16" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -505,7 +503,7 @@
                                                             <div class="header-menu-open-wrapper-list-row-one">
                                                                 <ul>
                                                                     <li class="header-menu-open-wrapper-list-row-one-link">
-                                                                        <a href="/index/products" th:text="#{co_pages}">Pages</a>
+                                                                        <a href="/" th:text="#{co_pages}">Pages</a>
                                                                         <span class="svg-element-ui">
                                                                         <svg width="4" height="8" viewBox="0 0 4 8"
                                                                              fill="none"
@@ -516,7 +514,7 @@
                                                                     </span>
                                                                     </li>
                                                                     <li class="header-menu-open-wrapper-list-row-one-link" th:each="productType : ${productTypeList}">
-                                                                        <a th:href="@{'/index/productlist?typeCode='+ ${productType.id}}" th:text="${productType.name}">Products</a>
+                                                                        <a th:href="@{'/productlist?typeCode='+ ${productType.id}}" th:text="${productType.name}">Products</a>
                                                                         <span class="svg-element-ui">
                                                                         <svg width="4" height="8" viewBox="0 0 4 8"
                                                                              fill="none"
@@ -529,7 +527,7 @@
 
 
                                                                     <li class="header-menu-open-wrapper-list-row-one-link">
-                                                                        <a href="contact" th:text="#{co_contact}">Contact</a>
+                                                                        <a href="/contact" th:text="#{co_contact}">Contact</a>
                                                                         <span class="svg-element-ui">
                                                                         <svg width="4" height="8" viewBox="0 0 4 8"
                                                                              fill="none"
@@ -547,20 +545,20 @@
                                                             <div class="header-menu-open-mobile-search-box">
                                                                 <div class="header-menu-open-mobile-search-box-r">
                                                                     <form action="">
-                                                                        <input type="text"
-                                                                               th:placeholder="#{co_search}"
-                                                                               autocomplete="off">
-                                                                        <button type="submit" class="btn btn-search">
-                                                                        <span class="svg-element-open">
-                                                                            <svg t="1628228695470" class="icon"
-                                                                                 viewBox="0 0 1024 1024" version="1.1"
-                                                                                 xmlns="http://www.w3.org/2000/svg"
-                                                                                 p-id="3627" width="32" height="32"><path
-                                                                                    d="M981.504 910.848l-147.456-147.456a450.304 450.304 0 0 0 100.864-284.16C934.912 229.376 731.648 25.6 481.28 25.6S27.648 228.864 27.648 479.232s203.264 453.632 453.632 453.632c105.472 0 202.752-36.352 280.064-97.28l147.968 147.968c10.24 10.24 23.04 14.848 36.352 14.848s26.112-5.12 36.352-14.848c19.456-19.968 19.456-52.736-0.512-72.704zM130.048 479.232c0-193.536 157.696-351.232 351.232-351.232s351.232 157.696 351.232 351.232-157.696 351.232-351.232 351.232-351.232-157.696-351.232-351.232z"
-                                                                                    fill="#103178"
-                                                                                    p-id="3628"></path></svg>
-                                                                        </span>
-                                                                        </button>
+<!--                                                                        <input type="text"-->
+<!--                                                                               th:placeholder="#{co_search}"-->
+<!--                                                                               autocomplete="off">-->
+<!--                                                                        <button type="submit" class="btn btn-search">-->
+<!--                                                                        <span class="svg-element-open">-->
+<!--                                                                            <svg t="1628228695470" class="icon"-->
+<!--                                                                                 viewBox="0 0 1024 1024" version="1.1"-->
+<!--                                                                                 xmlns="http://www.w3.org/2000/svg"-->
+<!--                                                                                 p-id="3627" width="32" height="32"><path-->
+<!--                                                                                    d="M981.504 910.848l-147.456-147.456a450.304 450.304 0 0 0 100.864-284.16C934.912 229.376 731.648 25.6 481.28 25.6S27.648 228.864 27.648 479.232s203.264 453.632 453.632 453.632c105.472 0 202.752-36.352 280.064-97.28l147.968 147.968c10.24 10.24 23.04 14.848 36.352 14.848s26.112-5.12 36.352-14.848c19.456-19.968 19.456-52.736-0.512-72.704zM130.048 479.232c0-193.536 157.696-351.232 351.232-351.232s351.232 157.696 351.232 351.232-157.696 351.232-351.232 351.232-351.232-157.696-351.232-351.232z"-->
+<!--                                                                                    fill="#103178"-->
+<!--                                                                                    p-id="3628"></path></svg>-->
+<!--                                                                        </span>-->
+<!--                                                                        </button>-->
                                                                     </form>
                                                                 </div>
                                                             </div>
@@ -569,7 +567,7 @@
                                                         <div class="header-menu-open-wrapper-list-row-3">
                                                             <div class="header-menu-open-wrapper-list-language">
                                                                 <div class="header-menu-open-wrapper-list-language-EN">
-                                                                    <a href="">
+                                                                    <a href="javascript:">
                                                                         <span th:text="#{co_lang}">English</span>
 
                                                                         <span class="svg-element-ui">
@@ -582,20 +580,20 @@
                                                                 </span>
                                                                     </a>
                                                                 </div>
-                                                                <div class="header-menu-open-wrapper-list-language-USD">
-                                                                    <a href="">
-                                                                        <span th:text="#{co_currency}">USD</span>
+<!--                                                                <div class="header-menu-open-wrapper-list-language-USD">-->
+<!--                                                                    <a href="javascript:">-->
+<!--                                                                        <span th:text="#{co_currency}">USD</span>-->
 
-                                                                        <span class="svg-element-ui">
-                                                                    <svg width="9" height="6" viewBox="0 0 9 6"
-                                                                         fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                                                          d="M4.01529 2.98179L1.35057 0.317078L0 1.66765L4.01529 5.68294L8.03057 1.66765L6.68 0.317078L4.01529 2.98179Z"
-                                                                          fill="#5B6C8F"></path>
-                                                                    </svg>
-                                                                </span>
-                                                                    </a>
-                                                                </div>
+<!--                                                                        <span class="svg-element-ui">-->
+<!--                                                                    <svg width="9" height="6" viewBox="0 0 9 6"-->
+<!--                                                                         fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                                                                    <path fill-rule="evenodd" clip-rule="evenodd"-->
+<!--                                                                          d="M4.01529 2.98179L1.35057 0.317078L0 1.66765L4.01529 5.68294L8.03057 1.66765L6.68 0.317078L4.01529 2.98179Z"-->
+<!--                                                                          fill="#5B6C8F"></path>-->
+<!--                                                                    </svg>-->
+<!--                                                                </span>-->
+<!--                                                                    </a>-->
+<!--                                                                </div>-->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -612,13 +610,13 @@
 
 
                                             <div class="header-bottom-main-nav-item">
-                                                <a href="/index/products">
+                                                <a href="/">
                                                     <span th:text="#{co_pages}">Pages</span>
                                                 </a>
                                             </div>
 
                                             <div th:each="productType : ${productTypeList}" class="has_sub_menu">
-                                                <a class="publichead_nav_li_a" th:href="@{'/index/productlist?typeCode='+ ${productType.id}}">
+                                                <a class="publichead_nav_li_a" th:href="@{'/productlist?typeCode='+ ${productType.id}}">
                                                     <span th:text="${productType.name}">Products</span>
                                                     <!--                                            <span class="triangle"></span>-->
                                                 </a>
@@ -627,7 +625,7 @@
                                                 <div class="sub_menu">
                                                     <div>
                                                         <th:block th:each="productChildType : ${productType.children}">
-                                                            <a th:href="@{'/index/productlist?typeCode='+ ${productChildType.id}}"
+                                                            <a th:href="@{'/productlist?typeCode='+ ${productChildType.id}}"
                                                                th:text="${productChildType.name}">
                                                                 module</a>
                                                         </th:block>
@@ -637,19 +635,19 @@
 
 
                                             <!--                                            <div class="header-bottom-main-nav-item">-->
-                                            <!--                                                <a href="">-->
+                                            <!--                                                <a href="javascript:">-->
                                             <!--                                                    <span>Transformer</span>-->
                                             <!--                                                </a>-->
                                             <!--                                            </div>-->
 
                                             <!--                                            <div class="header-bottom-main-nav-item">-->
-                                            <!--                                                <a href="">-->
+                                            <!--                                                <a href="javascript:">-->
                                             <!--                                                    <span>Energy storage</span>-->
                                             <!--                                                </a>-->
                                             <!--                                            </div>-->
 
                                             <!--                                    <div class="header-bottom-main-nav-item">-->
-                                            <!--                                        <a href="">-->
+                                            <!--                                        <a href="javascript:">-->
                                             <!--                                            <span>Collections</span>-->
                                             <!--                                        </a>-->
                                             <!--                                    </div>-->
@@ -676,14 +674,14 @@
                             <div class="row">
                                 <div class="header-mobile-col-1 col-6">
                                     <div class="header-mobile-logo-wrapper">
-                                        <a href=""> <img width="140" height="50" src="../static/pic/logo-1.png" alt=""></a>
+                                        <a href="javascript:"> <img height="50" src="../static/pic/logo-1.png" alt=""></a>
                                     </div>
                                 </div>
                                 <div class="header-mobile-col-2 col-6">
                                     <div class="header-mobile-col-2-right">
                                         <div class="header-mobile-ui">
                                             <div class="header-mobile-ui-language-Eng">
-                                                <a href="">
+                                                <a href="javascript:">
                                                     <span th:text="#{co_lang}">English</span>
                                                     <span class="svg-element-ui">
                                                 <svg width="9" height="6" viewBox="0 0 9 6" fill="none"
@@ -696,7 +694,7 @@
                                                 </a>
                                             </div>
                                             <div class="header-mobile-ui-language-Usd">
-                                                <a href="">
+                                                <a href="javascript:">
                                                     <span th:text="#{co_currency}">USD</span>
                                                     <span class="svg-element-ui">
                                                     <svg width="9" height="6" viewBox="0 0 9 6" fill="none"
