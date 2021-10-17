@@ -131,31 +131,31 @@ function showMessage(messageInfo) {
     let span = '';
     if (messageInfo.type) {
         span = `<div class="chat_message_box chat_left_box" >
-                            <div class="chat_box_head">
-                                <span>
-                                    ${messageInfo.replyUserName}
-                                </span>
-                                <span>
-                                ${simpleTime(messageInfo.sendTime)}
-                                </span>
-                            </div>
-                            <div class="chat_message" >
-                                ${messageInfo.message}
-                            </div>
-                        </div>`;
+                    <div class="chat_box_head">
+                        <span>
+                            ${messageInfo.replyUserName}
+                        </span>
+                        <span>
+                        ${simpleTime(messageInfo.sendTime)}
+                        </span>
+                    </div>
+                    <div class="chat_message" >
+                        ${messageInfo.message}
+                    </div>
+                </div>`;
     } else {
         span = `<div class="chat_message_box chat_right_box">
-                            <div class="chat_box_head">
-                                <span>
-                                </span>
-                                <span>
-                                   ${simpleTime(messageInfo.sendTime)}
-                                </span>
-                            </div>
-                            <div class="chat_message">
-                                ${messageInfo.message}
-                            </div>
-                        </div>`;
+                    <div class="chat_box_head">
+                        <span>
+                        </span>
+                        <span>
+                           ${simpleTime(messageInfo.sendTime)}
+                        </span>
+                    </div>
+                    <div class="chat_message">
+                        ${messageInfo.message}
+                    </div>
+                </div>`;
     }
     $("#show_content_admin").append(span);
 

@@ -213,12 +213,28 @@
                                                                             <div class="option-cart-data-wrapper">
                                                                                 <label for="quantity" th:text="#{co_quantity}">Quantity</label>
                                                                                 <div class="option-cart-data-select">
-                                                                                    <a href="javascript:void(0);" class="qty-minus">-</a>
+                                                                                    <a href="javascript:void(0);" onclick="changeQuantity(this,'sub')"  class="qty-minus">-</a>
                                                                                     <input type="number" name="quantity" id="quantity" value="1" min="1">
-                                                                                    <a href="javascript:void(0);" class="qty-plus">+</a>
+                                                                                    <a href="javascript:void(0);" onclick="changeQuantity(this,'add')" class="qty-plus">+</a>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+                                                                        <script>
+                                                                            function changeQuantity(that,type){
+                                                                                let a = $(that).parent("div").find("[name='quantity']").val()
+                                                                                if(a === "" || a == null){
+                                                                                    a = 0
+                                                                                }
+                                                                                if("add" === type){
+                                                                                    $(that).parent("div").find("[name='quantity']").val(++a)
+                                                                                }else {
+                                                                                    if (a == 0){
+                                                                                        return
+                                                                                    }
+                                                                                    $(that).parent("div").find("[name='quantity']").val(--a)
+                                                                                }
+                                                                            }
+                                                                        </script>
                                                                         <div class="option-cart-button">
                                                                             <button type="submit" name="add"
                                                                                     class="btn">

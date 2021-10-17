@@ -74,7 +74,7 @@ $(function () {
                 // var user = data.body;
                 // console.log(user);
                 toastr.success("登录成功！")
-                window.location.href="/index/products";
+                window.location.href="/";
 
             }
             else {

@@ -8,6 +8,7 @@
 
         <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
         <title>CSUN Mall</title>
+        <link href="/static/pic/favicon.ico" rel="shortcut icon"/>
 
         <link rel="stylesheet" th:href="@{/static/fontawesome/css/all.css}">
         <link rel="stylesheet" th:href="@{/static/owlcarousel/assets/owl.carousel.css}">
@@ -20,11 +21,11 @@
         <script th:src="@{/static/js/additional-methods.min.js}"></script>
         <script src="/static/js/websocket/sockjs.min.js"></script>
         <script src="/static/js/websocket/stomp.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="/static/css/chat.css"/>
-        <link rel="stylesheet" href="/static/css/app.css"/>
         <script th:src="@{/static/js/app.js}"></script>
         <script src="/static/js/chat.js"></script>
 
+        <link rel="stylesheet" type="text/css" href="/static/css/chat.css"/>
+        <link rel="stylesheet" href="/static/css/app.css"/>
         <link th:href="@{/static/css/app.css}" rel="stylesheet" type="text/css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="viewport"
@@ -147,7 +148,7 @@
 <!--                                    </div>-->
 
                                     <div class="header-nav-right-icons">
-                                        <a href="/index/login" id="my" class="header-nav-right-icons-p"><img width="24" height="24"
+                                        <a href="javascript:" id="my" class="header-nav-right-icons-p"><img width="24" height="24"
                                                                                          src="../static/pic/my.png"
                                                                                          alt=""></a>
                                         <a href="javascript:" class="header-nav-right-icons-p">
@@ -737,13 +738,13 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
-            var user_token = $.cookie('user_token');
-            console.log(user_token)
-            if(user_token== null || user_token == undefined || user_token == '')
-                return;
-            var res = user_token.split('_');
-            $("#my").html(res[1]).attr("href","#");});
-
+            // var user_token = $.cookie('user_token');
+            // console.log(user_token)
+            // if(user_token== null || user_token == undefined || user_token == '')
+            //     return;
+            // var res = user_token.split('_');
+            // $("#my").html(res[1]).attr("href","#");});
+        })
     </script>
 </th:block>
 
