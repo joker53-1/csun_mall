@@ -30,7 +30,7 @@ public class MailService {
             helper = new MimeMessageHelper(message, true);
             helper.setFrom(from);
             helper.setTo(to);
-            helper.setSubject("你的男神给你发送了一封账号激活邮件");
+            helper.setSubject("CSUN Activation Email");
             helper.setText("<tbody>\n" +
                     "  <tr>\n" +
                     "    <td>\n" +
