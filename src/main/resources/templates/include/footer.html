@@ -47,11 +47,13 @@
                                 <div class="footer-container-right-columns-left">
                                     <div class="columns-left-body">
                                         <h4 th:text="#{co_find_in_fast}">Find It Fast</h4>
+                                        <products-types>
                                         <div class="columns-left-container">
                                             <ul class="menu" th:each="productType : ${productTypeList}">
                                                 <li><a th:href="@{'/productlist?typeCode='+ ${productType.id}}" th:text="${productType.name}">About</a></li>
                                             </ul>
                                         </div>
+                                        </products-types>
                                     </div>
                                 </div>
                             </div>

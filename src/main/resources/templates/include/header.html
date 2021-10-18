@@ -148,7 +148,7 @@
 <!--                                    </div>-->
 
                                     <div class="header-nav-right-icons">
-                                        <a href="javascript:" id="my" class="header-nav-right-icons-p"><img width="24" height="24"
+                                        <a href="/index/login" id="my" class="header-nav-right-icons-p"><img width="24" height="24"
                                                                                          src="../static/pic/my.png"
                                                                                          alt=""></a>
                                         <a href="javascript:" class="header-nav-right-icons-p">
@@ -738,13 +738,12 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
-            // var user_token = $.cookie('user_token');
+            var user_token = $.cookie('user_token');
             // console.log(user_token)
-            // if(user_token== null || user_token == undefined || user_token == '')
-            //     return;
-            // var res = user_token.split('_');
-            // $("#my").html(res[1]).attr("href","#");});
-        })
+            if(user_token== null || user_token == undefined || user_token == '')
+                return;
+            var res = user_token.split('_');
+            $("#my").html(res[1]).attr("href","#");});
     </script>
 </th:block>
 
