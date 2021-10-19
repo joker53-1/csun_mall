@@ -31,6 +31,8 @@
         <meta name="viewport"
               content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <link rel="stylesheet" th:href="@{/static/bootstrap/css/bootstrap.min.css}">
+        <link href="../static/css/toastr.min.css" rel="stylesheet"/>
+        <script th:src="@{/static/js/toastr.min.js}"></script>
         <!-- <script src="js/axios.min.js"></script> -->
     </head>
 </th:block>
@@ -45,8 +47,8 @@
                     <div class="header-section-announcement-wrapper ">
                         <div class="header-section-announcement-wrapper-left ">
                             <div class="header-announcement-column-text">
-<!--                                <p ><strong th:text="#{co_secure_delivery}">100% Secure delivery</strong>-->
-<!--                                    <span th:text="#{co_withoutContact}">without contacting the courier</span></p>-->
+                                <!--                                <p ><strong th:text="#{co_secure_delivery}">100% Secure delivery</strong>-->
+                                <!--                                    <span th:text="#{co_withoutContact}">without contacting the courier</span></p>-->
                             </div>
                         </div>
 
@@ -54,17 +56,20 @@
 
                             <div class="header-wrapper-right-menu">
                                 <ul class="header-wrapper-menu-list">
-<!--                                    <li><a href="javascript:" th:text="#{co_order_tracking}">Order tracking</a></li>-->
-<!--                                    <li><a href="javascript:" th:text="#{co_blog}">blog</a></li>-->
+                                    <!--                                    <li><a href="javascript:" th:text="#{co_order_tracking}">Order tracking</a></li>-->
+                                    <!--                                    <li><a href="javascript:" th:text="#{co_blog}">blog</a></li>-->
                                 </ul>
                             </div>
 
                             <div class="header-wrapper-right-social">
                                 <ul class="header-social-icon">
-                                    <li><a th:href="#{co_facebook_link}"><img src="../static/pic/facebook%20(2).png" alt=""></a></li>
+                                    <li><a th:href="#{co_facebook_link}"><img src="../static/pic/facebook%20(2).png"
+                                                                              alt=""></a></li>
 
-                                    <li><a th:href="#{co_twitter_link}"><img src="../static/pic/twitter.png" alt=""></a></li>
-                                    <li><a th:href="#{co_linkedin_link}"><img src="../static/pic/linkedin-in.png" alt=""></a></li>
+                                    <li><a th:href="#{co_twitter_link}"><img src="../static/pic/twitter.png" alt=""></a>
+                                    </li>
+                                    <li><a th:href="#{co_linkedin_link}"><img src="../static/pic/linkedin-in.png"
+                                                                              alt=""></a></li>
                                 </ul>
                             </div>
 
@@ -85,15 +90,15 @@
                                     </div>
                                     <div class="header-selectGroup-ui-language-Usd">
                                         <a href="javascript:">
-<!--                                            <span th:text="#{co_currency}">USD</span>-->
-<!--                                            <span class="svg-element-ui">-->
-<!--                                                <svg width="9" height="6" viewBox="0 0 9 6" fill="none"-->
-<!--                                                     xmlns="http://www.w3.org/2000/svg">-->
-<!--                                                    <path fill-rule="evenodd" clip-rule="evenodd"-->
-<!--                                                          d="M4.01529 2.98179L1.35057 0.317078L0 1.66765L4.01529 5.68294L8.03057 1.66765L6.68 0.317078L4.01529 2.98179Z"-->
-<!--                                                          fill="#5B6C8F"></path>-->
-<!--                                                </svg>-->
-<!--                                            </span>-->
+                                            <!--                                            <span th:text="#{co_currency}">USD</span>-->
+                                            <!--                                            <span class="svg-element-ui">-->
+                                            <!--                                                <svg width="9" height="6" viewBox="0 0 9 6" fill="none"-->
+                                            <!--                                                     xmlns="http://www.w3.org/2000/svg">-->
+                                            <!--                                                    <path fill-rule="evenodd" clip-rule="evenodd"-->
+                                            <!--                                                          d="M4.01529 2.98179L1.35057 0.317078L0 1.66765L4.01529 5.68294L8.03057 1.66765L6.68 0.317078L4.01529 2.98179Z"-->
+                                            <!--                                                          fill="#5B6C8F"></path>-->
+                                            <!--                                                </svg>-->
+                                            <!--                                            </span>-->
                                         </a>
                                     </div>
                                 </div>
@@ -135,22 +140,23 @@
                                         </p>
                                     </div>
 
-<!--                                    <div class="header-nav-right-form-search col-10">-->
-<!--                                        <form action="/search">-->
-<!--                                            <input name="q" type="text" th:placeholder="#{co_search}"-->
-<!--                                                   autocomplete="off">-->
-<!--                                            <button type="submit" class="btn-search">-->
-<!--                                                <span class="svg-element-ui">-->
-<!--                                                   <img src="../static/pic/seach.png" alt="">-->
-<!--                                                </span>-->
-<!--                                            </button>-->
-<!--                                        </form>-->
-<!--                                    </div>-->
+                                    <!--                                    <div class="header-nav-right-form-search col-10">-->
+                                    <!--                                        <form action="/search">-->
+                                    <!--                                            <input name="q" type="text" th:placeholder="#{co_search}"-->
+                                    <!--                                                   autocomplete="off">-->
+                                    <!--                                            <button type="submit" class="btn-search">-->
+                                    <!--                                                <span class="svg-element-ui">-->
+                                    <!--                                                   <img src="../static/pic/seach.png" alt="">-->
+                                    <!--                                                </span>-->
+                                    <!--                                            </button>-->
+                                    <!--                                        </form>-->
+                                    <!--                                    </div>-->
 
                                     <div class="header-nav-right-icons">
-                                        <a href="/index/login" id="my" class="header-nav-right-icons-p"><img width="24" height="24"
-                                                                                         src="../static/pic/my.png"
-                                                                                         alt=""></a>
+                                        <a href="/index/login" id="my" class="header-nav-right-icons-p"><img width="24"
+                                                                                                             height="24"
+                                                                                                             src="../static/pic/my.png"
+                                                                                                             alt=""></a>
                                         <a href="javascript:" class="header-nav-right-icons-p">
                                             <span>
                                             <img width="24" height="24" src="../static/pic/fav.png" alt="">
@@ -169,7 +175,7 @@
                                             </span>
                                         </a>
 
-                                        <a href="javascript:" class="header-nav-right-icons-p" id="cart">
+                                        <a href="" class="header-nav-right-icons-p" id="cart">
                                              <span>
                                             <img width="24" height="24" src="../static/pic/cart.png" alt="">
                                             </span>
@@ -182,7 +188,8 @@
                                             <div class="dialog"></div>
 
                                             <div class="shopping-cart-wrapper">
-                                                <a href="javascript:" class="shopping-cart-close">
+                                                <a href="javascript:" onclick="cartMenuClose()"
+                                                   class="shopping-cart-close">
                                                     <svg width="22" height="19" viewBox="0 0 22 19" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M17.3805 16.895L2.9182 2.43267C2.6584 2.17286 2.55963 1.92523 2.67128 1.81358L3.71333 0.77153C3.82498 0.659881 4.07262 0.758651 4.33242 1.01845L18.8813 15.5674C19.1411 15.8272 19.2399 16.0748 19.1283 16.1865L18.0862 17.2285C17.9252 17.2163 17.6403 17.1548 17.3805 16.895Z"
@@ -201,184 +208,7 @@
                                                             </a>
                                                         </h3>
                                                     </div>
-                                                    <div class="shopping-cart-body">
-
-                                                        <div class="shopping-cart-body-inner">
-                                                            <div class="shopping-cart-body-inner-item">
-                                                                <div class="row">
-                                                                    <div class="shopping-cart-col-3">
-                                                                        <div class="img-style">
-                                                                            <a href="javascript:">
-                                                                                <img sizes="80px"
-                                                                                     src="../static/pic/change/product.png"
-                                                                                     alt="">
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="shopping-cart-col-9">
-
-                                                                        <div class="shopping-cart-product-info">
-                                                                            <h6>
-                                                                                <a href="javascript:">
-                                                                                    <span class="shopping-cart-title">3-layer mask with an elastic band (1 piece)-</span>
-                                                                                    <span class="shopping-cart-text">Dark/Large</span>
-                                                                                </a>
-                                                                            </h6>
-
-                                                                            <div class="shopping-cart-price-info">
-                                                                                <div class="shopping-cart-price">
-                                                                                    <span class="price">$119.00</span>
-                                                                                    <del class="money">$129.00</del>
-                                                                                </div>
-
-                                                                                <div class="shopping-cart-qty">
-                                                                                    <span>
-                                                                                        <span class="number-1">1</span>X
-                                                                                        <span class="number-2">item</span>
-                                                                                    </span>
-                                                                                    <a href="javascript:">Remove</a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-
-
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="shopping-cart-body-inner">
-                                                            <div class="shopping-cart-body-inner-item">
-                                                                <div class="row">
-                                                                    <div class="shopping-cart-col-3">
-                                                                        <div class="img-style">
-                                                                            <a href="javascript:">
-                                                                                <img sizes="80px"
-                                                                                     src="../static/pic/change/product.png"
-                                                                                     alt="">
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="shopping-cart-col-9">
-
-                                                                        <div class="shopping-cart-product-info">
-                                                                            <h6>
-                                                                                <a href="javascript:">
-                                                                                    <span class="shopping-cart-title">3-layer mask with an elastic band (1 piece)-</span>
-                                                                                    <span class="shopping-cart-text">Dark/Large</span>
-                                                                                </a>
-                                                                            </h6>
-
-                                                                            <div class="shopping-cart-price-info">
-                                                                                <div class="shopping-cart-price">
-                                                                                    <span class="price">$119.00</span>
-                                                                                    <del class="money">$129.00</del>
-                                                                                </div>
-
-                                                                                <div class="shopping-cart-qty">
-                                                                                    <span>
-                                                                                        <span class="number-1">1</span>X
-                                                                                        <span class="number-2">item</span>
-                                                                                    </span>
-                                                                                    <a href="javascript:">Remove</a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-
-
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="shopping-cart-body-inner">
-                                                            <div class="shopping-cart-body-inner-item">
-                                                                <div class="row">
-                                                                    <div class="shopping-cart-col-3">
-                                                                        <div class="img-style">
-                                                                            <a href="javascript:">
-                                                                                <img sizes="80px"
-                                                                                     src="../static/pic/change/product.png"
-                                                                                     alt="">
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="shopping-cart-col-9">
-
-                                                                        <div class="shopping-cart-product-info">
-                                                                            <h6>
-                                                                                <a href="javascript:">
-                                                                                    <span class="shopping-cart-title">3-layer mask with an elastic band (1 piece)-</span>
-                                                                                    <span class="shopping-cart-text">Dark/Large</span>
-                                                                                </a>
-                                                                            </h6>
-
-                                                                            <div class="shopping-cart-price-info">
-                                                                                <div class="shopping-cart-price">
-                                                                                    <span class="price">$119.00</span>
-                                                                                    <del class="money">$129.00</del>
-                                                                                </div>
-
-                                                                                <div class="shopping-cart-qty">
-                                                                                    <span>
-                                                                                        <span class="number-1">1</span>X
-                                                                                        <span class="number-2">item</span>
-                                                                                    </span>
-                                                                                    <a href="javascript:">Remove</a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-
-
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="shopping-cart-body-inner">
-                                                            <div class="shopping-cart-body-inner-item">
-                                                                <div class="row">
-                                                                    <div class="shopping-cart-col-3">
-                                                                        <div class="img-style">
-                                                                            <a href="javascript:">
-                                                                                <img sizes="80px"
-                                                                                     src="../static/pic/change/product.png"
-                                                                                     alt="">
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="shopping-cart-col-9">
-
-                                                                        <div class="shopping-cart-product-info">
-                                                                            <h6>
-                                                                                <a href="javascript:">
-                                                                                    <span class="shopping-cart-title">3-layer mask with an elastic band (1 piece)-</span>
-                                                                                    <span class="shopping-cart-text">Dark/Large</span>
-                                                                                </a>
-                                                                            </h6>
-
-                                                                            <div class="shopping-cart-price-info">
-                                                                                <div class="shopping-cart-price">
-                                                                                    <span class="price">$119.00</span>
-                                                                                    <del class="money">$129.00</del>
-                                                                                </div>
-
-                                                                                <div class="shopping-cart-qty">
-                                                                                    <span>
-                                                                                        <span class="number-1">1</span>X
-                                                                                        <span class="number-2">item</span>
-                                                                                    </span>
-                                                                                    <a href="javascript:">Remove</a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-
-
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
+                                                    <div class="shopping-cart-body" id="shopping_cart_body">
 
                                                         <div class="shopping-cart-body-inner">
                                                             <div class="shopping-cart-body-inner-item">
@@ -434,7 +264,8 @@
                                                                     <span>$107.10</span>
                                                                 </p>
 
-                                                                <a href="javascript:" class="cart-clear-item">Remove all items</a>
+                                                                <a href="javascript:" class="cart-clear-item">Remove all
+                                                                    items</a>
                                                             </div>
                                                             <div class="shopping-cart-footer-text-row">
                                                                 <button class="btn btn-1 btn-cart-footer" type="submit"
@@ -447,13 +278,81 @@
                                                 </form>
                                             </div>
                                         </div>
-<!--                                        <script>-->
-<!--                                            var cart = document.getElementById('cart');-->
-<!--                                            var shoppingCart = document.getElementById('shoppingCart');-->
-<!--                                            cart.onmousedown = function () {-->
-<!--                                                shoppingCart.style = 'bolck';-->
-<!--                                            }-->
-<!--                                        </script>-->
+                                        <script>
+                                            var cart = document.getElementById('cart');
+                                            var shoppingCart = document.getElementById('shoppingCart');
+
+                                            cart.onmousedown = function () {
+                                                let user = localStorage.getItem("user");
+                                                // console.log(user_token)
+                                                if (user == null || user == undefined || user == '')
+                                                    window.location.href = "/index/login";
+                                                else {
+                                                    var memberId = {
+                                                        "memberId": JSON.parse(user).id
+                                                    }
+                                                    $.get("/customer/shopcart/list", memberId, function (data) {
+                                                        if (data.status === "SUCCESS") {
+                                                            var cart = data.body;
+                                                            console.log(cart[0].productName)
+                                                            $('#shopping_cart_body').html('');
+                                                            for (i = 0; i < cart.length; i++) {
+                                                                console.log(cart[i].productName)
+                                                                var div_body = `<div class="shopping-cart-body-inner">
+                                                            <div class="shopping-cart-body-inner-item">
+                                                                <div class="row">
+                                                                    <div class="shopping-cart-col-3">
+                                                                        <div class="img-style">
+                                                                            <a href="javascript:">
+                                                                                <img sizes="80px"
+                                                                                     src="${cart[i].pic}"
+                                                                                     alt="">
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="shopping-cart-col-9">
+
+                                                                        <div class="shopping-cart-product-info">
+                                                                            <h6>
+                                                                                <a href="javascript:">
+                                                                                    <span class="shopping-cart-title">${cart[i].productName}</span>
+<!--                                                                                    <span class="shopping-cart-text">Dark/Large</span>-->
+                                                                                </a>
+                                                                            </h6>
+
+                                                                            <div class="shopping-cart-price-info">
+                                                                                <div class="shopping-cart-price">
+                                                                                    <span class="price">$${cart[i].curPrice}</span>
+<!--                                                                                    <del class="money">$129.00</del>-->
+                                                                                </div>
+
+                                                                                <div class="shopping-cart-qty">
+                                                                                    <span>
+                                                                                        <span class="number-1">${cart[i].quantity}</span>X
+                                                                                        <span class="number-2">item</span>
+                                                                                    </span>
+                                                                                    <a href="javascript:">Remove</a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>`
+                                                                $("#shopping_cart_body").append(div_body);
+                                                            }
+                                                        } else {
+                                                            console.log(data.body)
+                                                        }
+
+                                                    })
+                                                    shoppingCart.style = 'bolck';
+                                                }
+
+                                            }
+                                        </script>
 
 
                                     </div>
@@ -491,7 +390,8 @@
                                             <div class="header-menu-open" id="Open" style="display:none;">
                                                 <div class="dialog"></div>
                                                 <div class="header-menu-open-wrapper">
-                                                    <a href="#" onclick="headerMenuClose()" class="header-menu-close-button">
+                                                    <a href="#" onclick="headerMenuClose()"
+                                                       class="header-menu-close-button">
                                                         <svg width="22" height="19" viewBox="0 0 22 19" fill="none"
                                                              xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M17.3805 16.895L2.9182 2.43267C2.6584 2.17286 2.55963 1.92523 2.67128 1.81358L3.71333 0.77153C3.82498 0.659881 4.07262 0.758651 4.33242 1.01845L18.8813 15.5674C19.1411 15.8272 19.2399 16.0748 19.1283 16.1865L18.0862 17.2285C17.9252 17.2163 17.6403 17.1548 17.3805 16.895Z"
@@ -516,8 +416,10 @@
                                                                         </svg>
                                                                     </span>
                                                                     </li>
-                                                                    <li class="header-menu-open-wrapper-list-row-one-link" th:each="productType : ${productTypeList}">
-                                                                        <a th:href="@{'/productlist?typeCode='+ ${productType.id}}" th:text="${productType.name}">Products</a>
+                                                                    <li class="header-menu-open-wrapper-list-row-one-link"
+                                                                        th:each="productType : ${productTypeList}">
+                                                                        <a th:href="@{'/productlist?typeCode='+ ${productType.id}}"
+                                                                           th:text="${productType.name}">Products</a>
                                                                         <span class="svg-element-ui">
                                                                         <svg width="4" height="8" viewBox="0 0 4 8"
                                                                              fill="none"
@@ -548,20 +450,20 @@
                                                             <div class="header-menu-open-mobile-search-box">
                                                                 <div class="header-menu-open-mobile-search-box-r">
                                                                     <form action="">
-<!--                                                                        <input type="text"-->
-<!--                                                                               th:placeholder="#{co_search}"-->
-<!--                                                                               autocomplete="off">-->
-<!--                                                                        <button type="submit" class="btn btn-search">-->
-<!--                                                                        <span class="svg-element-open">-->
-<!--                                                                            <svg t="1628228695470" class="icon"-->
-<!--                                                                                 viewBox="0 0 1024 1024" version="1.1"-->
-<!--                                                                                 xmlns="http://www.w3.org/2000/svg"-->
-<!--                                                                                 p-id="3627" width="32" height="32"><path-->
-<!--                                                                                    d="M981.504 910.848l-147.456-147.456a450.304 450.304 0 0 0 100.864-284.16C934.912 229.376 731.648 25.6 481.28 25.6S27.648 228.864 27.648 479.232s203.264 453.632 453.632 453.632c105.472 0 202.752-36.352 280.064-97.28l147.968 147.968c10.24 10.24 23.04 14.848 36.352 14.848s26.112-5.12 36.352-14.848c19.456-19.968 19.456-52.736-0.512-72.704zM130.048 479.232c0-193.536 157.696-351.232 351.232-351.232s351.232 157.696 351.232 351.232-157.696 351.232-351.232 351.232-351.232-157.696-351.232-351.232z"-->
-<!--                                                                                    fill="#103178"-->
-<!--                                                                                    p-id="3628"></path></svg>-->
-<!--                                                                        </span>-->
-<!--                                                                        </button>-->
+                                                                        <!--                                                                        <input type="text"-->
+                                                                        <!--                                                                               th:placeholder="#{co_search}"-->
+                                                                        <!--                                                                               autocomplete="off">-->
+                                                                        <!--                                                                        <button type="submit" class="btn btn-search">-->
+                                                                        <!--                                                                        <span class="svg-element-open">-->
+                                                                        <!--                                                                            <svg t="1628228695470" class="icon"-->
+                                                                        <!--                                                                                 viewBox="0 0 1024 1024" version="1.1"-->
+                                                                        <!--                                                                                 xmlns="http://www.w3.org/2000/svg"-->
+                                                                        <!--                                                                                 p-id="3627" width="32" height="32"><path-->
+                                                                        <!--                                                                                    d="M981.504 910.848l-147.456-147.456a450.304 450.304 0 0 0 100.864-284.16C934.912 229.376 731.648 25.6 481.28 25.6S27.648 228.864 27.648 479.232s203.264 453.632 453.632 453.632c105.472 0 202.752-36.352 280.064-97.28l147.968 147.968c10.24 10.24 23.04 14.848 36.352 14.848s26.112-5.12 36.352-14.848c19.456-19.968 19.456-52.736-0.512-72.704zM130.048 479.232c0-193.536 157.696-351.232 351.232-351.232s351.232 157.696 351.232 351.232-157.696 351.232-351.232 351.232-351.232-157.696-351.232-351.232z"-->
+                                                                        <!--                                                                                    fill="#103178"-->
+                                                                        <!--                                                                                    p-id="3628"></path></svg>-->
+                                                                        <!--                                                                        </span>-->
+                                                                        <!--                                                                        </button>-->
                                                                     </form>
                                                                 </div>
                                                             </div>
@@ -583,33 +485,33 @@
                                                                 </span>
                                                                     </a>
                                                                 </div>
-<!--                                                                <div class="header-menu-open-wrapper-list-language-USD">-->
-<!--                                                                    <a href="javascript:">-->
-<!--                                                                        <span th:text="#{co_currency}">USD</span>-->
+                                                                <!--                                                                <div class="header-menu-open-wrapper-list-language-USD">-->
+                                                                <!--                                                                    <a href="javascript:">-->
+                                                                <!--                                                                        <span th:text="#{co_currency}">USD</span>-->
 
-<!--                                                                        <span class="svg-element-ui">-->
-<!--                                                                    <svg width="9" height="6" viewBox="0 0 9 6"-->
-<!--                                                                         fill="none" xmlns="http://www.w3.org/2000/svg">-->
-<!--                                                                    <path fill-rule="evenodd" clip-rule="evenodd"-->
-<!--                                                                          d="M4.01529 2.98179L1.35057 0.317078L0 1.66765L4.01529 5.68294L8.03057 1.66765L6.68 0.317078L4.01529 2.98179Z"-->
-<!--                                                                          fill="#5B6C8F"></path>-->
-<!--                                                                    </svg>-->
-<!--                                                                </span>-->
-<!--                                                                    </a>-->
-<!--                                                                </div>-->
+                                                                <!--                                                                        <span class="svg-element-ui">-->
+                                                                <!--                                                                    <svg width="9" height="6" viewBox="0 0 9 6"-->
+                                                                <!--                                                                         fill="none" xmlns="http://www.w3.org/2000/svg">-->
+                                                                <!--                                                                    <path fill-rule="evenodd" clip-rule="evenodd"-->
+                                                                <!--                                                                          d="M4.01529 2.98179L1.35057 0.317078L0 1.66765L4.01529 5.68294L8.03057 1.66765L6.68 0.317078L4.01529 2.98179Z"-->
+                                                                <!--                                                                          fill="#5B6C8F"></path>-->
+                                                                <!--                                                                    </svg>-->
+                                                                <!--                                                                </span>-->
+                                                                <!--                                                                    </a>-->
+                                                                <!--                                                                </div>-->
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
 
-                                        </div>
-                                        <script>
-                                            var headerMenuOpen = document.getElementById('headerMenuOpen');
-                                            var Open = document.getElementById('Open');
-                                            headerMenuOpen.onmousedown = function () {
-                                                Open.style = 'bolck';
-                                            }
-                                        </script>
+                                            </div>
+                                            <script>
+                                                var headerMenuOpen = document.getElementById('headerMenuOpen');
+                                                var Open = document.getElementById('Open');
+                                                headerMenuOpen.onmousedown = function () {
+                                                    Open.style = 'bolck';
+                                                }
+                                            </script>
 
 
                                             <div class="header-bottom-main-nav-item">
@@ -619,7 +521,8 @@
                                             </div>
 
                                             <div th:each="productType : ${productTypeList}" class="has_sub_menu">
-                                                <a class="publichead_nav_li_a" th:href="@{'/productlist?typeCode='+ ${productType.id}}">
+                                                <a class="publichead_nav_li_a"
+                                                   th:href="@{'/productlist?typeCode='+ ${productType.id}}">
                                                     <span th:text="${productType.name}">Products</span>
                                                     <!--                                            <span class="triangle"></span>-->
                                                 </a>
@@ -677,7 +580,8 @@
                             <div class="row">
                                 <div class="header-mobile-col-1 col-6">
                                     <div class="header-mobile-logo-wrapper">
-                                        <a href="javascript:"> <img height="50" src="../static/pic/logo-1.png" alt=""></a>
+                                        <a href="javascript:"> <img height="50" src="../static/pic/logo-1.png"
+                                                                    alt=""></a>
                                     </div>
                                 </div>
                                 <div class="header-mobile-col-2 col-6">
@@ -738,12 +642,14 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
-            var user_token = $.cookie('user_token');
+            let user = localStorage.getItem("user");
             // console.log(user_token)
-            if(user_token== null || user_token == undefined || user_token == '')
+            if (user == null || user == undefined || user == '')
                 return;
-            var res = user_token.split('_');
-            $("#my").html(res[1]).attr("href","#");});
+
+            let user_data = JSON.parse(user);
+            $("#my").html(user_data.username).attr("href", "#");
+        });
     </script>
 </th:block>
 

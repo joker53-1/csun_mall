@@ -2,8 +2,10 @@ package com.csun.mall.web;
 
 import com.csun.mall.domain.ProductCategory;
 import com.csun.mall.pojo.dto.ProductCategoryWithChildren;
+import com.csun.mall.pojo.dto.ShopCartDTO;
 import com.csun.mall.service.CategoryService;
 import com.csun.mall.service.ProductService;
+import com.csun.mall.service.ShopCartService;
 import org.springframework.context.ApplicationContext;
 import org.thymeleaf.context.ITemplateContext;
 import org.thymeleaf.model.IProcessableElementTag;

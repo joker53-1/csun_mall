@@ -24,6 +24,7 @@ public class PriceService {
     public List<ProductLadderPrice> getList(Long pid){
         Example example = new Example(ProductLadderPrice.class);
         example.createCriteria().andEqualTo("productId",pid);
+        example.orderBy("count");
         return productLadderPriceMapper.selectByExample(example);
     }
 

@@ -74,6 +74,10 @@ $(function () {
                 // var user = data.body;
                 // console.log(user);
                 toastr.success("登录成功！")
+                console.log(data.body)
+                // console.log(typeof(data.body))
+                var user_data = JSON.stringify(data.body);
+                localStorage.setItem("user", user_data);
                 window.location.href="/";
 
             }
@@ -216,7 +220,25 @@ $(function () {
     })
 
     $("#add_cart").click(function (){
-        alert("功能开发中！")
+        let user = localStorage.getItem("user");
+        if(user== null || user == undefined || user == '')
+            window.location.href="/index/login";
+        var cart = {
+            "memberId":JSON.parse(user).id,
+            "productId":$("#product_id").val(),
+            "count":$("#quantity").val()
+        }
+        console.log(cart.memberId)
+        $.post("/customer/shopcart/add",cart,function (data) {
+            if(data.status === "SUCCESS"){
+                toastr.success("添加成功")
+            }
+            else{
+                alert(data.msg)
+            }
+        })
+        return false
+        // alert("功能开发中！")
     })
 
 });

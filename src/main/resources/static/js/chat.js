@@ -166,6 +166,10 @@ function headerMenuClose() {
     $("#Open").hide()
 }
 
+function cartMenuClose(){
+    $("#shoppingCart").hide()
+}
+
 function getMessageId() {
     let messageId = localStorage.getItem("messageId");
     if (messageId === undefined || messageId === null) {

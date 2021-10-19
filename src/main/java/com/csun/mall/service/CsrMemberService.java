@@ -113,7 +113,7 @@ public class CsrMemberService {
     public CsrMemberToken generalToken(CsrMember csrMember, String deviceId) {
         CsrMemberToken csrMemberToken = new CsrMemberToken();
         csrMemberToken.setEnable(true);
-        csrMemberToken.setToken("member_"+csrMember.getUsername()+"_"+UUID.randomUUID());
+        csrMemberToken.setToken(UUID.randomUUID().toString());
         //TODO
         csrMemberToken.setDeviceId(deviceId);
         csrMemberToken.setCreateTime(new Date());
