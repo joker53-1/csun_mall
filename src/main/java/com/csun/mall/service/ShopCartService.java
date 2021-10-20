@@ -66,24 +66,27 @@ public class ShopCartService {
 
 
 
-    public int update(Long memberId, Long productId, Integer count){
-        Example example = new Example(CsrMemberCart.class);
-        example.createCriteria().andEqualTo("memberId",memberId).andEqualTo("productId",productId);
-        CsrMemberCart cart = cartMapper.selectOneByExample(example);
+    public int update(Long id, Integer count){
+        CsrMemberCart cart = cartMapper.selectByPrimaryKey(id);
         if (cart != null) {
             CsrMemberCart newCart = new CsrMemberCart();
-            newCart.setId(cart.getId());
+            newCart.setId(id);
             newCart.setQuantity(count);
-            newCart.setCurPrice(calculatePrice(productId,count));
+            newCart.setCurPrice(calculatePrice(cart.getProductId(),count));
             newCart.setUpdateTime(new Date());
             return cartMapper.updateByPrimaryKeySelective(newCart);
         }
         return -1;
     }
 
-    public int deleteProduct(Long memberId, List<Long> productIds){
+    public int deleteProduct(List<Long> ids){
         Example example = new Example(CsrMemberCart.class);
-        example.createCriteria().andEqualTo("memberId",memberId).andIn("productId",productIds);
+        example.createCriteria().andIn("id",ids);
+        return cartMapper.deleteByExample(example);
+    }
+    public int deleteProduct(Long memberId){
+        Example example = new Example(CsrMemberCart.class);
+        example.createCriteria().andEqualTo("memberId",memberId);
         return cartMapper.deleteByExample(example);
     }
 

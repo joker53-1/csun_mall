@@ -30,7 +30,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(deviceIdInterceptor())
-                .addPathPatterns("/customer/login","/index/*");
+                .addPathPatterns("/customer/login","/");
 //        registry.addInterceptor(userTokenInterceptor())
 //                .addPathPatterns("/hello")
 //                .addPathPatterns("/shopcart/add")

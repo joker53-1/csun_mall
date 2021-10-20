@@ -19,6 +19,6 @@
     from message_record mr
            left join sys_user su on mr.reply_user_id = su.id
     where message_id = #{messageId}
-    ORDER BY send_time desc
+    ORDER BY send_time
   </select>
 </mapper>

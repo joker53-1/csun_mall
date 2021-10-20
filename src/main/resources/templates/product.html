@@ -464,8 +464,8 @@
                                             <div class="product-section-item" th:each="product : ${productList}">
                                                 <div class="product-section-item-wrapper">
                                                     <div class="product-wrapper-header">
-                                                        <img width="160" th:src="@{${product.pic[0]}}"
-                                                             alt="" >
+                                                        <a th:href="|/product?id=${product.id}|"> <img width="160" th:src="@{${product.pic[0]}}"
+                                                             alt="" ></a>
                                                         <div class="sale">
                                                             <span class="label_ui-sale" th:text="#{co_sale}">sale</span>
                                                         </div>

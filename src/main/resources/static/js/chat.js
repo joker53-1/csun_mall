@@ -54,6 +54,7 @@ $(function () {
 
 function clickChat() {
     let chatBox = chatProp.chatBox === false || chatProp.chatBox === true ? chatProp.chatBox : false
+    console.log(chatBox)
     if (!chatBox) {
         openChat()
     } else {
@@ -73,6 +74,11 @@ function openChat() {
             chatProp.chatLogin = false
             chatProp.chatMain = true
         }
+        else {
+            renderChat()
+            chatProp.chatLogin = false
+            chatProp.chatMain = true
+        }
     }
 }
 
@@ -88,6 +94,7 @@ function loginChat() {
         if (res.status === "SUCCESS") {
             setMessageId(res.body)
             connect();
+            welcome();
             chatProp.chatLogin = false
             chatProp.chatMain = true
             return false;
@@ -108,12 +115,15 @@ function connect() {
             showMessage(JSON.parse(data.body));
         });
     });
-    $("#open_time").append(simpleTime(new Date()))
+
 }
 
+
 function sendMessage(that) {
-    $(that).html("发送中...").attr("disabled", "disabled")
     let message = $("#question")
+    if(message.val()== null || message.val() == undefined || message.val() == '')
+        return;
+    $(that).html("发送中...").attr("disabled", "disabled")
     var data = {
         "messageId": getMessageId(),
         "message": message.val(),
@@ -130,6 +140,14 @@ function sendMessage(that) {
 function showMessage(messageInfo) {
     console.log(messageInfo)
     let span = '';
+    let user = localStorage.getItem("user");
+    // console.log(user_token)
+    let user_data=""
+    if (user == null || user == undefined || user == '')
+        user_data ="用户";
+    else
+        user_data=JSON.parse(user).username
+
     if (messageInfo.type) {
         span = `<div class="chat_message_box chat_left_box" >
                     <div class="chat_box_head">
@@ -148,6 +166,7 @@ function showMessage(messageInfo) {
         span = `<div class="chat_message_box chat_right_box">
                     <div class="chat_box_head">
                         <span>
+                        ${user_data}
                         </span>
                         <span>
                            ${simpleTime(messageInfo.sendTime)}
@@ -163,6 +182,24 @@ function showMessage(messageInfo) {
 
 }
 
+function welcome(){
+
+    span = `<div class="chat_message_box chat_left_box">
+    <div class="chat_box_head">
+                                <span th:text="#{co_customer_ser}">
+                                    客服
+                                </span>
+        <span id="open_time">${simpleTime(new Date())}
+                                </span>
+    </div>
+    <div class="chat_message">
+        您好，欢迎您访问人工客服，请问有什么可以帮您
+    </div>
+</div>`;
+    $("#show_content_admin").append(span);
+}
+
+$("#open_time").append(simpleTime(new Date()))
 function headerMenuClose() {
     $("#Open").hide()
 }

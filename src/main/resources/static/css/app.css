@@ -1423,6 +1423,61 @@ lable {
     font-weight: 500;
 }
 
+.shopping-cart-qty{
+    white-space: nowrap;
+    font-size: 1.7rem;
+    line-height: 2.6rem;
+    cursor: pointer;
+
+    margin-right: 2rem;
+
+    width: 18rem;
+    height: 4.5rem;
+    background-color: #f0f2f5;
+    padding: 7px 0px;
+    margin-bottom: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #eee;
+    border-radius: 4.2rem;
+}
+.shopping-cart-qty input{
+    text-align: center;
+    width: 100%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.7rem;
+    color: #103178;
+    height: 100%;
+    overflow: hidden;
+    display: block;
+    border: none;
+    background: 0 0;
+    padding: 0 !important;
+    margin: 0;
+    max-width: 100%;
+    outline:none;
+}
+.shopping-cart-qty input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+.shopping-cart-qty input[type='number']{
+    -moz-appearance: textfield;
+}
+.shopping-cart-qty .remove{
+    font-size: .9rem;
+    font-weight: 600;
+    color: #103178;
+    padding: 4rem;
+}
+
+.option-cart-data-select .qty-plus {
+    position: absolute;
+    right: .5rem;
+    top: 0;
+    bottom: 0;
+}
+
 .option-cart-data-select {
 
     white-space: nowrap;
@@ -2248,7 +2303,7 @@ lable {
     position: relative;
     /*overflow: hidden;*/
     overflow-y: auto;
-    max-height: calc(100% - 26rem);
+    max-height: calc(100% - 20rem);
     border: 1px solid #f0f2f5;
     border-radius: .4rem;
     margin-bottom: -.1rem;
@@ -2319,13 +2374,13 @@ lable {
     padding-inline-start: .7rem;
 }
 
-.shopping-cart-qty {
-    margin: 0;
-    color: #5b6c8f;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-}
+/*.shopping-cart-qty {*/
+/*    margin: 0;*/
+/*    color: #5b6c8f;*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*    align-items: flex-end;*/
+/*}*/
 
 .shopping-cart-qty span {
     margin-inline-end: .4rem;
@@ -2367,6 +2422,16 @@ lable {
 .shopping-cart-footer-text-row p span {
     padding-inline-start: 1rem;
     font-size: 1.6rem;
+}
+
+.cart-delete{
+    margin: .5rem 0 0.5rem 20rem;
+    padding: .4rem 1.8rem;
+    border-radius: 4.2rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #103178;
+    border: 1px solid #f0f2f5;
 }
 
 .shopping-cart-footer-text-row .cart-clear-item {

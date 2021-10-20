@@ -228,9 +228,16 @@ $(function () {
             "productId":$("#product_id").val(),
             "count":$("#quantity").val()
         }
-        console.log(cart.memberId)
+        // console.log(cart.memberId)
         $.post("/customer/shopcart/add",cart,function (data) {
             if(data.status === "SUCCESS"){
+
+                $.get("/customer/shopcart/getcartproductnum", {'memberId':JSON.parse(user).id}, function (data){
+                    if (data.status === "SUCCESS") {
+                        $("#cart_number").html('')
+                        $("#cart_number").append(data.body)
+                    }
+                })
                 toastr.success("添加成功")
             }
             else{
@@ -238,7 +245,6 @@ $(function () {
             }
         })
         return false
-        // alert("功能开发中！")
     })
 
 });

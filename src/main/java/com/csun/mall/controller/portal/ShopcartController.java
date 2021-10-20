@@ -49,11 +49,11 @@ public class ShopcartController {
 
     @PutMapping("update")
     @ResponseBody
-    public ResponseData update(Long memberId, Long productId, Integer count){
-        if(memberId==null||productId==null||count==null){
+    public ResponseData update(Long id, Integer count){
+        if(id==null||count==null){
             return ResponseData.failure();
         }
-        int res = shopCartService.update(memberId,productId,count);
+        int res = shopCartService.update(id,count);
         if (res > 0) {
             return ResponseData.success(res);
         } else {
@@ -63,12 +63,26 @@ public class ShopcartController {
 
     @DeleteMapping("delete")
     @ResponseBody
-    @ApiImplicitParam(name = "productIds", value = "productIds", dataTypeClass = List.class, paramType = "query")
-    public ResponseData deleteProduct(Long memberId, @RequestParam List<Long> productIds){
-        if(memberId==null||productIds.size()==0){
+    @ApiImplicitParam(name = "ids", value = "ids", dataTypeClass = List.class, paramType = "query")
+    public ResponseData deleteProduct(@RequestParam List<Long> ids){
+        if(ids.size()==0){
             return ResponseData.failure();
         }
-        int res = shopCartService.deleteProduct(memberId,productIds);
+        int res = shopCartService.deleteProduct(ids);
+        if (res > 0) {
+            return ResponseData.success(res);
+        } else {
+            return ResponseData.failure();
+        }
+    }
+
+    @DeleteMapping("deleteAll")
+    @ResponseBody
+    public ResponseData deleteProduct(Long memberId){
+        if(memberId!=null){
+            return ResponseData.failure();
+        }
+        int res = shopCartService.deleteProduct(memberId);
         if (res > 0) {
             return ResponseData.success(res);
         } else {

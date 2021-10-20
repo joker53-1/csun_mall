@@ -167,7 +167,7 @@ body {
     /*overflow-y: auto;*/
 }
 .chat_message_box {
-    display: flex;
+    /*display: flex;*/
     flex-flow: column nowrap;
     margin-bottom: 20px;
     padding: 5px 10px; 
@@ -231,15 +231,17 @@ body {
     border:0;
     border-radius:5px;
     resize: none;
+    margin-right: 55px;
+    margin-top: 40px;
 }
 
-.chat_enter textarea::-webkit-scrollbar {     
-    width: 2px;  
-    background-color: #fff;   
-}  
+.chat_enter textarea::-webkit-scrollbar {
+    width: 2px;
+    background-color: #fff;
+}
 
  .chat_enter textarea::-webkit-scrollbar-thumb {
-    background-color: #a5a5a5;   
+    background-color: #a5a5a5;
 }
 
 
