@@ -108,6 +108,7 @@ function connect() {
             showMessage(JSON.parse(data.body));
         });
     });
+    $("#open_time").append(simpleTime(new Date()))
 }
 
 function sendMessage(that) {

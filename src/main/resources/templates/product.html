@@ -99,10 +99,10 @@
                                                         <!--                                                        </div>-->
                                                         <div class="mulit-price" data-v-0b8f493c="">
                                                             <div class="mulit-price-title" data-v-0b8f493c=""><p
-                                                                    data-v-0b8f493c="">
-                                                                价格
+                                                                    data-v-0b8f493c=""  th:text="#{co_price}">
+                                                                price
                                                             </p>
-                                                                <p data-v-0b8f493c="">
+                                                                <p data-v-0b8f493c="" th:text="#{co_starting_batch}">
                                                                     起批量
                                                                 </p></div>
                                                             <div class="mulit-price-section" data-v-0b8f493c="">
@@ -223,12 +223,12 @@
                                                                             function changeQuantity(that,type){
                                                                                 let a = $(that).parent("div").find("[name='quantity']").val()
                                                                                 if(a === "" || a == null){
-                                                                                    a = 0
+                                                                                    a = 1
                                                                                 }
                                                                                 if("add" === type){
                                                                                     $(that).parent("div").find("[name='quantity']").val(++a)
                                                                                 }else {
-                                                                                    if (a == 0){
+                                                                                    if (a == 1){
                                                                                         return
                                                                                     }
                                                                                     $(that).parent("div").find("[name='quantity']").val(--a)
@@ -467,7 +467,7 @@
                                                         <img width="160" th:src="@{${product.pic[0]}}"
                                                              alt="" >
                                                         <div class="sale">
-                                                            <span class="label_ui-sale">sale</span>
+                                                            <span class="label_ui-sale" th:text="#{co_sale}">sale</span>
                                                         </div>
                                                         <div class="product-icon">
                                                       <span class="product-icon-button">

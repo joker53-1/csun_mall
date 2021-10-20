@@ -180,7 +180,7 @@
                                             <img width="24" height="24" src="../static/pic/cart.png" alt="">
                                             </span>
                                             <span class="number">
-                                                <span class="number-item">0</span>
+                                                <span class="number-item" id="cart_number">0</span>
                                             </span>
                                         </a>
 
@@ -203,68 +203,70 @@
                                                 <form action="" class="form-cart">
                                                     <div class="shopping-cart-head">
                                                         <h3>
-                                                            <a href="javascript:">Shopping cart
-                                                                <span class="number">(1)</span>
-                                                            </a>
+
+                                                                <a th:text="#{co_shopping_cart}">Shopping cart</a>
+                                                                <a id="cart_number1">(1)</a>
+
                                                         </h3>
                                                     </div>
                                                     <div class="shopping-cart-body" id="shopping_cart_body">
 
-                                                        <div class="shopping-cart-body-inner">
-                                                            <div class="shopping-cart-body-inner-item">
-                                                                <div class="row">
-                                                                    <div class="shopping-cart-col-3">
-                                                                        <div class="img-style">
-                                                                            <a href="javascript:">
-                                                                                <img sizes="80px"
-                                                                                     src="../static/pic/change/product.png"
-                                                                                     alt="">
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="shopping-cart-col-9">
+<!--                                                        <div class="shopping-cart-body-inner">-->
+<!--                                                            <div class="shopping-cart-body-inner-item">-->
+<!--                                                                <div class="row">-->
+<!--                                                                    <div class="shopping-cart-col-3">-->
+<!--                                                                        <div class="img-style">-->
+<!--                                                                            <a href="javascript:">-->
+<!--                                                                                <img sizes="80px"-->
+<!--                                                                                     src="../static/pic/change/product.png"-->
+<!--                                                                                     alt="">-->
+<!--                                                                            </a>-->
+<!--                                                                        </div>-->
+<!--                                                                    </div>-->
+<!--                                                                    <div class="shopping-cart-col-9">-->
 
-                                                                        <div class="shopping-cart-product-info">
-                                                                            <h6>
-                                                                                <a href="javascript:">
-                                                                                    <span class="shopping-cart-title">3-layer mask with an elastic band (1 piece)-</span>
-                                                                                    <span class="shopping-cart-text">Dark/Large</span>
-                                                                                </a>
-                                                                            </h6>
+<!--                                                                        <div class="shopping-cart-product-info">-->
+<!--                                                                            <h6>-->
+<!--                                                                                <a href="javascript:">-->
+<!--                                                                                    <span class="shopping-cart-title">3-layer mask with an elastic band (1 piece)-</span>-->
+<!--                                                                                    <span class="shopping-cart-text">Dark/Large</span>-->
+<!--                                                                                </a>-->
+<!--                                                                            </h6>-->
 
-                                                                            <div class="shopping-cart-price-info">
-                                                                                <div class="shopping-cart-price">
-                                                                                    <span class="price">$119.00</span>
-                                                                                    <del class="money">$129.00</del>
-                                                                                </div>
+<!--                                                                            <div class="shopping-cart-price-info">-->
+<!--                                                                                <div class="shopping-cart-price">-->
+<!--                                                                                    <span class="price">$119.00</span>-->
+<!--                                                                                    <del class="money">$129.00</del>-->
+<!--                                                                                </div>-->
 
-                                                                                <div class="shopping-cart-qty">
-                                                                                    <span>
-                                                                                        <span class="number-1">1</span>X
-                                                                                        <span class="number-2">item</span>
-                                                                                    </span>
-                                                                                    <a href="javascript:">Remove</a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
+<!--                                                                                <div class="shopping-cart-qty">-->
+<!--                                                                                    <span>-->
+<!--                                                                                        <span class="number-1">1</span>X-->
+<!--                                                                                        <span class="number-2">item</span>-->
+<!--                                                                                    </span>-->
+<!--                                                                                    <a href="javascript:" th:text="#{co_remove}">Remove</a>-->
+<!--                                                                                </div>-->
+<!--                                                                            </div>-->
+<!--                                                                        </div>-->
 
 
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
+<!--                                                                    </div>-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+                                                        <input id="remove" th:value="#{co_remove}" hidden>
 
                                                     </div>
 
                                                     <div class="shopping-cart-footer">
                                                         <div class="shopping-cart-footer-text">
                                                             <div class="shopping-cart-footer-text-row">
-                                                                <p>Total:
-                                                                    <span>$107.10</span>
+                                                                <p >
+                                                                <span th:text="#{co_total}">Total:</span>
+                                                                    <span id="total"></span>
                                                                 </p>
 
-                                                                <a href="javascript:" class="cart-clear-item">Remove all
+                                                                <a href="javascript:" class="cart-clear-item" th:text="#{co_remove_all}">Remove all
                                                                     items</a>
                                                             </div>
                                                             <div class="shopping-cart-footer-text-row">
@@ -282,6 +284,21 @@
                                             var cart = document.getElementById('cart');
                                             var shoppingCart = document.getElementById('shoppingCart');
 
+                                            function changeCurQuantity(that,type){
+                                                let a = $(that).parent("span").find("[name='quantity']").val()
+                                                console.log(a)
+                                                if(a === "" || a == null){
+                                                    a = 1
+                                                }
+                                                if("add" === type){
+                                                    $(that).parent("span").find("[name='quantity']").val(++a)
+                                                }else {
+                                                    if (a == 1){
+                                                        return
+                                                    }
+                                                    $(that).parent("span").find("[name='quantity']").val(--a)
+                                                }
+                                            }
                                             cart.onmousedown = function () {
                                                 let user = localStorage.getItem("user");
                                                 // console.log(user_token)
@@ -291,13 +308,23 @@
                                                     var memberId = {
                                                         "memberId": JSON.parse(user).id
                                                     }
+                                                    var total=0
+                                                    var remove=$('#remove').val()
+                                                    // $.get("/customer/shopcart/getcartproductnum", memberId, function (data){
+                                                    //     if (data.status === "SUCCESS") {
+                                                    //         $("#cart_number1").html('')
+                                                    //         $("#cart_number1").append("("+data.body+")")
+                                                    //     }
+                                                    // })
                                                     $.get("/customer/shopcart/list", memberId, function (data) {
                                                         if (data.status === "SUCCESS") {
                                                             var cart = data.body;
-                                                            console.log(cart[0].productName)
+                                                            // console.log(cart[0].productName)
                                                             $('#shopping_cart_body').html('');
+                                                            $("#cart_number1").html('')
+                                                            $("#cart_number1").append("("+cart.length+")")
                                                             for (i = 0; i < cart.length; i++) {
-                                                                console.log(cart[i].productName)
+                                                                // console.log(cart[i].productName)
                                                                 var div_body = `<div class="shopping-cart-body-inner">
                                                             <div class="shopping-cart-body-inner-item">
                                                                 <div class="row">
@@ -327,12 +354,17 @@
                                                                                 </div>
 
                                                                                 <div class="shopping-cart-qty">
-                                                                                    <span>
-                                                                                        <span class="number-1">${cart[i].quantity}</span>X
-                                                                                        <span class="number-2">item</span>
+
+
+                                                                                    <span class="">
+                                                                                        <a href="javascript:void(0);" onclick="changeCurQuantity(this,'sub')"  class="qty-minus">-</a>
+                                                                                        <input class="cid" type="number" name="quantity" cid = ${cart[i].id} value="${cart[i].quantity}" min="1">
+                                                                                        <a href="javascript:void(0);" onclick="changeCurQuantity(this,'add')" class="qty-plus">+</a>
                                                                                     </span>
-                                                                                    <a href="javascript:">Remove</a>
+
+
                                                                                 </div>
+                                                                                <a href="javascript:">${remove}</a>
                                                                             </div>
                                                                         </div>
 
@@ -341,16 +373,27 @@
                                                                 </div>
                                                             </div>
                                                         </div>`
+                                                                total+=cart[i].quantity*cart[i].curPrice
                                                                 $("#shopping_cart_body").append(div_body);
                                                             }
+                                                            $('#total').html('');
+                                                            $("#total").append("$"+total)
+                                                            openCid()
                                                         } else {
-                                                            console.log(data.body)
+                                                            toastr.error("加载失败")
                                                         }
 
                                                     })
                                                     shoppingCart.style = 'bolck';
                                                 }
 
+                                            }
+                                            function openCid(){
+                                                $(".cid").on("change",function () {
+                                                    let a = $(this).attr("cid")
+                                                    alert(111)
+                                                    alert(a)
+                                                })
                                             }
                                         </script>
 
@@ -642,6 +685,7 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
+
             let user = localStorage.getItem("user");
             // console.log(user_token)
             if (user == null || user == undefined || user == '')
@@ -649,6 +693,15 @@
 
             let user_data = JSON.parse(user);
             $("#my").html(user_data.username).attr("href", "#");
+            var memberId = {
+                "memberId": JSON.parse(user).id
+            }
+            $.get("/customer/shopcart/getcartproductnum", memberId, function (data){
+                if (data.status === "SUCCESS") {
+                    $("#cart_number").html('')
+                    $("#cart_number").append(data.body)
+                }
+            })
         });
     </script>
 </th:block>

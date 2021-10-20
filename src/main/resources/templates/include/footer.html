@@ -22,7 +22,7 @@
                         <div class="footter-address">
                             <strong class="footer-address-title" th:text="#{co_contact_info}">Contact Info</strong>
                             <span><img height="26" width="26" src="../static/pic/mail%20(3).png" alt=""></span>
-                            <span class="footer-address-sales">sales@chinasunergy.com</span>
+                            <span class="footer-address-sales" th:text="#{co_saleschinasunergycom}">sales@chinasunergy.com</span>
                         </div>
 
                         <div class="footer-social-icons">
@@ -122,8 +122,8 @@
         <!-- 主体框 -->
         <div class="chat_box" id="chatBox">
             <div class="chat_head">
-                <span>与客服对话</span>
-                <button onclick="closeChat()"> 关闭</button>
+                <span th:text="#{co_dialogue_with_customer}">与客服对话</span>
+                <button onclick="closeChat()" th:text="#{co_close}"> 关闭</button>
             </div>
             <div class="chat_body">
                 <form class="chat_from" id="chatLogin" onsubmit="return false">
@@ -134,20 +134,20 @@
 <!--&lt;!&ndash;                        <span id="name_invalid">必填项</span>&ndash;&gt;-->
 <!--                    </div>-->
                     <div class="chat_from_item">
-                        <label>称呼</label>
-                        <input type="text" name="name" placeholder="称呼">
+                        <label th:text="#{co_call}">称呼</label>
+                        <input type="text" name="name" th:placeholder="#{co_call}">
                     </div>
                     <div class="chat_from_item">
-                        <label>电子邮件</label>
-                        <input type="text" name="email" placeholder="请输入您的电子邮件">
+                        <label th:text="#{co_email}">电子邮件</label>
+                        <input type="text" name="email" th:placeholder="#{co_input_email}">
                     </div>
                     <div class="chat_from_item">
-                        <label>聊天话题</label>
-                        <input type="text" name="topic" placeholder="请输入您的聊天话题">
+                        <label th:text="#{co_chat_topic}">聊天话题</label>
+                        <input type="text" name="topic" th:placeholder="#{co_input_chat_topic}">
                     </div>
 
                     <div class="chat_from_item">
-                        <button type="submit" onclick="loginChat()"> 开启对话</button>
+                        <button type="submit" onclick="loginChat()" th:text="#{co_open_conversation}"> 开启对话</button>
                     </div>
                 </form>
                 <div class="chat_main" id="chatMain">
@@ -167,14 +167,14 @@
 <!--                        </div>-->
                         <div class="chat_message_box chat_left_box" >
                             <div class="chat_box_head">
-                                <span>
+                                <span th:text="#{co_customer_ser}">
                                     客服
                                 </span>
-                                <span>
-                                    下午04:47
+                                <span id="open_time">
+<!--                                    下午04:47-->
                                 </span>
                             </div>
-                            <div class="chat_message" >
+                            <div class="chat_message" th:text="#{co_welcome_to}">
                                 您好，欢迎您访问人工客服，请问有什么可以帮您
                             </div>
                         </div>
@@ -183,7 +183,7 @@
                 <div class="chat_line"></div>
                 <div class="chat_enter">
                     <textarea type="text" id="question" placeholder="请输入您想咨询的问题"></textarea>
-                    <button onclick="sendMessage()"  type="button">发送</button>
+                    <button onclick="sendMessage()"  type="button" th:text="#{co_send}">发送</button>
                 </div>
             </div>
         </div>
