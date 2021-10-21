@@ -91,46 +91,46 @@ $(function () {
 
     })
 
-    $("#get_code").click(function () {
-        let count = 60;
-        const countDown = setInterval(() => {
-            if (count === 0) {
-                $("#get_code").text('获取验证码').removeAttr('disabled');
-                // $("#get_code").css({
-                //     background: '#ff9400',
-                //     color: '#fff',
-                // });
-                clearInterval(countDown);
-            } else {
-                $("#get_code").attr('disabled', true);
-                $("#get_code").css({
-                    background: '#d8d8d8',
-                    color: '#707070',
-                });
-                $("#get_code").text('重发验证（'+count + '）');
-            }
-            count--;
-        }, 1000);
-        var email = $("#email").val();
-        // if (email == null || email == undefined || email == '') {
-        //     alert("邮箱不能为空");
-        //     return;
-        // }
-        // console.log(email)
-        email = 'email='+$("#email").val();
-        $.get("/customer/passport/verification", email, function (data) {
-                if (data.status === "SUCCESS") {
-                    // document.getElementById("contact_form").reset();
-                    // $("#get_code").html("验证已发送").attr("disabled", "disabled");
-                    // var user = data.msg;
-                    // console.log(user);
-                } else {
-                    toastr.error(data.msg);
-                    return;
-                }
-            }
-        )
-    })
+    // $("#get_code").click(function () {
+    //     let count = 60;
+    //     const countDown = setInterval(() => {
+    //         if (count === 0) {
+    //             $("#get_code").text('获取验证码').removeAttr('disabled');
+    //             // $("#get_code").css({
+    //             //     background: '#ff9400',
+    //             //     color: '#fff',
+    //             // });
+    //             clearInterval(countDown);
+    //         } else {
+    //             $("#get_code").attr('disabled', true);
+    //             $("#get_code").css({
+    //                 background: '#d8d8d8',
+    //                 color: '#707070',
+    //             });
+    //             $("#get_code").text('重发验证（'+count + '）');
+    //         }
+    //         count--;
+    //     }, 1000);
+    //     var email = $("#email").val();
+    //     // if (email == null || email == undefined || email == '') {
+    //     //     alert("邮箱不能为空");
+    //     //     return;
+    //     // }
+    //     // console.log(email)
+    //     email = 'email='+$("#email").val();
+    //     $.get("/customer/passport/verification", email, function (data) {
+    //             if (data.status === "SUCCESS") {
+    //                 // document.getElementById("contact_form").reset();
+    //                 // $("#get_code").html("验证已发送").attr("disabled", "disabled");
+    //                 // var user = data.msg;
+    //                 // console.log(user);
+    //             } else {
+    //                 toastr.error(data.msg);
+    //                 return;
+    //             }
+    //         }
+    //     )
+    // })
 
     //自定义校验规则
     $.validator.addMethod(
@@ -157,7 +157,7 @@ $(function () {
             code:{
                 required:true,
                 digits:true,
-                rangelength:[6,6]
+                rangelength:[4,4]
             },
             password: {
                 required: true,
@@ -180,7 +180,7 @@ $(function () {
             code:{
                 required:"填写验证码",
                 digits:"验证码为数字",
-                rangelength: "验证码长度为6"
+                rangelength: "验证码长度为4"
             },
             password: {
                 required:"密码不能为空",
@@ -245,6 +245,10 @@ $(function () {
             }
         })
         return false
+    })
+
+    $("#captcha_img").click(function () {
+        $(this).attr("src", "/captcha?tm=" + new Date().getTime())
     })
 
 });

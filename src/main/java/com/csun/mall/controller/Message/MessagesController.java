@@ -27,7 +27,6 @@ public class MessagesController {
     @MessageMapping("/subscribe")
     @SendTo("/topic/subscribe")
     public String handleSubscribe(MessageRO messageRO) {
-        System.out.println(messageRO.getMessage());
         return messageRO.getMessage();
     }
 //

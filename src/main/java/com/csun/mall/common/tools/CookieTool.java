@@ -193,13 +193,14 @@ public final class CookieTool {
             Cookie cookie = new Cookie(cookieName, cookieValue);
             if (cookieMaxage > 0)
                 cookie.setMaxAge(cookieMaxage);
-            if (null != request) {// 设置域名的cookie
-            	String domainName = getDomainName(request);
-                logger.info("========== domainName: {} ==========", domainName);
-                if (!"localhost".equals(domainName)) {
-                	cookie.setDomain(domainName);
-                }
-            }
+//            if (null != request) {// 设置域名的cookie
+//            	String domainName = getDomainName(request);
+//                logger.info("========== domainName: {} ==========", domainName);
+////                System.out.println(domainName);
+//                if (!"localhost".equals(domainName)) {
+//                	cookie.setDomain(domainName);
+//                }
+//            }
 //            cookie.setDomain("jokerni53.tk");
             cookie.setPath("/");
 //            System.out.println(cookie.getDomain());
@@ -231,7 +232,7 @@ public final class CookieTool {
             if (cookieMaxage > 0)
                 cookie.setMaxAge(cookieMaxage);
             if (null != request) {// 设置域名的cookie
-            	String domainName = getDomainName(request);
+            	String domainName = getRealDomain(request);
                 logger.info("========== domainName: {} ==========", domainName);
                 if (!"localhost".equals(domainName)) {
                 	cookie.setDomain(domainName);
@@ -244,6 +245,9 @@ public final class CookieTool {
         }
     }
 
+    public static String getRealDomain(HttpServletRequest request) {
+        return request.getHeader("Host");
+    }
     /**
      * 
      * @Description: 得到cookie的域名

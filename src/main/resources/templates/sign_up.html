@@ -83,7 +83,9 @@
 <!--                                   <input id="TANGRAM__PSP_4__verifyCodeSend" type="button" value="获取验证码" class="pass-button pass-button-verifyCodeSend" autocomplete="off">-->
                                    <div class="from-group1">
                                    <input type="text" placeholder="code" class="code" id="code" name="code">
-                                   <button id="get_code" type="button" th:text="#{co_get_code}">GET CODE</button>
+<!--                                   <button id="get_code" type="button" th:text="#{co_get_code}">GET CODE</button>-->
+                                       <img id="captcha_img" src="/captcha" style="position:relative;"
+                                            th:title="#{co_click_to_change}">
                                    </div>
 <!--                                   <a href="'/customer/passport/verification?email='+">GET CODE</a>-->
 <!--                                   <button id="get_code" type="submit">GET CODE</button>-->

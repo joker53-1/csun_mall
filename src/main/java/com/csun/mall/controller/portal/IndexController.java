@@ -1,5 +1,9 @@
 package com.csun.mall.controller.portal;
 
+import cn.hutool.captcha.CaptchaUtil;
+import cn.hutool.captcha.ShearCaptcha;
+import cn.hutool.captcha.generator.RandomGenerator;
+import cn.hutool.core.io.IoUtil;
 import com.csun.mall.domain.ProductCategory;
 import com.csun.mall.domain.ProductLadderPrice;
 import com.csun.mall.pojo.dto.ProductCategoryWithChildren;
@@ -15,6 +19,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -127,4 +133,14 @@ public class IndexController {
         return "/product_all";
     }
 
+    @RequestMapping("/captcha")
+    public void captcha(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        RandomGenerator randomGenerator = new RandomGenerator("0123456789", 4);
+        ShearCaptcha captcha = CaptchaUtil.createShearCaptcha(100, 27);
+        captcha.setGenerator(randomGenerator);
+        captcha.createCode();
+        request.getSession().removeAttribute("captcha");
+        request.getSession().setAttribute("captcha", captcha.getCode());
+        IoUtil.write(response.getOutputStream(), true, captcha.getImageBytes());
+    }
 }
