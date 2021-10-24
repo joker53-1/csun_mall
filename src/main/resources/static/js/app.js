@@ -98,6 +98,7 @@ $(function () {
                     data:req,
                     success: function(response) {
                         if (response.status === "SUCCESS"){
+                            localStorage.removeItem("messageId")
                             localStorage.setItem("messageId",response.body)
                         }
                     }

@@ -45,30 +45,30 @@ public class MessageRecordService {
     }
 
     public Long addUserId(Long messageId, Long userId, HttpServletRequest request){
-        if(messageId==null){
+        Message message = messageMapper.selectByPrimaryKey(messageId);
+        if(message==null){
             Example example = new Example(Message.class);
             example.createCriteria().andEqualTo("userId",userId);
-            Message message = messageMapper.selectOneByExample(example);
-            if(ObjectUtils.isEmpty(message)){
+            Message messageByUserId = messageMapper.selectOneByExample(example);
+            int i=0;
+            if(messageByUserId==null){
                 CsrMember csrMember = csrMemberMapper.selectByPrimaryKey(userId);
                 Message newMessage = Message.builder().userId(userId).replyUserId(0L).name(csrMember.getUsername()).deviceId(CookieTool.getCookieValue(request, "device_id")).unreadNumber(0).build();
                 messageMapper.insert(newMessage);
                 return newMessage.getId();
             }
             else {
-                return message.getId();
+                return messageByUserId.getId();
             }
 
         }
 
-        Message message = messageMapper.selectByPrimaryKey(messageId);
 
-        if(message.getUserId()==null){
+        if (message.getUserId() == null) {
             message.setUserId(userId);
             messageMapper.updateByPrimaryKey(message);
             return message.getId();
-        }
-        else if(message.getUserId().equals(userId)) {
+        } else if (message.getUserId().equals(userId)) {
             return message.getId();
         } else {
             CsrMember csrMember = csrMemberMapper.selectByPrimaryKey(userId);
@@ -76,6 +76,7 @@ public class MessageRecordService {
             messageMapper.insert(newMessage);
             return newMessage.getId();
         }
+
 
 
     }

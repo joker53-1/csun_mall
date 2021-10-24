@@ -31,11 +31,11 @@ public class MessagesController {
 //        return null;
 //    }
 //
-//    @MessageMapping("/subscribe")
-//    @SendTo("/topic/subscribe")
-//    public String handleSubscribe(MessageRO messageRO) {
-//        return messageRO.getMessage();
-//    }
+    @MessageMapping("/subscribe")
+    @SendTo("/topic/subscribe")
+    public String handleSubscribe(MessageRO messageRO) {
+        return messageRO.getMessage();
+    }
 //
 //    // 消息异常
 //    @MessageExceptionHandler(Exception.class)
@@ -66,7 +66,6 @@ public class MessagesController {
         return ResponseData.success(page);
 
     }
-
 
     @PutMapping("change")
     public ResponseData change(Long messageId,Long replyUserId){
