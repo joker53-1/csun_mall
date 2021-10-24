@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.csun.mall.mapper.MessageMapper" >
-  <resultMap id="BaseResultMap" type="com.csun.mall.domain.Message" >
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="device_id" property="deviceId" jdbcType="VARCHAR" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="email" property="email" jdbcType="VARCHAR" />
-    <result column="topic" property="topic" jdbcType="VARCHAR" />
-    <result column="user_id" property="userId" jdbcType="BIGINT" />
-    <result column="reply_user_id" property="replyUserId" jdbcType="BIGINT" />
-    <result column="unread_number" property="unreadNumber" jdbcType="INTEGER" />
-  </resultMap>
+<mapper namespace="com.csun.mall.mapper.MessageMapper">
+    <resultMap id="BaseResultMap" type="com.csun.mall.domain.Message">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="device_id" property="deviceId" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="email" property="email" jdbcType="VARCHAR"/>
+        <result column="topic" property="topic" jdbcType="VARCHAR"/>
+        <result column="user_id" property="userId" jdbcType="BIGINT"/>
+        <result column="reply_user_id" property="replyUserId" jdbcType="BIGINT"/>
+        <result column="unread_number" property="unreadNumber" jdbcType="INTEGER"/>
+    </resultMap>
+    <select id="page" resultType="com.csun.mall.pojo.dto.MessageDTO">
+        SELECT m.id, device_id deviceId, m.email, topic, m.user_id userId, m.reply_user_id replyUserId,su.nick_name as replyUserName, unread_number unreadNumber, if(cm.username = null,cm.username,m.name) as userName,mr.message as lastMessageRecord
+        FROM message m
+        LEFT JOIN message_record mr ON m.id = mr.message_id
+        LEFT JOIN csr_member cm ON m.user_id = cm.id
+        LEFT JOIN sys_user su ON m.reply_user_id = su.id
+        where
+        mr.id in (select max(id) from message_record group by message_id )
+        <if test="replyUserId != null">and m.reply_user_id=#{replyUserId}</if>
+
+    </select>
 </mapper>

@@ -54,7 +54,7 @@ $(function () {
 
 function clickChat() {
     let chatBox = chatProp.chatBox === false || chatProp.chatBox === true ? chatProp.chatBox : false
-    console.log(chatBox)
+    // console.log(chatBox)
     if (!chatBox) {
         openChat()
     } else {
@@ -89,8 +89,9 @@ function closeChat() {
 }
 
 function loginChat() {
-    let chatFrom = $("#chat_from");
-    $.post("/message/commit", chatFrom.serialize(), function (res) {
+    let chatFrom = $("#chatLogin");
+    let req = 'userId='+getMessageId()+'&'+chatFrom.serialize()
+    $.post("/message/commit", req , function (res) {
         if (res.status === "SUCCESS") {
             setMessageId(res.body)
             connect();
@@ -111,7 +112,7 @@ function connect() {
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function () {
         let messageId = localStorage.getItem("messageId");
-        stompClient.subscribe('/user/' + messageId + '/chat', function (data) {
+        stompClient.subscribe('/user/u' + messageId + '/chat', function (data) {
             showMessage(JSON.parse(data.body));
         });
     });
@@ -138,7 +139,7 @@ function sendMessage(that) {
 
 
 function showMessage(messageInfo) {
-    console.log(messageInfo)
+    // console.log(messageInfo)
     let span = '';
     let user = localStorage.getItem("user");
     // console.log(user_token)
@@ -166,7 +167,6 @@ function showMessage(messageInfo) {
         span = `<div class="chat_message_box chat_right_box">
                     <div class="chat_box_head">
                         <span>
-                        ${user_data}
                         </span>
                         <span>
                            ${simpleTime(messageInfo.sendTime)}

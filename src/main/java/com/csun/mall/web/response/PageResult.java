@@ -1,12 +1,16 @@
 package com.csun.mall.web.response;
 
 import com.csun.mall.common.tools.PojoConvertTool;
+import com.csun.mall.pojo.dto.MessageDTO;
+import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.function.Function;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 @Data
@@ -66,4 +70,23 @@ public class PageResult<T> {
     }
 
 
+    public static <T> PageResult<T> from(PageParam param, Supplier<List<T>> supplier) {
+        PageHelper.startPage(param);
+        List<T> t = supplier.get();
+        return  PageResult.from(t);
+    }
+
+    public static <F> F from(Function<Integer,F> function) {
+
+        F apply = function.apply(1);
+        return  apply;
+    }
+
+    public static void main(String[] args) {
+        Integer from = PageResult.from(e -> {
+            System.out.println(e);
+            return 2;
+        });
+        System.out.println();
+    }
 }

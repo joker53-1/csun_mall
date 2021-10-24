@@ -2,7 +2,7 @@ package com.csun.mall.controller.Message;
 
 import com.csun.mall.common.tools.CookieTool;
 import com.csun.mall.domain.Message;
-import com.csun.mall.pojo.dto.MessageDTO;
+import com.csun.mall.pojo.dto.MessageRecoreDTO;
 import com.csun.mall.service.MessageRecordService;
 import com.csun.mall.web.response.PageParam;
 import com.csun.mall.web.response.PageResult;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
 
 /**
  * @Author Joker Zheng
@@ -35,10 +34,31 @@ public class MessageRecordController {
         return ResponseData.success(message.getId());
     }
 
+    @PutMapping("adduserid")
+    public ResponseData addUserId(Long messageId,Long userId,HttpServletRequest request){
+
+
+        if(messageId!=null){
+            return ResponseData.success(messageRecordService.addUserId(messageId,userId,request));
+
+        }
+        return ResponseData.success();
+    }
+
+    @PutMapping("changeserviceid")
+    public ResponseData change(Long messageId,Long replyId){
+        if(messageRecordService.changeServiceId(messageId,replyId)>0){
+            return ResponseData.success();
+        }
+        else
+        {
+            return ResponseData.failure();
+        }
+    }
+
     @GetMapping("page/{messageId}")
-    public ResponseData<PageResult<MessageDTO>> commit(@PathVariable Long messageId, PageParam param) {
-        param.setPageSize(1000);
-        PageResult<MessageDTO> page = messageRecordService.page(messageId, param);
+    public ResponseData<PageResult<MessageRecoreDTO>> commit(@PathVariable Long messageId, PageParam param) {
+        PageResult<MessageRecoreDTO> page = messageRecordService.page(messageId, param);
 
         return ResponseData.success(page);
     }

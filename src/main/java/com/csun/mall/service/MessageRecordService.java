@@ -1,22 +1,22 @@
 package com.csun.mall.service;
 
+import com.csun.mall.common.tools.CookieTool;
+import com.csun.mall.domain.CsrMember;
 import com.csun.mall.domain.Message;
 import com.csun.mall.domain.MessageRecord;
-import com.csun.mall.domain.ProductCategory;
+import com.csun.mall.mapper.CsrMemberMapper;
 import com.csun.mall.mapper.MessageMapper;
 import com.csun.mall.mapper.MessageRecordMapper;
-import com.csun.mall.pojo.dto.MessageDTO;
+import com.csun.mall.pojo.dto.MessageRecoreDTO;
 import com.csun.mall.pojo.dto.MessageRO;
 import com.csun.mall.web.response.PageParam;
 import com.csun.mall.web.response.PageResult;
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
-import java.util.Date;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 
@@ -30,8 +30,44 @@ public class MessageRecordService {
     @Resource
     private MessageMapper messageMapper;
 
+    @Resource
+    private CsrMemberMapper csrMemberMapper;
+
     public int addMessage(Message message){
         return messageMapper.insert(message);
+    }
+
+    public Message getMessage(Long id){
+        return messageMapper.selectByPrimaryKey(id);
+    }
+
+    public Long addUserId(Long messageId, Long userId, HttpServletRequest request){
+        Message message = messageMapper.selectByPrimaryKey(messageId);
+        if(message.getUserId()==null){
+            message.setUserId(userId);
+            messageMapper.updateByPrimaryKey(message);
+            return message.getId();
+        }
+        else if(message.getUserId().equals(userId))
+        {
+            return message.getId();
+        }
+        else {
+            CsrMember csrMember = csrMemberMapper.selectByPrimaryKey(userId);
+            Message newMessage = Message.builder().userId(userId).replyUserId(0L).name(csrMember.getUsername()).deviceId(CookieTool.getCookieValue(request, "device_id")).unreadNumber(0).build();
+            messageMapper.insert(message);
+            return newMessage.getId();
+        }
+
+
+    }
+
+    public int changeServiceId(Long messageId,Long serviceId){
+        Message message = messageMapper.selectByPrimaryKey(messageId);
+        Message newMessage = new Message();
+        newMessage.setId(message.getId());
+        newMessage.setReplyUserId(serviceId);
+        return messageMapper.updateByPrimaryKeySelective(newMessage);
     }
 
     public void addRecord(MessageRecord message) {
@@ -48,10 +84,16 @@ public class MessageRecordService {
         messageRecordMapper.insert(messageRecord);
     }
 
-    public PageResult<MessageDTO> page(Long messageId, PageParam param) {
+    public PageResult<MessageRecoreDTO> page(Long messageId, PageParam param) {
         PageHelper.startPage(param.getPageNum(), param.getPageSize());
-        List<MessageDTO> page = messageRecordMapper.page(messageId);
-        return PageResult.from(page, MessageDTO.class);
+        List<MessageRecoreDTO> page = messageRecordMapper.page(messageId);
+        return PageResult.from(page, MessageRecoreDTO.class);
+    }
+
+    public PageResult<MessageRecoreDTO> page(Long replyId, String messageLike, PageParam param){
+        PageHelper.startPage(param.getPageNum(), param.getPageSize());
+        List<MessageRecoreDTO> page = messageRecordMapper.pageAll(replyId,messageLike);
+        return PageResult.from(page, MessageRecoreDTO.class);
     }
 
 }

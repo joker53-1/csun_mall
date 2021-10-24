@@ -7,6 +7,7 @@ import com.csun.mall.pojo.dto.CsrMemberDTO;
 import com.csun.mall.service.CsrDeviceService;
 import com.csun.mall.service.CsrMemberService;
 import com.csun.mall.service.MailService;
+import com.csun.mall.service.MessageRecordService;
 import com.csun.mall.web.response.ResponseData;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -41,6 +42,9 @@ public class CsrPassprotController {
 
     @Autowired
     private RedisOperator redisOperator;
+
+    @Autowired
+    private MessageRecordService messageRecordService;
 
 
 //    @ApiOperation(value = "获取验证码", notes = "获取验证码", httpMethod = "GET")
@@ -119,6 +123,7 @@ public class CsrPassprotController {
         if(csrMember==null){
             return ResponseData.failure("用户名或密码不正确");
         }
+
         String deviceId = CookieTool.getCookieValue(request,"device_id");
         String ip = WebTool.getRealIp(request);
         String userAgent = WebTool.getUserAgent(request);

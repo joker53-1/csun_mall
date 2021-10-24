@@ -39,7 +39,7 @@ import org.springframework.web.filter.CorsFilter;
  */
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig {
 
     @Configuration
@@ -84,7 +84,7 @@ public class WebSecurityConfig {
                             "/v2/api-docs",
                             "/v3/api-docs",
                             "/webjars/**","/static/**","/swagger-ui/*","/webjars/**","/v3/**","/doc.html","/swagger-ui.html"
-                            ,"/swagger-resources/**","/v2/api-docs","/user/login","/user/register","/customer/**","/index/**," +
+                            ,"/swagger-resources/**","/v2/api-docs","/user/login","/user/register","/customer/**","/index/**",
                                     "/csunsolartech.oss-accelerate.aliyuncs.com/**").permitAll()
                     .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
                     .anyRequest().authenticated()

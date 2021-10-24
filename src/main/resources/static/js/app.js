@@ -50,6 +50,15 @@ $(function () {
 
             });
 
+
+    function getMessageId() {
+        let messageId = localStorage.getItem("messageId");
+        if (messageId === undefined || messageId === null) {
+            messageId = ''
+        }
+        return messageId;
+    }
+
     $("#sign_in").submit(function (){
         var userBO = {
             keyword: $("#keyword").val(),
@@ -74,12 +83,26 @@ $(function () {
                 // var user = data.body;
                 // console.log(user);
                 toastr.success("登录成功！")
-                console.log(data.body)
+                // console.log(data.body)
                 // console.log(typeof(data.body))
                 var user_data = JSON.stringify(data.body);
                 localStorage.setItem("user", user_data);
                 window.location.href="/";
+                let req = {
+                    'messageId':getMessageId(),
+                    'userId':data.body.id
+                }
+                $.ajax({
+                    url: '/message/adduserid',
+                    type: 'PUT',
+                    data:req,
+                    success: function(response) {
+                        if (response.status === "SUCCESS"){
+                            localStorage.setItem("messageId",response.body)
+                        }
+                    }
 
+                });
             }
             else {
                 toastr.error(data.msg)

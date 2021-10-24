@@ -3,26 +3,34 @@ package com.csun.mall.pojo.dto;
 import lombok.Data;
 
 import javax.persistence.Column;
-import java.util.Date;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
- * @author Created by Cen xr on 2021/9/28 16:12
+ * @Author Joker Zheng
+ * @create 2021/10/24 14:49
  */
 @Data
 public class MessageDTO {
-
     private Long id;
-    @Column(name = "message_id")
-    private Long messageId;
-    @Column(name = "reply_user_id")
+    private String deviceId;
+
+    private String email;
+
+    private String topic;
+
+    private Long userId;
+
+    private String userName;
+
     private Long replyUserId;
-    @Column(name = "reply_user_name")
+
     private String replyUserName;
 
-    private String message;
+    private Integer unreadNumber;
 
-    private Integer type;
-    @Column(name = "send_time")
-    private Date sendTime;
+    private String lastMessageRecord;
+
 
 }

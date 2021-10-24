@@ -127,16 +127,13 @@ public class RedisOperator {
 //		nginx -> keepalive
 //		redis -> pipeline
 
-		List<Object> result = redisTemplate.executePipelined(new RedisCallback<String>() {
-			@Override
-			public String doInRedis(RedisConnection connection) throws DataAccessException {
-				StringRedisConnection src = (StringRedisConnection)connection;
+		List<Object> result = redisTemplate.executePipelined((RedisCallback<String>) connection -> {
+			StringRedisConnection src = (StringRedisConnection)connection;
 
-				for (String k : keys) {
-					src.get(k);
-				}
-				return null;
+			for (String k : keys) {
+				src.get(k);
 			}
+			return null;
 		});
 
 		return result;
