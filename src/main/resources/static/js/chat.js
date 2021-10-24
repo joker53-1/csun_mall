@@ -177,6 +177,7 @@ function showMessage(messageInfo) {
                     </div>
                 </div>`;
     }
+
     $("#show_content_admin").append(span);
 
 
@@ -227,6 +228,7 @@ function slideBottom(){
 function renderChat() {
     $.get("/message/page/" + getMessageId(), function (res) {
         let dataList = res.body.dataList;
+        $("#show_content_admin").html("");
         for (let index in dataList) {
             showMessage(dataList[index])
         }

@@ -18,7 +18,7 @@ import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.List;
 
-@RequestMapping("role")
+@RequestMapping("/api/role")
 @Api(tags = "后台用户角色管理")
 @RestController
 @Slf4j

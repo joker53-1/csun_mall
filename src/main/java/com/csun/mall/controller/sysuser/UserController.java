@@ -23,7 +23,7 @@ import springfox.documentation.annotations.ApiIgnore;
 import javax.annotation.Resource;
 import java.util.List;
 
-@RequestMapping("user")
+@RequestMapping("/api/user")
 @Api(tags = "后台用户管理")
 @RestController
 @Slf4j

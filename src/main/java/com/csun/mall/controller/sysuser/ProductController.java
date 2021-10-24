@@ -21,7 +21,7 @@ import java.util.List;
  * @create 2021/9/2 14:38
  */
 @RestController
-@RequestMapping("product")
+@RequestMapping("/api/product")
 @Api(tags = "后台商品管理")
 public class ProductController {
     @Autowired

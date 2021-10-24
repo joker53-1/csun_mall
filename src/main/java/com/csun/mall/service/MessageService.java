@@ -58,4 +58,12 @@ public class MessageService {
     public PageResult<MessageDTO> page(Long replyId, PageParam param) {
         return PageResult.from(param,()->messageMapper.page(replyId));
     }
+
+    public int changeServiceId(Long messageId,Long serviceId){
+        Message message = messageMapper.selectByPrimaryKey(messageId);
+        Message newMessage = new Message();
+        newMessage.setId(message.getId());
+        newMessage.setReplyUserId(serviceId);
+        return messageMapper.updateByPrimaryKeySelective(newMessage);
+    }
 }

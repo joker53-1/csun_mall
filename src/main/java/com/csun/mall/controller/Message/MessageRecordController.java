@@ -38,23 +38,11 @@ public class MessageRecordController {
     public ResponseData addUserId(Long messageId,Long userId,HttpServletRequest request){
 
 
-        if(messageId!=null){
-            return ResponseData.success(messageRecordService.addUserId(messageId,userId,request));
+        return ResponseData.success(messageRecordService.addUserId(messageId,userId,request));
 
-        }
-        return ResponseData.success();
     }
 
-    @PutMapping("changeserviceid")
-    public ResponseData change(Long messageId,Long replyId){
-        if(messageRecordService.changeServiceId(messageId,replyId)>0){
-            return ResponseData.success();
-        }
-        else
-        {
-            return ResponseData.failure();
-        }
-    }
+
 
     @GetMapping("page/{messageId}")
     public ResponseData<PageResult<MessageRecoreDTO>> commit(@PathVariable Long messageId, PageParam param) {

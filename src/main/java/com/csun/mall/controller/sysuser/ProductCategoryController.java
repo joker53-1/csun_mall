@@ -19,7 +19,7 @@ import java.util.List;
  * @create 2021/9/15 15:54
  */
 @RestController
-@RequestMapping("productCategory")
+@RequestMapping("/api/productCategory")
 @Api(tags = "后台商品分类管理")
 public class ProductCategoryController {
     @Autowired

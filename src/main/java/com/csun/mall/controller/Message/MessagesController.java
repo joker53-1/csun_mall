@@ -10,6 +10,7 @@ import com.csun.mall.web.response.ResponseData;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -30,11 +31,11 @@ public class MessagesController {
 //        return null;
 //    }
 //
-    @MessageMapping("/subscribe")
-    @SendTo("/topic/subscribe")
-    public String handleSubscribe(MessageRO messageRO) {
-        return messageRO.getMessage();
-    }
+//    @MessageMapping("/subscribe")
+//    @SendTo("/topic/subscribe")
+//    public String handleSubscribe(MessageRO messageRO) {
+//        return messageRO.getMessage();
+//    }
 //
 //    // 消息异常
 //    @MessageExceptionHandler(Exception.class)
@@ -64,6 +65,18 @@ public class MessagesController {
         PageResult<MessageDTO> page = messageService.page(replyId, param);
         return ResponseData.success(page);
 
+    }
+
+
+    @PutMapping("change")
+    public ResponseData change(Long messageId,Long replyUserId){
+        if(messageService.changeServiceId(messageId,replyUserId)>0){
+            return ResponseData.success();
+        }
+        else
+        {
+            return ResponseData.failure();
+        }
     }
 }
 

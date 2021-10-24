@@ -13,11 +13,14 @@ import com.csun.mall.web.response.PageParam;
 import com.csun.mall.web.response.PageResult;
 import com.github.pagehelper.PageHelper;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Objects;
 
 
 @Slf4j
@@ -42,33 +45,42 @@ public class MessageRecordService {
     }
 
     public Long addUserId(Long messageId, Long userId, HttpServletRequest request){
+        if(messageId==null){
+            Example example = new Example(Message.class);
+            example.createCriteria().andEqualTo("userId",userId);
+            Message message = messageMapper.selectOneByExample(example);
+            if(ObjectUtils.isEmpty(message)){
+                CsrMember csrMember = csrMemberMapper.selectByPrimaryKey(userId);
+                Message newMessage = Message.builder().userId(userId).replyUserId(0L).name(csrMember.getUsername()).deviceId(CookieTool.getCookieValue(request, "device_id")).unreadNumber(0).build();
+                messageMapper.insert(newMessage);
+                return newMessage.getId();
+            }
+            else {
+                return message.getId();
+            }
+
+        }
+
         Message message = messageMapper.selectByPrimaryKey(messageId);
+
         if(message.getUserId()==null){
             message.setUserId(userId);
             messageMapper.updateByPrimaryKey(message);
             return message.getId();
         }
-        else if(message.getUserId().equals(userId))
-        {
+        else if(message.getUserId().equals(userId)) {
             return message.getId();
-        }
-        else {
+        } else {
             CsrMember csrMember = csrMemberMapper.selectByPrimaryKey(userId);
             Message newMessage = Message.builder().userId(userId).replyUserId(0L).name(csrMember.getUsername()).deviceId(CookieTool.getCookieValue(request, "device_id")).unreadNumber(0).build();
-            messageMapper.insert(message);
+            messageMapper.insert(newMessage);
             return newMessage.getId();
         }
 
 
     }
 
-    public int changeServiceId(Long messageId,Long serviceId){
-        Message message = messageMapper.selectByPrimaryKey(messageId);
-        Message newMessage = new Message();
-        newMessage.setId(message.getId());
-        newMessage.setReplyUserId(serviceId);
-        return messageMapper.updateByPrimaryKeySelective(newMessage);
-    }
+
 
     public void addRecord(MessageRecord message) {
         messageRecordMapper.insert(message);
@@ -96,4 +108,8 @@ public class MessageRecordService {
         return PageResult.from(page, MessageRecoreDTO.class);
     }
 
+    public static void main(String[] args) {
+        Message message =new Message();
+        System.out.println(message.getId()==null);
+    }
 }

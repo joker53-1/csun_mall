@@ -19,7 +19,7 @@ import java.util.List;
  */
 @RestController
 @Api(tags = "商品属性管理")
-@RequestMapping("/productAttribute")
+@RequestMapping("/api/productAttribute")
 public class ProductAttributeController {
     @Autowired
     private ProductAttributeService productAttributeService;
