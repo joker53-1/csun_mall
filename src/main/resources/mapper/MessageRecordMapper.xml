@@ -22,21 +22,21 @@
     ORDER BY send_time desc
   </select>
 
-  <select id="pageAll" resultType="com.csun.mall.pojo.dto.MessageRecoreDTO" >
-    select mr.id, mr.message_id as messageId, mr.reply_user_id as replyUserId,su.nick_name as replyUserName, mr.message,mr.type, mr.send_time as sendTime
-    from message m
-        left join message_record mr on m.id=mr.message_id
-           left join sys_user su on mr.reply_user_id = su.id
-    <where>
-        <if test="replyUserId != null">
-          m.reply_user_id = #{replyUserId}
-        </if>
-        <if test="messageLike !=null">
-          and mr.message like CONCAT('%',#{messageLike},'%')
-        </if>
-    </where>
-    group by mr.message_id
-    having mr.send_time = max(mr.send_time)
-    ORDER BY send_time desc
-  </select>
+<!--  <select id="pageAll" resultType="com.csun.mall.pojo.dto.MessageRecoreDTO" >-->
+<!--    select mr.id, mr.message_id as messageId, mr.reply_user_id as replyUserId,su.nick_name as replyUserName, mr.message,mr.type, mr.send_time as sendTime-->
+<!--    from message m-->
+<!--        left join message_record mr on m.id=mr.message_id-->
+<!--           left join sys_user su on mr.reply_user_id = su.id-->
+<!--    <where>-->
+<!--        <if test="replyUserId != null">-->
+<!--          m.reply_user_id = #{replyUserId}-->
+<!--        </if>-->
+<!--        <if test="messageLike !=null">-->
+<!--          and mr.message like CONCAT('%',#{messageLike},'%')-->
+<!--        </if>-->
+<!--    </where>-->
+<!--    group by mr.message_id-->
+<!--    having mr.send_time = max(mr.send_time)-->
+<!--    ORDER BY send_time desc-->
+<!--  </select>-->
 </mapper>

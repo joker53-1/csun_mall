@@ -11,6 +11,6 @@ public interface MessageRecordMapper extends BaseMapper<MessageRecord> {
 
     List<MessageRecoreDTO> page(@Param("messageId") Long messageId);
 
-    List<MessageRecoreDTO> pageAll(@Param("replyUserId") Long replyId, @Param("messageLike") String messageLike);
+//    List<MessageRecoreDTO> pageAll(@Param("replyUserId") Long replyId, @Param("messageLike") String messageLike);
 
 }

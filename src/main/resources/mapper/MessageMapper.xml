@@ -15,7 +15,7 @@
         <result column="unread_number" property="unreadNumber" jdbcType="INTEGER"/>
     </resultMap>
     <select id="page" resultType="com.csun.mall.pojo.dto.MessageDTO">
-        SELECT m.id, device_id deviceId, m.email, topic, m.user_id userId, m.reply_user_id replyUserId,su.nick_name as replyUserName, unread_number unreadNumber, if(cm.username = null,cm.username,m.name) as userName,mr.message as lastMessageRecord
+        SELECT m.id, device_id deviceId, cm.email, topic, m.user_id userId, m.reply_user_id replyUserId,su.nick_name as replyUserName, unread_number unreadNumber, if(cm.username = null,cm.username,m.name) as userName,mr.message as lastMessageRecord
         FROM message m
         LEFT JOIN message_record mr ON m.id = mr.message_id
         LEFT JOIN csr_member cm ON m.user_id = cm.id
@@ -23,6 +23,6 @@
         where
         mr.id in (select max(id) from message_record group by message_id )
         <if test="replyUserId != null">and m.reply_user_id=#{replyUserId}</if>
-
+        <if test="isUnRead==1">and m.unread_number!=0</if>
     </select>
 </mapper>

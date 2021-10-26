@@ -19,6 +19,8 @@ import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -46,23 +48,18 @@ public class MessageRecordService {
 
     public Long addUserId(Long messageId, Long userId, HttpServletRequest request){
         Message message = messageMapper.selectByPrimaryKey(messageId);
-        if(message==null){
-            Example example = new Example(Message.class);
-            example.createCriteria().andEqualTo("userId",userId);
-            Message messageByUserId = messageMapper.selectOneByExample(example);
-            int i=0;
-            if(messageByUserId==null){
-                CsrMember csrMember = csrMemberMapper.selectByPrimaryKey(userId);
-                Message newMessage = Message.builder().userId(userId).replyUserId(0L).name(csrMember.getUsername()).deviceId(CookieTool.getCookieValue(request, "device_id")).unreadNumber(0).build();
-                messageMapper.insert(newMessage);
-                return newMessage.getId();
-            }
-            else {
-                return messageByUserId.getId();
-            }
-
+        Example example = new Example(Message.class);
+        example.createCriteria().andEqualTo("userId",userId);
+        Message messageByUserId = messageMapper.selectOneByExample(example);
+        if(messageByUserId!=null){
+            return messageByUserId.getId();
         }
-
+        if(message==null){
+            CsrMember csrMember = csrMemberMapper.selectByPrimaryKey(userId);
+            Message newMessage = Message.builder().userId(userId).replyUserId(0L).name(csrMember.getUsername()).deviceId(CookieTool.getCookieValue(request, "device_id")).unreadNumber(0).build();
+            messageMapper.insert(newMessage);
+            return newMessage.getId();
+        }
 
         if (message.getUserId() == null) {
             message.setUserId(userId);
@@ -76,7 +73,6 @@ public class MessageRecordService {
             messageMapper.insert(newMessage);
             return newMessage.getId();
         }
-
 
 
     }
@@ -100,14 +96,15 @@ public class MessageRecordService {
     public PageResult<MessageRecoreDTO> page(Long messageId, PageParam param) {
         PageHelper.startPage(param.getPageNum(), param.getPageSize());
         List<MessageRecoreDTO> page = messageRecordMapper.page(messageId);
+        Collections.reverse(page);
         return PageResult.from(page, MessageRecoreDTO.class);
     }
 
-    public PageResult<MessageRecoreDTO> page(Long replyId, String messageLike, PageParam param){
-        PageHelper.startPage(param.getPageNum(), param.getPageSize());
-        List<MessageRecoreDTO> page = messageRecordMapper.pageAll(replyId,messageLike);
-        return PageResult.from(page, MessageRecoreDTO.class);
-    }
+//    public PageResult<MessageRecoreDTO> page(Long replyId, String messageLike, PageParam param){
+//        PageHelper.startPage(param.getPageNum(), param.getPageSize());
+//        List<MessageRecoreDTO> page = messageRecordMapper.pageAll(replyId,messageLike);
+//        return PageResult.from(page, MessageRecoreDTO.class);
+//    }
 
     public static void main(String[] args) {
         Message message =new Message();

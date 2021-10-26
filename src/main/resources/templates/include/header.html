@@ -269,12 +269,12 @@
                                                                 <a href="javascript:" class="cart-clear-item" onclick="delet_all(this)" th:text="#{co_remove_all}">Remove all
                                                                     items</a>
                                                             </div>
-<!--                                                            <div class="shopping-cart-footer-text-row">-->
-<!--                                                                <button class="btn btn-1 btn-cart-footer" type="submit"-->
-<!--                                                                        name="checkout">-->
-<!--                                                                    <span class="btn-label">Checkout</span>-->
-<!--                                                                </button>-->
-<!--                                                            </div>-->
+                                                            <div class="shopping-cart-footer-text-row">
+                                                                <button class="btn btn-1 btn-cart-footer" type="submit"
+                                                                        name="checkout">
+                                                                    <span class="btn-label">Checkout</span>
+                                                                </button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -314,11 +314,14 @@
                                                     type: 'PUT',
                                                     data:res,
                                                     success: function(response) {
-                                                        $('#shopping_cart_body').html('');
-                                                        load_shopcartBody();
-                                                        toastr.success("修改成功")
-
+                                                        if(response.status === "SUCCESS") {
+                                                            $('#shopping_cart_body').html('');
+                                                            load_shopcartBody();
+                                                        }
+                                                        else
+                                                            toastr.error("修改失败")
                                                     }
+
                                                 });
 
                                             }

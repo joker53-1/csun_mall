@@ -73,8 +73,9 @@ public class RoleController {
     @GetMapping(value = "/page")
     @PreAuthorize("hasAnyAuthority('USER','USER_LIST')")
     public ResponseData<PageResult<SysRoleDTO>> page(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
-                                                     @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize) {
-        PageResult<SysRoleDTO> list = sysRoleService.page(pageNum, pageSize);
+                                                     @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize,
+                                                     String keyword) {
+        PageResult<SysRoleDTO> list = sysRoleService.page(pageNum, pageSize,keyword);
         return ResponseData.success(list);
     }
 

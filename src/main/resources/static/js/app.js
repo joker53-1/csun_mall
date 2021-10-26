@@ -25,6 +25,7 @@ $(function () {
 //自定义校验规则
 
 
+
     $("#sign_in").validate({
                 rules:{
                     keyword:{
@@ -243,32 +244,10 @@ $(function () {
         return false
     })
 
-    $("#add_cart").click(function (){
-        let user = localStorage.getItem("user");
-        if(user== null || user == undefined || user == '')
-            window.location.href="/index/login";
-        var cart = {
-            "memberId":JSON.parse(user).id,
-            "productId":$("#product_id").val(),
-            "count":$("#quantity").val()
-        }
-        // console.log(cart.memberId)
-        $.post("/customer/shopcart/add",cart,function (data) {
-            if(data.status === "SUCCESS"){
 
-                $.get("/customer/shopcart/getcartproductnum", {'memberId':JSON.parse(user).id}, function (data){
-                    if (data.status === "SUCCESS") {
-                        $("#cart_number").html('')
-                        $("#cart_number").append(data.body)
-                    }
-                })
-                toastr.success("添加成功")
-            }
-            else{
-                alert(data.msg)
-            }
-        })
-        return false
+    $("#add_cart").click(function (){
+
+        addCart($("#product_id").val(),$("#quantity").val())
     })
 
     $("#captcha_img").click(function () {
@@ -276,3 +255,33 @@ $(function () {
     })
 
 });
+
+function addCart(productId,count){
+    let user = localStorage.getItem("user");
+    if(user== null || user == undefined || user == '')
+        window.location.href="/index/login";
+    let cart = {
+        "memberId":JSON.parse(user).id,
+        "productId":productId,
+        "count":count
+    }
+    // console.log(cart.memberId)
+    $.post("/customer/shopcart/add",cart,function (data) {
+        if(data.status === "SUCCESS"){
+
+            $.get("/customer/shopcart/getcartproductnum", {'memberId':JSON.parse(user).id}, function (data){
+                if (data.status === "SUCCESS") {
+                    $("#cart_number").html('')
+                    $("#cart_number").append(data.body)
+                }
+            })
+            toastr.success("添加成功")
+        }
+        else{
+
+            toastr.error("添加失败")
+            console.log(data.msg)
+        }
+    })
+    return false
+}

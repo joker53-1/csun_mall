@@ -168,9 +168,8 @@
                                                         <div class="products-all-body-section-item-wrapper">
                                                             <div class="products-all-body-section-item-wrapper-head">
                                                                 <div class="products-all-body-section-item-wrapper-head-img">
-                                                                    <img th:src="@{${product.pic[0]}}" alt="" width="150" height="150">
-                                                                    <a th:href="@{'/product?id='+ ${product.id}}"></a>
-
+                                                                    <a th:href="@{'/product?id='+ ${product.id}}">
+                                                                        <img th:src="@{${product.pic[0]}}" alt="" width="150" height="150"></a>
                                                                     <div class="cart-button" >
                                                                         <div class="btn-quick-view">
                                                                         <span class="svg-element-ui">
@@ -184,9 +183,12 @@
                                                                 </div>
                                                             </div>
                                                             <div class="products-all-body-section-item-wrapper-body">
+
+<!--                                                                <a th:href="@{'/product?id='+ ${product.id}}"></a>-->
                                                                 <div class="products-all-body-section-item-wrapper-body-row">
+
                                                                     <p class="products-all-row-name">
-                                                                        <a href="" th:text="${product.name}"></a>
+                                                                        <a th:href="@{'/product?id='+ ${product.id}}" th:text="${product.name}"></a>
                                                                     </p>
                                                                     <p class="products-all-row-price">
                                                                         <span class="price-sale" th:text="'$'+${product.price}"></span>
@@ -199,7 +201,7 @@
                                                             <div class="products-all-body-section-item-wrapper-footer">
                                                                 <div class="products-all-body-section-item-wrapper-footer-item">
                                                                     <form action="" class="products-all-body-footer-item-form">
-                                                                        <button class="btn-products-all btn-1 butt">
+                                                                        <button class="btn-products-all btn-1 butt" th:onclick="|addCart(${product.id},1)|">
                                                                             <span class="cart-btn-label" th:text="#{co_add_to_cart}">Add to cart</span>
                                                                         </button>
                                                                     </form>

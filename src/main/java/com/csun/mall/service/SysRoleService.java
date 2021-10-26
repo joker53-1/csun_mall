@@ -6,6 +6,7 @@ import com.csun.mall.mapper.*;
 import com.csun.mall.pojo.dto.SysRoleDTO;
 import com.csun.mall.web.response.PageResult;
 import com.github.pagehelper.PageHelper;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
@@ -100,9 +101,16 @@ public class SysRoleService {
     /**
      * 分页获取角色列表
      */
-    public PageResult<SysRoleDTO> page(Integer pageNum, Integer pageSize) {
+    public PageResult<SysRoleDTO> page(Integer pageNum, Integer pageSize,String keyword) {
         PageHelper.startPage(pageNum, pageSize);
-        List<SysRole> list = sysRoleMapper.selectAll();
+        List<SysRole> list;
+        if(StringUtils.isNotEmpty(keyword)) {
+            Example example = new Example(SysRole.class);
+            example.createCriteria().andLike("name", "%" + keyword + "%");
+             list= sysRoleMapper.selectByExample(example);
+        }else {
+            list = sysRoleMapper.selectAll();
+        }
         return PageResult.from(list, SysRoleDTO.class);
     }
 

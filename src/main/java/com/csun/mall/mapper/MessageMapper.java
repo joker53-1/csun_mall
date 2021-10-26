@@ -8,5 +8,5 @@ import com.csun.mall.pojo.dto.MessageRecoreDTO;
 import java.util.List;
 
 public interface MessageMapper extends BaseMapper<Message> {
-    List<MessageDTO> page(Long replyUserId);
+    List<MessageDTO> page(Long replyUserId,boolean isUnRead);
 }

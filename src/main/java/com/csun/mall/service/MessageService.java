@@ -55,8 +55,8 @@ public class MessageService {
     }
 
 
-    public PageResult<MessageDTO> page(Long replyId, PageParam param) {
-        return PageResult.from(param,()->messageMapper.page(replyId));
+    public PageResult<MessageDTO> page(Long replyId, boolean isUnRead, PageParam param) {
+        return PageResult.from(param,()->messageMapper.page(replyId,isUnRead));
     }
 
     public int changeServiceId(Long messageId,Long serviceId){

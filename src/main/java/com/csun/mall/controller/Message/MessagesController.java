@@ -60,9 +60,9 @@ public class MessagesController {
     }
 
     @GetMapping("page")
-    public ResponseData<PageResult<MessageDTO>> page(Long replyId, PageParam param){
+    public ResponseData<PageResult<MessageDTO>> page(Long replyId, boolean isUnRead,PageParam param){
 
-        PageResult<MessageDTO> page = messageService.page(replyId, param);
+        PageResult<MessageDTO> page = messageService.page(replyId,isUnRead, param);
         return ResponseData.success(page);
 
     }

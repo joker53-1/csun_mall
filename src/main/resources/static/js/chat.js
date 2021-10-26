@@ -27,6 +27,8 @@ $(function () {
             set: function (newValue) {
                 if (newValue) {
                     document.getElementById("chatLogin").style.display = "flex"
+                    document.getElementById("chatLine").style.display="none"
+                    document.getElementById("chatEnter").style.display="none"
                 } else {
                     document.getElementById("chatLogin").style.display = "none"
                 }
