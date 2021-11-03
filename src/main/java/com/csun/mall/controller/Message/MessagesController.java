@@ -77,5 +77,14 @@ public class MessagesController {
             return ResponseData.failure();
         }
     }
+
+    @GetMapping("isMessageExist")
+    public ResponseData isMessageExist(Long messageId){
+        if(messageService.isMessageExist(messageId)){
+            return ResponseData.success();
+        }
+        else
+            return ResponseData.failure();
+    }
 }
 

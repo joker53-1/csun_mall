@@ -11,4 +11,5 @@ import java.util.List;
  */
 public interface ShopCartDaoMapper {
     List<ShopCartDTO> getcartList(@Param("memberId") Long memberId);
+    List<ShopCartDTO> getcartListByCartId(@Param("memberId") Long memberId,@Param("cartIds") List<Long> cartIds);
 }

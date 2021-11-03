@@ -4,11 +4,14 @@ import cn.hutool.captcha.CaptchaUtil;
 import cn.hutool.captcha.ShearCaptcha;
 import cn.hutool.captcha.generator.RandomGenerator;
 import cn.hutool.core.io.IoUtil;
+import com.csun.mall.controller.portal.interceptor.UserTokenInterceptor;
+import com.csun.mall.domain.CsrMember;
 import com.csun.mall.domain.ProductCategory;
 import com.csun.mall.domain.ProductLadderPrice;
 import com.csun.mall.pojo.dto.ProductCategoryWithChildren;
 import com.csun.mall.pojo.dto.ProductsDTO;
 import com.csun.mall.service.CategoryService;
+import com.csun.mall.service.CsrMemberService;
 import com.csun.mall.service.PriceService;
 import com.csun.mall.service.ProductService;
 import org.apache.commons.lang3.ObjectUtils;
@@ -42,6 +45,8 @@ public class IndexController {
 
     @Autowired
     private PriceService priceService;
+
+
 
     @GetMapping("/index/registry")
     public String toRegistry(){
@@ -143,4 +148,5 @@ public class IndexController {
         request.getSession().setAttribute("captcha", captcha.getCode());
         IoUtil.write(response.getOutputStream(), true, captcha.getImageBytes());
     }
+
 }

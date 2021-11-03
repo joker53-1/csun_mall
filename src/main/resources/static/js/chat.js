@@ -31,6 +31,8 @@ $(function () {
                     document.getElementById("chatEnter").style.display="none"
                 } else {
                     document.getElementById("chatLogin").style.display = "none"
+                    document.getElementById("chatLine").style.display="flex"
+                    document.getElementById("chatEnter").style.display="flex"
                 }
             },
             get: function () {
@@ -42,6 +44,7 @@ $(function () {
             set: function (newValue) {
                 if (newValue) {
                     document.getElementById("chatMain").style.display = "flex"
+
                 } else {
                     document.getElementById("chatMain").style.display = "none"
                 }

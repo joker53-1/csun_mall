@@ -59,7 +59,7 @@ public class ProductCategoryController {
 
     @ApiOperation("删除商品分类")
     @DeleteMapping(value = "/delete")
-    public ResponseData delete(@PathVariable Long id) {
+    public ResponseData delete(Long id) {
         int count = categoryService.delete(id);
         if (count > 0) {
             return ResponseData.success(count);

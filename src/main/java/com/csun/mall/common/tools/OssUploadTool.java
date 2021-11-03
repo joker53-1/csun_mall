@@ -2,8 +2,10 @@ package com.csun.mall.common.tools;
 
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
+import com.aliyun.oss.OSSException;
 import com.aliyun.oss.model.PutObjectResult;
 import com.csun.mall.common.config.OssConfig;
+//import com.csun.mall.web.exception.WebExceptionHandler;
 import org.assertj.core.annotations.Beta;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -28,21 +30,26 @@ public class OssUploadTool {
 
     public String uploadOss(MultipartFile fileUpdate) {
         OSS ossClient = new OSSClientBuilder().build(ossConfig.getEndpoint(), ossConfig.getAccessKeyId(), ossConfig.getAccessKeySecret());
-        String path = String.format("%s/", "mall");
+        String path = "mall/"+String.format("%s/",  new SimpleDateFormat("yyyy/MM/dd").format(new Date()));
+        boolean exist=false;
         try {
-            System.out.println(path + fileUpdate.getOriginalFilename());
-            boolean exist = ossClient.doesObjectExist("ceeg-global-bidding", path + fileUpdate.getOriginalFilename());
+//            System.out.println(path + fileUpdate.getOriginalFilename());
+            exist= ossClient.doesObjectExist("ceeg-global-bidding", path + fileUpdate.getOriginalFilename());
             if (exist) {
                 path = path + UUID.randomUUID() + "/";
             }
-            PutObjectResult putObjectResult = ossClient.putObject("ceeg-global-bidding", path + fileUpdate.getOriginalFilename(), fileUpdate.getInputStream());
         } catch (Exception e) {
-            e.printStackTrace();
+//             throw new OSSException();
         } finally {
+            try {
+                PutObjectResult putObjectResult = ossClient.putObject("ceeg-global-bidding", path + fileUpdate.getOriginalFilename(), fileUpdate.getInputStream());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             ossClient.shutdown();
         }
 
-        return path+fileUpdate.getOriginalFilename();
+        return "https://ceeg-global-bidding.oss-cn-beijing.aliyuncs.com/"+path+fileUpdate.getOriginalFilename();
 
     }
 }

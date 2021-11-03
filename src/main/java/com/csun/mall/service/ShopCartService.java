@@ -66,7 +66,7 @@ public class ShopCartService {
 
 
 
-    public int update(Long id, Integer count){
+    public BigDecimal update(Long id, Integer count){
         CsrMemberCart cart = cartMapper.selectByPrimaryKey(id);
         if (cart != null) {
             CsrMemberCart newCart = new CsrMemberCart();
@@ -74,9 +74,11 @@ public class ShopCartService {
             newCart.setQuantity(count);
             newCart.setCurPrice(calculatePrice(cart.getProductId(),count));
             newCart.setUpdateTime(new Date());
-            return cartMapper.updateByPrimaryKeySelective(newCart);
+            if(cartMapper.updateByPrimaryKeySelective(newCart)>0){
+                return newCart.getCurPrice();
+            }
         }
-        return -1;
+        return new BigDecimal(-1);
     }
 
     public int deleteProduct(List<Long> ids){

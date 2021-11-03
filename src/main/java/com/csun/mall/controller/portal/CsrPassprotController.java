@@ -2,6 +2,7 @@ package com.csun.mall.controller.portal;
 
 import com.csun.mall.common.constant.SYS_CONSTANT;
 import com.csun.mall.common.tools.*;
+import com.csun.mall.controller.portal.interceptor.UserTokenInterceptor;
 import com.csun.mall.domain.*;
 import com.csun.mall.pojo.dto.CsrMemberDTO;
 import com.csun.mall.service.CsrDeviceService;
@@ -13,12 +14,14 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.LocaleUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Locale;
+import java.util.UUID;
 
 /**
  * @Author Joker Zheng
@@ -28,6 +31,8 @@ import java.util.Locale;
 @RestController
 @RequestMapping("customer/passport")
 public class CsrPassprotController {
+
+    public static final String REDIS_USER_TOKEN = "mall_token_";
 
     private static final String USER_PRE = "user_";
 
@@ -134,6 +139,8 @@ public class CsrPassprotController {
         csrMemberDTO.setDeviceId(deviceId);
         csrMemberDTO.setToken(token.getToken());
         CookieTool.setCookie(request,response,"user_token",token.getToken());
+        redisOperator.set(REDIS_USER_TOKEN+":"+csrMemberDTO.getToken(),
+                String.valueOf(csrMemberDTO.getId()));
         return ResponseData.success(csrMemberDTO);
     }
 
@@ -142,13 +149,30 @@ public class CsrPassprotController {
     @PostMapping("/logout")
     public ResponseData logout(HttpServletRequest request,
                              HttpServletResponse response){
-        String tokenStr = request.getHeader(SYS_CONSTANT.HEADER_TOKEN);
+        String tokenStr = CookieTool.getCookieValue(request,"user_token");
         CsrMemberToken loginToken=null;
         if (StringUtils.isNotBlank(tokenStr)) {
             loginToken=csrMemberService.getToken(tokenStr);
         }
         csrMemberService.revokeUserToken(loginToken);
+        CookieTool.deleteCookie(request,response,"user_token");
+        redisOperator.del(REDIS_USER_TOKEN+":"+tokenStr);
         return ResponseData.success();
     }
+
+    @GetMapping("getUserId")
+    public ResponseData<CsrMemberDTO> getUserByToken(HttpServletRequest request){
+        String tokenStr = CookieTool.getCookieValue(request,"user_token");
+        Long memberId = Long.parseLong(redisOperator.get(REDIS_USER_TOKEN+":"+tokenStr));
+        CsrMember member = csrMemberService.queryMemberById(memberId);
+
+        CsrMemberDTO csrMemberDTO = PojoConvertTool.convert(member,CsrMemberDTO.class);
+        if(csrMemberDTO!=null){
+            return ResponseData.success(csrMemberDTO);
+        }
+        return ResponseData.failure();
+    }
+
+
 
 }

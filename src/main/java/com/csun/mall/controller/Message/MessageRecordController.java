@@ -1,6 +1,7 @@
 package com.csun.mall.controller.Message;
 
 import com.csun.mall.common.tools.CookieTool;
+import com.csun.mall.controller.portal.interceptor.UserTokenInterceptor;
 import com.csun.mall.domain.Message;
 import com.csun.mall.pojo.dto.MessageRecoreDTO;
 import com.csun.mall.service.MessageRecordService;
@@ -36,9 +37,14 @@ public class MessageRecordController {
 
     @PutMapping("adduserid")
     public ResponseData addUserId(Long messageId,Long userId,HttpServletRequest request){
-
-
-        return ResponseData.success(messageRecordService.addUserId(messageId,userId,request));
+        if(userId==null){
+            userId = UserTokenInterceptor.userId.get();
+        }
+        Long res = messageRecordService.addUserId(messageId,userId,request);
+        if(res==-1L){
+            return ResponseData.failure();
+        }
+        return ResponseData.success(res);
 
     }
 

@@ -245,6 +245,7 @@ $(function () {
     })
 
 
+
     $("#add_cart").click(function (){
 
         addCart($("#product_id").val(),$("#quantity").val())
@@ -257,11 +258,11 @@ $(function () {
 });
 
 function addCart(productId,count){
-    let user = localStorage.getItem("user");
-    if(user== null || user == undefined || user == '')
-        window.location.href="/index/login";
+    // let user = localStorage.getItem("user");
+    // if(user== null || user == undefined || user == '')
+    //     window.location.href="/index/login";
     let cart = {
-        "memberId":JSON.parse(user).id,
+        // 'memberId':JSON.parse(user).id,
         "productId":productId,
         "count":count
     }
@@ -269,7 +270,7 @@ function addCart(productId,count){
     $.post("/customer/shopcart/add",cart,function (data) {
         if(data.status === "SUCCESS"){
 
-            $.get("/customer/shopcart/getcartproductnum", {'memberId':JSON.parse(user).id}, function (data){
+            $.get("/customer/shopcart/getcartproductnum", function (data){
                 if (data.status === "SUCCESS") {
                     $("#cart_number").html('')
                     $("#cart_number").append(data.body)
@@ -279,7 +280,8 @@ function addCart(productId,count){
         }
         else{
 
-            toastr.error("添加失败")
+            window.location.href="/index/login";
+            // toastr.error("添加失败")
             console.log(data.msg)
         }
     })

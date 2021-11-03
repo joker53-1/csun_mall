@@ -9,14 +9,14 @@
 //import org.springframework.web.bind.annotation.ExceptionHandler;
 //import org.springframework.web.bind.annotation.ResponseBody;
 //
-////@ControllerAdvice
+//@ControllerAdvice
 //public class WebExceptionHandler {
 //
 //    /**
 //     *
 //     */
-////    @ResponseBody
-////    @ExceptionHandler(value = Exception.class)
+//    @ResponseBody
+//    @ExceptionHandler(value = Exception.class)
 //    public ResponseData exceptionHandler(Exception e) {
 //        LogManager.getLogger().error(e);
 //        return ResponseData.error(RESPONSE_STATUS.INTERNAL_ERROR);

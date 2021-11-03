@@ -1,6 +1,7 @@
 package com.csun.mall.common.config;
 
 import com.csun.mall.controller.portal.interceptor.DeviceIdInterceptor;
+import com.csun.mall.controller.portal.interceptor.UserTokenInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -23,6 +24,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
         return new DeviceIdInterceptor();
     }
 
+    @Bean
+    public UserTokenInterceptor userTokenInterceptor(){return new UserTokenInterceptor();}
     /**
      * 注册拦截器
      * @param registry
@@ -31,23 +34,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(deviceIdInterceptor())
                 .addPathPatterns("/index/login","/");
-//        registry.addInterceptor(userTokenInterceptor())
-//                .addPathPatterns("/hello")
-//                .addPathPatterns("/shopcart/add")
-//                .addPathPatterns("/shopcart/del")
-//                .addPathPatterns("/address/list")
-//                .addPathPatterns("/address/add")
-//                .addPathPatterns("/address/update")
-//                .addPathPatterns("/address/setDefalut")
-//                .addPathPatterns("/address/delete")
-//                .addPathPatterns("/orders/*")
-//                .addPathPatterns("/center/*")
-//                .addPathPatterns("/userInfo/*")
-//                .addPathPatterns("/myorders/*")
-//                .addPathPatterns("/mycomments/*")
-//                .excludePathPatterns("/myorders/deliver")
-//                .excludePathPatterns("/orders/notifyMerchantOrderPaid");
-
+        registry.addInterceptor(userTokenInterceptor()).addPathPatterns("/customer/shopcart/*","/admin/**","/info","/order/**");
         WebMvcConfigurer.super.addInterceptors(registry);
     }
 }

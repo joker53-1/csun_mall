@@ -1,5 +1,6 @@
 package com.csun.mall.controller.portal;
 
+import com.csun.mall.controller.portal.interceptor.UserTokenInterceptor;
 import com.csun.mall.pojo.dto.ShopCartDTO;
 import com.csun.mall.service.ShopCartService;
 import com.csun.mall.web.response.ResponseData;
@@ -9,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @Author Joker Zheng
@@ -26,7 +29,8 @@ public class ShopcartController {
 
     @GetMapping("list")
     @ResponseBody
-    public ResponseData<List<ShopCartDTO>> list(Long memberId){
+    public ResponseData<List<ShopCartDTO>> list(){
+        Long memberId = UserTokenInterceptor.userId.get();
         if(memberId==null){
             return ResponseData.failure("未登录");
         }
@@ -35,7 +39,8 @@ public class ShopcartController {
 
     @PostMapping("add")
     @ResponseBody
-    public ResponseData add(Long memberId, Long productId, Integer count){
+    public ResponseData add( Long productId, Integer count){
+        Long memberId = UserTokenInterceptor.userId.get();
         if(memberId==null||productId==null||count==null){
             return ResponseData.failure();
         }
@@ -49,12 +54,12 @@ public class ShopcartController {
 
     @PutMapping("update")
     @ResponseBody
-    public ResponseData update(Long id, Integer count){
+    public ResponseData<BigDecimal> update(Long id, Integer count){
         if(id==null||count==null){
             return ResponseData.failure();
         }
-        int res = shopCartService.update(id,count);
-        if (res > 0) {
+        BigDecimal res = shopCartService.update(id,count);
+        if (!Objects.equals(res, new BigDecimal(-1))) {
             return ResponseData.success(res);
         } else {
             return ResponseData.failure();
@@ -78,8 +83,9 @@ public class ShopcartController {
 
     @DeleteMapping("deleteAll")
     @ResponseBody
-    public ResponseData deleteProduct(Long memberId){
-        if(memberId!=null){
+    public ResponseData deleteProduct(){
+        Long memberId = UserTokenInterceptor.userId.get();
+        if(memberId==null){
             return ResponseData.failure();
         }
         int res = shopCartService.deleteProduct(memberId);
@@ -92,7 +98,8 @@ public class ShopcartController {
 
     @GetMapping("getcartproductnum")
     @ResponseBody
-    public ResponseData<Integer> getCartProductCount(Long memberId){
+    public ResponseData<Integer> getCartProductCount(){
+        Long memberId = UserTokenInterceptor.userId.get();
 
         //购物车逻辑
         return ResponseData.success(shopCartService.getCartProductCount(memberId));

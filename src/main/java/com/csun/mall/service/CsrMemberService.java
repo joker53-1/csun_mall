@@ -55,7 +55,9 @@ public class CsrMemberService {
         return result;
     }
     public CsrMember queryMemberById(Long id){
-        return csrMemberMapper.selectByPrimaryKey(id);
+        CsrMember member = csrMemberMapper.selectByPrimaryKey(id);
+        member.setPassword(null);
+        return member;
     }
 
     /**
@@ -129,4 +131,36 @@ public class CsrMemberService {
         userCriteria.andEqualTo("id", loginToken.getId());
         csrMemberTokenMapper.updateByExample(loginToken, example);
     }
+
+    public CsrMember updateInfo(Long id,String nickname, String phone, Integer gender, String city){
+        CsrMember newMember = new CsrMember();
+        newMember.setId(id);
+        newMember.setCity(city);
+        newMember.setPhone(phone);
+        newMember.setGender(gender);
+        newMember.setNickname(nickname);
+        newMember.setUpdateTime(new Date());
+        if(csrMemberMapper.updateByPrimaryKeySelective(newMember)>=0){
+            return queryMemberById(id);
+        }
+        return null;
+    }
+
+    public int change(Long id,String oldPassword,String password){
+        CsrMember csrMember = csrMemberMapper.selectByPrimaryKey(id);
+        if(csrMember!=null) {
+            if (!new BCryptPasswordEncoder().matches(oldPassword, csrMember.getPassword())) {
+                return 0;
+            }
+            else {
+                CsrMember newMember = new CsrMember();
+                newMember.setId(id);
+                newMember.setPassword(new BCryptPasswordEncoder().encode(password));
+                newMember.setUpdateTime(new Date());
+                return csrMemberMapper.updateByPrimaryKeySelective(newMember);
+            }
+        }
+        return -1;
+    }
+
 }

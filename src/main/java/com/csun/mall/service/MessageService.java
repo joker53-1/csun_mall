@@ -66,4 +66,8 @@ public class MessageService {
         newMessage.setReplyUserId(serviceId);
         return messageMapper.updateByPrimaryKeySelective(newMessage);
     }
+
+    public boolean isMessageExist(Long messageId){
+        return messageMapper.selectByPrimaryKey(messageId)!=null?true:false;
+    }
 }

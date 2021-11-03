@@ -35,9 +35,9 @@ public class OssController {
     private OssUploadTool ossUploadTool;
 
     @PostMapping("/file")
-    public ResponseData<String> fileUpload(MultipartFile upload, HttpServletRequest request) {
+    public ResponseData<String> fileUpload(@RequestPart("file") MultipartFile file, HttpServletRequest request) {
 
-        return ResponseData.success(ossUploadTool.uploadOss(upload));
+        return ResponseData.success(ossUploadTool.uploadOss(file));
     }
 
 

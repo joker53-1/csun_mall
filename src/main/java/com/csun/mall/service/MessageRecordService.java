@@ -48,6 +48,14 @@ public class MessageRecordService {
 
     public Long addUserId(Long messageId, Long userId, HttpServletRequest request){
         Message message = messageMapper.selectByPrimaryKey(messageId);
+        if(userId==null){
+            if(message==null){
+                return -1L;
+            }else {
+                return message.getId();
+            }
+        }
+
         Example example = new Example(Message.class);
         example.createCriteria().andEqualTo("userId",userId);
         Message messageByUserId = messageMapper.selectOneByExample(example);
@@ -83,14 +91,14 @@ public class MessageRecordService {
         messageRecordMapper.insert(message);
     }
 
-    public void addRecord(MessageRO messageRO, Message message) {
+    public int addRecord(MessageRO messageRO, Message message) {
         MessageRecord messageRecord = new MessageRecord();
         messageRecord.setMessageId(message.getId());
         messageRecord.setMessage(messageRO.getMessage());
         messageRecord.setType(messageRO.getType());
         messageRecord.setSendTime(messageRO.getSendTime());
         messageRecord.setReplyUserId(message.getReplyUserId());
-        messageRecordMapper.insert(messageRecord);
+        return messageRecordMapper.insert(messageRecord);
     }
 
     public PageResult<MessageRecoreDTO> page(Long messageId, PageParam param) {

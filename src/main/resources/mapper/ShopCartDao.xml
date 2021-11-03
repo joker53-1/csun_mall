@@ -30,4 +30,23 @@
                  left join product_img p on cmc.product_id = p.product_id
         where cmc.member_id=#{memberId} and p.is_main = 1
     </select>
+
+    <select id="getcartListByCartId" resultMap="cartVO">
+        select cmc.id,
+               cmc.member_id,
+               cmc.product_id,
+               cmc.quantity,
+               cmc.cur_price,
+               cmc.create_time,
+               cmc.update_time,
+               pi.name,
+               p.url
+        from csr_member_cart cmc
+                 left join product_item pi on cmc.product_id = pi.id
+                 left join product_img p on cmc.product_id = p.product_id
+        where cmc.member_id=#{memberId} and p.is_main = 1 and cmc.id in
+        <foreach collection="cartIds" index="index" item="cartId" open="(" separator="," close=")">
+            #{cartId}
+        </foreach>
+    </select>
 </mapper>
