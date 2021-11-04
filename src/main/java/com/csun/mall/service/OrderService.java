@@ -81,8 +81,27 @@ public class OrderService {
         return PageResult.from(list);
     }
 
+    public PageResult<OrdersDTO> getOrder( PageParam param){
+        PageHelper.startPage(param.getPageNum(),param.getPageSize());
+        List<OrdersDTO> list = ordersDao.getOrders(null);
+        return PageResult.from(list);
+    }
+
     public List<OrdersDTO> getOrder(Long memberId){
         List<OrdersDTO> list = ordersDao.getOrders(memberId);
         return list;
+    }
+
+    public int changeStatus(Long orderId,int status){
+
+        Orders orders = ordersMapper.selectByPrimaryKey(orderId);
+        if(orders!=null){
+            Orders newOrder = new Orders();
+            newOrder.setId(orderId);
+            newOrder.setStatus(status);
+//            orders.setStatus(status);
+            return ordersMapper.updateByPrimaryKeySelective(newOrder);
+        }
+        return -1;
     }
 }

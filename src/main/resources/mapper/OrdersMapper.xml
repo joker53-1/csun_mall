@@ -10,6 +10,7 @@
     <result column="total_amount" jdbcType="DECIMAL" property="totalAmount" />
     <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
     <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
   </resultMap>
 
 </mapper>

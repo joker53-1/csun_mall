@@ -7,6 +7,7 @@ import com.csun.mall.web.response.ResponseData;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -14,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 public class UserTokenInterceptor implements HandlerInterceptor {
 
@@ -39,8 +42,6 @@ public class UserTokenInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
         String token  = CookieTool.getCookieValue(request,"user_token");
-
-
         if(StringUtils.isNotBlank(token)){
             String uniqueToken = redisOperator.get(REDIS_USER_TOKEN+":"+token);
             if(StringUtils.isBlank(uniqueToken)){

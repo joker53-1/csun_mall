@@ -14,7 +14,9 @@ import java.util.List;
 @Data
 public class OrdersDTO {
     public Long id;
+    private Long memberId;
     public BigDecimal totalAmount;
     public Date createTime;
+    public int status;
     public List<OrderItems> orderItems;
 }

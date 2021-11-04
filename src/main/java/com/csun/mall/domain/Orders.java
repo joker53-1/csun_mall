@@ -36,6 +36,16 @@ public class Orders {
     @Column(name = "updated_time")
     private Date updatedTime;
 
+    private Integer status;
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
     /**
      * 获取订单主键
      *

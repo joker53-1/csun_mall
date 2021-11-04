@@ -3,10 +3,12 @@
 <mapper namespace="com.csun.mall.mapper.OrdersDao">
     <resultMap id="ordersVO" type="com.csun.mall.pojo.dto.OrdersDTO">
         <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="memberId" property="memberId"/>
         <result column="totalAmount" property="totalAmount"/>
         <result column="createTime" property="createTime"/>
+        <result column="status" property="status"/>
         <collection property="orderItems" ofType="com.csun.mall.domain.OrderItems">
-<!--            <id column="id" property="id" jdbcType="BIGINT"/>-->
+            <id column="itemId" property="id" jdbcType="BIGINT"/>
 <!--            <result column="orderId" property="orderId"/>-->
             <result column="productId" property="productId"/>
             <result column="itemImg" property="itemImg"/>
@@ -17,10 +19,11 @@
     </resultMap>
 
     <select id="getOrders" resultMap="ordersVO" parameterType="LONG">
-        select os.id, os.total_amount totalAmount, os.created_time createTime, oi.product_id productId,oi.item_img itemImg,oi.item_name itemName,oi.price price,oi.quantity quantity
+        select os.id, os.member_id memberId,os.total_amount totalAmount, os.created_time createTime,os.status,oi.id itemId,oi.product_id productId,oi.item_img itemImg,oi.item_name itemName,oi.price price,oi.quantity quantity
         from orders os
         left join order_items oi on os.id = oi.order_id
-        where member_id = #{memberId}
+        <if test="memberId !=null">where os.member_id = #{memberId}</if>
+
         order by os.created_time desc
     </select>
 
