@@ -1028,7 +1028,7 @@ p, li, a, i, em, strong, button, input, div, span {
 }
 .footer-container-left{
     display: flex;
-    justify-content: end!important;
+    justify-content: end;
     align-content: end;
 }
 .footer-container-right {
