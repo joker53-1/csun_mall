@@ -5,7 +5,46 @@
             <div class="container">
 
                 <div class="footer-container row ">
-                    <div class="footer-container-left col-md-5  visible-xs visible-md visible-sm visible-lg">
+                    <div class="footer-container-right visible-md visible-lg">
+                        <div class="footer-container-right-row-3">
+                            <div class="footer-container-right-columns columns">
+                                <div class="footer-container-right-columns-left">
+                                    <div class="columns-left-body">
+                                        <h4 th:text="#{co_find_in_fast}">Find It Fast</h4>
+                                        <products-types>
+                                            <div class="columns-left-container">
+                                                <ul class="menu" th:each="productType : ${productTypeList}">
+                                                    <li><a th:href="@{'/productlist?typeCode='+ ${productType.id}}" th:text="${productType.name}">About</a></li>
+                                                </ul>
+                                            </div>
+                                        </products-types>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="columns-center-body columns">
+                                <h4 th:text="#{co_about}">关于我们</h4>
+                                <ul class="menu">
+                                    <li><a href="javascript:" th:text="#{co_about}">About</a></li>
+                                    <li><a href="contact" th:text="#{co_contact}">Contact</a></li>
+                                </ul>
+                            </div>
+                            <div class="columns">
+                                <div class="columns-right-body">
+                                    <h4 th:text="#{co_customer_care}">Customer Care</h4>
+                                    <div class="columns-right-container">
+                                        <ul class="menu">
+                                            <li><a href="javascript:" th:text="#{co_my_account}">My Account</a></li>
+                                            <li><a href="javascript:" th:text="#{co_order_tracking}">Track your Order</a></li>
+                                            <li><a href="javascript:" th:text="#{co_customer_service}">Customer Service</a></li>
+                                            <li><a href="javascript:" th:text="#{co_returns}">Returns/Exchange</a></li>
+                                            <li><a href="javascript:" th:text="#{co_product_support}">Product Support</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-container-left  visible-xs visible-md visible-sm visible-lg">
                         <div class="footer-logo">
                             <img src="../static/pic/logo-1.png" alt="">
                         </div>
@@ -41,45 +80,7 @@
                         </div>
                     </div>
 
-                    <div class="footer-container-right visible-md visible-lg">
-                        <div class="footer-container-right-row-3">
-                            <div class="footer-container-right-columns columns">
-                                <div class="footer-container-right-columns-left">
-                                    <div class="columns-left-body">
-                                        <h4 th:text="#{co_find_in_fast}">Find It Fast</h4>
-                                        <products-types>
-                                        <div class="columns-left-container">
-                                            <ul class="menu" th:each="productType : ${productTypeList}">
-                                                <li><a th:href="@{'/productlist?typeCode='+ ${productType.id}}" th:text="${productType.name}">About</a></li>
-                                            </ul>
-                                        </div>
-                                        </products-types>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="columns-center-body columns">
-                                <h4 th:text="#{co_about}">关于我们</h4>
-                                <ul class="menu">
-                                    <li><a href="javascript:" th:text="#{co_about}">About</a></li>
-                                    <li><a href="contact" th:text="#{co_contact}">Contact</a></li>
-                                </ul>
-                            </div>
-                            <div class="columns">
-                                <div class="columns-right-body">
-                                    <h4 th:text="#{co_customer_care}">Customer Care</h4>
-                                    <div class="columns-right-container">
-                                        <ul class="menu">
-                                            <li><a href="javascript:" th:text="#{co_my_account}">My Account</a></li>
-                                            <li><a href="javascript:" th:text="#{co_order_tracking}">Track your Order</a></li>
-                                            <li><a href="javascript:" th:text="#{co_customer_service}">Customer Service</a></li>
-                                            <li><a href="javascript:" th:text="#{co_returns}">Returns/Exchange</a></li>
-                                            <li><a href="javascript:" th:text="#{co_product_support}">Product Support</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
 
                 <!--                <div class="footer-mobile visible-xs">-->

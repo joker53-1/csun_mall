@@ -52,8 +52,8 @@
 <!--                                    </div>-->
 
                                     <div class="products-all-contain-sidebar-wrapper-body-list-body">
-                                        <ul class="products-all-contain-sidebar-wrapper-body-list-body-ul" th:each="type : ${productTypeList}">
-                                            <li class="products-all-first-li">
+                                        <ul class="products-all-contain-sidebar-wrapper-body-list-body-ul" >
+                                            <li class="products-all-first-li on" th:each="type : ${productTypeList}">
                                                 <a th:href="@{'/productlist?typeCode='+ ${type.id}}" class="products-all-first-li-a" th:text="${type.name}">
                                                 </a>
                                             </li>

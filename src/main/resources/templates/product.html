@@ -62,7 +62,7 @@
                                                         <div class="products-header-leftBottom-outer">
                                                             <div class="product-otherpic">
                                                                 <ul>
-                                                                    <li class="product_otherpic_item"
+                                                                    <li class="product_otherpic_item on"
                                                                         th:each="pic : ${currentProduct.pic}">
                                                                         <img alt="" style="width: 100%; height: auto"
                                                                              th:src="@{${pic}}">
@@ -98,21 +98,27 @@
                                                         <!--                                                            </span>-->
                                                         <!--                                                        </div>-->
                                                         <div class="mulit-price" data-v-0b8f493c="">
-                                                            <div class="mulit-price-title" data-v-0b8f493c=""><p
-                                                                    data-v-0b8f493c=""  th:text="#{co_price}">
+                                                            <div class="mulit-price-title" data-v-0b8f493c="">
+                                                                <p data-v-0b8f493c=""  th:text="#{co_price}+': '">
                                                                 price
-                                                            </p>
-                                                                <p data-v-0b8f493c="" th:text="#{co_starting_batch}">
-                                                                    起批量
-                                                                </p></div>
+                                                                </p>
+<!--                                                                <p data-v-0b8f493c="" th:text="#{co_starting_batch}">-->
+<!--                                                                    起批量-->
+<!--                                                                </p>-->
+                                                            </div>
                                                             <div class="mulit-price-section" data-v-0b8f493c="">
-                                                                <div class="priceItem" data-v-0b8f493c=""
-                                                                     th:each="price:${prices}">
-                                                                    <div class="price-con" data-v-0b8f493c="">
-                                                                        <p class="price" data-v-0b8f493c="" th:text="'$'+${price.price}"></p>
-                                                                    </div>
-                                                                    <div class="min-count" data-v-0b8f493c=""th:text="'≥'+${price.count}">
-                                                                    </div>
+                                                                <p class="products-all-row-price ">
+                                                                    <span class="price-sale " >$100  </span>
+                                                                    <del class="money">$200</del>
+                                                                </p>
+<!--                                                                <div class="priceItem" data-v-0b8f493c=""-->
+<!--                                                                     th:each="price:${prices}">-->
+<!--                                                                    <div class="price-con" data-v-0b8f493c="">-->
+<!--                                                                        -->
+<!--                                                                        <p class="price price-sale" data-v-0b8f493c="" th:text="'$'+${price.price}"></p>-->
+<!--                                                                    </div>-->
+<!--                                                                    <div class="min-count" data-v-0b8f493c=""th:text="'≥'+${price.count}">-->
+<!--                                                                    </div>-->
                                                                 </div>
                                                                 <!--                                                                <div class="priceItem" data-v-0b8f493c="">-->
                                                                 <!--                                                                    <div class="price-con" data-v-0b8f493c=""><p-->
@@ -211,7 +217,7 @@
                                                                     <div class="option-cart">
                                                                         <div class="option-cart-data">
                                                                             <div class="option-cart-data-wrapper">
-                                                                                <label for="quantity" th:text="#{co_quantity}">Quantity</label>
+<!--                                                                                <label for="quantity" th:text="#{co_quantity}">Quantity</label>-->
                                                                                 <div class="option-cart-data-select">
                                                                                     <a href="javascript:void(0);" onclick="changeQuantity(this,'sub')"  class="qty-minus">-</a>
                                                                                     <input type="number" name="quantity" id="quantity" value="1" min="1">
