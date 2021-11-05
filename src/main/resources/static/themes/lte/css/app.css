@@ -1,0 +1,140 @@
+body {
+    font-family: 'Microsoft YaHei';
+}
+
+.nav-sidebar .nav-item p {
+    font-size: 15px;
+}
+
+.nav-sidebar .nav-item .nav-item p {
+    font-size: 12px;
+}
+
+.nav-sidebar .nav-item .nav-item .nav-link {
+    margin-left: 1rem;
+}
+
+.nowrap {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.nowrap_noell {
+    white-space: nowrap;
+}
+
+.readed {
+    color: #888 !important;
+}
+
+.readed a {
+    color: #888 !important;
+}
+
+.readed span {
+    color: #888 !important;
+}
+
+.deleted .deleted-item {
+    text-decoration: line-through;
+}
+
+
+.required {
+    color: red;
+}
+
+.description {
+    margin-bottom: 0;
+    font-size: 12px;
+    color: #b3b3b3;
+}
+
+highlight {
+    color: red;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.grid_table .opt a {
+    color: #666;
+    padding-right: 5px;
+}
+
+.jsgrid-grid-header {
+    overflow-y: hidden;
+}
+
+.jsgrid-grid-body {
+    overflow-y: hidden;
+}
+
+.jsgrid-pager {
+    float: right;
+}
+
+.reason_required_m {
+    color: red;
+}
+
+.customizeTextarea{
+    outline: none;
+    border:0;
+    resize: none
+}
+
+.customizeTextarea::-webkit-scrollbar {
+    width: 2px;
+    background-color: #fff;
+}
+
+.customizeTextarea::-webkit-scrollbar-thumb {
+    background-color: #a5a5a5;
+}
+
+
+.customizeCheckboxDisable input[type="checkbox"] {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 12px;
+    position: relative;
+}
+
+.customizeCheckboxDisable input[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #CACDCF
+}
+
+.customizeCheckboxDisable input[type="checkbox"]:checked::before {
+    content: "\2713";
+    background-color: #2196F3;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border: 1px solid #2196F3;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.reason_required_w {
+    color: red;
+}
+
+.border_dashed {
+    text-align: center;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    border: 1px dashed #aaa;
+}
