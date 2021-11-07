@@ -1,15 +1,19 @@
 package com.csun.mall.domain;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.Id;
 
 public class Configuration {
     @Id
+    @ApiModelProperty(required = true)
     private Long id;
 
+    @ApiModelProperty(hidden = true)
     private String ckey;
-
+    @ApiModelProperty(required = false)
     private String cvalue;
-
+    @ApiModelProperty(required = false)
     private String description;
 
     /**

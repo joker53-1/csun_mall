@@ -3,11 +3,12 @@
 <th:block th:fragment="head">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <meta name="viewport"
-              content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="keywords" th:content="${conMap.get('site.keywords')}"/>
+        <meta name="description" th:content="${conMap.get('site.description')}" />
 
         <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
-        <title th:text="#{co_ceeg_mall}"></title>
+
+        <title th:text="${conMap.get('site.title')}"></title>
         <!--        <link href="/static/pic/favicon.ico" rel="shortcut icon"/>-->
 
         <link rel="stylesheet" th:href="@{/static/fontawesome/css/all.css}">
@@ -63,14 +64,14 @@
 
                             <div class="header-wrapper-right-social">
                                 <ul class="header-social-icon">
-                                    <li><a th:href="#{co_facebook_link}" target="_blank"><img
+                                    <li><a th:href="${conMap.get('contact.facebook')}" target="_blank"><img
                                             src="../static/pic/facebook%20(2).png"
                                             alt=""></a></li>
 
-                                    <li><a th:href="#{co_twitter_link}" target="_blank"><img
+                                    <li><a th:href="${conMap.get('contact.twitter')}" target="_blank"><img
                                             src="../static/pic/twitter.png" alt=""></a>
                                     </li>
-                                    <li><a th:href="#{co_linkedin_link}" target="_blank"><img
+                                    <li><a th:href="${conMap.get('contact.linkedin')}" target="_blank"><img
                                             src="../static/pic/linkedin-in.png"
                                             alt="" style="width: 20px;height: auto"></a></li>
                                 </ul>
@@ -138,9 +139,9 @@
                                 <div class="header-nav-right-col">
                                     <div class="header-nav-right-custom-info">
                                         <p>
-                                            <h1 th:text="${conMap.get('tell_phone')}">Need help?</h1>
+
                                             <span th:text="#{co_need_help}">Need help?</span>
-                                            <strong th:text="#{co_phone}">+86-25-52766958</strong>
+                                            <strong th:text="${conMap.get('contact.telphone')}">+86-25-52766958</strong>
                                         </p>
                                     </div>
 
@@ -604,7 +605,7 @@
                                                             <div class="header-menu-open-wrapper-list-row-one">
                                                                 <ul>
                                                                     <li class="header-menu-open-wrapper-list-row-one-link">
-                                                                        <a href="/" th:text="#{co_pages}">Pages</a>
+                                                                        <a href="/" th:text="#{co_home}">Pages</a>
                                                                         <span class="svg-element-ui">
                                                                         <svg width="4" height="8" viewBox="0 0 4 8"
                                                                              fill="none"
@@ -714,7 +715,7 @@
 
                                             <div class="header-bottom-main-nav-item">
                                                 <a href="/">
-                                                    <span th:text="#{co_pages}">Pages</span>
+                                                    <span th:text="#{co_home}">Pages</span>
                                                 </a>
                                             </div>
 

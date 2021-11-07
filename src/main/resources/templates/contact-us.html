@@ -49,7 +49,7 @@
                                                     <a th:href="#{co_mailto}">
                                                         <i class="far fa-envelope"></i>
                                                     </a>
-                                                    <strong><a th:href="#{co_mailto}" th:text="#{co_saleschinasunergycom}">sales@chinasunergy.com</a></strong>
+                                                    <strong><a th:href="${conMap.get('contact.mail_href')}" th:text="${conMap.get('contact.mail')}">sales@chinasunergy.com</a></strong>
                                                 </li>
                                                 <!--                                            <li>-->
                                                 <!--                                                <div class="wrap-content-leftFacebook">-->
@@ -69,7 +69,7 @@
                                                     <a href="tel:+025-52095705">
                                                         <i class="fas fa-phone-alt"></i>
                                                     </a>
-                                                    <a th:href="#{co_mailto_tell}" th:text="#{co_phone}">+025-52095705</a>
+                                                    <a th:href="${conMap.get('contact.telphone_href')}" th:text="${conMap.get('contact.telphone')}">+025-52095705</a>
                                                 </li>
 <!--                                                <li>-->
 <!--                                                    <a class="wrap-content-leftLittitle" href="tel:+025-52095705" th:text="#{co_marketing}">Marketing:</a>-->
@@ -120,16 +120,16 @@
                                                 <ul class="social-icons footer-social-list-icon">
 
                                                     <li>
-                                                        <a th:href="#{co_facebook_link}" target="_blank"><img
+                                                        <a th:href="${conMap.get('contact.facebook')}" target="_blank"><img
                                                                 height="34" width="34"
                                                                 src="../static/pic/facebook%20(2).png" alt=""></a></li>
-                                                    <li><a th:href="#{co_twitter_link}" target="_blank"><img height="34"
+                                                    <li><a th:href="${conMap.get('contact.twitter')}" target="_blank"><img height="34"
                                                                                                          width="34"
                                                                                                          src="../static/pic/twitter.png"
                                                                                                          alt=""></a>
                                                     </li>
                                                     <!--                                                <li><a href="javascript:"><img height="30" width="30" src="../static/pic/chat.png" alt=""></a></li>-->
-                                                    <li><a th:href="#{co_linkedin_link}" target="_blank"><img
+                                                    <li><a th:href="${conMap.get('contact.linkedin')}" target="_blank"><img
                                                             height="26" width="26" src="../static/pic/linkedin-in.png"
                                                             alt=""></a></li>
 

@@ -4,6 +4,7 @@ import com.csun.mall.domain.Configuration;
 import com.csun.mall.mapper.ConfigurationMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -26,5 +27,20 @@ public class ConfigurationService {
         List<Configuration> list = configurationMapper.selectAll();
         list.forEach(e->map.put(e.getCkey(),e.getCvalue()));
         return map;
+    }
+
+    public List<Configuration> getAll(){
+        return configurationMapper.selectAll();
+    }
+
+    public int update(Configuration configuration){
+        return configurationMapper.updateByPrimaryKeySelective(configuration);
+    }
+    public int add(String key,String value,String des){
+        Configuration configuration = new Configuration();
+        configuration.setCkey(key);
+        configuration.setCvalue(value);
+        configuration.setDescription(des);
+        return configurationMapper.insert(configuration);
     }
 }

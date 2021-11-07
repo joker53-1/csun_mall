@@ -54,25 +54,25 @@
                                 <!--                            <span class="footer-call-us-left">-->
                                 <!--                            <svg t="1625449319829" class="icon" viewBox="0 0 1034 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2945" width="50" height="50"><path d="M10.343434 0h992.969697v992.969697H10.343434z" fill="#4d5760" fill-opacity="0" p-id="2946"></path><path d="M583.369697 146.876768h-6.206061c-16.549495 0-33.09899 10.343434-37.236363 26.892929-2.068687 8.274747 0 16.549495 4.137373 24.824242 6.206061 8.274747 12.412121 12.412121 22.755556 14.480808 74.472727 14.480808 140.670707 53.785859 182.044444 113.777778 41.373737 59.991919 57.923232 130.327273 41.373738 198.59394-2.068687 8.274747 0 16.549495 4.137374 24.824242 6.206061 8.274747 12.412121 12.412121 22.755555 14.480808h6.206061c8.274747 0 14.480808-2.068687 20.686868-6.20606 8.274747-4.137374 14.480808-12.412121 14.480809-20.686869 43.442424-177.907071-80.678788-353.745455-275.135354-390.981818z m76.541414 531.652525c2.068687 0 51.717172 22.755556 93.090909 51.717172 14.480808 10.343434 41.373737 28.961616 43.442424 55.854545 2.068687 16.549495-6.206061 35.167677-24.824242 55.854546-4.137374 6.206061-45.511111 51.717172-122.052525 59.991919-20.686869 2.068687-41.373737 2.068687-64.129293-2.068687s-47.579798-10.343434-70.335354-20.686869c-93.090909-37.236364-167.563636-88.953535-244.10505-171.70101C142.739394 568.888889 124.121212 436.492929 122.052525 411.668687c-14.480808-115.846465 84.816162-173.769697 95.159596-179.975758 14.480808-8.274747 28.961616-14.480808 43.442424-16.549495h18.618182c12.412121 2.068687 28.961616 8.274747 41.373738 28.961617 18.618182 26.892929 37.236364 66.19798 51.717171 109.640404 14.480808 43.442424-10.343434 59.991919-35.167676 76.541414h-2.068687s-45.511111 24.824242-51.717172 28.961616c-8.274747 4.137374-10.343434 12.412121-6.206061 20.686869 24.824242 49.648485 62.060606 101.365657 103.434344 148.945454 41.373737 45.511111 88.953535 86.884848 136.533333 117.915152 4.137374 2.068687 8.274747 4.137374 12.412121 2.068686h2.068687c4.137374 0 8.274747-4.137374 10.343435-8.274747 6.206061-10.343434 16.549495-22.755556 26.892929-35.167677 18.618182-22.755556 37.236364-33.09899 57.923232-35.167677h14.480808c2.068687 2.068687 10.343434 4.137374 18.618182 8.274748z m-165.494949-260.654546c-8.274747-2.068687-16.549495-6.206061-22.755556-14.480808-6.206061-8.274747-6.206061-16.549495-4.137374-24.824242 4.137374-16.549495 18.618182-26.892929 37.236364-26.892929h6.206061c82.747475 16.549495 136.533333 91.022222 119.983838 167.563636-2.068687 8.274747-8.274747 16.549495-14.480808 20.686869-6.206061 4.137374-14.480808 6.206061-20.686869 6.20606h-6.20606c-8.274747-2.068687-16.549495-6.206061-22.755556-14.480808-8.274747-8.274747-10.343434-16.549495-8.274747-24.824242 4.137374-20.686869 0-39.305051-12.412122-55.854546-10.343434-18.618182-28.961616-31.030303-51.717171-33.09899z m37.236363-103.434343c-18.618182-4.137374-31.030303-20.686869-26.892929-39.30505 4.137374-16.549495 18.618182-26.892929 37.236364-26.89293h6.20606c66.19798 12.412121 124.121212 49.648485 161.357576 101.365657 37.236364 53.785859 51.717172 115.846465 37.236364 177.907071-2.068687 8.274747-8.274747 16.549495-14.480808 20.686868-6.206061 4.137374-14.480808 6.206061-20.686869 6.206061h-6.206061c-18.618182-4.137374-31.030303-20.686869-26.892929-39.305051 10.343434-45.511111 0-91.022222-26.892929-128.258586-28.961616-37.236364-70.335354-64.129293-119.983839-72.40404z" fill="#4d5760" p-id="2947"></path></svg>-->
                                 <!--                            </span>-->
-                                <span class="footer-call-us-right" th:text="#{co_phone}">+86-25-52766958</span>
+                                <span class="footer-call-us-right" th:text="${conMap.get('contact.telphone')}">+86-25-52766958</span>
                             </div>
                         </div>
 
                         <div class="footter-address">
                             <strong class="footer-address-title" th:text="#{co_contact_info}">Contact Info</strong>
                             <span><img height="26" width="26" src="../static/pic/mail%20(3).png" alt=""></span>
-                            <span class="footer-address-sales" th:text="#{co_saleschinasunergycom}">sales@chinasunergy.com</span>
+                            <span class="footer-address-sales" th:text="${conMap.get('contact.mail')}">sales@chinasunergy.com</span>
                         </div>
 
                         <div class="footer-social-icons">
                             <ul class="social-icons footer-social-list-icon">
 
-                                <li><a th:href="#{co_facebook_link}" target="_blank"><img height="34" width="34" src="../static/pic/facebook%20(2).png"
+                                <li><a th:href="${conMap.get('contact.facebook')}" target="_blank"><img height="34" width="34" src="../static/pic/facebook%20(2).png"
                                                     alt=""></a></li>
-                                <li><a th:href="#{co_twitter_link}" target="_blank"><img height="34" width="34" src="../static/pic/twitter.png" alt=""></a>
+                                <li><a th:href="${conMap.get('contact.twitter')}" target="_blank"><img height="34" width="34" src="../static/pic/twitter.png" alt=""></a>
                                 </li>
 <!--                                <li><a href="javascript:"><img height="30" width="30" src="../static/pic/chat.png" alt=""></a></li>-->
-                                <li><a th:href="#{co_linkedin_link}" target="_blank"><img height="26" width="26" src="../static/pic/linkedin-in.png"
+                                <li><a th:href="${conMap.get('contact.linkedin')}" target="_blank"><img height="26" width="26" src="../static/pic/linkedin-in.png"
                                                     alt=""></a></li>
 
 
@@ -111,7 +111,7 @@
             <div class="container">
                 <div class="footer-copy-content-two">
                     <div class="footer-copy-content-text ">
-                        <span>Copyright © 2021 CEEG. All Rights Reserved</span>
+                        <span th:text="${conMap.get('site.copyright')}"></span>
                     </div>
 <!--                    <div class="footer-copy-content-pic ">-->
 <!--                        <img height="40" width="350" src="../static/pic/copyright.png" alt="">-->
@@ -119,63 +119,86 @@
                 </div>
             </div>
         </div>
-    <div class="web_chat">
-        <!-- 主体框 -->
-        <div class="chat_box" id="chatBox">
-            <div class="chat_head">
-                <span th:text="#{co_dialogue_with_customer}">与客服对话</span>
-                <button onclick="closeChat()" th:text="#{co_close}"> 关闭</button>
-            </div>
-            <div class="chat_body">
-                <form class="chat_from" id="chatLogin" onsubmit="return false">
+    <script src="https://go-fly.zdbyq.cn/static/js/gofly-front.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        GOFLY.init({
+            GOFLY_URL:"https://go-fly.zdbyq.cn/",
+            GOFLY_KEFU_ID: "mall",
+            GOFLY_ENT:"5",
+            GOFLY_LANG:"cn",
+            GOFLY_TEXT: {
+                "online_notice":"官方客服",
+                "offline_notice":"官方客服"
+            }
+        })
+    </script>
+<!--    <div class="web_chat">-->
+<!--        &lt;!&ndash; 主体框 &ndash;&gt;-->
+<!--        <div class="chat_box" id="chatBox">-->
+<!--            <div class="chat_head">-->
+<!--                <span th:text="#{co_dialogue_with_customer}">与客服对话</span>-->
+<!--                <button onclick="closeChat()" th:text="#{co_close}"> 关闭</button>-->
+<!--            </div>-->
+<!--            <div class="chat_body">-->
+<!--                <form class="chat_from" id="chatLogin" onsubmit="return false">-->
+<!--&lt;!&ndash;                    <div class="chat_from_item">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <label>名字 *</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <input type="text" placeholder="请输入您的名字" required oninvalid="return false"&ndash;&gt;-->
+<!--&lt;!&ndash;                               οninput="return false">&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                        <span id="name_invalid">必填项</span>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
 <!--                    <div class="chat_from_item">-->
-<!--                        <label>名字 *</label>-->
-<!--                        <input type="text" placeholder="请输入您的名字" required oninvalid="return false"-->
-<!--                               οninput="return false">-->
-<!--&lt;!&ndash;                        <span id="name_invalid">必填项</span>&ndash;&gt;-->
+<!--                        <label th:text="#{co_call}">称呼</label>-->
+<!--                        <input type="text" name="name" th:placeholder="#{co_call}">-->
 <!--                    </div>-->
-                    <div class="chat_from_item">
-                        <label th:text="#{co_call}">称呼</label>
-                        <input type="text" name="name" th:placeholder="#{co_call}">
-                    </div>
-                    <div class="chat_from_item">
-                        <label th:text="#{co_email}">电子邮件</label>
-                        <input type="text" name="email" th:placeholder="#{co_input_email}">
-                    </div>
-                    <div class="chat_from_item">
-                        <label th:text="#{co_chat_topic}">聊天话题</label>
-                        <input type="text" name="topic" th:placeholder="#{co_input_chat_topic}">
-                    </div>
+<!--                    <div class="chat_from_item">-->
+<!--                        <label th:text="#{co_email}">电子邮件</label>-->
+<!--                        <input type="text" name="email" th:placeholder="#{co_input_email}">-->
+<!--                    </div>-->
+<!--                    <div class="chat_from_item">-->
+<!--                        <label th:text="#{co_chat_topic}">聊天话题</label>-->
+<!--                        <input type="text" name="topic" th:placeholder="#{co_input_chat_topic}">-->
+<!--                    </div>-->
 
-                    <div class="chat_from_item">
-                        <button type="submit" onclick="loginChat()" th:text="#{co_open_conversation}"> 开启对话</button>
-                    </div>
-                </form>
-                <div class="chat_main" id="chatMain">
-                    <div class="chat_message_wrap" id="show_content_admin">
-                    </div>
+<!--                    <div class="chat_from_item">-->
+<!--                        <button type="submit" onclick="loginChat()" th:text="#{co_open_conversation}"> 开启对话</button>-->
+<!--                    </div>-->
+<!--                </form>-->
+<!--                <div class="chat_main" id="chatMain">-->
+<!--                    <div class="chat_message_wrap" id="show_content_admin">-->
+<!--                    </div>-->
 
-                </div>
-                <div class="chat_line" id="chatLine"></div>
-                <div class="chat_enter" id="chatEnter">
-                    <textarea type="text" id="question" placeholder="请输入您想咨询的问题"></textarea>
-                    <button onclick="sendMessage()"  type="button" th:text="#{co_send}">发送</button>
-                </div>
-            </div>
-        </div>
+<!--                </div>-->
+<!--                <div class="chat_line" id="chatLine"></div>-->
+<!--                <div class="chat_enter" id="chatEnter">-->
+<!--                    <textarea type="text" id="question" placeholder="请输入您想咨询的问题"></textarea>-->
+<!--                    <button onclick="sendMessage()"  type="button" th:text="#{co_send}">发送</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
 
+
+<!--        &lt;!&ndash; 按钮 &ndash;&gt;-->
+<!--        <div style="margin-left: auto;">-->
+<!--            <button class="chat_message_button" onclick="clickChat()">-->
+<!--                <svg style="margin-top:5px" t="1626328387443" class="icon" viewBox="0 0 1092 1024" version="1.1"-->
+<!--                     xmlns="http://www.w3.org/2000/svg" p-id="1271" width="30" height="30">-->
+<!--                    <path d="M553.710933 750.933333h402.090667A45.374578 45.374578 0 0 0 1001.244444 705.581511V136.374044A45.511111 45.511111 0 0 0 955.8016 91.022222H136.465067A45.374578 45.374578 0 0 0 91.022222 136.374044v569.207467A45.511111 45.511111 0 0 0 136.465067 750.933333H295.822222v136.533334l257.888711-136.533334z m22.300445 91.022223l-291.612445 160.881777C240.4352 1027.094756 204.8 1006.045867 204.8 955.824356V841.955556H136.669867A136.692622 136.692622 0 0 1 0 705.285689V136.669867A136.6016 136.6016 0 0 1 136.669867 0h818.926933A136.692622 136.692622 0 0 1 1092.266667 136.669867v568.615822A136.6016 136.6016 0 0 1 955.5968 841.955556H576.011378zM295.822222 500.622222a68.266667 68.266667 0 1 1 0-136.533333 68.266667 68.266667 0 0 1 0 136.533333z m250.311111 0a68.266667 68.266667 0 1 1 0-136.533333 68.266667 68.266667 0 0 1 0 136.533333z m250.311111 0a68.266667 68.266667 0 1 1 0-136.533333 68.266667 68.266667 0 0 1 0 136.533333z"-->
+<!--                          p-id="1272" fill="#2c2c2c"></path>-->
+<!--                </svg>-->
+<!--            </button>-->
+<!--        </div>-->
 
         <!-- 按钮 -->
-        <div style="margin-left: auto;">
-            <button class="chat_message_button" onclick="clickChat()">
-                <svg style="margin-top:5px" t="1626328387443" class="icon" viewBox="0 0 1092 1024" version="1.1"
-                     xmlns="http://www.w3.org/2000/svg" p-id="1271" width="30" height="30">
-                    <path d="M553.710933 750.933333h402.090667A45.374578 45.374578 0 0 0 1001.244444 705.581511V136.374044A45.511111 45.511111 0 0 0 955.8016 91.022222H136.465067A45.374578 45.374578 0 0 0 91.022222 136.374044v569.207467A45.511111 45.511111 0 0 0 136.465067 750.933333H295.822222v136.533334l257.888711-136.533334z m22.300445 91.022223l-291.612445 160.881777C240.4352 1027.094756 204.8 1006.045867 204.8 955.824356V841.955556H136.669867A136.692622 136.692622 0 0 1 0 705.285689V136.669867A136.6016 136.6016 0 0 1 136.669867 0h818.926933A136.692622 136.692622 0 0 1 1092.266667 136.669867v568.615822A136.6016 136.6016 0 0 1 955.5968 841.955556H576.011378zM295.822222 500.622222a68.266667 68.266667 0 1 1 0-136.533333 68.266667 68.266667 0 0 1 0 136.533333z m250.311111 0a68.266667 68.266667 0 1 1 0-136.533333 68.266667 68.266667 0 0 1 0 136.533333z m250.311111 0a68.266667 68.266667 0 1 1 0-136.533333 68.266667 68.266667 0 0 1 0 136.533333z"
-                          p-id="1272" fill="#2c2c2c"></path>
-                </svg>
-            </button>
-        </div>
+<!--        <div style="margin-left: auto;">-->
+<!--            <button class="chat_message_button" onclick="clickChat()">-->
+<!--                <svg style="margin-top:5px" t="1626328387443" class="icon" viewBox="0 0 1092 1024" version="1.1"-->
+<!--                     xmlns="http://www.w3.org/2000/svg" p-id="1271" width="30" height="30">-->
+<!--                    <path d="M553.710933 750.933333h402.090667A45.374578 45.374578 0 0 0 1001.244444 705.581511V136.374044A45.511111 45.511111 0 0 0 955.8016 91.022222H136.465067A45.374578 45.374578 0 0 0 91.022222 136.374044v569.207467A45.511111 45.511111 0 0 0 136.465067 750.933333H295.822222v136.533334l257.888711-136.533334z m22.300445 91.022223l-291.612445 160.881777C240.4352 1027.094756 204.8 1006.045867 204.8 955.824356V841.955556H136.669867A136.692622 136.692622 0 0 1 0 705.285689V136.669867A136.6016 136.6016 0 0 1 136.669867 0h818.926933A136.692622 136.692622 0 0 1 1092.266667 136.669867v568.615822A136.6016 136.6016 0 0 1 955.5968 841.955556H576.011378zM295.822222 500.622222a68.266667 68.266667 0 1 1 0-136.533333 68.266667 68.266667 0 0 1 0 136.533333z m250.311111 0a68.266667 68.266667 0 1 1 0-136.533333 68.266667 68.266667 0 0 1 0 136.533333z m250.311111 0a68.266667 68.266667 0 1 1 0-136.533333 68.266667 68.266667 0 0 1 0 136.533333z"-->
+<!--                          p-id="1272" fill="#2c2c2c"></path>-->
+<!--                </svg>-->
+<!--            </button>-->
+<!--        </div>-->
 
-
-    </div>
+<!--    </div>-->
 </th:block>

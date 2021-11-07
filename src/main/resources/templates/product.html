@@ -108,8 +108,8 @@
                                                             </div>
                                                             <div class="mulit-price-section" data-v-0b8f493c="">
                                                                 <p class="products-all-row-price ">
-                                                                    <span class="price-sale " >$100  </span>
-                                                                    <del class="money">$200</del>
+                                                                    <span class="price-sale " th:text="'$'+${currentProduct.price}">$100  </span>
+                                                                    <del class="money" th:text="'$'+${currentProduct.originalPrice}">$200</del>
                                                                 </p>
 <!--                                                                <div class="priceItem" data-v-0b8f493c=""-->
 <!--                                                                     th:each="price:${prices}">-->
@@ -277,7 +277,7 @@
                                                         <div class="product-right-info-four-bottom">
                                                             <ul>
                                                                 <li>
-                                                                    <a th:href="#{co_facebook_link}" title="Facebook">
+                                                                    <a th:href="${conMap.get('contact.facebook')}" title="Facebook">
                                                                         <span class="svg-element-ui">
                                                                             <svg width="8" height="15"
                                                                                  viewBox="0 0 8 15" fill="none"
@@ -290,7 +290,7 @@
                                                                 </li>
 
                                                                 <li>
-                                                                    <a th:href="#{co_twitter_link}" title="Twitter">
+                                                                    <a th:href="${conMap.get('contact.twitter')}" title="Twitter">
                                                                         <span class="svg-element-ui">
                                                                             <svg width="15" height="13"
                                                                                  viewBox="0 0 15 13" fill="none"
@@ -303,7 +303,7 @@
                                                                 </li>
 
                                                                 <li>
-                                                                    <a th:href="#{co_linkedin_link}" title="Linkedin">
+                                                                    <a th:href="${conMap.get('contact.linkedin')}" title="Linkedin">
                                                                         <span class="svg-element-ui">
                                                                             <svg t="1627377054207" class="icon"
                                                                                  viewBox="0 0 1024 1024" version="1.1"
