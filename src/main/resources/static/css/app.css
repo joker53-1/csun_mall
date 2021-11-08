@@ -1693,6 +1693,8 @@ lable {
     /*background-color:pink;*/
 }
 
+
+
 .sidebar-item {
     background-color: #f0f2f5;
     padding: 2.5rem;
@@ -1785,7 +1787,6 @@ lable {
     font-size: 2.5rem;
     color: #103178;
     font-weight: 600;
-
 }
 
 
@@ -2872,6 +2873,7 @@ lable {
     height: 38rem;
     overflow: hidden;
     text-overflow:ellipsis;
+    padding-bottom:1rem;
 }
 .products-all-row-description ul{
     overflow: hidden;
@@ -2880,7 +2882,7 @@ lable {
     text-overflow: ellipsis;
     -webkit-box-orient: vertical;
     /* autoprefixer: on;*/
-    -webkit-line-clamp: 8;
+    -webkit-line-clamp: 11;
 }
 
 .products-all-row-description li {
@@ -3306,6 +3308,7 @@ lable {
     /*product.html*/
     .d-none {
         display: none !important;
+
     }
 
     .mall-section-products-content {
