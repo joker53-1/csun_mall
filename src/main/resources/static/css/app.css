@@ -1023,19 +1023,26 @@ p, li, a, i, em, strong, button, input, div, span {
     padding-right: 1.3rem;
 }
 .footer-container{
-    justify-content: space-around!important;
-    align-content: space-around;
+    display: flex;
+    justify-content: space-between!important;
+    align-content: space-between;
 }
 .footer-container-left{
-    display: flex;
-    justify-content: end;
-    align-content: end;
+    width: 30%;
+    height: 100%;
+    /*display: flex;*/
+    /*justify-content: flex-end;*/
+    /*align-items: flex-end!important;*/
+}
+.footer-container-left-row{
+    float: right;
 }
 .footer-container-right {
     display: flex;
-    /*justify-content: flex-end;*/
-    width: 60%;
+    width: 66%;
     height: 100%;
+    justify-content: space-between!important;
+    align-content: space-between;
     margin: 0;
 }
 
