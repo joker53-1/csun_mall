@@ -791,7 +791,7 @@ p, li, a, i, em, strong, button, input, div, span {
     width: 49%;
     max-height: 30rem;
     overflow: hidden;
-    border-radius: .6rem;
+    border-radius: .4rem;
 }
 
 .mall-section-second-content-body-left img, .mall-section-second-content-body-right img {
@@ -947,7 +947,9 @@ p, li, a, i, em, strong, button, input, div, span {
     position: relative;
     /*margin-left: calc(-50vw + 50% - 8px);*/
     /*background-color:#f0f2f5;*/
-    padding: 2rem 0;
+    padding: 10rem 0;
+
+    background-color: #eeeeee;
 }
 
 
@@ -957,6 +959,7 @@ p, li, a, i, em, strong, button, input, div, span {
     display: flex;
     flex-flow: wrap;
     padding: 0 1rem;
+
 
 }
 
