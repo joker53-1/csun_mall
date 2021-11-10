@@ -46,10 +46,10 @@
                                         <div class="contact-info-tel  contact-info-same">
                                             <ul>
                                                 <li>
-                                                    <a th:href="#{co_mailto}">
+                                                    <a th:href="#{co_mailto}+${conMap.get('contact.mail')}">
                                                         <i class="far fa-envelope"></i>
                                                     </a>
-                                                    <strong><a th:href="${conMap.get('contact.mail_href')}" th:text="${conMap.get('contact.mail')}">sales@chinasunergy.com</a></strong>
+                                                    <strong><a th:href="#{co_mailto}+${conMap.get('contact.mail')}" th:text="${conMap.get('contact.mail')}">sales@chinasunergy.com</a></strong>
                                                 </li>
                                                 <!--                                            <li>-->
                                                 <!--                                                <div class="wrap-content-leftFacebook">-->
@@ -69,7 +69,7 @@
                                                     <a href="tel:+025-52095705">
                                                         <i class="fas fa-phone-alt"></i>
                                                     </a>
-                                                    <a th:href="${conMap.get('contact.telphone_href')}" th:text="${conMap.get('contact.telphone')}">+025-52095705</a>
+                                                    <a th:href="#{co_mailto_tell}+${conMap.get('contact.telphone')}" th:text="${conMap.get('contact.telphone')}">+025-52095705</a>
                                                 </li>
 <!--                                                <li>-->
 <!--                                                    <a class="wrap-content-leftLittitle" href="tel:+025-52095705" th:text="#{co_marketing}">Marketing:</a>-->

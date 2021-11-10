@@ -43,7 +43,7 @@ public class DeviceIdInterceptor implements HandlerInterceptor {
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        request.setAttribute("openid","12313");
+//        request.setAttribute("openid","12313");
         Map<String ,String> map = configurationService.get();
         request.setAttribute("conMap",map);
         return true;
