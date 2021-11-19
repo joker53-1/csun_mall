@@ -3,7 +3,9 @@ package com.csun.mall.domain;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Table(name = "configuration")
 public class Configuration {
     @Id
     @ApiModelProperty(required = true)
@@ -15,6 +17,17 @@ public class Configuration {
     private String cvalue;
     @ApiModelProperty(required = false)
     private String description;
+
+    private Integer type;
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
 
     /**
      * @return id

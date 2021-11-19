@@ -32,11 +32,13 @@ public class CategoryService {
     private ProductCategoryDao productCategoryDao;
 
     public int create(ProductCategory productCategoryParam) {
-        ProductCategory productCategory = new ProductCategory();
-        int count = productCategoryMapper.insertSelective(productCategory);
+//        ProductCategory productCategory = new ProductCategory();
+        int count = productCategoryMapper.insertSelective(productCategoryParam);
         return count;
     }
-
+    public ProductCategory getById(Long id){
+        return productCategoryMapper.selectByPrimaryKey(id);
+    }
     public int update(Long id, ProductCategory productCategoryParam) {
         productCategoryParam.setId(id);
         return productCategoryMapper.updateByPrimaryKeySelective(productCategoryParam);

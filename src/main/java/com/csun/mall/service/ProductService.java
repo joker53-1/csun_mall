@@ -68,6 +68,7 @@ public class ProductService {
     public int create(ProductParam productParam) {
 
         ProductItem productItem = PojoConvertTool.convert(productParam, ProductItem.class);
+        productItem.setEnable(true);
         productItem.setCreateTime(new Date());
         productItem.setUpdateTime(new Date());
         productItemMapper.insertSelective(productItem);
@@ -76,13 +77,14 @@ public class ProductService {
         List<ProductImg> imgList = productParam.getImage();
         imgList.forEach(e -> e.setProductId(id));
         imgList.forEach(e -> e.setCreateTime(new Date()));
-        List<ProductAttributeValue> productAttributeValues = productParam.getProductAttributeValueList();
-        productAttributeValues.forEach(e -> e.setProductId(id));
-        List<ProductLadderPrice> prices = productParam.getPrices();
-        prices.forEach(e->e.setProductId(id));
+//        List<ProductAttributeValue> productAttributeValues = productParam.getProductAttributeValueList();
+//        productAttributeValues.forEach(e -> e.setProductId(id));
+//        List<ProductLadderPrice> prices = productParam.getPrices();
+//        prices.forEach(e->e.setProductId(id));
         if (productImgMapper.insertList(imgList) > 0
-                && productAttributeValueMapper.insertList(productAttributeValues) > 0
-                &&productLadderPriceMapper.insertList(prices)>0)
+//                && productAttributeValueMapper.insertList(productAttributeValues) > 0
+//                &&productLadderPriceMapper.insertList(prices)>0
+        )
             return 1;
         return 0;
     }
@@ -90,6 +92,7 @@ public class ProductService {
     public int update(Long id, ProductParam productParam) {
         ProductItem productItem = PojoConvertTool.convert(productParam, ProductItem.class);
         productItem.setId(id);
+        productItem.setUpdateTime(new Date());
 
         Example example1 = new Example(ProductAttributeValue.class);
         example1.createCriteria().andEqualTo("productId", id);
@@ -98,10 +101,11 @@ public class ProductService {
         productAttributeValues.forEach(e->e.setProductId(id));
 
         Example example2 = new Example(ProductImg.class);
-        example1.createCriteria().andEqualTo("productId", id);
+        example2.createCriteria().andEqualTo("productId", id);
         productImgMapper.deleteByExample(example2);
         List<ProductImg> imgList = productParam.getImage();
         imgList.forEach(e->e.setProductId(id));
+        imgList.forEach(e->e.setCreateTime(new Date()));
 
         Example example3 = new Example(ProductLadderPrice.class);
         example3.createCriteria().andEqualTo("productId",id);
@@ -109,8 +113,8 @@ public class ProductService {
         List<ProductLadderPrice> prices = productParam.getPrices();
         prices.forEach(e->e.setProductId(id));
 
-        if (productItemMapper.updateByPrimaryKeySelective(productItem) > 0 && productImgMapper.insertList(imgList) > 0
-                && productAttributeValueMapper.insertList(productAttributeValues) > 0&&productLadderPriceMapper.insertList(prices)>0)
+        if (productItemMapper.updateByPrimaryKeySelective(productItem) > 0&& productImgMapper.insertList(imgList)>0)
+//                && productAttributeValueMapper.insertList(productAttributeValues) > 0&&productLadderPriceMapper.insertList(prices)>0)
             return 1;
         return 0;
     }
@@ -120,10 +124,10 @@ public class ProductService {
     }
 
 
-    public PageResult<ProductQueryDTO> list(String keyword,Integer pageNum, Integer pageSize) {
+    public PageResult<ProductQueryDTO> list(String keyword,Boolean enable,Long cateId,Integer pageNum, Integer pageSize) {
 //        PageHelper.clearPage();
         PageHelper.startPage(pageNum,pageSize);
-        List<ProductQueryDTO> list = productItemDao.getList(keyword);
+        List<ProductQueryDTO> list = productItemDao.getList(keyword,enable,cateId);
 //        return PageResult.from(list.stream().filter(e ->e.getName().matches(".*"+name+".*")).collect(Collectors.toList()), ProductQueryDTO.class);
         return PageResult.from(list,ProductQueryDTO.class);
     }

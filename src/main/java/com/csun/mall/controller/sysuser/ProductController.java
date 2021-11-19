@@ -48,8 +48,8 @@ public class ProductController {
 
     @ApiOperation("更新商品")
     @PutMapping(value = "/update")
-    public ResponseData update(Long id, @RequestBody ProductParam productParam, BindingResult bindingResult) {
-        int count = productService.update(id, productParam);
+    public ResponseData update(@RequestBody ProductParam productParam, BindingResult bindingResult) {
+        int count = productService.update(productParam.getId(), productParam);
         if (count > 0) {
             return ResponseData.success(count);
         } else {
@@ -59,10 +59,10 @@ public class ProductController {
 
     @ApiOperation("查询商品列表")
     @GetMapping(value = "/list")
-    public ResponseData<PageResult<ProductQueryDTO>> getList(String keyword,
+    public ResponseData<PageResult<ProductQueryDTO>> getList(String keyword,Boolean enable,Long cateId,
                                                              @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize,
                                                              @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
-        PageResult<ProductQueryDTO> productList = productService.list(keyword, pageNum,pageSize);
+        PageResult<ProductQueryDTO> productList = productService.list(keyword,enable, cateId,pageNum,pageSize);
         return ResponseData.success(productList);
     }
 

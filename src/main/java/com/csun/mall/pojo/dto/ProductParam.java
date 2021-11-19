@@ -20,12 +20,14 @@ import java.util.List;
 
 @Data
 public class ProductParam{
-    @ApiModelProperty(hidden = true)
+    @ApiModelProperty(required = false,value = "新增时不需要填写")
     private Long id;
     @ApiModelProperty("商品是否启用")
     private Boolean enable;
     @ApiModelProperty("商品分类")
     private Long productCategoryId;
+    @ApiModelProperty("商品分类父类")
+    private Long cateParentId;
     @ApiModelProperty("商品名称")
     private String name;
     @ApiModelProperty("排序")

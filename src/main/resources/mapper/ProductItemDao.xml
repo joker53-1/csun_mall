@@ -65,6 +65,7 @@
         <id column="id" property="id" jdbcType="BIGINT"/>
         <result column="enable" property="enable"/>
         <result column="productCategoryId" property="productCategoryId"/>
+        <result column="cateParentId" property="cateParentId"/>
         <result column="name" property="name"/>
         <result column="sort" property="sort"/>
         <result column="sale" property="sale"/>
@@ -95,6 +96,7 @@
         SELECT pi.id,
                pi.enable,
                pi.product_category_id   productCategoryId,
+               pc.parent_id     cateParentId,
                pi.name,
                pi.sort,
                pi.sale,
@@ -120,6 +122,8 @@
                            on pi.id = pav.product_id
                  LEFT JOIN product_ladder_price plp
                            on pi.id = plp.product_id
+                 LEFT JOIN product_category pc
+                           on pi.product_category_id=pc.id
         WHERE pi.id = #{id}
 
 
@@ -164,6 +168,12 @@
         where pimg.is_main = 1
         <if test="keyword != null">
             and pi.name like '%${keyword}%'
+        </if>
+        <if test="enable != null">
+            and pi.enable = #{enable}
+        </if>
+        <if test="cateId != null">
+            and pi.product_category_id = #{cateId}
         </if>
     </select>
 

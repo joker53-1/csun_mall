@@ -29,12 +29,13 @@ import java.util.UUID;
  * @create 2021/10/26 10:29
  */
 @RestController
+@RequestMapping("/api/file")
 public class OssController {
 
     @Autowired
     private OssUploadTool ossUploadTool;
 
-    @PostMapping("/file")
+    @PostMapping("/upload")
     public ResponseData<String> fileUpload(@RequestPart("file") MultipartFile file, HttpServletRequest request) {
 
         return ResponseData.success(ossUploadTool.uploadOss(file));

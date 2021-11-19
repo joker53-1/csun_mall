@@ -17,7 +17,7 @@
             c2.name child_name,
             c2.sort child_sort,
             c2.parent_id child_parentId,
-            c2.description description
+            c2.description child_description
         from product_category c1 left join product_category c2 on c1.id = c2.parent_id
         where c1.parent_id = 0
         order by c1.sort

@@ -47,6 +47,12 @@ public class ProductCategoryController {
         }
     }
 
+    @ApiOperation("根据id查询分类")
+    @GetMapping(value = "/get")
+    public ResponseData<ProductCategory> getById(Long id){
+        return ResponseData.success(categoryService.getById(id));
+    }
+
     @ApiOperation("分页查询商品分类")
     @GetMapping(value = "/list")
     public ResponseData<PageResult<ProductCategory>> getList(Long parentId,
