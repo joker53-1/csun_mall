@@ -195,7 +195,6 @@
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
                         </exclude>
-
                     </excludes>
                 </configuration>
             </plugin>
@@ -207,6 +206,7 @@
 <!--                </configuration>-->
 <!--            </plugin>-->
         </plugins>
+        <finalName>app</finalName>
     </build>
 
 </project>
