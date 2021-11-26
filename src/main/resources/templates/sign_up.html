@@ -84,7 +84,7 @@
                                    <div class="from-group1">
                                    <input type="text" placeholder="code" class="code" id="code" name="code">
 <!--                                   <button id="get_code" type="button" th:text="#{co_get_code}">GET CODE</button>-->
-                                       <img id="captcha_img" src="/captcha" style="position:relative;"
+                                       <img id="captcha_img" th:src="@{/captcha}" style="position:relative;"
                                             th:title="#{co_click_to_change}">
                                    </div>
 <!--                                   <a href="'/customer/passport/verification?email='+">GET CODE</a>-->
