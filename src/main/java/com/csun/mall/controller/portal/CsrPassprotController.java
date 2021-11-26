@@ -1,27 +1,20 @@
 package com.csun.mall.controller.portal;
 
-import com.csun.mall.common.constant.SYS_CONSTANT;
 import com.csun.mall.common.tools.*;
-import com.csun.mall.controller.portal.interceptor.UserTokenInterceptor;
 import com.csun.mall.domain.*;
 import com.csun.mall.pojo.dto.CsrMemberDTO;
 import com.csun.mall.service.CsrDeviceService;
 import com.csun.mall.service.CsrMemberService;
-import com.csun.mall.service.MailService;
 import com.csun.mall.service.MessageRecordService;
 import com.csun.mall.web.response.ResponseData;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.apache.commons.lang3.LocaleUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Locale;
-import java.util.UUID;
 
 /**
  * @Author Joker Zheng
@@ -37,9 +30,6 @@ public class CsrPassprotController {
     private static final String USER_PRE = "user_";
 
     @Autowired
-    private MailService mailService;
-
-    @Autowired
     private CsrMemberService csrMemberService;
 
     @Autowired
@@ -50,23 +40,6 @@ public class CsrPassprotController {
 
     @Autowired
     private MessageRecordService messageRecordService;
-
-
-//    @ApiOperation(value = "获取验证码", notes = "获取验证码", httpMethod = "GET")
-//    @GetMapping("/verification")
-//    public ResponseData getVerification(String email) {
-//        if(csrMemberService.queryMemberByEmail(email)!=null){
-//            return ResponseData.failure("邮箱已存在");
-//        }
-//        if (!MobileEmailTool.checkEmailIsOk(email)) {
-//            return ResponseData.failure("邮箱格式出错！");
-//        }
-//        String code = String.valueOf((int) ((Math.random() * 9 + 1) * 100000));
-//        mailService.send(email, code);
-//        String key = USER_PRE + email;
-//        redisOperator.set(key, code, 3600);
-//        return ResponseData.success();
-//    }
 
     @ApiOperation(value = "用户注册", notes = "用户注册", httpMethod = "POST")
     @PostMapping("/regist")
