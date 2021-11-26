@@ -30,7 +30,7 @@ public class OssUploadTool {
 
     public String uploadOss(MultipartFile fileUpdate) {
         OSS ossClient = new OSSClientBuilder().build(ossConfig.getEndpoint(), ossConfig.getAccessKeyId(), ossConfig.getAccessKeySecret());
-        String path = "mall/"+String.format("%s/",  new SimpleDateFormat("yyyy/MM/dd").format(new Date()));
+        String path = "/upload/"+String.format("%s/",  new SimpleDateFormat("yyyy/MM/dd").format(new Date()));
         boolean exist=false;
         try {
 //            System.out.println(path + fileUpdate.getOriginalFilename());

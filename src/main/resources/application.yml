@@ -69,8 +69,8 @@ logging:
 
 
 oss:
-  access_key_id: LTAI5tBWLb9LA9wosbLzp2cB
-  access_key_secret: 56ss4aNcqfcDU7HVcRHz4gzFLbbRBF
+  access_key_id: LTAI5tLeV8NUkUNzD5UwPDC6
+  access_key_secret: DxccpGK4sASznZbvOXeizvFHxEvDWU
   endpoint: oss-cn-hongkong-internal.aliyuncs.com
   bucket: cg-mall-hk
   url_prefix: //cg-mall-hk.oss-cn-hongkong.aliyuncs.com
