@@ -30,8 +30,8 @@ public class OssUploadTool {
 
     public String uploadOss(MultipartFile fileUpdate) {
         OSS ossClient = new OSSClientBuilder().build(ossConfig.getEndpoint(), ossConfig.getAccessKeyId(), ossConfig.getAccessKeySecret());
-        String path = "/upload/"+String.format("%s/",  new SimpleDateFormat("yyyy/MM/dd").format(new Date()));
-        boolean exist=false;
+        String path = "upload/"+String.format("%s/",  new SimpleDateFormat("yyyy/MM/dd").format(new Date()));
+        boolean exist;
         try {
 //            System.out.println(path + fileUpdate.getOriginalFilename());
             exist= ossClient.doesObjectExist(ossConfig.getBucket(), path + fileUpdate.getOriginalFilename());
@@ -49,7 +49,7 @@ public class OssUploadTool {
             ossClient.shutdown();
         }
 
-        return ossConfig.getUrlPrefix()+path+fileUpdate.getOriginalFilename();
+        return ossConfig.getUrlPrefix()+"/"+path+fileUpdate.getOriginalFilename();
 
     }
 }
