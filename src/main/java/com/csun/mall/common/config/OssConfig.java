@@ -1,42 +1,23 @@
 package com.csun.mall.common.config;
 
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+@Data
 @Component
 @ConfigurationProperties(prefix = "oss")
 public class OssConfig {
 
     private String accessKeyId;
 
-
     private String accessKeySecret;
-
 
     private String endpoint;
 
-    public String getAccessKeyId() {
-        return accessKeyId;
-    }
+    private String bucket;
 
-    public void setAccessKeyId(String accessKeyId) {
-        this.accessKeyId = accessKeyId;
-    }
+    private String urlPrefix;
 
-    public String getAccessKeySecret() {
-        return accessKeySecret;
-    }
-
-    public void setAccessKeySecret(String accessKeySecret) {
-        this.accessKeySecret = accessKeySecret;
-    }
-
-    public String getEndpoint() {
-        return endpoint;
-    }
-
-    public void setEndpoint(String endpoint) {
-        this.endpoint = endpoint;
-    }
 }

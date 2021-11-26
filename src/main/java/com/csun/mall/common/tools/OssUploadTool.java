@@ -34,7 +34,7 @@ public class OssUploadTool {
         boolean exist=false;
         try {
 //            System.out.println(path + fileUpdate.getOriginalFilename());
-            exist= ossClient.doesObjectExist("ceeg-global-bidding", path + fileUpdate.getOriginalFilename());
+            exist= ossClient.doesObjectExist(ossConfig.getBucket(), path + fileUpdate.getOriginalFilename());
             if (exist) {
                 path = path + UUID.randomUUID() + "/";
             }
@@ -42,14 +42,14 @@ public class OssUploadTool {
 //             throw new OSSException();
         } finally {
             try {
-                PutObjectResult putObjectResult = ossClient.putObject("ceeg-global-bidding", path + fileUpdate.getOriginalFilename(), fileUpdate.getInputStream());
+                PutObjectResult putObjectResult = ossClient.putObject(ossConfig.getBucket(), path + fileUpdate.getOriginalFilename(), fileUpdate.getInputStream());
             } catch (IOException e) {
                 e.printStackTrace();
             }
             ossClient.shutdown();
         }
 
-        return "https://ceeg-global-bidding.oss-cn-beijing.aliyuncs.com/"+path+fileUpdate.getOriginalFilename();
+        return ossConfig.getUrlPrefix()+path+fileUpdate.getOriginalFilename();
 
     }
 }
