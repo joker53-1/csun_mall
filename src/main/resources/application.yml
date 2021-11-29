@@ -31,7 +31,6 @@ spring:
     prefix: classpath:/templates
     suffix: .html
   web:
-
     resources:
       chain:
         strategy:
