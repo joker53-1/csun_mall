@@ -25,20 +25,20 @@
 <body>
     <div class="sign-up">
         <div class="sign-color-blue">
-            <img src="../static/pic/logo-flower.png" alt="">
+            <img src="//cg-mall-hk.oss-cn-hongkong.aliyuncs.com/static/pic/logo-flower.png" alt="">
         </div>
         <div class="sign-color-yellow"> </div>
 
         <div class="sign-center container ">
             <div class="sign-center-bg sign-center-bg-right-xs">
                 <div class="sign-center-bg-flower">
-                    <img class="flower-one" src="../static/pic/logo-flower-one-01.png" alt="">
+                    <img class="flower-one" src="//cg-mall-hk.oss-cn-hongkong.aliyuncs.com/static/pic/logo-flower-one-01.png" alt="">
                 </div>
                 <div class="sign-center-bg-flower-two">
-                    <img src="../static/pic/logo-flower-two-01.png" alt="">
+                    <img src="//cg-mall-hk.oss-cn-hongkong.aliyuncs.com/static/pic/logo-flower-two-01.png" alt="">
                 </div>
                 <div class="sign-center-bg-flower-three">
-                    <img src="../static/pic/logo-flower-three-01.png" alt="">
+                    <img src="//cg-mall-hk.oss-cn-hongkong.aliyuncs.com/static/pic/logo-flower-three-01.png" alt="">
                 </div>
 
 
@@ -57,17 +57,17 @@
                                 <ul class="social-icons footer-social-list-icon">
                                     <li>
                                         <a class="fab fa-facebook" th:href="${conMap.get('contact.facebook')}" target="_blank">
-                                            <img src="../static/pic/sign-icoin-03.png" alt=""></a>
+                                            <img src="//cg-mall-hk.oss-cn-hongkong.aliyuncs.com/static/pic/sign-icoin-03.png" alt=""></a>
                                     </li>
 
                                     <li>
                                         <a class="fab fa-twitter" th:href="${conMap.get('contact.twitter')}" target="_blank">
-                                            <img src="../static/pic/sign-icoin-01.png" alt=""></a>
+                                            <img src="//cg-mall-hk.oss-cn-hongkong.aliyuncs.com/static/pic/sign-icoin-01.png" alt=""></a>
                                     </li>
 
                                     <li>
                                         <a class="fab fa-linked" th:href="${conMap.get('contact.linkedin')}" target="_blank">
-                                            <img src="../static/pic/sign-icoin-02.png" alt=""></a>
+                                            <img src="//cg-mall-hk.oss-cn-hongkong.aliyuncs.com/static/pic/sign-icoin-02.png" alt=""></a>
                                     </li>
 
 
@@ -84,7 +84,7 @@
                                    <div class="from-group1">
                                    <input type="text" placeholder="code" class="code" id="code" name="code">
 <!--                                   <button id="get_code" type="button" th:text="#{co_get_code}">GET CODE</button>-->
-                                       <img id="captcha_img" src="/captcha" style="position:relative;"
+                                       <img id="captcha_img" th:src="@{/captcha}" style="position:relative;"
                                             th:title="#{co_click_to_change}">
                                    </div>
 <!--                                   <a href="'/customer/passport/verification?email='+">GET CODE</a>-->

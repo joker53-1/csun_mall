@@ -41,31 +41,6 @@ spring:
     restart:
       enabled: true
       additional-paths: src/**
-  mail:
-#    gmail
-#    host: smtp.gmail.com
-#    port: 465
-#    username: yimcarson@gmail.com
-#    password: ****************
-#    qq
-#    host: smtp.qq.com
-#    port: 587
-#    username: yimcarson@qq.com
-#    password: ************
-    # 163
-    host: smtp.163.com
-    port:
-    username: jokerni53@163.com
-    password: LHQKCZUMBUEUOQMZ
-    protocol: smtp
-    default-encoding: UTF-8
-    properties:
-      mail.smtp.auth: true
-      mail.smtp.starttls.enable: true
-      mail.smtp.starttls.required: true
-      mail.smtp.socketFactory.port: 465
-      mail.smtp.socketFactory.class: javax.net.ssl.SSLSocketFactory
-      mail.smtp.socketFactory.fallback: false
 
 
 #mybatis配置
@@ -93,8 +68,10 @@ logging:
 
 
 oss:
-  access_key_id: LTAI5tBWLb9LA9wosbLzp2cB
-  access_key_secret: 56ss4aNcqfcDU7HVcRHz4gzFLbbRBF
-  endpoint: oss-cn-beijing.aliyuncs.com
+  access_key_id: LTAI5tLeV8NUkUNzD5UwPDC6
+  access_key_secret: DxccpGK4sASznZbvOXeizvFHxEvDWU
+  endpoint: oss-cn-hongkong-internal.aliyuncs.com
+  bucket: cg-mall-hk
+  url_prefix: //cg-mall-hk.oss-cn-hongkong.aliyuncs.com
 
 

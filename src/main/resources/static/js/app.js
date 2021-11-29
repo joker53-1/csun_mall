@@ -252,7 +252,14 @@ $(function () {
     })
 
     $("#captcha_img").click(function () {
-        $(this).attr("src", "/captcha?tm=" + new Date().getTime())
+        let captcha= $(this).attr("src")
+        if(captcha.indexOf("=") === -1){
+            $(this).attr("src", captcha+"?tm=" + new Date().getTime())
+        }else{
+            captcha = captcha.substring(0,captcha.indexOf("=")+1)
+            $(this).attr("src", captcha + new Date().getTime())
+        }
+
     })
 
 });
