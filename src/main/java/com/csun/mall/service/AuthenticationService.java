@@ -1,6 +1,7 @@
 package com.csun.mall.service;
 
 import com.csun.mall.common.constant.SYS_CONSTANT;
+import com.csun.mall.domain.CsrMemberToken;
 import com.csun.mall.domain.SysDevice;
 import com.csun.mall.domain.SysUser;
 import com.csun.mall.domain.SysUserToken;
@@ -38,7 +39,7 @@ public class AuthenticationService {
         if (StringUtils.isBlank(tokenStr)) {
             return null;
         }
-        Example example = new Example(SysUserToken.class);
+        Example example = new Example(CsrMemberToken.class);
         example.createCriteria().andEqualTo("token", tokenStr);
 
         return userTokenMapper.selectOneByExample(example);

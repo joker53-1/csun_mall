@@ -27,8 +27,6 @@ public class CsrPassprotController {
 
     public static final String REDIS_USER_TOKEN = "mall_token_";
 
-    private static final String USER_PRE = "user_";
-
     @Autowired
     private CsrMemberService csrMemberService;
 

@@ -61,57 +61,81 @@ $(function () {
     }
 
     $("#sign_in").submit(function (){
-        var userBO = {
-            keyword: $("#keyword").val(),
-            password: $("#password").val()
-        };
-        // alert(userBO.keyword)
-        // if (userBO.keyword == null || userBO.keyword == undefined || userBO.keyword == '') {
-        //     alert("用户名不能为空");
-        //     return;
-        // } else if (userBO.password == null || userBO.password == undefined || userBO.password == '') {
-        //     alert("密码不能为空");
-        //     return;
-        // } else if (userBO.password.length < 6) {
-        //     alert("密码不能少于6位");
-        //     return;
-        // }
+        if($('input[name="switch"]').prop('checked')){
+            var userBO = {
+                username: $("#keyword").val(),
+                password: $("#password").val()
+            };
+            $.post("/api/login", userBO, function (data) {
+                if (data.status === "SUCCESS") {
+                    // document.getElementById("contact_form").reset();
+                    // var user = data.body;
+                    // console.log(user);
+                    localStorage.setItem("Authorization", data.body.token)
+                    toastr.success("登录成功！")
 
-        // form提交
-        $.post("/customer/passport/login",userBO,function (data) {
-            if (data.status === "SUCCESS") {
-                // document.getElementById("contact_form").reset();
-                // var user = data.body;
-                // console.log(user);
-                toastr.success("登录成功！")
-                // console.log(data.body)
-                // console.log(typeof(data.body))
-                var user_data = JSON.stringify(data.body);
-                localStorage.setItem("user", user_data);
-                window.location.href="/";
-                let req = {
-                    'messageId':getMessageId(),
-                    'userId':data.body.id
+                    var user_data = JSON.stringify(data.body);
+                    window.location.href = "/console";
+
+                } else {
+                    toastr.error(data.msg)
+                    // alert(data.msg);
+                    return;
                 }
-                $.ajax({
-                    url: '/message/adduserid',
-                    type: 'PUT',
-                    data:req,
-                    success: function(response) {
-                        if (response.status === "SUCCESS"){
-                            localStorage.removeItem("messageId")
-                            localStorage.setItem("messageId",response.body)
-                        }
-                    }
+            })
+        }
+        else {
+            var userBO = {
+                keyword: $("#keyword").val(),
+                password: $("#password").val()
+            };
+            // alert(userBO.keyword)
+            // if (userBO.keyword == null || userBO.keyword == undefined || userBO.keyword == '') {
+            //     alert("用户名不能为空");
+            //     return;
+            // } else if (userBO.password == null || userBO.password == undefined || userBO.password == '') {
+            //     alert("密码不能为空");
+            //     return;
+            // } else if (userBO.password.length < 6) {
+            //     alert("密码不能少于6位");
+            //     return;
+            // }
 
-                });
-            }
-            else {
-                toastr.error(data.msg)
-                // alert(data.msg);
-                return;
-            }
-        })
+
+            $.post("/customer/passport/login", userBO, function (data) {
+                if (data.status === "SUCCESS") {
+                    // document.getElementById("contact_form").reset();
+                    // var user = data.body;
+                    // console.log(user);
+                    toastr.success("登录成功！")
+                    // console.log(data.body)
+                    // console.log(typeof(data.body))
+                    var user_data = JSON.stringify(data.body);
+                    localStorage.setItem("user", user_data);
+                    window.location.href = "/";
+                    // let req = {
+                    //     'messageId':getMessageId(),
+                    //     'userId':data.body.id
+                    // }
+                    // $.ajax({
+                    //     url: '/message/adduserid',
+                    //     type: 'PUT',
+                    //     data:req,
+                    //     success: function(response) {
+                    //         if (response.status === "SUCCESS"){
+                    //             localStorage.removeItem("messageId")
+                    //             localStorage.setItem("messageId",response.body)
+                    //         }
+                    //     }
+                    //
+                    // });
+                } else {
+                    toastr.error(data.msg)
+                    // alert(data.msg);
+                    return;
+                }
+            })
+        }
         return false
 
     })
@@ -263,6 +287,10 @@ $(function () {
     })
 
 });
+
+function cartMenuClose(){
+    $("#shoppingCart").hide()
+}
 
 function addCart(productId,count){
     // let user = localStorage.getItem("user");

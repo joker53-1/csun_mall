@@ -17,8 +17,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 @Component
 public class AuthenticationProvider implements org.springframework.security.authentication.AuthenticationProvider {
@@ -55,6 +58,7 @@ public class AuthenticationProvider implements org.springframework.security.auth
      */
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+
         String username = (String) authentication.getPrincipal();
         String password = (String) authentication.getCredentials();
         SysUser user = authenticationService.loadUserByUsername(username);

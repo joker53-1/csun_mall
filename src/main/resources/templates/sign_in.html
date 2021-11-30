@@ -68,11 +68,15 @@
 
                         <p th:text="#{co_user_email}">or use your email for registration:</p>
                         <form action="" id="sign_in">
+
+                            <label><input type="checkbox" name="switch" value="1">Switch to Business</label>
+
                             <div class="from-group">
 
                                 <input type="text"  placeholder="keyword" id="keyword" name="keyword"/><br/>
                                 <input type="password" placeholder="password" id="password" name="password"><br/>
-                                <h4><a href="" th:text="#{co_forgot_password}">Forgot your password?</a></h4>
+<!--                                <h4><a href="" th:text="#{co_forgot_password}">Forgot your password?</a></h4>-->
+
 
 
                             </div>

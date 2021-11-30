@@ -72,16 +72,40 @@
                             <div class="header-wrapper-right-selectGroup">
                                 <div class="header-selectGroup-ui">
                                     <div class="header-selectGroup-ui-language-Eng">
+<!--                                        <li class="has_sub_menu ">-->
+<!--                                            <a class="nav-lang publichead_nav_li_a" style="color:#4b4646;cursor: pointer;font-size: 1px;">-->
+<!--                                                <span th:text="#{language}"></span><span class="triangle"></span></a>-->
+<!--                                            <div class="sub_menu">-->
+<!--                                                <div>-->
+<!--                                                    <a href="//www.csunsolartech.com" th:if="#{lang} != 'en_US'">English-->
+<!--                                                    </a>-->
+<!--                                                    <a href="//fr.csunsolartech.com" th:if="#{lang} != 'fr_FR'">Français-->
+<!--                                                    </a>-->
+<!--                                                    <a href="//es.csunsolartech.com" th:if="#{lang} != 'es_ES'">Espagnol-->
+<!--                                                    </a>-->
+<!--                                                    <a href="//pt.csunsolartech.com" th:if="#{lang} != 'pt_BR'">Português-->
+<!--                                                    </a>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
                                         <a href="javascript:">
-                                            <span th:text="#{co_lang}" style="font-size: 15px; padding-top: 3px">English</span>
-                                            <span class="svg-element-ui" style="padding-top: 3px">
-                                                <svg width="9" height="6" viewBox="0 0 9 6" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                                          d="M4.01529 2.98179L1.35057 0.317078L0 1.66765L4.01529 5.68294L8.03057 1.66765L6.68 0.317078L4.01529 2.98179Z"
-                                                          fill="#5B6C8F"></path>
-                                                </svg>
-                                            </span>
+                                            <select name="pageselect"
+                                                    onchange="self.location.href=options[selectedIndex].value">
+                                                <option value ="/"  th:selected="#{co_lang} ==  'EN'">English</option>
+                                                <option value ="/fr" th:selected="#{co_lang} == 'FR'">Français</option>
+                                                <option value="/es" th:selected="#{co_lang} ==  'Español'">Espagnol</option>
+                                                <option value="/pt" th:selected="#{co_lang} == 'BR'">Português</option>
+                                                <option value="/ru" th:selected="#{co_lang} == 'RU'">язык</option>
+                                            </select>
+<!--                                            <span th:text="#{co_lang}" style="font-size: 15px; padding-top: 3px">English</span>-->
+<!--                                            <span class="svg-element-ui" style="padding-top: 3px">-->
+<!--                                                <svg width="9" height="6" viewBox="0 0 9 6" fill="none"-->
+<!--                                                     xmlns="http://www.w3.org/2000/svg">-->
+<!--                                                    <path fill-rule="evenodd" clip-rule="evenodd"-->
+<!--                                                          d="M4.01529 2.98179L1.35057 0.317078L0 1.66765L4.01529 5.68294L8.03057 1.66765L6.68 0.317078L4.01529 2.98179Z"-->
+<!--                                                          fill="#5B6C8F"></path>-->
+<!--                                                </svg>-->
+<!--                                            </span>-->
                                         </a>
                                     </div>
                                     <div class="header-selectGroup-ui-language-Usd">
@@ -747,30 +771,30 @@
                 })
             }
 
-            let messageId = localStorage.getItem("messageId");
-            if (messageId === undefined || messageId === null) {
-
-            } else {
-
-                let req = {
-                    'messageId': messageId,
-                    'userId': ''
-                }
-                $.ajax({
-                    url: '/message/adduserid',
-                    type: 'PUT',
-                    data: req,
-                    success: function (response) {
-                        if (response.status === "SUCCESS") {
-                            localStorage.removeItem("messageId")
-                            localStorage.setItem("messageId", response.body)
-                        } else {
-                            localStorage.removeItem("messageId")
-                        }
-                    }
-
-                });
-            }
+            // let messageId = localStorage.getItem("messageId");
+            // if (messageId === undefined || messageId === null) {
+            //
+            // } else {
+            //
+            //     let req = {
+            //         'messageId': messageId,
+            //         'userId': ''
+            //     }
+            //     $.ajax({
+            //         url: '/message/adduserid',
+            //         type: 'PUT',
+            //         data: req,
+            //         success: function (response) {
+            //             if (response.status === "SUCCESS") {
+            //                 localStorage.removeItem("messageId")
+            //                 localStorage.setItem("messageId", response.body)
+            //             } else {
+            //                 localStorage.removeItem("messageId")
+            //             }
+            //         }
+            //
+            //     });
+            // }
 
 
         });

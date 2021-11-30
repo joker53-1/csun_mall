@@ -57,6 +57,7 @@ public class OrderService {
             orders.setMemberId(memberId);
             orders.setCreatedTime(new Date());
             orders.setUpdatedTime(new Date());
+            orders.setStatus(0);
             if(ordersMapper.insert(orders)<=0)
                 return -1;
             for(ShopCartDTO shopCartDTO:carts){
