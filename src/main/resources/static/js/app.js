@@ -66,6 +66,7 @@ $(function () {
                 username: $("#keyword").val(),
                 password: $("#password").val()
             };
+            console.log(getRelativePath())
             $.post(getRelativePath()+"/api/login", userBO, function (data) {
                 if (data.status === "SUCCESS") {
                     // document.getElementById("contact_form").reset();
@@ -291,6 +292,8 @@ $(function () {
 function getRelativePath(){
     var pathName = window.location.pathname.substring(1);
     var webName = pathName == '' ? '' : '/'+pathName.substring(0, pathName.indexOf('/'));
+    if(webName.length!=3)
+        return '';
     return webName;
 };
 
