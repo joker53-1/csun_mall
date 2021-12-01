@@ -1,5 +1,6 @@
 $(function () {
 
+
     $("form").on('submit', function (e) {
         e.preventDefault();
     });
@@ -13,7 +14,7 @@ $(function () {
     $("#contact_form").submit(function () {
         let values = $("#contact_form").serialize();
         $("#contact_submit").html("Send...").attr("disabled", "disabled")
-        $.post("/contact/contactUs", values, function (data) {
+        $.post(getRelativePath()+"/contact/contactUs", values, function (data) {
             $("#contact_submit").html("Submit").removeAttr("disabled");
             alert(data.body)
             if (data.status === "SUCCESS") {
@@ -23,7 +24,6 @@ $(function () {
         return false
     })
 //自定义校验规则
-
 
 
     $("#sign_in").validate({
@@ -66,7 +66,7 @@ $(function () {
                 username: $("#keyword").val(),
                 password: $("#password").val()
             };
-            $.post("/api/login", userBO, function (data) {
+            $.post(getRelativePath()+"/api/login", userBO, function (data) {
                 if (data.status === "SUCCESS") {
                     // document.getElementById("contact_form").reset();
                     // var user = data.body;
@@ -75,7 +75,7 @@ $(function () {
                     toastr.success("登录成功！")
 
                     var user_data = JSON.stringify(data.body);
-                    window.location.href = "/console";
+                    window.location.href = getRelativePath()+"/console";
 
                 } else {
                     toastr.error(data.msg)
@@ -102,7 +102,7 @@ $(function () {
             // }
 
 
-            $.post("/customer/passport/login", userBO, function (data) {
+            $.post(getRelativePath()+"/customer/passport/login", userBO, function (data) {
                 if (data.status === "SUCCESS") {
                     // document.getElementById("contact_form").reset();
                     // var user = data.body;
@@ -112,7 +112,7 @@ $(function () {
                     // console.log(typeof(data.body))
                     var user_data = JSON.stringify(data.body);
                     localStorage.setItem("user", user_data);
-                    window.location.href = "/";
+                    window.location.href = getRelativePath()+"/";
                     // let req = {
                     //     'messageId':getMessageId(),
                     //     'userId':data.body.id
@@ -252,7 +252,7 @@ $(function () {
         };
 
         // form提交
-        $.post("/customer/passport/regist",userBO,function (data) {
+        $.post(getRelativePath()+"/customer/passport/regist",userBO,function (data) {
             if (data.status === "SUCCESS") {
                 // document.getElementById("contact_form").reset();
                 // var user = data.body;
@@ -288,6 +288,12 @@ $(function () {
 
 });
 
+function getRelativePath(){
+    var pathName = window.location.pathname.substring(1);
+    var webName = pathName == '' ? '' : '/'+pathName.substring(0, pathName.indexOf('/'));
+    return webName;
+};
+
 function cartMenuClose(){
     $("#shoppingCart").hide()
 }
@@ -302,10 +308,10 @@ function addCart(productId,count){
         "count":count
     }
     // console.log(cart.memberId)
-    $.post("/customer/shopcart/add",cart,function (data) {
+    $.post(getRelativePath()+"/customer/shopcart/add",cart,function (data) {
         if(data.status === "SUCCESS"){
 
-            $.get("/customer/shopcart/getcartproductnum", function (data){
+            $.get(getRelativePath()+"/customer/shopcart/getcartproductnum", function (data){
                 if (data.status === "SUCCESS") {
                     $("#cart_number").html('')
                     $("#cart_number").append(data.body)
@@ -315,9 +321,9 @@ function addCart(productId,count){
         }
         else{
 
-            window.location.href="/index/login";
+            window.location.href=getRelativePath()+"/index/login";
             // toastr.error("添加失败")
-            console.log(data.msg)
+            // console.log(data.msg)
         }
     })
     return false

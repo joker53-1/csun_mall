@@ -72,31 +72,34 @@
                             <div class="header-wrapper-right-selectGroup">
                                 <div class="header-selectGroup-ui">
                                     <div class="header-selectGroup-ui-language-Eng">
-<!--                                        <li class="has_sub_menu ">-->
-<!--                                            <a class="nav-lang publichead_nav_li_a" style="color:#4b4646;cursor: pointer;font-size: 1px;">-->
-<!--                                                <span th:text="#{language}"></span><span class="triangle"></span></a>-->
-<!--                                            <div class="sub_menu">-->
-<!--                                                <div>-->
-<!--                                                    <a href="//www.csunsolartech.com" th:if="#{lang} != 'en_US'">English-->
-<!--                                                    </a>-->
-<!--                                                    <a href="//fr.csunsolartech.com" th:if="#{lang} != 'fr_FR'">Français-->
-<!--                                                    </a>-->
-<!--                                                    <a href="//es.csunsolartech.com" th:if="#{lang} != 'es_ES'">Espagnol-->
-<!--                                                    </a>-->
-<!--                                                    <a href="//pt.csunsolartech.com" th:if="#{lang} != 'pt_BR'">Português-->
-<!--                                                    </a>-->
-<!--                                                </div>-->
-<!--                                            </div>-->
-<!--                                        </li>-->
-                                        <a href="javascript:">
-                                            <select name="pageselect"
-                                                    onchange="self.location.href=options[selectedIndex].value">
-                                                <option value ="/"  th:selected="#{co_lang} ==  'EN'">English</option>
-                                                <option value ="/fr" th:selected="#{co_lang} == 'FR'">Français</option>
-                                                <option value="/es" th:selected="#{co_lang} ==  'Español'">Espagnol</option>
-                                                <option value="/pt" th:selected="#{co_lang} == 'BR'">Português</option>
-                                                <option value="/ru" th:selected="#{co_lang} == 'RU'">язык</option>
-                                            </select>
+                                        <li class="has_sub_menu ">
+                                            <a class="nav-lang publichead_nav_li_a" style="cursor: pointer;font-size: 1px;line-height: 0.5rem;">
+                                                <span th:text="#{co_lang}"></span><span class="triangle"></span></a>
+                                            <div class="sub_menu" style="top: 38px;">
+                                                <div>
+                                                    <a href="/" th:if="#{co_lang} != 'EN'">English
+                                                    </a>
+                                                    <a href="/fr" th:if="#{co_lang} != 'FR'">Français
+                                                    </a>
+                                                    <a href="/es" th:if="#{co_lang} != 'Español'">Espagnol
+                                                    </a>
+                                                    <a href="/pt" th:if="#{co_lang} != 'BR'">Português
+                                                    </a>
+                                                    <a href="/ru" th:if="#{co_lang} != 'RU'">язык
+                                                    </a>
+<!--                                                    <option value ="/"  th:selected="#{co_lang} ==  'EN'">English</option>-->
+<!--                                                    <option value ="/fr" th:selected="#{co_lang} == 'FR'">Français</option>-->
+<!--                                                    <option value="/es" th:selected="#{co_lang} ==  'Español'">Espagnol</option>-->
+<!--                                                    <option value="/pt" th:selected="#{co_lang} == 'BR'">Português</option>-->
+<!--                                                    <option value="/ru" th:selected="#{co_lang} == 'RU'">язык</option>-->
+                                                </div>
+                                            </div>
+                                        </li>
+<!--                                        <a href="javascript:">-->
+<!--                                            <select name="pageselect"-->
+<!--                                                    onchange="self.location.href=options[selectedIndex].value">-->
+<!--                                                -->
+<!--                                            </select>-->
 <!--                                            <span th:text="#{co_lang}" style="font-size: 15px; padding-top: 3px">English</span>-->
 <!--                                            <span class="svg-element-ui" style="padding-top: 3px">-->
 <!--                                                <svg width="9" height="6" viewBox="0 0 9 6" fill="none"-->
@@ -106,7 +109,7 @@
 <!--                                                          fill="#5B6C8F"></path>-->
 <!--                                                </svg>-->
 <!--                                            </span>-->
-                                        </a>
+<!--                                        </a>-->
                                     </div>
                                     <div class="header-selectGroup-ui-language-Usd">
                                         <a href="javascript:">
@@ -278,7 +281,7 @@
                                                     'count': count
                                                 }
                                                 $.ajax({
-                                                    url: '/customer/shopcart/update',
+                                                    url: '[[@{/customer/shopcart/update}]]',
                                                     type: 'PUT',
                                                     data: res,
                                                     success: function (response) {
@@ -300,7 +303,7 @@
                                             function delete_cart(that) {
                                                 let tmp = $(that).parent("div").find("[name='quantity']").attr('cid')
                                                 $.ajax({
-                                                    url: '/customer/shopcart/delete',
+                                                    url: '[[@{/customer/shopcart/delete}]]',
                                                     type: 'DELETE',
                                                     data: {'ids': tmp},
                                                     success: function (response) {
@@ -323,7 +326,7 @@
                                                 //         "memberId": JSON.parse(user).id
                                                 //     }
                                                 $.ajax({
-                                                    url: '/customer/shopcart/deleteAll',
+                                                    url: '[[@{/customer/shopcart/deleteAll}]]',
                                                     type: 'DELETE',
                                                     data: {},
                                                     success: function (response) {
@@ -338,7 +341,7 @@
                                             }
 
                                             function load_shopcartBody() {
-                                                $.get("/customer/shopcart/list", function (data) {
+                                                $.get("[[@{/customer/shopcart/list}]]", function (data) {
                                                     if (data.status === "SUCCESS") {
                                                         var cart = data.body;
                                                         // console.log(cart[0].productName)
@@ -414,7 +417,7 @@
                                                         openCid()
                                                         shoppingCart.style = 'bolck';
                                                     } else {
-                                                        window.location.href = "/index/login";
+                                                        window.location.href = "[[@{/index/login}]]";
                                                         // toastr.error("加载失败")
                                                     }
 
@@ -445,7 +448,7 @@
                                                     }
                                                 })
                                                 $.ajax({
-                                                    url: '/order/total',
+                                                    url: '[[@{/order/total}]]',
                                                     type: 'GET',
                                                     dataType: 'json',
                                                     data: {'cartIds': cartIds.toLocaleString()},
@@ -469,7 +472,7 @@
                                                     }
                                                 })
                                                 $.ajax({
-                                                    url: '/order/create',
+                                                    url: '[[@{/order/create}]]',
                                                     type: 'POST',
                                                     dataType: 'json',
                                                     data: {'cartIds': cartIds.toLocaleString()},
@@ -753,16 +756,16 @@
                 // console.log(user_token)
                 let user_data;
                 if (user == null || user === '') {
-                    user_data = $.get("/customer/passport/getUserId")
+                    user_data = $.get("[[@{/customer/passport/getUserId}]]")
                     localStorage.setItem("user", user_data);
                 } else
                     user_data = JSON.parse(user);
-                $("#my").html(user_data.username).attr("href", "/admin");
+                $("#my").html(user_data.username).attr("href", "[[@{/admin}]]");
 
                 // var memberId = {
                 //     "memberId": JSON.parse(user).id
                 // }
-                $.get("/customer/shopcart/getcartproductnum", function (data) {
+                $.get("[[@{/customer/shopcart/getcartproductnum}]]", function (data) {
                     if (data.status === "SUCCESS") {
                         $("#cart_number").html('')
                         $("#cart_number").append(data.body)

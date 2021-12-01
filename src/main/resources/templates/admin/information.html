@@ -11,7 +11,7 @@
         //     gender: $.find("input[@name='radio10'][checked]"),
         //     city: $("#city").val()
         // };
-        $.post("/admin/update",$("#admin-info").serialize(),function (data) {
+        $.post("[[@{/admin/update}]]",$("#admin-info").serialize(),function (data) {
             if (data.status === "SUCCESS") {
                 toastr.success("修改成功！");
                 var user_data = JSON.stringify(data.body);

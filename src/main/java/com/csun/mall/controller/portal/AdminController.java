@@ -35,6 +35,7 @@ public class AdminController {
     public String index(){
         return "/admin/admin";
     }
+
     @GetMapping("/info")
     public String getInfo(Model model){
         Long memberId = UserTokenInterceptor.userId.get();

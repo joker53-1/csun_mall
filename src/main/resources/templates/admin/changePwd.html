@@ -52,7 +52,7 @@
           password:$("#password").val()
       }
 
-      $.post("/admin/change",passwordBO,function (res){
+      $.post("[[@{/admin/change}]]",passwordBO,function (res){
           if (res.status === "SUCCESS") {
               toastr.success("修改成功！");
           }
