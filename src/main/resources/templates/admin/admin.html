@@ -89,7 +89,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a th:href="@{/admin/order}" class="nav-link">
+                                <a href="#/admin/order" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>
                                         我的订单
@@ -110,7 +110,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a th:href="@{#/info}" class="nav-link">
+                                <a href="#/admin/info" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>
                                         个人信息
@@ -119,7 +119,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a th:href="@{#/changePwd}" class="nav-link">
+                                <a href="#/admin/changePwd" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>
                                         账户安全
@@ -159,7 +159,7 @@
 <script th:src="@{/static/themes/lte/js/jQuery.print.js}"></script>
 <script>
     (function () {
-        NAVIGATION.init("/admin/", "");
+        NAVIGATION.init("/dashboard/", getRelativePath());
         // STATISTICS.init(10);
         $(".nav-link").click(function () {
             GRID.clearCache();

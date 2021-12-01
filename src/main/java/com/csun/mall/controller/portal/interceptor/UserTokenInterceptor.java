@@ -45,13 +45,17 @@ public class UserTokenInterceptor implements HandlerInterceptor {
         if(StringUtils.isNotBlank(token)){
             String uniqueToken = redisOperator.get(REDIS_USER_TOKEN+":"+token);
             if(StringUtils.isBlank(uniqueToken)){
+                CookieTool.deleteCookie(request,response,"user_token");
+                response.sendRedirect(request.getContextPath()+"/index/login");
                 returnErrorResponse(response, ResponseData.failure("请登录..."));
                 return false;
             }else {
                 userId.set(Long.parseLong(uniqueToken));
             }
         }else{
+            response.sendRedirect(request.getContextPath()+"/index/login");
             returnErrorResponse(response,ResponseData.failure("请登录..."));
+
             return false;
         }
         /**
