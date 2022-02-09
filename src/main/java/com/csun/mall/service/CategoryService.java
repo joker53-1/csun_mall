@@ -14,7 +14,9 @@ import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 /**
@@ -53,7 +55,8 @@ public class CategoryService {
         example.createCriteria().andEqualTo("parentId",parentId);
         PageHelper.startPage(pageNum,pageSize);
         List<ProductCategory> list = productCategoryMapper.selectByExample(example);
-//        return PageResult.from(list.stream().filter(e ->e.getName().matches(".*"+name+".*")).collect(Collectors.toList()), ProductQueryDTO.class);
+//        return PageResult.from(list.stream().filter(e ->e.getName().matches(".*"+name+".*")).collect(Collectors.t
+//        oList()), ProductQueryDTO.class);
         return PageResult.from(list,ProductCategory.class);
     }
 

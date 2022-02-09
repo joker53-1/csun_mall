@@ -1,14 +1,15 @@
 package com.csun.mall.domain;
 
 import io.swagger.annotations.ApiModelProperty;
+import tk.mybatis.mapper.entity.IDynamicTableName;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Table(name = "product_category")
 public class ProductCategory {
+
+    @Transient
+    private String tableName;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @ApiModelProperty(hidden = true)
@@ -93,4 +94,5 @@ public class ProductCategory {
     public void setDescription(String description) {
         this.description = description;
     }
+
 }
